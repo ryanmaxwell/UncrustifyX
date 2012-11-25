@@ -8,11 +8,13 @@ The documentation browser categorises the options and provides easy searching an
 
 Additionally, UncrustifyX allows importing and exporting of Uncrustify .cfg files, and provides a GUI to run a configuration set on a list of files, or direct source code input.
 # Screenshots
-
 ![Main Window](https://raw.github.com/ryanmaxwell/UncrustifyX/screenshots/MainWindow.png "Main Window")
-
 ![Documentation Panel](https://raw.github.com/ryanmaxwell/UncrustifyX/screenshots/DocumentationPanel.png "DocumentationPanel")
-
+# 2-Sentence Manual
+Drag options from the documentation window into the main window's option table view. 
+Drag source files (.h, .m etc.) onto the dock icon, or into the main window's file table view. 
+# Building Project
+Git checkout the project including its submodule. Xcode 4.5, 10.7+ Required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
 # Current Status
 UncrustifyX is new as of November 2012, and as such there will be rough edges. Hopefully it shows promise!
 # Contribution
