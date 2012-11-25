@@ -16,8 +16,8 @@
 + (BOOL)overwriteFiles;
 + (BOOL)useCustomBinary;
 
-+ (NSUInteger)definitionsVersion;
-+ (void)setDefinitionsVersion:(NSUInteger)version;
++ (NSDate *)definitionsUpdatedAt;
++ (void)setDefinitionsUpdatedAt:(NSDate *)date;
 
 + (BOOL)documentationPreviewExpanded;
 + (void)setDocumentationPreviewExpanded:(BOOL)expanded;

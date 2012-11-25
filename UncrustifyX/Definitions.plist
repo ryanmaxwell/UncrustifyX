@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UpdatedAt</key>
+	<date>2012-11-25T23:14:47Z</date>
 	<key>CodeSamples</key>
 	<array>
 		<dict>
@@ -5587,7 +5589,5 @@ Improvements to template detection may make this option obsolete.</string>
 			</array>
 		</dict>
 	</array>
-	<key>Version</key>
-	<integer>1</integer>
 </dict>
 </plist>

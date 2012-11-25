@@ -32,23 +32,22 @@
     NSURL *fileURL = [NSBundle.mainBundle URLForResource:@"Definitions" withExtension:@"plist"];
     NSDictionary *rootDict = [NSDictionary dictionaryWithContentsOfURL:fileURL];
     
-    /* Check version */
-    NSUInteger definitionsVersion = [rootDict[@"Version"] unsignedIntegerValue];
-    
-    if (definitionsVersion <= UXDefaultsManager.definitionsVersion) {
+    /* Check updated at date */
+    NSDate *definitionsUpdatedAt = rootDict[@"UpdatedAt"];
+    if ([definitionsUpdatedAt timeIntervalSinceDate:UXDefaultsManager.definitionsUpdatedAt] == 0) {
         
-        DLog(@"Current definitions version (%d) up to date", definitionsVersion);
+        DLog(@"Current definitions up to date");
         return;
     };
     
     /* reimport data */
-    DLog(@"Definitions version (%d) newer than current definitions (%d) - Performing Import",
-         definitionsVersion,
-         UXDefaultsManager.definitionsVersion);
+    DLog(@"Definitions version (%@) newer than current definitions (%@) - Performing Import",
+         definitionsUpdatedAt,
+         UXDefaultsManager.definitionsUpdatedAt);
     
     [self deleteData];
     
-    UXDefaultsManager.definitionsVersion = definitionsVersion;
+    UXDefaultsManager.definitionsUpdatedAt = definitionsUpdatedAt;
     
     NSMutableDictionary *languagesDict = NSMutableDictionary.dictionary;
     NSMutableDictionary *categoriesDict = NSMutableDictionary.dictionary;

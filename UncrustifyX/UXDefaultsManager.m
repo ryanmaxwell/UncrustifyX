@@ -13,7 +13,7 @@
 #define kCustomBinaryPathKey                @"CustomBinaryPath"
 #define kDocumentationPreviewExpandedKey    @"DocumentationPreviewExpanded"
 #define kDocumentationPanelVisibleKey       @"DocumentationPanelVisible"
-#define kDefinitionsVersionKey              @"DefinitionsVersion"
+#define kDefinitionsUpdatedAtKey            @"DefinitionsUpdatedAt"
 #define kBundledUncrustifyBinaryVersionKey  @"BundledUncrustifyBinaryVersion"
 
 @implementation UXDefaultsManager
@@ -47,12 +47,12 @@
     return [self defaultsObjectForKey:kCustomBinaryPathKey];
 }
 
-+ (NSUInteger)definitionsVersion {
-    return [[self defaultsObjectForKey:kDefinitionsVersionKey] unsignedIntegerValue];
++ (NSDate *)definitionsUpdatedAt {
+    return [self defaultsObjectForKey:kDefinitionsUpdatedAtKey];
 }
 
-+ (void)setDefinitionsVersion:(NSUInteger)version {
-    [self setDefaultsObject:@(version) forKey:kDefinitionsVersionKey];
++ (void)setDefinitionsUpdatedAt:(NSDate *)date {
+    [self setDefaultsObject:date forKey:kDefinitionsUpdatedAtKey];
 }
 
 + (BOOL)documentationPreviewExpanded {
