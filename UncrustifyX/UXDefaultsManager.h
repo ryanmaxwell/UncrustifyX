@@ -11,6 +11,7 @@
 @interface UXDefaultsManager : NSObject
 
 + (NSString *)uncrustifyBinaryPath;
++ (NSString *)bundledUncrustifyBinaryVersion;
 
 + (BOOL)overwriteFiles;
 + (BOOL)useCustomBinary;
@@ -23,5 +24,7 @@
 
 + (BOOL)documentationPanelVisible;
 + (void)setDocumentationPanelVisible:(BOOL)visible;
+
++ (void)registerDefaults;
 
 @end

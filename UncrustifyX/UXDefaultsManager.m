@@ -14,8 +14,14 @@
 #define kDocumentationPreviewExpandedKey    @"DocumentationPreviewExpanded"
 #define kDocumentationPanelVisibleKey       @"DocumentationPanelVisible"
 #define kDefinitionsVersionKey              @"DefinitionsVersion"
+#define kBundledUncrustifyBinaryVersionKey  @"BundledUncrustifyBinaryVersion"
 
 @implementation UXDefaultsManager
+
++ (void)registerDefaults {
+    NSDictionary *defaults = @{@"BundledUncrustifyBinaryVersion": @"0.59 (cf8c379422)"};
+    [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
+}
 
 + (NSString *)uncrustifyBinaryPath {
     if (self.useCustomBinary && self.customBinaryPath.length) {
@@ -23,6 +29,10 @@
     } else {
         return [NSBundle.mainBundle pathForResource:@"uncrustify" ofType:nil];
     }
+}
+
++ (NSString *)bundledUncrustifyBinaryVersion {
+    return [self defaultsObjectForKey:kBundledUncrustifyBinaryVersionKey];
 }
 
 + (BOOL)useCustomBinary {

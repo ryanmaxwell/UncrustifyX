@@ -30,7 +30,6 @@
 		941FD3781620220B0001C909 /* UXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 941FD3771620220B0001C909 /* UXAppDelegate.m */; };
 		941FD37B1620220C0001C909 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941FD3791620220C0001C909 /* MainMenu.xib */; };
 		941FD38216202A930001C909 /* uncrustify in Resources */ = {isa = PBXBuildFile; fileRef = 941FD38116202A930001C909 /* uncrustify */; };
-		941FD38416202CFB0001C909 /* uncrustify.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 941FD38316202CFB0001C909 /* uncrustify.cfg */; };
 		941FD38F1620343C0001C909 /* UXDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941FD38E1620343C0001C909 /* UXDefaultsManager.m */; };
 		9444032216522D1C00E2115D /* Export.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 9444032016522D1C00E2115D /* Export.tiff */; };
 		9444032316522D1C00E2115D /* Import.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 9444032116522D1C00E2115D /* Import.tiff */; };
@@ -129,7 +128,6 @@
 		941FD3771620220B0001C909 /* UXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UXAppDelegate.m; sourceTree = "<group>"; };
 		941FD37A1620220C0001C909 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		941FD38116202A930001C909 /* uncrustify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = uncrustify; sourceTree = "<group>"; };
-		941FD38316202CFB0001C909 /* uncrustify.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uncrustify.cfg; sourceTree = "<group>"; };
 		941FD38D1620343C0001C909 /* UXDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXDefaultsManager.h; sourceTree = "<group>"; };
 		941FD38E1620343C0001C909 /* UXDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXDefaultsManager.m; sourceTree = "<group>"; };
 		9444032016522D1C00E2115D /* Export.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Export.tiff; path = Resources/Export.tiff; sourceTree = "<group>"; };
@@ -343,7 +341,6 @@
 			children = (
 				944ED086164F81D900F785DC /* Resources */,
 				941FD38116202A930001C909 /* uncrustify */,
-				941FD38316202CFB0001C909 /* uncrustify.cfg */,
 				941FD36C1620220B0001C909 /* UncrustifyX-Info.plist */,
 				941FD36D1620220B0001C909 /* InfoPlist.strings */,
 				941FD3701620220B0001C909 /* main.m */,
@@ -536,7 +533,6 @@
 				941FD3751620220B0001C909 /* Credits.rtf in Resources */,
 				941FD37B1620220C0001C909 /* MainMenu.xib in Resources */,
 				941FD38216202A930001C909 /* uncrustify in Resources */,
-				941FD38416202CFB0001C909 /* uncrustify.cfg in Resources */,
 				94049EB71629158D00587269 /* UXMainWindowController.xib in Resources */,
 				94CD350716291B3900362AFB /* UXDocumentationPanelController.xib in Resources */,
 				946920601632329F003C5688 /* UXPreferencesWindowController.xib in Resources */,

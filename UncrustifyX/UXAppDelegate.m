@@ -15,6 +15,12 @@
 
 #pragma mark - NSApplicationDelegate
 
++ (void)initialize {
+    [super initialize];
+    
+    [UXDefaultsManager registerDefaults];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
