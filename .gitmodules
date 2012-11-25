@@ -1,0 +1,3 @@
+[submodule "UncrustifyX/Libraries/UKSyntaxColoredTextView"]
+	path = UncrustifyX/Libraries/UKSyntaxColoredTextView
+	url = git@github.com:ryanmaxwell/UKSyntaxColoredTextView.git
