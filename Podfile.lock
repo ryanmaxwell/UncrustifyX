@@ -1,0 +1,14 @@
+
+SPEC CHECKSUMS: 
+  NSLogger: e996e1106ff898234790a86e4f0244dbdb5bb49e
+  MagicalRecord: f392c9e288e50653b3e7fbb6e797e0eba07344e7
+
+DEPENDENCIES: 
+- MagicalRecord (= 2.0.7)
+- NSLogger
+
+PODS: 
+- MagicalRecord (2.0.7)
+- NSLogger (1.1)
+
+COCOAPODS: 0.16.0

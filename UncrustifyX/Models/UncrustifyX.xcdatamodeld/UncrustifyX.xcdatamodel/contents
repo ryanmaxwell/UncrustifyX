@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="UXAbstractCategory" representedClassName="UXAbstractCategory" isAbstract="YES" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="UXCategory" representedClassName="UXCategory" parentEntity="UXAbstractCategory" syncable="YES">
+        <relationship name="options" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXOption" inverseName="category" inverseEntity="UXOption" syncable="YES"/>
+        <relationship name="subCategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXSubCategory" inverseName="parentCategories" inverseEntity="UXSubCategory" syncable="YES"/>
+    </entity>
+    <entity name="UXCodeSample" representedClassName="UXCodeSample" syncable="YES">
+        <attribute name="codeSampleDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="language" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UXLanguage" inverseName="codeSamples" inverseEntity="UXLanguage" syncable="YES"/>
+    </entity>
+    <entity name="UXLanguage" representedClassName="UXLanguage" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="includedInDocumentation" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="codeSamples" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXCodeSample" inverseName="language" inverseEntity="UXCodeSample" syncable="YES"/>
+        <relationship name="options" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXOption" inverseName="languages" inverseEntity="UXOption" syncable="YES"/>
+    </entity>
+    <entity name="UXOption" representedClassName="UXOption" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="defaultValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="optionDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UXCategory" inverseName="options" inverseEntity="UXCategory" syncable="YES"/>
+        <relationship name="languages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXLanguage" inverseName="options" inverseEntity="UXLanguage" syncable="YES"/>
+        <relationship name="subCategory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UXSubCategory" inverseName="options" inverseEntity="UXSubCategory" syncable="YES"/>
+        <relationship name="valueType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UXValueType" inverseName="options" inverseEntity="UXValueType" syncable="YES"/>
+    </entity>
+    <entity name="UXSubCategory" representedClassName="UXSubCategory" parentEntity="UXAbstractCategory" syncable="YES">
+        <relationship name="options" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXOption" inverseName="subCategory" inverseEntity="UXOption" syncable="YES"/>
+        <relationship name="parentCategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXCategory" inverseName="subCategories" inverseEntity="UXCategory" syncable="YES"/>
+    </entity>
+    <entity name="UXValue" representedClassName="UXValue" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="valueType" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UXValueType" inverseName="values" inverseEntity="UXValueType" syncable="YES"/>
+    </entity>
+    <entity name="UXValueType" representedClassName="UXValueType" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="options" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UXOption" inverseName="valueType" inverseEntity="UXOption" syncable="YES"/>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UXValue" inverseName="valueType" inverseEntity="UXValue" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UXAbstractCategory" positionX="-4986" positionY="-2140" width="128" height="88"/>
+        <element name="UXCategory" positionX="-5150" positionY="-2026" width="128" height="73"/>
+        <element name="UXCodeSample" positionX="-4797" positionY="-1584" width="153" height="118"/>
+        <element name="UXLanguage" positionX="-4995" positionY="-1728" width="153" height="148"/>
+        <element name="UXOption" positionX="-5355" positionY="-1917" width="128" height="193"/>
+        <element name="UXSubCategory" positionX="-4943" positionY="-1953" width="128" height="73"/>
+        <element name="UXValue" positionX="-5220" positionY="-1467" width="128" height="103"/>
+        <element name="UXValueType" positionX="-5427" positionY="-1584" width="128" height="118"/>
+    </elements>
+</model>

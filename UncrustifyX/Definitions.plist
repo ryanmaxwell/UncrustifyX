@@ -1,0 +1,5593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CodeSamples</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;getter&quot; method</string>
+			<key>Language</key>
+			<string>OC</string>
+			<key>Source</key>
+			<string>- (NSString *)name {
+	return _name;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;getter&quot; method</string>
+			<key>Language</key>
+			<string>JAVA</string>
+			<key>Source</key>
+			<string>public String getName() {
+	return name;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;getter&quot; method</string>
+			<key>Language</key>
+			<string>D</string>
+			<key>Source</key>
+			<string>string name() {
+	return name_;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;getter&quot; method</string>
+			<key>Language</key>
+			<string>CS</string>
+			<key>Source</key>
+			<string>public String getName() 
+{
+	return name;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;getter&quot; method</string>
+			<key>Language</key>
+			<string>CPP</string>
+			<key>Source</key>
+			<string>std::string getName() {
+	return name_;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;setter&quot; method</string>
+			<key>Language</key>
+			<string>OC</string>
+			<key>Source</key>
+			<string>- (void)setName:(NSString *)name {
+	_name = name;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;setter&quot; method</string>
+			<key>Language</key>
+			<string>JAVA</string>
+			<key>Source</key>
+			<string>public String setName(String name) {
+	this.name = name;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;setter&quot; method</string>
+			<key>Language</key>
+			<string>D</string>
+			<key>Source</key>
+			<string>void setName(string newName) {
+	name_ = newName;
+}</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>A simple &quot;setter&quot; method</string>
+			<key>Language</key>
+			<string>CPP</string>
+			<key>Source</key>
+			<string>std::string setName(std::string name) {
+	return name_ = name;
+}</string>
+		</dict>
+	</array>
+	<key>Languages</key>
+	<dict>
+		<key>C</key>
+		<dict>
+			<key>Name</key>
+			<string>C</string>
+		</dict>
+		<key>CPP</key>
+		<dict>
+			<key>Name</key>
+			<string>C++</string>
+		</dict>
+		<key>CS</key>
+		<dict>
+			<key>Name</key>
+			<string>C#</string>
+		</dict>
+		<key>D</key>
+		<dict>
+			<key>Name</key>
+			<string>D</string>
+		</dict>
+		<key>JAVA</key>
+		<dict>
+			<key>Name</key>
+			<string>Java</string>
+		</dict>
+		<key>OC</key>
+		<dict>
+			<key>Name</key>
+			<string>Objective-C</string>
+		</dict>
+		<key>OC+</key>
+		<dict>
+			<key>Name</key>
+			<string>Objective-C++</string>
+		</dict>
+		<key>PAWN</key>
+		<dict>
+			<key>Name</key>
+			<string>Pawn</string>
+		</dict>
+	</dict>
+	<key>Options</key>
+	<dict>
+		<key>align_assign_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning on &apos;=&apos; in assignments (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for assignment</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_assign_thresh</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The threshold for aligning on &apos;=&apos; in assignments (0=no limit)</string>
+			<key>Name</key>
+			<string>Align on equals in assignments threshold</string>
+			<key>SubCategory</key>
+			<string>Limits</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_enum_equ_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning on &apos;=&apos; in enums (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for equals in enums</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_enum_equ_thresh</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The threshold for aligning on &apos;=&apos; in enums (0=no limit)</string>
+			<key>Name</key>
+			<string>Align on equals in enums threshold</string>
+			<key>SubCategory</key>
+			<string>Limits</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_func_params</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Align variable definitions in prototypes and functions</string>
+			<key>Name</key>
+			<string>Align variable definitions</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_func_proto_gap</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Minimum gap between the return type and the function name.</string>
+			<key>Name</key>
+			<string>Minimum gap between return type and function name</string>
+			<key>SubCategory</key>
+			<string>Gap</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_func_proto_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning function prototypes (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for function prototypes</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_keep_tabs</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to keep non-indenting tabs</string>
+			<key>Name</key>
+			<string>Keep non-indenting tabs</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_left_shift</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Default</key>
+			<string>True</string>
+			<key>Description</key>
+			<string>Align lines that start with &apos;&lt;&lt;&apos; with previous &apos;&lt;&lt;&apos;.</string>
+			<key>Name</key>
+			<string>Align left shift operators on new lines</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_mix_var_proto</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to mix aligning prototype and variable declarations.
+If true, align_var_def_XXX options are used instead of align_func_proto_XXX options.</string>
+			<key>Name</key>
+			<string>Mix aligining prototype and variable declarations</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_nl_cont</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to align macros wrapped with a backslash and a newline.
+This will not work right if the macro contains a multi-line comment.</string>
+			<key>Name</key>
+			<string>Align macros wrapped with backslash and newline</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_number_left</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to left-align numbers</string>
+			<key>Name</key>
+			<string>Left-align numbers</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_oc_decl_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Aligning parameters in an Obj-C &apos;+&apos; or &apos;-&apos; declaration on the &apos;:&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Align obj-c declaration params on colon</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_oc_msg_colon_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Span for aligning parameters in an Obj-C message call on the &apos;:&apos; (0=don&apos;t align)</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Alignment span for obj-c message colons</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_oc_msg_spec_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning ObjC msg spec (0=don&apos;t align)</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Alignment span for obj-c message spec</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_on_operator</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Align function protos on the &apos;operator&apos; keyword instead of what follows</string>
+			<key>Name</key>
+			<string>Align function prototypes on operator keyword</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_on_tabstop</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to bump out to the next tab when aligning</string>
+			<key>Name</key>
+			<string>Align on tabstop</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_pp_define_gap</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The minimum space between label and value of a preprocessor define</string>
+			<key>Name</key>
+			<string>Minimum gap between label and value of preprocessor define</string>
+			<key>SubCategory</key>
+			<string>Gap</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_pp_define_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning on &apos;#define&apos; bodies (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for #define bodies</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_right_cmt_at_col</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Align trailing comment at or beyond column N; &apos;pulls in&apos; comments as a bonus side effect (0=ignore)</string>
+			<key>Name</key>
+			<string>Align trailing comments beyond column N</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_right_cmt_gap</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>If a trailing comment is more than this number of columns away from the text it follows, it will qualify for being aligned. 
+This has to be &gt; 0 to do anything.</string>
+			<key>Name</key>
+			<string>Minimum gap for trailing comment</string>
+			<key>SubCategory</key>
+			<string>Gap</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_right_cmt_mix</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>If aligning comments, mix with comments after &apos;}&apos; and #endif with less than 3 spaces before the comment</string>
+			<key>Name</key>
+			<string>Align comments after close brace and endif</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_right_cmt_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning comments that end lines (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for trailing comments</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_same_func_call_params</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Align parameters in single-line functions that have the same name.
+The function names must already be aligned with each other.</string>
+			<key>Name</key>
+			<string>Align parameters in single-line functions with same name</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_single_line_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Aligning the open brace of single-line functions.
+Requires align_single_line_func=true, uses align_func_proto_span</string>
+			<key>Name</key>
+			<string>Align open brace of single-line functions</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_single_line_brace_gap</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Gap for align_single_line_brace.</string>
+			<key>Name</key>
+			<string>Gap for &apos;align open brace of single-line functions&apos;</string>
+			<key>SubCategory</key>
+			<string>Gap</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_single_line_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Align single-line functions with function prototypes, uses align_func_proto_span</string>
+			<key>Name</key>
+			<string>Align single-line functions with function prototypes</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_struct_init_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning struct initializer values (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for struct initializer values</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_typedef_amp_style</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Controls the positioning of the &apos;&amp;&apos; in typedefs. Just try it.
+   0: Align on typedef type, ignore &apos;&amp;&apos;
+   1: The &apos;&amp;&apos; is part of type name: typedef int  &amp;pint;
+   2: The &apos;&amp;&apos; is part of the type, but dangling: typedef int &amp;pint;</string>
+			<key>Name</key>
+			<string>Alignment style for ampersand in typedefs</string>
+			<key>SubCategory</key>
+			<string>Alignment Style</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_typedef_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>How to align typedef&apos;d functions with other typedefs
+   0: Don&apos;t mix them at all
+   1: align the open paren with the types
+   2: align the function type name with the other type names</string>
+			<key>Name</key>
+			<string>Alignnment style for typedef&apos;d functions</string>
+			<key>SubCategory</key>
+			<string>Alignment Style</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_typedef_gap</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The minimum space between the type and the synonym of a typedef</string>
+			<key>Name</key>
+			<string>Minimum gap between type and synonym of typedef</string>
+			<key>SubCategory</key>
+			<string>Gap</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_typedef_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning single-line typedefs (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for single-line typedefs</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_typedef_star_style</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Controls the positioning of the &apos;*&apos; in typedefs. Just try it.
+   0: Align on typedef type, ignore &apos;*&apos;
+   1: The &apos;*&apos; is part of type name: typedef int  *pint;
+   2: The &apos;*&apos; is part of the type, but dangling: typedef int *pint;</string>
+			<key>Name</key>
+			<string>Alignment style for star in typedefs</string>
+			<key>SubCategory</key>
+			<string>Alignment Style</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_def_amp_style</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>How to align the &apos;&amp;&apos; in variable definitions.
+   0: Part of the type
+   1: Part of the variable
+   2: Dangling</string>
+			<key>Name</key>
+			<string>Alignment style for ampersand in variable definitions</string>
+			<key>SubCategory</key>
+			<string>Alignment Style</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_def_attribute</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to align any attribute after the variable name</string>
+			<key>Name</key>
+			<string>Align attribute after variable name</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_var_def_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to align the colon in struct bit fields</string>
+			<key>Name</key>
+			<string>Align colon in struct bit fields</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_var_def_gap</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The gap for aligning variable definitions</string>
+			<key>Name</key>
+			<string>Gap for aligning variable definitions</string>
+			<key>SubCategory</key>
+			<string>Gap</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_def_inline</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to align inline struct/enum/union variable definitions</string>
+			<key>Name</key>
+			<string>Align Inline struct/enum/union variable definitions</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_var_def_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning variable definitions (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for variable definitions</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_def_star_style</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>How to align the star in variable definitions.
+   0: Part of the type     &apos;void *   foo;&apos;
+   1: Part of the variable &apos;void     *foo;&apos;
+   2: Dangling             &apos;void    *foo;&apos;</string>
+			<key>Name</key>
+			<string>Alignment style for star in variable definitions</string>
+			<key>SubCategory</key>
+			<string>Alignment Style</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_def_thresh</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The threshold for aligning variable definitions (0=no limit)</string>
+			<key>Name</key>
+			<string>Align variable definitions threshold</string>
+			<key>SubCategory</key>
+			<string>Limits</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_struct_gap</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The gap for aligning struct/union member definitions</string>
+			<key>Name</key>
+			<string>Gap for aligning struct/union member definitions</string>
+			<key>SubCategory</key>
+			<string>Gap</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_struct_span</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The span for aligning struct/union (0=don&apos;t align)</string>
+			<key>Name</key>
+			<string>Alignment span for struct/union</string>
+			<key>SubCategory</key>
+			<string>Alignment Span</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_var_struct_thresh</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>The threshold for aligning struct/union member definitions (0=no limit)</string>
+			<key>Name</key>
+			<string>Align struct/union definitions threshold</string>
+			<key>SubCategory</key>
+			<string>Limits</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>align_with_tabs</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to use tabs for aligning</string>
+			<key>Name</key>
+			<string>Align with tabs</string>
+			<key>SubCategory</key>
+			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_c_group</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to group c-comments that look like they are in a block</string>
+			<key>Name</key>
+			<string>Group C comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_c_nl_end</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to put a newline before the closing &apos;*/&apos; of the combined c-comment</string>
+			<key>Name</key>
+			<string>Empty last line for multi-line C comments</string>
+			<key>SubCategory</key>
+			<string>Empty Lines</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_c_nl_start</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to put an empty &apos;/*&apos; on the first line of the combined c-comment</string>
+			<key>Name</key>
+			<string>Empty first line for multi-line C comments</string>
+			<key>SubCategory</key>
+			<string>Empty Lines</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_cpp_group</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to group cpp-comments that look like they are in a block</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Group C++ comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_cpp_nl_end</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to put a newline before the closing &apos;*/&apos; of the combined cpp-comment</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Empty last line for multi-line C++ comments</string>
+			<key>SubCategory</key>
+			<string>Empty Lines</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_cpp_nl_start</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to put an empty &apos;/*&apos; on the first line of the combined cpp-comment</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Empty first line for multi-line C++ comments</string>
+			<key>SubCategory</key>
+			<string>Empty Lines</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_cpp_to_c</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to change cpp-comments into c-comments</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Change C++ comments to C comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_indent_multi</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Default</key>
+			<string>True</string>
+			<key>Description</key>
+			<string>If false, disable all multi-line comment changes, including cmt_width. keyword substitution, and leading chars.</string>
+			<key>Name</key>
+			<string>Indent multi-line comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_insert_before_preproc</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>If a preprocessor is encountered when stepping backwards from a function name, then this option decides whether the comment should be inserted.
+Affects cmt_insert_oc_msg_header, cmt_insert_func_header and cmt_insert_class_header.</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Insert function comment if preprocessor statement</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_insert_class_header</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>The filename that contains text to insert before a class if the class isn&apos;t preceded with a C/C++ comment.
+Will substitute $(class) with the class name.</string>
+			<key>Name</key>
+			<string>Class header comment filename</string>
+			<key>SubCategory</key>
+			<string>Comment Files</string>
+			<key>ValueTypeID</key>
+			<integer>1</integer>
+		</dict>
+		<key>cmt_insert_file_footer</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>The filename that contains text to insert at the end of a file if the file doesn&apos;t end with a C/C++ comment.
+Will substitute $(filename) with the current file&apos;s name.</string>
+			<key>Name</key>
+			<string>File footer comment filename</string>
+			<key>SubCategory</key>
+			<string>Comment Files</string>
+			<key>ValueTypeID</key>
+			<integer>1</integer>
+		</dict>
+		<key>cmt_insert_file_header</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>The filename that contains text to insert at the head of a file if the file doesn&apos;t start with a C/C++ comment.
+Will substitute $(filename) with the current file&apos;s name.</string>
+			<key>Name</key>
+			<string>File header comment filename</string>
+			<key>SubCategory</key>
+			<string>Comment Files</string>
+			<key>ValueTypeID</key>
+			<integer>1</integer>
+		</dict>
+		<key>cmt_insert_func_header</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>The filename that contains text to insert before a function implementation if the function isn&apos;t preceded with a C/C++ comment.
+Will substitute $(function) with the function name and $(javaparam) with the javadoc @param and @return stuff.
+Will also substitute $(fclass) with the class name: void CFoo::Bar() { ... }</string>
+			<key>Name</key>
+			<string>Function header comment filename</string>
+			<key>SubCategory</key>
+			<string>Comment Files</string>
+			<key>ValueTypeID</key>
+			<integer>1</integer>
+		</dict>
+		<key>cmt_insert_oc_msg_header</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>The filename that contains text to insert before a Obj-C message specification if the method isn&apos;t preceeded with a C/C++ comment.
+Will substitute $(message) with the function name and $(javaparam) with the javadoc @param and @return stuff.</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Obj-c message header comment filename</string>
+			<key>SubCategory</key>
+			<string>Comment Files</string>
+			<key>ValueTypeID</key>
+			<integer>1</integer>
+		</dict>
+		<key>cmt_multi_check_last</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Default</key>
+			<string>True</string>
+			<key>Description</key>
+			<string>For multi-line comments with a &apos;*&apos; lead, remove leading spaces if the first and last lines of the comment are the same length.</string>
+			<key>Name</key>
+			<string>Remove leading spaces from multi-line comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_reflow_mode</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Default</key>
+			<string>0</string>
+			<key>Description</key>
+			<string>Set the comment reflow mode
+   0: no reflowing (apart from the line wrapping due to cmt_width)
+   1: no touching at all
+   2: full reflow</string>
+			<key>Name</key>
+			<string>Comment reflow mode</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>cmt_sp_after_star_cont</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>The number of spaces to insert after the star on subsequent comment lines</string>
+			<key>Name</key>
+			<string>Spaces after multi-line comment star</string>
+			<key>SubCategory</key>
+			<string>Space Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>cmt_sp_before_star_cont</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>The number of spaces to insert at the start of subsequent comment lines</string>
+			<key>Name</key>
+			<string>Spaces before multi-line comment star</string>
+			<key>SubCategory</key>
+			<string>Space Count Before</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>cmt_star_cont</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to put a star on subsequent comment lines</string>
+			<key>Name</key>
+			<string>Stars on multi-line comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>cmt_width</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Try to wrap comments at cmt_width columns</string>
+			<key>Name</key>
+			<string>Comment width</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>code_width</key>
+		<dict>
+			<key>Category</key>
+			<string>Line-Splitting</string>
+			<key>Description</key>
+			<string>Try to limit code width to N number of columns</string>
+			<key>Name</key>
+			<string>Code width</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>eat_blanks_after_open_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>Whether to remove blank lines after &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Remove blank lines after open brace</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>eat_blanks_before_close_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>Whether to remove blank lines before &apos;}&apos;</string>
+			<key>Name</key>
+			<string>Remove blank lines before close brace</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_access_spec</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Same as indent_label, but for access specifiers that are followed by a colon</string>
+			<key>Name</key>
+			<string>Indent access specifier</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_access_spec_body</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indent the code after an access specifier by one level.
+If set, this option forces &apos;indent_access_spec=0&apos;</string>
+			<key>Name</key>
+			<string>Indent code after access specifier</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_align_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Default</key>
+			<string>True</string>
+			<key>Description</key>
+			<string>Align continued statements at the &apos;=&apos;.
+If FALSE or the &apos;=&apos; is followed by a newline, the next line is indent one tab.</string>
+			<key>Name</key>
+			<string>Align continued statements at equals</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_align_string</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether to indent strings broken by &apos;\&apos; so that they line up</string>
+			<key>Name</key>
+			<string>Align strings broken by backslash</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_bool_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Controls the indent of a BOOL operator when inside a paren.If TRUE, aligns under the open paren</string>
+			<key>Name</key>
+			<string>Indent BOOL inside parentheses</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Spaces to indent &apos;{&apos; from level</string>
+			<key>Name</key>
+			<string>Brace indent level</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_brace_parent</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indent based on the size of the brace parent, i.e. &apos;if&apos; =&gt; 3 spaces, &apos;for&apos; =&gt; 4 spaces, etc.</string>
+			<key>Name</key>
+			<string>Indent size based on brace parent</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_braces</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether braces are indented to the body level</string>
+			<key>Name</key>
+			<string>Indent braces</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_braces_no_class</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Disable indenting class braces if indent_braces is true</string>
+			<key>Name</key>
+			<string>Disable indenting class braces</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_braces_no_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Disable indenting function braces if indent_braces is true</string>
+			<key>Name</key>
+			<string>Disable indenting function braces</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_braces_no_struct</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Disable indenting struct braces if indent_braces is true</string>
+			<key>Name</key>
+			<string>Disable indenting struct braces</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_case_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Spaces to indent &apos;{&apos; from &apos;case&apos;.
+By default, the brace will appear under the &apos;c&apos; in case.
+Usually set to 0 or indent_columns.</string>
+			<key>Name</key>
+			<string>Indentation size of brace after case</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_case_shift</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Spaces to shift the &apos;case&apos; line, without affecting any other lines
+Usually 0.</string>
+			<key>Name</key>
+			<string>Indentation size of case</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_class</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether the &apos;class&apos; body is indented</string>
+			<key>Name</key>
+			<string>Indent class body</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_class_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether to indent the stuff after a leading class colon</string>
+			<key>Name</key>
+			<string>Indent after class colon</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_cmt_with_tabs</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Comments that are not at brace level are indented with tabs on a tabstop.
+Requires indent_with_tabs=2. If false, will use spaces.</string>
+			<key>Name</key>
+			<string>Indent comments with tabs</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_col1_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether to indent comments found in first column</string>
+			<key>Name</key>
+			<string>Indent comments in first column</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_columns</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>The number of columns to indent per level.
+Usually 2, 3, 4, or 8.</string>
+			<key>Name</key>
+			<string>Indentation column size</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_comma_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Controls the indent of a comma when inside a paren.If True, aligns under the open paren</string>
+			<key>Name</key>
+			<string>Indent comma inside parentheses</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_continue</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>The continuation indent. If non-zero, this overrides the indent of &apos;(&apos; and &apos;=&apos; continuation indents.
+For FreeBSD, this is set to 4.</string>
+			<key>Name</key>
+			<string>Continuation indent</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_else_if</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>False=treat &apos;else\nif&apos; as &apos;else if&apos; for indenting purposes
+True=indent the &apos;if&apos; one level</string>
+			<key>Name</key>
+			<string>Indent else\nif</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_extern</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether the &apos;extern &quot;C&quot;&apos; body is indented</string>
+			<key>Name</key>
+			<string>Indent extern body</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_first_bool_expr</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If &apos;indent_bool_paren&apos; is True, controls the indent of the first expression. If True, aligns the first expression to the following ones</string>
+			<key>Name</key>
+			<string>Indentation of first BOOL expression</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_func_call_param</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>True:  indent continued function call parameters one indent level
+   False: align parameters under the open paren</string>
+			<key>Name</key>
+			<string>Indent continued function call parameters</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_func_class_param</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Same as indent_func_call_param, but for class declarations</string>
+			<key>Name</key>
+			<string>Indent function call parameters in class declarations</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_func_const</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indentation column for standalone &apos;const&apos; function decl/proto qualifier</string>
+			<key>Name</key>
+			<string>Indentation for const qualifier</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_func_ctor_var_param</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Same as indent_func_call_param, but for class variable constructors</string>
+			<key>Name</key>
+			<string>Indent class variable constructors</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_func_def_param</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Same as indent_func_call_param, but for function defs</string>
+			<key>Name</key>
+			<string>Indent function definition parameters</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_func_param_double</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Double the indent for indent_func_xxx_param options</string>
+			<key>Name</key>
+			<string>Double indent size for Indentation options</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_func_proto_param</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Same as indent_func_call_param, but for function protos</string>
+			<key>Name</key>
+			<string>Indent function prototype parameters</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_func_throw</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indentation column for standalone &apos;throw&apos; function decl/proto qualifier</string>
+			<key>Name</key>
+			<string>Indentation size for throw function declaration</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_label</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>How to indent goto labels
+   &gt;0: absolute column where 1 is the leftmost column
+   &lt;=0: subtract from brace indent</string>
+			<key>Name</key>
+			<string>Indent goto labels</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_member</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>The number of spaces to indent a continued &apos;-&gt;&apos; or &apos;.&apos;
+Usually set to 0, 1, or indent_columns.</string>
+			<key>Name</key>
+			<string>Indent continued member</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_namespace</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether the &apos;namespace&apos; body is indented</string>
+			<key>Name</key>
+			<string>Indent namespace body</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_namespace_level</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>The number of spaces to indent a namespace block</string>
+			<key>Name</key>
+			<string>Indentation size for namespace block</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_namespace_limit</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Default</key>
+			<string>0</string>
+			<key>Description</key>
+			<string>If the body of the namespace is longer than this number, it won&apos;t be indented.
+Requires indent_namespace=true. Default=0 (no limit)</string>
+			<key>Name</key>
+			<string>Namespace indentation limit</string>
+			<key>SubCategory</key>
+			<string>Limits</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_paren_close</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Controls the indent of a close paren after a newline.
+   0: Indent to body level
+   1: Align under the open paren
+   2: Indent to the brace level</string>
+			<key>Name</key>
+			<string>Indentation of close parenthesis after newline</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_paren_nl</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If an open paren is followed by a newline, indent the next line so that it lines up after the open paren (not recommended)</string>
+			<key>Name</key>
+			<string>Indent newline content after open parenthesis</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_preserve_sql</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Don&apos;t change the relative indent of ESQL/C &apos;EXEC SQL&apos; bodies</string>
+			<key>Name</key>
+			<string>Preserve SQL indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_relative_single_line_comments</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If set, will indent trailing single line (&apos;//&apos;) comments relative to the code instead of trying to keep the same absolute column</string>
+			<key>Name</key>
+			<string>Indent relative single line comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_sing_line_comments</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Spaces to indent single line (&apos;//&apos;) comments on lines before code</string>
+			<key>Name</key>
+			<string>Indentation size of single line comments</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_square_nl</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If an open square is followed by a newline, indent the next line so that it lines up after the open square (not recommended)</string>
+			<key>Name</key>
+			<string>Indent content after open square followed by newline</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_switch_case</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Spaces to indent &apos;case&apos; from &apos;switch&apos;
+Usually 0 or indent_columns.</string>
+			<key>Name</key>
+			<string>Indentation size between case and switch</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_template_param</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Same as indent_func_call_param, but for templates</string>
+			<key>Name</key>
+			<string>Indent template parameters</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_var_def_blk</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Amount to indent variable declarations after a open brace. neg=relative, pos=absolute</string>
+			<key>Name</key>
+			<string>Variable declaration indentation after open brace</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_var_def_cont</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indent continued variable declarations instead of aligning.</string>
+			<key>Name</key>
+			<string>Indent continued variable declarations</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_with_tabs</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>How to use tabs when indenting code
+   0: Spaces only
+   1: Indent with tabs to brace level, align with spaces
+   2: Indent and align with tabs, using spaces when not on a tabstop</string>
+			<key>Name</key>
+			<string>Indent with tabs</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_xml_string</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>The number of spaces to indent multi-line XML strings.
+Requires indent_align_string=True</string>
+			<key>Name</key>
+			<string>Indentation size for multi-line XML strings</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>input_tab_size</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>The original size of tabs in the input</string>
+			<key>Name</key>
+			<string>Input tab size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>ls_for_split_full</key>
+		<dict>
+			<key>Category</key>
+			<string>Line-Splitting</string>
+			<key>Description</key>
+			<string>Whether to fully split long &apos;for&apos; statements at semi-colons</string>
+			<key>Name</key>
+			<string>Split long for statements at semicolons</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>ls_func_split_full</key>
+		<dict>
+			<key>Category</key>
+			<string>Line-Splitting</string>
+			<key>Description</key>
+			<string>Whether to fully split long function protos/calls at commas</string>
+			<key>Name</key>
+			<string>Split long function prototypes/calls at commas</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_add_long_function_closebrace_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If a function body exceeds the specified number of newlines and doesn&apos;t have a comment after the close brace, a comment will be added.</string>
+			<key>Name</key>
+			<string>Add comment after function of size</string>
+			<key>SubCategory</key>
+			<string>Comments</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>mod_add_long_ifdef_else_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If an #ifdef or #else body exceeds the specified number of newlines and doesn&apos;t have a comment after the #else, a comment will be added.</string>
+			<key>Name</key>
+			<string>Add comment after ifdef/else statement of size</string>
+			<key>SubCategory</key>
+			<string>Comments</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>mod_add_long_ifdef_endif_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If an #ifdef body exceeds the specified number of newlines and doesn&apos;t have a comment after the #endif, a comment will be added.</string>
+			<key>Name</key>
+			<string>Add comment after ifdef/endif statement of size</string>
+			<key>SubCategory</key>
+			<string>Comments</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>mod_add_long_switch_closebrace_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If a switch body exceeds the specified number of newlines and doesn&apos;t have a comment after the close brace, a comment will be added.</string>
+			<key>Name</key>
+			<string>Add comment after switch statement of size</string>
+			<key>SubCategory</key>
+			<string>Comments</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>mod_case_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Will add or remove the braces around a fully braced case statement.
+Will only remove the braces if there are no variable declarations in the block.</string>
+			<key>Name</key>
+			<string>Braces around fully braced case statement</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_full_brace_do</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add or remove braces on single-line &apos;do&apos; statement</string>
+			<key>Name</key>
+			<string>Braces on single-line do statement</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_full_brace_for</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add or remove braces on single-line &apos;for&apos; statement</string>
+			<key>Name</key>
+			<string>Braces on single-line for statement</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_full_brace_function</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add or remove braces on single-line function definitions. (Pawn)</string>
+			<key>Languages</key>
+			<array>
+				<string>PAWN</string>
+			</array>
+			<key>Name</key>
+			<string>Braces on single-line function definition</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_full_brace_if</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add or remove braces on single-line &apos;if&apos; statement. Will not remove the braces if they contain an &apos;else&apos;.</string>
+			<key>Name</key>
+			<string>Braces on single-line else statement</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_full_brace_if_chain</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Make all if/elseif/else statements in a chain be braced or not. Overrides mod_full_brace_if.
+If any must be braced, they are all braced.  If all can be unbraced, then the braces are removed.</string>
+			<key>Name</key>
+			<string>Braces on chained if/elseif/else statements</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_full_brace_nl</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Don&apos;t remove braces around statements that span N newlines</string>
+			<key>Name</key>
+			<string>Braces around statments that span N newlines</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>mod_full_brace_using</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add or remove braces on single-line &apos;using ()&apos; statement</string>
+			<key>Name</key>
+			<string>Braces on single-line using statement</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_full_brace_while</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add or remove braces on single-line &apos;while&apos; statement</string>
+			<key>Name</key>
+			<string>Braces on single-line while statement</string>
+			<key>SubCategory</key>
+			<string>Braces</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_full_paren_if_bool</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add parens on &apos;while&apos; and &apos;if&apos; statement around bools</string>
+			<key>Name</key>
+			<string>Add parentheses on while and if statements around bool</string>
+			<key>SubCategory</key>
+			<string>Parentheses</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_move_case_break</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If TRUE, it will move a &apos;break&apos; that appears after a fully braced &apos;case&apos; before the close brace.</string>
+			<key>Name</key>
+			<string>Move break in fully-braced case before close brace</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_paren_on_return</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Add or remove unnecessary paren on &apos;return&apos; statement</string>
+			<key>Name</key>
+			<string>Remove unnecessary parentheses on return statement</string>
+			<key>SubCategory</key>
+			<string>Parentheses</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>mod_pawn_semicolon</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Whether to change optional semicolons to real semicolons</string>
+			<key>Languages</key>
+			<array>
+				<string>PAWN</string>
+			</array>
+			<key>Name</key>
+			<string>Change optional semicolons to real semicolons</string>
+			<key>SubCategory</key>
+			<string>Semicolons</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_remove_empty_return</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If TRUE, it will remove a void &apos;return;&apos; that appears as the last statement in a function.</string>
+			<key>Name</key>
+			<string>Remove empty return as last statement in function</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_remove_extra_semicolon</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>Whether to remove superfluous semicolons</string>
+			<key>Name</key>
+			<string>Remove superflous semicolons</string>
+			<key>SubCategory</key>
+			<string>Semicolons</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_sort_import</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If TRUE, will sort consecutive single-line &apos;import&apos; statements [Java, D]</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+				<string>JAVA</string>
+			</array>
+			<key>Name</key>
+			<string>Sort consecutive import statements</string>
+			<key>SubCategory</key>
+			<string>Sorting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_sort_include</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If TRUE, will sort consecutive single-line &apos;#include&apos; statements [C/C++] and &apos;#import&apos; statements [Obj-C]
+This is generally a bad idea, as it may break your code.</string>
+			<key>Languages</key>
+			<array>
+				<string>C</string>
+				<string>OC</string>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Sort include statements</string>
+			<key>SubCategory</key>
+			<string>Sorting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>mod_sort_using</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If TRUE, will sort consecutive single-line &apos;using&apos; statements [C#]</string>
+			<key>Languages</key>
+			<array>
+				<string>CS</string>
+			</array>
+			<key>Name</key>
+			<string>Sort using statements</string>
+			<key>SubCategory</key>
+			<string>Sorting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>newlines</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>The type of line endings</string>
+			<key>Name</key>
+			<string>Newline character</string>
+			<key>ValueTypeID</key>
+			<integer>5</integer>
+		</dict>
+		<key>nl_after_access_spec</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines after a &apos;private:&apos;, &apos;public:&apos;, &apos;protected:&apos;, &apos;signals:&apos;, or &apos;slots:&apos; label.
+   0: No change.</string>
+			<key>Name</key>
+			<string>Newline count after access specifier label</string>
+			<key>SubCategory</key>
+			<string>Newline Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_after_brace_close</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after a brace close.
+Does not apply if followed by a necessary &apos;;&apos;.</string>
+			<key>Name</key>
+			<string>Newline after brace close</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_brace_open</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after brace open.
+This also adds a newline before the matching brace close.</string>
+			<key>Name</key>
+			<string>Newline after brace open</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_brace_open_cmt</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>If nl_after_brace_open and nl_after_brace_open_cmt are true, a newline is placed between the open brace and a trailing single-line comment.</string>
+			<key>Name</key>
+			<string>Newline after brace open comment</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_case</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after &apos;case&apos; statement</string>
+			<key>Name</key>
+			<string>Newline after case statement</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_do</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line after &apos;do/while&apos; statement</string>
+			<key>Name</key>
+			<string>Newline after do</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_after_for</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line after &apos;for&apos; statement</string>
+			<key>Name</key>
+			<string>Newline after for</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_after_func_body</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines after &apos;}&apos; of a multi-line function body</string>
+			<key>Name</key>
+			<string>Newline count after function body</string>
+			<key>SubCategory</key>
+			<string>Newline Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_after_func_body_one_liner</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines after &apos;}&apos; of a single line function body</string>
+			<key>Name</key>
+			<string>Newline count after single-line function body</string>
+			<key>SubCategory</key>
+			<string>Newline Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_after_func_proto</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines after a function prototype, if followed by another function prototype</string>
+			<key>Name</key>
+			<string>Newline count after function prototype</string>
+			<key>SubCategory</key>
+			<string>Newline Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_after_func_proto_group</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines after a function prototype, if not followed by another function prototype</string>
+			<key>Name</key>
+			<string>Newline count after function prototype group</string>
+			<key>SubCategory</key>
+			<string>Newline Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_after_if</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line after &apos;if&apos; statement</string>
+			<key>Name</key>
+			<string>Newline after if</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_after_multiline_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>Whether to force a newline after a multi-line comment.</string>
+			<key>Name</key>
+			<string>Newline after multiline comment</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_return</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after &apos;return&apos; statement</string>
+			<key>Name</key>
+			<string>Newline after return</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_semicolon</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after semicolons, except in &apos;for&apos; statements</string>
+			<key>Name</key>
+			<string>Newline after semicolon</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_square_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline after &apos;= [&apos; (D only). Will also affect the newline before the &apos;]&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Newline after square assignment</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_after_switch</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line after &apos;switch&apos; statement</string>
+			<key>Name</key>
+			<string>Newline after switch</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_after_try_catch_finally</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines after a try-catch-finally block that isn&apos;t followed by a brace close.
+   0: No change.</string>
+			<key>Name</key>
+			<string>Newline count after try-catch-finally</string>
+			<key>SubCategory</key>
+			<string>Newline Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_after_vbrace_close</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after a virtual brace close.
+Would add a newline before return in: &apos;if (foo) a++; return;&apos;</string>
+			<key>Name</key>
+			<string>Newline after virtual brace close</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_vbrace_open</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after a virtual brace open with a non-empty body.
+These occur in un-braced if/while/do/for statement bodies.</string>
+			<key>Name</key>
+			<string>Newline after virtual brace open</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_vbrace_open_empty</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline after a virtual brace open with an empty body.
+These occur in un-braced if/while/do/for statement bodies.</string>
+			<key>Name</key>
+			<string>Newline after virtual brace open with empty body</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_after_while</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line after &apos;while&apos; statement</string>
+			<key>Name</key>
+			<string>Newline after while</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_around_cs_property</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines before and after a property, indexer or event decl.
+   0: No change.</string>
+			<key>Name</key>
+			<string>Newline count around C# property</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_assign_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;=&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between assignment and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_assign_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line braced assignments - &apos;foo_t f = { 1, 2 };&apos;</string>
+			<key>Name</key>
+			<string>Don’t split one-line braced assignments</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_assign_square</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;=&apos; and &apos;[&apos; (D only)</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Newline between equals and square bracket</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_before_access_spec</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines before a &apos;private:&apos;, &apos;public:&apos;, &apos;protected:&apos;, &apos;signals:&apos;, or &apos;slots:&apos; label.
+Will not change the newline count if after a brace open.
+   0: No change.</string>
+			<key>Name</key>
+			<string>Newline count before access specifier label</string>
+			<key>SubCategory</key>
+			<string>Newline Count Before</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_before_block_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The minimum number of newlines before a multi-line comment.
+Doesn&apos;t apply if after a brace open or another multi-line comment.</string>
+			<key>Name</key>
+			<string>Newline count before multi-line comment</string>
+			<key>SubCategory</key>
+			<string>Newline Count Before</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_before_c_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The minimum number of newlines before a single-line C comment.
+Doesn&apos;t apply if after a brace open or other single-line C comments.</string>
+			<key>Name</key>
+			<string>Newline count before C comment</string>
+			<key>SubCategory</key>
+			<string>Newline Count Before</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_before_case</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline before &apos;case&apos; statement</string>
+			<key>Name</key>
+			<string>Newline before case statement</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_before_cpp_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The minimum number of newlines before a CPP comment.
+Doesn&apos;t apply if after a brace open or other CPP comments.</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Newline count before C++ comment</string>
+			<key>SubCategory</key>
+			<string>Newline Count Before</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_before_do</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line before &apos;do&apos;</string>
+			<key>Name</key>
+			<string>Newline before do</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_before_for</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line before &apos;for&apos;</string>
+			<key>Name</key>
+			<string>Newline before for</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_before_if</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line before &apos;if&apos;</string>
+			<key>Name</key>
+			<string>Newline before if</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_before_switch</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line before &apos;switch&apos;</string>
+			<key>Name</key>
+			<string>Newline before switch</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_before_throw</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;)&apos; and &apos;throw&apos;</string>
+			<key>Name</key>
+			<string>Newline before throw</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_before_while</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove blank line before &apos;while&apos;</string>
+			<key>Name</key>
+			<string>Newline before while</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_between_get_set</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines between the get/set/add/remove handlers in C#.
+   0: No change.</string>
+			<key>Name</key>
+			<string>Newline count between get/set/add/remove</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_brace_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between two open or close braces.
+Due to general newline/brace handling, REMOVE may not work.</string>
+			<key>Name</key>
+			<string>Newline between brace and brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_brace_catch</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;}&apos; and &apos;catch&apos;</string>
+			<key>Name</key>
+			<string>Newline between close brace and catch</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_brace_else</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;}&apos; and &apos;else&apos;</string>
+			<key>Name</key>
+			<string>Newline between close brace and else</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_brace_finally</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;}&apos; and &apos;finally&apos;</string>
+			<key>Name</key>
+			<string>Newline between close brace and finally</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_brace_while</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;}&apos; and &apos;while&apos; of &apos;do&apos; statement</string>
+			<key>Name</key>
+			<string>Newline between close brace and while</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_catch_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;catch&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between catch and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_class_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;class&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between class and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_class_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove a newline around a class colon.
+Related to pos_class_colon, nl_class_init_args, and pos_comma.</string>
+			<key>Name</key>
+			<string>Newline around class colon</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_class_init_args</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline after each &apos;,&apos; in the constructor member initialization</string>
+			<key>Name</key>
+			<string>Newline after comma in constructor arguments</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_class_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line braced statements inside a class xx { } body</string>
+			<key>Name</key>
+			<string>Don’t split one-line braced statements</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_collapse_empty_body</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to collapse empty blocks between &apos;{&apos; and &apos;}&apos;</string>
+			<key>Name</key>
+			<string>Collapse empty blocks between braces</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_comment_func_def</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The number of newlines between a function def and the function comment.
+   0: No change.</string>
+			<key>Name</key>
+			<string>Newline count between function def and function comment</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_create_for_one_liner</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Change simple unbraced for statements into a one-liner
+&apos;for (i=0;i&lt;5;i++)\n foo(i);&apos; =&gt; &apos;for (i=0;i&lt;5;i++) foo(i);&apos;</string>
+			<key>Name</key>
+			<string>Change unbraced for statements into one-liner</string>
+			<key>SubCategory</key>
+			<string>Merging</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_create_if_one_liner</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Change simple unbraced if statements into a one-liner
+&apos;if(b)\n i++;&apos; =&gt; &apos;if(b) i++;&apos;</string>
+			<key>Name</key>
+			<string>Change unbraced if statements into one-liner</string>
+			<key>SubCategory</key>
+			<string>Merging</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_create_while_one_liner</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Change simple unbraced while statements into a one-liner
+&apos;while (i&lt;5)\n foo(i++);&apos; =&gt; &apos;while (i&lt;5) foo(i++);&apos;</string>
+			<key>Name</key>
+			<string>Change unbraced while statements into one-liner</string>
+			<key>SubCategory</key>
+			<string>Merging</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_define_macro</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to alter newlines in &apos;#define&apos; macros</string>
+			<key>Name</key>
+			<string>Alter newlines in #define macros</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_do_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;do&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between do and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_ds_struct_enum_close_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to double-space before the close brace of a struct/union/enum
+(lower priority than &apos;eat_blanks_before_close_brace&apos;)</string>
+			<key>Name</key>
+			<string>Double space before close brace of struct/union/enum</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_ds_struct_enum_cmt</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to double-space commented-entries in struct/enum</string>
+			<key>Name</key>
+			<string>Double space commented entries in struct/enum</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_else_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;else&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between else and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_else_if</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;else&apos; and &apos;if&apos;</string>
+			<key>Name</key>
+			<string>Newline between else and if</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_elseif_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;else if&apos; and &apos;{&apos;
+If set to ignore, nl_if_brace is used instead</string>
+			<key>Name</key>
+			<string>Newline between else if and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_end_of_file</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline at the end of the file</string>
+			<key>Name</key>
+			<string>Newlines at end of file</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_end_of_file_min</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>The number of newlines at the end of the file (only used if nl_end_of_file is &apos;add&apos; or &apos;force&apos;)</string>
+			<key>Name</key>
+			<string>Newline count at end of file</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_enum_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;enum&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between enum and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_enum_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line enums: &apos;enum foo { BAR = 15 };&apos;</string>
+			<key>Name</key>
+			<string>Don’t split one-line enums</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_fcall_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between a function call&apos;s &apos;)&apos; and &apos;{&apos;, as in:
+list_for_each(item, &amp;list) { }</string>
+			<key>Name</key>
+			<string>Newline between function call and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_fdef_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between function signature and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between function signature and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_finally_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;finally&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between finally and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_for_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;for&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newlline between for and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_decl_args</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline after each &apos;,&apos; in a function declaration</string>
+			<key>Name</key>
+			<string>Newline after comma in function declaration</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_decl_empty</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;()&apos; in a function declaration.</string>
+			<key>Name</key>
+			<string>Newline between parentheses in empty function declaration</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_decl_end</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline before the &apos;)&apos; in a function declaration</string>
+			<key>Name</key>
+			<string>Newline before close parenthesis in function declaration</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_decl_end_single</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Overrides nl_func_decl_end when there is only one parameter.</string>
+			<key>Name</key>
+			<string>Newline before close parenthesis in function declaration if single parameter</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_decl_start</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline after &apos;(&apos; in a function declaration</string>
+			<key>Name</key>
+			<string>Newline after open parenthesis in function declaration</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_decl_start_single</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Overrides nl_func_decl_start when there is only one parameter.</string>
+			<key>Name</key>
+			<string>Newline after open parenthesis in function declaration if single parameter</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_def_args</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline after each &apos;,&apos; in a function definition</string>
+			<key>Name</key>
+			<string>Newline after comma in function definition</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_def_empty</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;()&apos; in a function definition.</string>
+			<key>Name</key>
+			<string>Newline between parentheses in function definition</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_def_end</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline before the &apos;)&apos; in a function definition</string>
+			<key>Name</key>
+			<string>Newline before close parenthesis in function definition</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_def_end_single</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Overrides nl_func_def_end when there is only one parameter.</string>
+			<key>Name</key>
+			<string>Newline before close parenthesis in function definition if single parameter</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_def_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between a function name and the opening &apos;(&apos; in the definition</string>
+			<key>Name</key>
+			<string>Newline between function name and open parenthesis in function definition</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_def_start</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline after &apos;(&apos; in a function definition</string>
+			<key>Name</key>
+			<string>Newline after open parenthesis in function definition</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_def_start_single</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Overrides nl_func_def_start when there is only one parameter.</string>
+			<key>Name</key>
+			<string>Newline after open parenthesis in function definition if single parameter</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line function definitions - &apos;int foo() { return 0; }&apos;</string>
+			<key>Name</key>
+			<string>Don’t split one-line function definitions</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_func_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between a function name and the opening &apos;(&apos;</string>
+			<key>Name</key>
+			<string>Newline between function name and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_proto_type_name</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between return type and function name in a prototype</string>
+			<key>Name</key>
+			<string>Newline between return type and function name in prototype</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_scope_name</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between function scope and name in a definition
+Controls the newline after &apos;::&apos; in &apos;void A::f() { }&apos;</string>
+			<key>Name</key>
+			<string>Newline between function scope and name in definition</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_type_name</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between return type and function name in a function definition</string>
+			<key>Name</key>
+			<string>Newline between return type and function name</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_type_name_class</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between return type and function name inside a class {}
+Uses nl_func_type_name or nl_func_proto_type_name if set to ignore.</string>
+			<key>Name</key>
+			<string>Newline between return type and function name in class</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_func_var_def_blk</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>The number of blank lines after a block of variable definitions</string>
+			<key>Name</key>
+			<string>Newlines after variable definition block</string>
+			<key>SubCategory</key>
+			<string>Newline Count After</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_getset_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between get/set and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between get/set and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_getset_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line get or set functions</string>
+			<key>Name</key>
+			<string>Don’t split one-line get/set functions</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_if_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;if&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between if and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_if_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line if/else statements - &apos;if(a) b++;&apos;</string>
+			<key>Name</key>
+			<string>Don’t split one-line if/else statements</string>
+			<key>SubCategory</key>
+			<string>Splitting</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_max</key>
+		<dict>
+			<key>Category</key>
+			<string>Blank lines</string>
+			<key>Description</key>
+			<string>The maximum consecutive newlines</string>
+			<key>Name</key>
+			<string>Maximum consecutive newlines</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_multi_line_cond</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add a newline between &apos;)&apos; and &apos;{&apos; if the &apos;)&apos; is on a different line than the if/for/etc.
+Overrides nl_for_brace, nl_if_brace, nl_switch_brace, nl_while_switch, and nl_catch_brace.</string>
+			<key>Name</key>
+			<string>Newline between close parenthesis and open brace in multi line conditional</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_multi_line_define</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Force a newline in a define after the macro name for multi-line defines.</string>
+			<key>Name</key>
+			<string>Newline after macro multi-line definition</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_namespace_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Newline between namespace and {</string>
+			<key>Name</key>
+			<string>Newline between namespace and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_return_expr</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove a newline between the return keyword and return expression.</string>
+			<key>Name</key>
+			<string>Newline between return and expression</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_squeeze_ifdef</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to not put blanks after &apos;#ifxx&apos;, &apos;#elxx&apos;, or before &apos;#endif&apos;</string>
+			<key>Name</key>
+			<string>Blank lines after preprocessor if/else</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_start_of_file</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newlines at the start of the file</string>
+			<key>Name</key>
+			<string>Newlines at start of file</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_start_of_file_min</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>The number of newlines at the start of the file (only used if nl_start_of_file is &apos;add&apos; or &apos;force&apos;</string>
+			<key>Name</key>
+			<string>Newline minimum at start of file</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>nl_struct_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;struct and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between struct and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_switch_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;switch&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between switch and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_template_class</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;template&lt;&gt;&apos; and whatever follows.</string>
+			<key>Name</key>
+			<string>Newline after template</string>
+			<key>SubCategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_try_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;try&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between try and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_union_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;union&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between union and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_using_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;using&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between using and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_while_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;while&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Newline between while and open brace</string>
+			<key>SubCategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>output_tab_size</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>The size of tabs in the output (only used if align_with_tabs=true)</string>
+			<key>Name</key>
+			<string>Output tab size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>pos_arith</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of arithmetic operators in wrapped expressions</string>
+			<key>Name</key>
+			<string>Position of arithmetic operators</string>
+			<key>SubCategory</key>
+			<string>Wrapped Expressions</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pos_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of assignment in wrapped expressions.
+Do not affect &apos;=&apos; followed by &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Position of assignment operators</string>
+			<key>SubCategory</key>
+			<string>Wrapped Expressions</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pos_bool</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of boolean operators in wrapped expressions</string>
+			<key>Name</key>
+			<string>Position of boolean operators</string>
+			<key>SubCategory</key>
+			<string>Wrapped Expressions</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pos_class_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of colons between constructor and member initialization</string>
+			<key>Name</key>
+			<string>Position of colon after constructor</string>
+			<key>SubCategory</key>
+			<string>Constructor</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pos_class_comma</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of the comma in the constructor initialization list</string>
+			<key>Name</key>
+			<string>Position of comma in constructor</string>
+			<key>SubCategory</key>
+			<string>Constructor</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pos_comma</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of the comma in wrapped expressions</string>
+			<key>Name</key>
+			<string>Position of comma</string>
+			<key>SubCategory</key>
+			<string>Wrapped Expressions</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pos_compare</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of comparison operators in wrapped expressions</string>
+			<key>Name</key>
+			<string>Position of comparison operators</string>
+			<key>SubCategory</key>
+			<string>Wrapped Expressions</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pos_conditional</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of conditional (b ? t : f) operators in wrapped expressions</string>
+			<key>Name</key>
+			<string>Position of ternary operators</string>
+			<key>SubCategory</key>
+			<string>Wrapped Expressions</string>
+			<key>ValueTypeID</key>
+			<integer>4</integer>
+		</dict>
+		<key>pp_define_at_level</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>Whether to indent &apos;#define&apos; at the brace level (true) or from column 1 (false)</string>
+			<key>Name</key>
+			<string>Indent preprocessor define</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>pp_if_indent_code</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>Control whether to indent the code between #if, #else and #endif when not at file-level</string>
+			<key>Name</key>
+			<string>Indent preprocessor if/else/endif</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>pp_indent</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>Control indent of preprocessors inside #if blocks at brace level 0</string>
+			<key>Name</key>
+			<string>Indent preprocessor if block</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>pp_indent_at_level</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>Whether to indent #if/#else/#endif at the brace level (true) or from column 1 (false)</string>
+			<key>Name</key>
+			<string>Indent preprocessor if/else/endif at level</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>pp_indent_count</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Default</key>
+			<string>1</string>
+			<key>Description</key>
+			<string>If pp_indent_at_level=false, specifies the number of columns to indent per level.</string>
+			<key>Name</key>
+			<string>Preprocessor indentation columns</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>pp_indent_if</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>If pp_indent_at_level=true, sets the indent for #if, #else, and #endif when not at file-level</string>
+			<key>Name</key>
+			<string>Preprocessor if/else/endif indent size</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>pp_indent_region</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>The indent for #region and #endregion in C# and &apos;#pragma region&apos; in C/C++</string>
+			<key>Languages</key>
+			<array>
+				<string>C</string>
+				<string>CPP</string>
+				<string>CS</string>
+			</array>
+			<key>Name</key>
+			<string>Preprocessor region indent size</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>pp_region_indent_code</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>Whether to indent the code between #region and #endregion</string>
+			<key>Name</key>
+			<string>Indent preprocessor regions</string>
+			<key>SubCategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>pp_space</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>Add or remove space after # based on pp_level of #if blocks</string>
+			<key>Name</key>
+			<string>Space after preprocessor hash in if blocks</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>pp_space_count</key>
+		<dict>
+			<key>Category</key>
+			<string>Preprocessor</string>
+			<key>Description</key>
+			<string>Sets the number of spaces added with pp_space</string>
+			<key>Name</key>
+			<string>Preprocessor spaces added</string>
+			<key>SubCategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>sp_addr</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;&amp;&apos; (address-of) operator.
+This does not affect the spacing after a &apos;&amp;&apos; that is part of a type.</string>
+			<key>Name</key>
+			<string>Space after address-of operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_angle</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after &apos;&lt;&gt;&apos;</string>
+			<key>Name</key>
+			<string>Space after angle bracket</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after assignment operator &apos;=&apos;, &apos;+=&apos;, etc. Overrides sp_assign.</string>
+			<key>Name</key>
+			<string>Space after assignment operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_byref</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after reference sign &apos;&amp;&apos;, if followed by a word.</string>
+			<key>Name</key>
+			<string>Space after reference sign</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_byref_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after a reference sign &apos;&amp;&apos;, if followed by a func proto/def.</string>
+			<key>Name</key>
+			<string>Space after reference sign followed by function</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_cast</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after C/D cast, i.e. &apos;cast(int)a&apos; vs &apos;cast(int) a&apos; or &apos;(int)a&apos; vs &apos;(int) a&apos;</string>
+			<key>Name</key>
+			<string>Space after cast</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_class_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after class &apos;:&apos;</string>
+			<key>Name</key>
+			<string>Space after class colon</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_comma</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after &apos;,&apos;</string>
+			<key>Name</key>
+			<string>Space after comma</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_dc</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;::&apos; operator</string>
+			<key>Name</key>
+			<string>Space after double-colon operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_invariant_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;)&apos; in &apos;invariant (C) c&apos; in the D language.</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Space after invariant close parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_oc_at_sel</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;@selector&apos; and &apos;(&apos;
+&apos;@selector(msgName)&apos; vs &apos;@selector (msgName)&apos;
+Also applies to @protocol() constructs</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space between @selector and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_oc_at_sel_parens</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;@selector(x)&apos; and the following word
+&apos;@selector(foo) a:&apos; vs &apos;@selector(foo)a:&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c @selector parentheses</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_oc_block_caret</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after a block pointer caret
+&apos;^int (int arg){...}&apos; vs. &apos;^ int (int arg){...}&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c block caret</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_oc_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the colon in message specs
+&apos;-(int) f:(int) x;&apos; vs &apos;-(int) f: (int) x;&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c colon</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_oc_return_type</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the first (type) in message specs
+&apos;-(int) f:(int)x;&apos; vs &apos;-(int)f:(int)x;&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c return type</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_oc_scope</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the scope &apos;+&apos; or &apos;-&apos;, as in &apos;-(void) foo;&apos; or &apos;+(int) bar;&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c scope</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_oc_type</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the (type) in message specs
+&apos;-(int)f: (int) x;&apos; vs &apos;-(int)f: (int)x;&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c type</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_operator</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;operator&apos; and operator sign</string>
+			<key>Name</key>
+			<string>Space after operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_operator_sym</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between the operator symbol and the open paren, as in &apos;operator ++(&apos;</string>
+			<key>Name</key>
+			<string>Space after operator and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_ptr_star</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after pointer star &apos;*&apos;, if followed by a word.</string>
+			<key>Name</key>
+			<string>Space after pointer star</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_ptr_star_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after a pointer star &apos;*&apos;, if followed by a func proto/def.</string>
+			<key>Name</key>
+			<string>Space after pointer star followed by function</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_semi</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Add</string>
+			<key>Description</key>
+			<string>Add or remove space after &apos;;&apos;, except when followed by a comment.</string>
+			<key>Name</key>
+			<string>Space after semicolon</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_semi_for</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Force</string>
+			<key>Description</key>
+			<string>Add or remove space after &apos;;&apos; in non-empty &apos;for&apos; statements.</string>
+			<key>Name</key>
+			<string>Space after semicolon in non-empty for statements</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_semi_for_empty</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the final semicolon of an empty part of a for statement: for ( ; ; &lt;here&gt; ).</string>
+			<key>Name</key>
+			<string>Space after final semicolon in empty for statement</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_send_oc_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the colon in message specs
+&apos;[object setValue:1];&apos; vs &apos;[object setValue: 1];&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c message colon</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_sparen</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after &apos;)&apos; of &apos;if&apos;, &apos;for&apos;, &apos;switch&apos;, and &apos;while&apos;</string>
+			<key>Name</key>
+			<string>Space after condition close parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_tag</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the tag keyword (Pawn)</string>
+			<key>Languages</key>
+			<array>
+				<string>PAWN</string>
+			</array>
+			<key>Name</key>
+			<string>Space after tag keyword</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_type</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Force</string>
+			<key>Description</key>
+			<string>Add or remove space between type and word.</string>
+			<key>Name</key>
+			<string>Space after type</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_angle_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;&lt;&gt;&apos; and &apos;(&apos; as found in &apos;new List&lt;byte&gt;();&apos;</string>
+			<key>Name</key>
+			<string>Space between angle brackets and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_angle_shift</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Add</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;&gt;&apos; and &apos;&gt;&apos; in &apos;&gt;&gt;&apos; (template stuff C++/C# only).</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+				<string>CS</string>
+			</array>
+			<key>Name</key>
+			<string>Space between double angle brackets</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_angle_word</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;&lt;&gt;&apos; and a word as in &apos;List&lt;byte&gt; m;&apos;</string>
+			<key>Name</key>
+			<string>Space between angle brackets and word</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_arith</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around arithmetic operator &apos;+&apos;, &apos;-&apos;, &apos;/&apos;, &apos;*&apos;, etc</string>
+			<key>Name</key>
+			<string>Space around arithmetic operators</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around assignment operator &apos;=&apos;, &apos;+=&apos;, etc</string>
+			<key>Name</key>
+			<string>Space around assignment operator</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_assign_default</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around assignment operator &apos;=&apos; in a prototype</string>
+			<key>Name</key>
+			<string>Space around assignment operator in prototype</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_attribute_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;__attribute__&apos; and &apos;(&apos;</string>
+			<key>Name</key>
+			<string>Space between __attribute__ and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_balance_nested_parens</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Whether to balance spaces inside nested parens</string>
+			<key>Name</key>
+			<string>Balance spaces inside nested parentheses</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>sp_before_angle</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before &apos;&lt;&gt;&apos;</string>
+			<key>Name</key>
+			<string>Space before angle brackets</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before assignment operator &apos;=&apos;, &apos;+=&apos;, etc. Overrides sp_assign.</string>
+			<key>Name</key>
+			<string>Space before assignment operator</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_byref</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before a reference sign &apos;&amp;&apos;</string>
+			<key>Name</key>
+			<string>Space before reference sign</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_byref_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before a reference sign &apos;&amp;&apos;, if followed by a func proto/def.</string>
+			<key>Name</key>
+			<string>Space before reference sign followed by function</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_case_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space before case &apos;:&apos;.</string>
+			<key>Name</key>
+			<string>Space before case colon</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_class_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before class &apos;:&apos;</string>
+			<key>Name</key>
+			<string>Space before class colon</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_comma</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before &apos;,&apos;</string>
+			<key>Name</key>
+			<string>Space before comma</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_dc</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before the &apos;::&apos; operator</string>
+			<key>Name</key>
+			<string>Space before double colon</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_ellipsis</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before the variadic &apos;...&apos; when preceded by a non-punctuator</string>
+			<key>Name</key>
+			<string>Space before ellipsis</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_nl_cont</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Add</string>
+			<key>Description</key>
+			<string>Add or remove space before a backslash-newline at the end of a line.</string>
+			<key>Name</key>
+			<string>Space before backslash-newline at end of line</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_oc_block_caret</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before a block pointer caret
+&apos;^int (int arg){...}&apos; vs. &apos; ^int (int arg){...}&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space before obj-c block caret</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_oc_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before the colon in message specs
+&apos;-(int) f: (int) x;&apos; vs &apos;-(int) f : (int) x;&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space before obj-c colon</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_ptr_star</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before pointer star &apos;*&apos;</string>
+			<key>Name</key>
+			<string>Space before pointer star</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_ptr_star_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before a pointer star &apos;*&apos;, if followed by a func proto/def.</string>
+			<key>Name</key>
+			<string>Space before pointer star followed by function</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_semi</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space before &apos;;&apos;.</string>
+			<key>Name</key>
+			<string>Space before semicolon</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_semi_for</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before &apos;;&apos; in non-empty &apos;for&apos; statements</string>
+			<key>Name</key>
+			<string>Space before semicolon in for statements</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_semi_for_empty</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before a semicolon of an empty part of a for statement.</string>
+			<key>Name</key>
+			<string>Space before semicolon in empty for statement</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_send_oc_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before the colon in message specs
+&apos;[object setValue:1];&apos; vs &apos;[object setValue :1];&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space before obj-c message colon</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_sparen</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before &apos;(&apos; of &apos;if&apos;, &apos;for&apos;, &apos;switch&apos;, and &apos;while&apos;</string>
+			<key>Name</key>
+			<string>Space before if/for/switch/while open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_square</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before &apos;[&apos; (except &apos;[]&apos;)</string>
+			<key>Name</key>
+			<string>Space before open square brackets</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_squares</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before &apos;[]&apos;</string>
+			<key>Name</key>
+			<string>Space before empty square brackets</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_unnamed_byref</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before a reference sign &apos;&amp;&apos; that isn&apos;t followed by a variable name
+If set to &apos;ignore&apos;, sp_before_byref is used instead.</string>
+			<key>Name</key>
+			<string>Space before unnamed reference sign</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_unnamed_ptr_star</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before pointer star &apos;*&apos; that isn&apos;t followed by a variable name
+If set to &apos;ignore&apos;, sp_before_ptr_star is used instead.</string>
+			<key>Name</key>
+			<string>Space before unnamed pointer star</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_between_ptr_star</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between pointer stars &apos;*&apos;</string>
+			<key>Name</key>
+			<string>Space between pointer stars</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_bool</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around boolean operators &apos;&amp;&amp;&apos; and &apos;||&apos;</string>
+			<key>Name</key>
+			<string>Space around boolean operators</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_brace_catch</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;}&apos; and &apos;catch&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between closing brace and catch</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_brace_else</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;}&apos; and &apos;else&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between close brace and else</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_brace_finally</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;}&apos; and &apos;finally&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between closing brace and finally</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_brace_typedef</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;}&apos; and the name of a typedef on the same line</string>
+			<key>Name</key>
+			<string>Space between close brace and typedef name</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_case_label</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Fix the spacing between &apos;case&apos; and the label. Only &apos;ignore&apos; and &apos;force&apos; make sense here.</string>
+			<key>Name</key>
+			<string>Space between case and label</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_catch_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;catch&apos; and &apos;{&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between catch and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_catch_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;catch&apos; and &apos;(&apos; in &apos;catch (something) { }&apos;
+If set to ignore, sp_before_sparen is used.</string>
+			<key>Name</key>
+			<string>Space between catch and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cmt_cpp_start</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Control the space after the opening of a C++ comment &apos;// A&apos; vs &apos;//A&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Space after C++ comment opening</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_compare</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around compare operator &apos;&lt;&apos;, &apos;&gt;&apos;, &apos;==&apos;, etc</string>
+			<key>Name</key>
+			<string>Space around compare operators</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cond_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around the &apos;:&apos; in &apos;b ? t : f&apos;</string>
+			<key>Name</key>
+			<string>Space around ternary condition colon</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cond_question</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around the &apos;?&apos; in &apos;b ? t : f&apos;</string>
+			<key>Name</key>
+			<string>Space around ternary condition question mark</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cpp_cast_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between the type and open paren in a C++ cast, i.e. &apos;int(exp)&apos; vs &apos;int (exp)&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Space between type and open parenthesis in C++ cast</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_d_array_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around the D named array initializer &apos;:&apos; operator</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Space around array initializer colon</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_defined_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;defined&apos; and &apos;(&apos; in &apos;#if defined (FOO)&apos;</string>
+			<key>Name</key>
+			<string>Space between defined and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_deref</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;*&apos; (dereference) operator.
+This does not affect the spacing after a &apos;*&apos; that is part of a type.</string>
+			<key>Name</key>
+			<string>Space after dereference operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_else_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;else&apos; and &apos;{&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between else and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_endif_cmt</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Controls the spaces between #else or #endif and a trailing comment</string>
+			<key>Name</key>
+			<string>Space between preprocessor else and comment</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_enum_after_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after assignment &apos;=&apos; in enum. Overrides sp_enum_assign.</string>
+			<key>Name</key>
+			<string>Space after assignment in enum</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_enum_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space around assignment &apos;=&apos; in enum</string>
+			<key>Name</key>
+			<string>Space around assignment equals in enum</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_enum_before_assign</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before assignment &apos;=&apos; in enum. Overrides sp_enum_assign.</string>
+			<key>Name</key>
+			<string>Space before assignment in enum</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_finally_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;finally&apos; and &apos;{&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between finally and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_fparen_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;)&apos; and &apos;{&apos; of function</string>
+			<key>Name</key>
+			<string>Space between closing parenthesis and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_func_call_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between function name and &apos;(&apos; on function calls</string>
+			<key>Name</key>
+			<string>Space between function name and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_func_call_paren_empty</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Ignore</string>
+			<key>Description</key>
+			<string>Add or remove space between function name and &apos;()&apos; on function calls without parameters.
+If set to &apos;ignore&apos; (the default), sp_func_call_paren is used.</string>
+			<key>Name</key>
+			<string>Space between function name and empty parentheses</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_func_call_user_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between the user function name and &apos;(&apos; on function calls
+You need to set a keyword to be a user function, like this: &apos;set func_call_user _&apos; in the config file.</string>
+			<key>Name</key>
+			<string>Space between user function call and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_func_class_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between a constructor/destructor and the open paren</string>
+			<key>Name</key>
+			<string>Space between constructor and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_func_def_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between function name and &apos;(&apos; on function definition</string>
+			<key>Name</key>
+			<string>Space between function name and open parenthesis in function definition</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_func_proto_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between function name and &apos;(&apos; on function declaration</string>
+			<key>Name</key>
+			<string>Space between function name and open parenthesis in declaration</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_getset_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between get/set and &apos;{&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between get/set and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_incdec</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space before or after &apos;++&apos; and &apos;--&apos;, as in &apos;(--x)&apos; or &apos;y++;&apos;.</string>
+			<key>Name</key>
+			<string>Space around increment/decrement operators</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_angle</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside &apos;&lt;&apos; and &apos;&gt;&apos;</string>
+			<key>Name</key>
+			<string>Space inside angle brackets</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_braces</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside &apos;{&apos; and &apos;}&apos;</string>
+			<key>Name</key>
+			<string>Space inside braces</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_braces_empty</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside &apos;{}&apos;</string>
+			<key>Name</key>
+			<string>Space inside empty braces</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_braces_enum</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside enum &apos;{&apos; and &apos;}&apos;</string>
+			<key>Name</key>
+			<string>Space inside enum braces</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_braces_struct</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside struct/union &apos;{&apos; and &apos;}&apos;</string>
+			<key>Name</key>
+			<string>Space inside struct/union braces</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_fparen</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside empty function &apos;()&apos;</string>
+			<key>Name</key>
+			<string>Space inside function parentheses</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_fparens</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside empty function &apos;()&apos;</string>
+			<key>Name</key>
+			<string>Space inside empty function parentheses</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_oc_at_sel_parens</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside &apos;@selector&apos; parens
+&apos;@selector(foo)&apos; vs &apos;@selector( foo )&apos;
+Also applies to @protocol() constructs</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space inside @selector() parens</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside &apos;(&apos; and &apos;)&apos;</string>
+			<key>Name</key>
+			<string>Space inside parentheses</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_paren_cast</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove spaces inside cast parens</string>
+			<key>Name</key>
+			<string>Space inside cast parentheses</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_sparen</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside if-condition &apos;(&apos; and &apos;)&apos;</string>
+			<key>Name</key>
+			<string>Space inside if condition parentheses</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_sparen_close</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before if-condition &apos;)&apos;. Overrides sp_inside_sparen.</string>
+			<key>Name</key>
+			<string>Space inside if condition parenthesis close</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inside_square</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space inside a non-empty &apos;[&apos; and &apos;]&apos;</string>
+			<key>Name</key>
+			<string>Space inside non-empty square brackets</string>
+			<key>SubCategory</key>
+			<string>Space Inside</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_inv</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;~&apos; (invert) operator.</string>
+			<key>Name</key>
+			<string>Space after invert operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_invariant_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;invariant&apos; and &apos;(&apos; in the D language.</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Space between invariant and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_macro</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between macro and value</string>
+			<key>Name</key>
+			<string>Space between macro and value</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_macro_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between macro function &apos;)&apos; and value</string>
+			<key>Name</key>
+			<string>Space between macro function close parenthesis and value</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_member</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space around the &apos;.&apos; or &apos;-&gt;&apos; operators.</string>
+			<key>Name</key>
+			<string>Space around member operators</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_not</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;!&apos; (not) operator.</string>
+			<key>Name</key>
+			<string>Space after not operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_paren_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;)&apos; and &apos;{&apos;</string>
+			<key>Name</key>
+			<string>Space between close parenthesis and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_paren_comma</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between an open paren and comma: &apos;(,&apos; vs &apos;( ,&apos;</string>
+			<key>Name</key>
+			<string>Space between open parenthesis and comma</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_paren_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between nested parens</string>
+			<key>Name</key>
+			<string>Space between nested parentheses</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_pp_concat</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Add</string>
+			<key>Description</key>
+			<string>Add or remove space around preprocessor &apos;##&apos; concatenation operator.</string>
+			<key>Name</key>
+			<string>Space around preprocessor concatenation operator</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_pp_stringify</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Add</string>
+			<key>Description</key>
+			<string>Add or remove space after preprocessor &apos;#&apos; stringify operator. Also affects the &apos;#@&apos; charizing operator.</string>
+			<key>Name</key>
+			<string>Space after preprocessor stringify operator</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_range</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Control the space around the D &apos;..&apos; operator.</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Space around range operator</string>
+			<key>SubCategory</key>
+			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_return_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;return&apos; and &apos;(&apos;</string>
+			<key>Name</key>
+			<string>Space between return and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_scope_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;scope&apos; and &apos;(&apos; in &apos;scope (something) { }&apos; (D language)
+If set to ignore, sp_before_sparen is used.</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Space between scope and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_sign</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Default</key>
+			<string>Remove</string>
+			<key>Description</key>
+			<string>Add or remove space after &apos;+&apos; or &apos;-&apos;, as in &apos;x = -5&apos; or &apos;y = +7&apos;.</string>
+			<key>Name</key>
+			<string>Space after sign in assignment</string>
+			<key>SubCategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_sizeof_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;sizeof&apos; and &apos;(&apos;</string>
+			<key>Name</key>
+			<string>Space between sizeof and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_sparen_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;)&apos; and &apos;{&apos; of &apos;if&apos;, &apos;for&apos;, &apos;switch&apos;, and &apos;while&apos;</string>
+			<key>Name</key>
+			<string>Space between if/for/switch/while close parenthesis and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_special_semi</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before empty statement &apos;;&apos; on &apos;if&apos;, &apos;for&apos; and &apos;while&apos;</string>
+			<key>Name</key>
+			<string>Space before if/for/while empty statement semicolon</string>
+			<key>SubCategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_square_fparen</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;]&apos; and &apos;(&apos; when part of a function call.</string>
+			<key>Name</key>
+			<string>Space between close square and open parenthesis in function call</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_template_angle</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space in &apos;template &lt;&apos; vs &apos;template&lt;&apos;.
+If set to ignore, sp_before_angle is used.</string>
+			<key>Name</key>
+			<string>Space between template and open angle bracket</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_throw_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;throw&apos; and &apos;(&apos; in &apos;throw (something)&apos;</string>
+			<key>Name</key>
+			<string>Space between throw and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_try_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;try&apos; and &apos;{&apos; if on the same line</string>
+			<key>Name</key>
+			<string>Space between try and open brace</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_type_func</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between return type and function name
+A minimum of 1 is forced except for pointer return types.</string>
+			<key>Name</key>
+			<string>Space between return type and function name</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_version_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;version&apos; and &apos;(&apos; in &apos;version (something) { }&apos; (D language)
+If set to ignore, sp_before_sparen is used.</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Space between version and open parenthesis</string>
+			<key>SubCategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>string_escape_char</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>The ASCII value of the string escape char, usually 92 (\) or 94 (^). (Pawn)</string>
+			<key>Languages</key>
+			<array>
+				<string>PAWN</string>
+			</array>
+			<key>Name</key>
+			<string>String escape character</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>string_escape_char2</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>Alternate string escape char for Pawn. Only works right before the quote char.</string>
+			<key>Languages</key>
+			<array>
+				<string>PAWN</string>
+			</array>
+			<key>Name</key>
+			<string>String escape character 2</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>tok_split_gte</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Default</key>
+			<string>True</string>
+			<key>Description</key>
+			<string>Allow interpreting &apos;&gt;=&apos; and &apos;&gt;&gt;=&apos; as part of a template in &apos;void f(list&lt;list&lt;B&gt;&gt;=val);&apos;.
+If true (default), &apos;assert(x&lt;0 &amp;&amp; y&gt;=3)&apos; will be broken.
+Improvements to template detection may make this option obsolete.</string>
+			<key>Name</key>
+			<string>Interpret &gt;=</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>ValueTypes</key>
+	<array>
+		<dict>
+			<key>ID</key>
+			<integer>0</integer>
+			<key>Type</key>
+			<string>Number</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>1</integer>
+			<key>Type</key>
+			<string>String</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>2</integer>
+			<key>Type</key>
+			<string>Boolean</string>
+			<key>Values</key>
+			<array>
+				<string>False</string>
+				<string>True</string>
+			</array>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>3</integer>
+			<key>Type</key>
+			<string>String</string>
+			<key>Values</key>
+			<array>
+				<string>Ignore</string>
+				<string>Add</string>
+				<string>Remove</string>
+				<string>Force</string>
+			</array>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>4</integer>
+			<key>Type</key>
+			<string>String</string>
+			<key>Values</key>
+			<array>
+				<string>Ignore</string>
+				<string>Lead</string>
+				<string>Trail</string>
+			</array>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>5</integer>
+			<key>Type</key>
+			<string>String</string>
+			<key>Values</key>
+			<array>
+				<string>Auto</string>
+				<string>LF</string>
+				<string>CR</string>
+				<string>CRLF</string>
+			</array>
+		</dict>
+	</array>
+	<key>Version</key>
+	<integer>1</integer>
+</dict>
+</plist>
