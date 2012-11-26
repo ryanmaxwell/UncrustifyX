@@ -13,7 +13,10 @@
 - ensure forward-compatibility with options not defined
 - compile latest uncrustify from github
 - presets (apple/google/github style)
-- dropdown for choosing language on direct-input tab
+- Search filter in options table in main window
+
+# Bugs
+- update to MR 2.0.8 - identify problem with data not persisting?
 
 ## Publishing alpha
 - create 0.1 tag
