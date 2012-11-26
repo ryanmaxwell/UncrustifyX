@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet NSTableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet NSTableView *optionsTableView;
 @property (weak, nonatomic) IBOutlet NSSearchField *searchField;
-@property (weak, nonatomic) IBOutlet NSPopUpButton *codeSamplesPopUpButton;
+@property (weak, nonatomic) IBOutlet NSPopUpButton *previewLanguagePopUpButton;
+@property (weak, nonatomic) IBOutlet NSPopUpButton *codeSamplePopUpButton;
 
 @property (strong, nonatomic) NSArrayController *categoriesArrayController;
 @property (strong, nonatomic) NSArrayController *browseLanguagesArrayController;
@@ -33,8 +34,8 @@
 @property (readonly, nonatomic) UXOption *selectedOption;
 
 - (IBAction)browseLanguagesPopUpChanged:(id)sender;
-- (IBAction)previewLanguagesPopUpChanged:(id)sender;
-- (IBAction)codeSamplesPopUpChanged:(id)sender;
+- (IBAction)previewLanguagePopUpChanged:(id)sender;
+- (IBAction)codeSamplePopUpChanged:(id)sender;
 - (IBAction)valueSegmentedControlChanged:(id)sender;
 - (IBAction)disclosureTriangleClicked:(id)sender;
 

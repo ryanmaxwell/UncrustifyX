@@ -10,7 +10,7 @@
 
 @interface UXTaskRunner : NSObject
 
-+ (NSString *)uncrustifyCodeFragment:(NSString *)string withConfigOptions:(NSArray *)configOptions;
++ (NSString *)uncrustifyCodeFragment:(NSString *)string withConfigOptions:(NSArray *)configOptions arguments:(NSArray *)arguments;
 
 /**
  * @param filePaths an array of the paths to the files to be uncrustified

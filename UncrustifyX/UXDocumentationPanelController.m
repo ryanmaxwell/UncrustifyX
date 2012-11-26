@@ -396,7 +396,7 @@ static CGFloat const PreviewViewHeight = 400.0f;
 #pragma mark - Readonly Getters
 
 - (UXCategory *)selectedCategory {
-    if ([self.categoriesArrayController.selectedObjects count] == 0) {
+    if (self.categoriesArrayController.selectedObjects.count == 0) {
         return nil;
     }
     
@@ -433,15 +433,15 @@ static CGFloat const PreviewViewHeight = 400.0f;
     [self filterOptions];
 }
 
-- (IBAction)previewLanguagesPopUpChanged:(id)sender {
+- (IBAction)previewLanguagePopUpChanged:(id)sender {
     NSPopUpButton *senderButton = (NSPopUpButton *)sender;
     UXLanguage *selectedLanguage = senderButton.selectedItem.representedObject;
     [self filterCodeSamplesForLanguage:selectedLanguage];
     
-    [self codeSamplesPopUpChanged:self.codeSamplesPopUpButton];
+    [self codeSamplePopUpChanged:self.codeSamplePopUpButton];
 }
 
-- (IBAction)codeSamplesPopUpChanged:(id)sender {
+- (IBAction)codeSamplePopUpChanged:(id)sender {
     NSPopUpButton *senderButton = (NSPopUpButton *)sender;
     UXCodeSample *selectedSample = senderButton.selectedItem.representedObject;
     if (selectedSample) {
@@ -461,8 +461,11 @@ static CGFloat const PreviewViewHeight = 400.0f;
     configOption.option = selectedOption;
     configOption.value = selectedValue;
     
+    UXLanguage *selectedLangauge = self.previewLanguagePopUpButton.selectedItem.representedObject;
+    
     NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.codePreviewTextView.string
-                                          withConfigOptions:@[configOption]];
+                                          withConfigOptions:@[configOption]
+                                                  arguments:@[@"-l", selectedLangauge.code]];
     
     if (result) {
         self.codePreviewTextView.string = result;

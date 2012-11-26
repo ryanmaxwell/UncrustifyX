@@ -14,6 +14,7 @@
 #import "UXOption.h"
 #import "UXCategory.h"
 #import "UXSubCategory.h"
+#import "UXLanguage.h"
 #import "UXConfigOption.h"
 #import "UXConfigOptionTableCellView.h"
 #import "UXConfigOptionTableView.h"
@@ -40,6 +41,15 @@
         _configOptions = [[NSMutableArray alloc] init];
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
+        
+        _inputLanguageArrayController = [[NSArrayController alloc] init];
+        _inputLanguageArrayController.sortDescriptors = @[
+        [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                      ascending:YES
+                                       selector:@selector(localizedStandardCompare:)]
+        ];
+        _inputLanguageArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
+        _inputLanguageArrayController.entityName = UXLanguage.entityName;
     }
     return self;
 }
@@ -69,6 +79,8 @@
         _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
     }
+    
+    [self.inputLanguageArrayController fetch:nil];
     
     [self.window makeKeyAndOrderFront:self];
 }
@@ -219,8 +231,12 @@
                                    arguments:args];
     } else if ([self.toolbar.selectedItemIdentifier isEqualToString:self.directInputToolbarItem.itemIdentifier]
         && self.codeTextView.string.length > 0) {
+        
+        UXLanguage *selectedLangauge = self.inputLanguagesPopUpButton.selectedItem.representedObject;
+        
         NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.codeTextView.string
-                                              withConfigOptions:self.configOptions];
+                                              withConfigOptions:self.configOptions
+                                                      arguments:@[@"-l", selectedLangauge.code]];
         if (result) {
             self.codeTextView.string = result;
             [self.syntaxColoringController recolorCompleteFile:self];

@@ -22,10 +22,16 @@
 
 @implementation UXTaskRunner
 
-+ (NSString *)uncrustifyCodeFragment:(NSString *)string withConfigOptions:(NSArray *)configOptions {
++ (NSString *)uncrustifyCodeFragment:(NSString *)string withConfigOptions:(NSArray *)configOptions arguments:(NSArray *)arguments {
     NSString *tempPath = [UXFileUtils writeStringToTempFile:string];
     
-    NSArray *args = @[@"--frag", @"--no-backup", @"-l", @"OC"];
+    NSArray *defaultArgs = @[@"--frag", @"--no-backup"];
+    
+    NSMutableArray *args = [NSMutableArray arrayWithArray:arguments];
+    if (arguments) {
+        [args addObjectsFromArray:defaultArgs];
+    }
+    
     [self uncrustifyFilesAtPaths:@[tempPath] withConfigOptions:configOptions arguments:args];
     
     NSError *error = nil;

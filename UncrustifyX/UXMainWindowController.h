@@ -35,6 +35,9 @@
 @property (weak, nonatomic) IBOutlet NSTableView *configOptionsTableView;
 @property (weak, nonatomic) IBOutlet NSTableColumn *configOptionsTableColumn;
 
+@property (weak, nonatomic) IBOutlet NSPopUpButton *inputLanguagesPopUpButton;
+@property (strong, nonatomic) IBOutlet NSArrayController *inputLanguageArrayController;
+
 @property (strong, nonatomic) IBOutlet UXExportPanelAccessoryView *exportPanelAccessoryView;
 
 - (IBAction)exportConfiguration:(id)sender;
