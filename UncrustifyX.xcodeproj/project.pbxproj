@@ -36,9 +36,9 @@
 		944403271652377600E2115D /* UXFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 944403261652377600E2115D /* UXFileUtils.m */; };
 		944403431653960F00E2115D /* UXConfigOptionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944403421653960F00E2115D /* UXConfigOptionTableView.m */; };
 		944ED07E164F7AE800F785DC /* UXConfigOptionTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944ED07D164F7AE800F785DC /* UXConfigOptionTableCellView.m */; };
-		944ED08B164F81E600F785DC /* Docset.icns in Resources */ = {isa = PBXBuildFile; fileRef = 944ED087164F81E600F785DC /* Docset.icns */; };
 		944ED0B4164FB12F00F785DC /* DisclosureArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 944ED0B2164FB12F00F785DC /* DisclosureArrow.png */; };
 		944ED0B5164FB12F00F785DC /* DisclosureArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 944ED0B3164FB12F00F785DC /* DisclosureArrow@2x.png */; };
+		945A0DAD1664049A00398587 /* Docset.png in Resources */ = {isa = PBXBuildFile; fileRef = 945A0DAC1664049A00398587 /* Docset.png */; };
 		9464B987162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */; };
 		9464B9AD162ABA4500F61C28 /* UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9AC162ABA4500F61C28 /* UXCodeSample.m */; };
 		9464B9B1162ABA4F00F61C28 /* _UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9B0162ABA4F00F61C28 /* _UXCodeSample.m */; };
@@ -138,9 +138,9 @@
 		944403421653960F00E2115D /* UXConfigOptionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXConfigOptionTableView.m; path = Views/UXConfigOptionTableView.m; sourceTree = "<group>"; };
 		944ED07C164F7AE800F785DC /* UXConfigOptionTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXConfigOptionTableCellView.h; path = Views/UXConfigOptionTableCellView.h; sourceTree = "<group>"; };
 		944ED07D164F7AE800F785DC /* UXConfigOptionTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXConfigOptionTableCellView.m; path = Views/UXConfigOptionTableCellView.m; sourceTree = "<group>"; };
-		944ED087164F81E600F785DC /* Docset.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Docset.icns; path = Resources/Docset.icns; sourceTree = "<group>"; };
 		944ED0B2164FB12F00F785DC /* DisclosureArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DisclosureArrow.png; path = Resources/DisclosureArrow.png; sourceTree = "<group>"; };
 		944ED0B3164FB12F00F785DC /* DisclosureArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureArrow@2x.png"; path = "Resources/DisclosureArrow@2x.png"; sourceTree = "<group>"; };
+		945A0DAC1664049A00398587 /* Docset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Docset.png; path = Resources/Docset.png; sourceTree = "<group>"; };
 		9464B985162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionDisplayNameValueTransformer.h; sourceTree = "<group>"; };
 		9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXCollectionDisplayNameValueTransformer.m; sourceTree = "<group>"; };
 		9464B9AB162ABA4500F61C28 /* UXCodeSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXCodeSample.h; path = Models/UXCodeSample.h; sourceTree = "<group>"; };
@@ -372,7 +372,7 @@
 				9405B52D1651FF01001A1C7F /* Info.png */,
 				944ED0B2164FB12F00F785DC /* DisclosureArrow.png */,
 				944ED0B3164FB12F00F785DC /* DisclosureArrow@2x.png */,
-				944ED087164F81E600F785DC /* Docset.icns */,
+				945A0DAC1664049A00398587 /* Docset.png */,
 				94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */,
 				94F0C6F11650C39E0071C8FA /* Play.tiff */,
 				9444032016522D1C00E2115D /* Export.tiff */,
@@ -542,7 +542,6 @@
 				941723BC163B7D4A00324CD6 /* Objective-C.plist in Resources */,
 				941723BD163B7D4A00324CD6 /* SyntaxColorDefaults.plist in Resources */,
 				941723BE163B7D4A00324CD6 /* SyntaxDefinition.plist in Resources */,
-				944ED08B164F81E600F785DC /* Docset.icns in Resources */,
 				944ED0B4164FB12F00F785DC /* DisclosureArrow.png in Resources */,
 				944ED0B5164FB12F00F785DC /* DisclosureArrow@2x.png in Resources */,
 				94F0C6E71650B7440071C8FA /* UXConfigOptionTableCellViews.xib in Resources */,
@@ -552,6 +551,7 @@
 				9444032216522D1C00E2115D /* Export.tiff in Resources */,
 				9444032316522D1C00E2115D /* Import.tiff in Resources */,
 				94ED6135165F2DD8008A0862 /* UXExportPanelAccessoryView.xib in Resources */,
+				945A0DAD1664049A00398587 /* Docset.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
