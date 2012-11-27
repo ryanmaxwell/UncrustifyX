@@ -21,7 +21,7 @@
 #import "UXTaskRunner.h"
 #import "UXUIUtils.h"
 
-static CGFloat const PreviewViewHeight = 400.0f;
+static CGFloat const PreviewViewHeight = 300.0f;
 
 @interface UXDocumentationPanelController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate>
 @property (strong, nonatomic) UXPlaceholder *languagesHeader;
