@@ -7,15 +7,11 @@
 //
 
 #import "UXPersistentConfigOption.h"
-#import "UXOption.h"
 
 @implementation UXPersistentConfigOption
 
 - (NSString *)configString {
-    if (self.option && self.value.length) {
-        return [NSString stringWithFormat:@"%@ = %@", self.option.code, self.value];
-    }
-    return nil;
+    return [UXConfigOptionSharedImplementation configStringForOption:self.option value:self.value];
 }
 
 @end

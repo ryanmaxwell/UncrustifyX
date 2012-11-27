@@ -17,6 +17,7 @@
 		9405B52E1651FF01001A1C7F /* Info.png in Resources */ = {isa = PBXBuildFile; fileRef = 9405B52D1651FF01001A1C7F /* Info.png */; };
 		940BE3E31664899500EE4C2B /* UXTransientConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 940BE3E21664899500EE4C2B /* UXTransientConfigOption.m */; };
 		940BE3E616648A3B00EE4C2B /* _UXPersistentConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 940BE3E516648A3B00EE4C2B /* _UXPersistentConfigOption.m */; };
+		940BE3F31665859A00EE4C2B /* UXConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 940BE3F21665859A00EE4C2B /* UXConfigOption.m */; };
 		941723AF163B7D4A00324CD6 /* NSArray+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9417238C163B7D4A00324CD6 /* NSArray+Color.m */; };
 		941723B0163B7D4A00324CD6 /* NSScanner+SkipUpToCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9417238E163B7D4A00324CD6 /* NSScanner+SkipUpToCharset.m */; };
 		941723B1163B7D4A00324CD6 /* UKSyntaxColoredTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94172390163B7D4A00324CD6 /* UKSyntaxColoredTextViewController.m */; };
@@ -110,6 +111,7 @@
 		940BE3E416648A3B00EE4C2B /* _UXPersistentConfigOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _UXPersistentConfigOption.h; path = Models/_UXPersistentConfigOption.h; sourceTree = "<group>"; };
 		940BE3E516648A3B00EE4C2B /* _UXPersistentConfigOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _UXPersistentConfigOption.m; path = Models/_UXPersistentConfigOption.m; sourceTree = "<group>"; };
 		940BE3EA16648B3100EE4C2B /* UXConfigOption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UXConfigOption.h; sourceTree = "<group>"; };
+		940BE3F21665859A00EE4C2B /* UXConfigOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXConfigOption.m; sourceTree = "<group>"; };
 		9417238B163B7D4A00324CD6 /* NSArray+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Color.h"; sourceTree = "<group>"; };
 		9417238C163B7D4A00324CD6 /* NSArray+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Color.m"; sourceTree = "<group>"; };
 		9417238D163B7D4A00324CD6 /* NSScanner+SkipUpToCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+SkipUpToCharset.h"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				940BE3E11664899500EE4C2B /* UXTransientConfigOption.h */,
 				940BE3E21664899500EE4C2B /* UXTransientConfigOption.m */,
 				940BE3EA16648B3100EE4C2B /* UXConfigOption.h */,
+				940BE3F21665859A00EE4C2B /* UXConfigOption.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				940BE3E31664899500EE4C2B /* UXTransientConfigOption.m in Sources */,
 				940BE3E616648A3B00EE4C2B /* _UXPersistentConfigOption.m in Sources */,
 				94F2E77D1664B471004E6DF5 /* UXSearchGradientView.m in Sources */,
+				940BE3F31665859A00EE4C2B /* UXConfigOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

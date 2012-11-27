@@ -7,16 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-@class UXOption;
+#import "UXOption.h"
 
 @protocol UXConfigOption <NSObject>
 
+@property (readonly) NSString *configString;
 @property (readwrite) UXOption *option;
 @property (readwrite) NSString *value;
+
+@end
+
+@interface UXConfigOptionSharedImplementation : NSObject
 
 /**
  * @return the config string "code = value" or nil
  */
-@property (readonly) NSString *configString;
++ (NSString *)configStringForOption:(UXOption *)option value:(NSString *)value;
 
 @end
