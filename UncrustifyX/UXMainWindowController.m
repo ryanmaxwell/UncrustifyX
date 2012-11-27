@@ -20,7 +20,9 @@
 #import "UXConfigOptionTableView.h"
 #import "UXExportPanelAccessoryView.h"
 
-@interface UXMainWindowController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate>
+@interface UXMainWindowController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate> {
+    BOOL _initialize;
+}
 @property (strong, nonatomic) NSMutableArray *configOptions;
 @property (strong, nonatomic) NSMutableArray *sortedConfigOptionsAndCategories;
 @property (strong, nonatomic) NSMutableArray *filePaths;
@@ -38,11 +40,12 @@
         _documentationPanelController = [[UXDocumentationPanelController alloc] initWithWindowNibName:@"UXDocumentationPanelController"];
         _documentationPanelController.window.isVisible = UXDefaultsManager.documentationPanelVisible;
         
-        _configOptions = [[NSMutableArray alloc] init];
-        [_configOptions addObjectsFromArray:[UXPersistentConfigOption findAll]];
-        
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
+        
+        _configOptions = [[NSMutableArray alloc] init];
+        [_configOptions addObjectsFromArray:[UXPersistentConfigOption findAll]];
+        [self sortConfigOptions];
         
         _inputLanguageArrayController = [[NSArrayController alloc] init];
         _inputLanguageArrayController.sortDescriptors = @[
@@ -52,40 +55,49 @@
         ];
         _inputLanguageArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
         _inputLanguageArrayController.entityName = UXLanguage.entityName;
+        
+        _initialize = YES;
     }
     return self;
 }
 
 - (void)awakeFromNib {
-    NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"UXConfigOptionTableCellViews" bundle:nil];
-    [self.configOptionsTableView registerNib:cellNib forIdentifier:ConfigOptionCellReuseIdentifier];
-    [self.configOptionsTableView registerNib:cellNib forIdentifier:CategoryCellReuseIdentifier];
-    [self.configOptionsTableView registerNib:cellNib forIdentifier:SubCategoryCellReuseIdentifier];
     
-    [self.filesTableView registerForDraggedTypes:@[
-        NSURLPboardType
-     ]];
-    
-    [self.configOptionsTableView registerForDraggedTypes:@[
-        NSPasteboardTypeString
-     ]];
-    
-    if (!self.toolbar.selectedItemIdentifier) {
-        self.toolbar.selectedItemIdentifier = @"UXFileInput";
-        
-        self.fileInputView.frame = self.containerView.bounds;
-        [self.containerView addSubview:self.fileInputView];
+    /* awakeFromNib annoyingly called each time a table view cell view is created */
+    @synchronized(self) {
+        if (_initialize) {
+            _initialize = NO;
+            
+            NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"UXConfigOptionTableCellViews" bundle:nil];
+            [self.configOptionsTableView registerNib:cellNib forIdentifier:ConfigOptionCellReuseIdentifier];
+            [self.configOptionsTableView registerNib:cellNib forIdentifier:CategoryCellReuseIdentifier];
+            [self.configOptionsTableView registerNib:cellNib forIdentifier:SubCategoryCellReuseIdentifier];
+            
+            [self.filesTableView registerForDraggedTypes:@[
+             NSURLPboardType
+             ]];
+            
+            [self.configOptionsTableView registerForDraggedTypes:@[
+             NSPasteboardTypeString
+             ]];
+            
+            if (!self.toolbar.selectedItemIdentifier) {
+                self.toolbar.selectedItemIdentifier = @"UXFileInput";
+                
+                self.fileInputView.frame = self.containerView.bounds;
+                [self.containerView addSubview:self.fileInputView];
+            }
+            
+            if (!_spaceView) {
+                _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+                [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
+            }
+            
+            [self.inputLanguageArrayController fetch:nil];
+            
+            [self.window makeKeyAndOrderFront:self];
+        }
     }
-    
-    if (!_spaceView) {
-        _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-        [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
-    }
-    
-    [self.inputLanguageArrayController fetch:nil];
-    
-    [self sortConfigOptions];
-    [self.window makeKeyAndOrderFront:self];
 }
 
 #pragma mark - 
