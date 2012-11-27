@@ -28,7 +28,11 @@
         NSInteger defaultValueIndex = NSNotFound;
         NSInteger selectedValueIndex = NSNotFound;
         
-        for (UXValue *value in option.valueType.values) {
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:UXValueAttributes.value
+                                                                         ascending:YES
+                                                                          selector:@selector(caseInsensitiveCompare:)];
+        NSArray *orderedValues = [option.valueType.values sortedArrayUsingDescriptors:@[sortDescriptor]];
+        for (UXValue *value in orderedValues) {
             if ([value.value caseInsensitiveCompare:option.defaultValue] == NSOrderedSame) {
                 defaultValueIndex = index;
             }
