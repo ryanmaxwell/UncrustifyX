@@ -15,7 +15,7 @@
 #import "UXCategory.h"
 #import "UXSubCategory.h"
 #import "UXLanguage.h"
-#import "UXConfigOption.h"
+#import "UXPersistentConfigOption.h"
 #import "UXConfigOptionTableCellView.h"
 #import "UXConfigOptionTableView.h"
 #import "UXExportPanelAccessoryView.h"
@@ -39,6 +39,8 @@
         _documentationPanelController.window.isVisible = UXDefaultsManager.documentationPanelVisible;
         
         _configOptions = [[NSMutableArray alloc] init];
+        [_configOptions addObjectsFromArray:[UXPersistentConfigOption findAll]];
+        
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
         
@@ -82,13 +84,14 @@
     
     [self.inputLanguageArrayController fetch:nil];
     
+    [self sortConfigOptions];
     [self.window makeKeyAndOrderFront:self];
 }
 
 #pragma mark - 
 
-- (UXConfigOption *)configOptionWithCode:(NSString *)code {
-    for (UXConfigOption *configOption in self.configOptions) {
+- (UXPersistentConfigOption *)configOptionWithCode:(NSString *)code {
+    for (UXPersistentConfigOption *configOption in self.configOptions) {
         if ([configOption.option.code isEqualToString:code]) {
             return configOption;
         }
@@ -123,11 +126,12 @@
     if (![self configOptionWithCode:code]) {
         UXOption *theOption = [UXOption findFirstByAttribute:UXOptionAttributes.code withValue:code];
         if (theOption) {
-            UXConfigOption *newConfigOption = [[UXConfigOption alloc] init];
+            UXPersistentConfigOption *newConfigOption = [UXPersistentConfigOption createEntity];
             newConfigOption.option = theOption;
             newConfigOption.value = value;
             
             [self.configOptions addObject:newConfigOption];
+            [NSManagedObjectContext.defaultContext save];
         } else {
             DLog(@"COULD NOT FIND OPTION WITH %@ code", code);
         }
@@ -315,7 +319,11 @@
             [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[index]];
         }];
         
-        [self.configOptions removeObjectsInArray:objectsToRemove];
+        for (UXPersistentConfigOption *configOption in objectsToRemove) {
+            [self.configOptions removeObject:configOption];
+            [NSManagedObjectContext.defaultContext deleteObject:configOption];
+        }
+        [NSManagedObjectContext.defaultContext save];
         
         /* Validate immediately as system only does it periodically */
         [self.toolbar validateVisibleItems];
@@ -442,7 +450,7 @@
             UXConfigOptionTableCellView *tableCellView = [tableView makeViewWithIdentifier:ConfigOptionCellReuseIdentifier
                                                                                             owner:self];
             
-            UXConfigOption *configOption = (UXConfigOption *) objectValue;
+            UXPersistentConfigOption *configOption = objectValue;
             
             tableCellView.textField.stringValue = configOption.option.displayName;
             tableCellView.toolTip = configOption.option.code;

@@ -80,7 +80,7 @@
 + (NSString *)stringFromConfigOptions:(NSArray *)configOptions {
     NSMutableString *configString = NSMutableString.string;
     
-    for (UXConfigOption *configOption in configOptions) {
+    for (id<UXConfigOption> configOption in configOptions) {
         if (configOption.configString) {
             [configString appendFormat:@"%@\n", configOption.configString];
         }

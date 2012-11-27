@@ -11,7 +11,7 @@
 
 #import "UXCategory.h"
 #import "UXSubCategory.h"
-#import "UXConfigOption.h"
+#import "UXTransientConfigOption.h"
 #import "UXOption.h"
 #import "UXLanguage.h"
 #import "UXPlaceholder.h"
@@ -457,7 +457,7 @@ static CGFloat const PreviewViewHeight = 400.0f;
     UXOption *selectedOption = self.selectedOption;
     NSString *selectedValue = [segmentedControl labelForSegment:segmentedControl.selectedSegment];
     
-    UXConfigOption *configOption = UXConfigOption.new;
+    UXTransientConfigOption *configOption = UXTransientConfigOption.new;
     configOption.option = selectedOption;
     configOption.value = selectedValue;
     

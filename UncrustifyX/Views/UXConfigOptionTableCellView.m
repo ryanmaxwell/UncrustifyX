@@ -24,7 +24,7 @@ NSString *const SubCategoryCellReuseIdentifier = @"SubCategoryTableCellView";
 - (IBAction)infoPressed:(id)sender {
     UXAppDelegate *appDelegate = (UXAppDelegate *) NSApplication.sharedApplication.delegate;
     
-    UXConfigOption *configOption = self.objectValue;
+    id<UXConfigOption> configOption = self.objectValue;
     [appDelegate.mainWindowController.documentationPanelController showInfoForOption:configOption.option];
 }
 
@@ -35,8 +35,8 @@ NSString *const SubCategoryCellReuseIdentifier = @"SubCategoryTableCellView";
 - (void)setObjectValue:(id)objectValue {
     [super setObjectValue:objectValue];
     
-    if ([objectValue isKindOfClass:UXConfigOption.class]) {
-        UXConfigOption *configOption = (UXConfigOption *)objectValue;
+    if ([objectValue conformsToProtocol:@protocol(UXConfigOption)]) {
+        id<UXConfigOption> configOption = (id<UXConfigOption>)objectValue;
         
         if (configOption.option.valueType.values.count) {
             /* value type has set values */
@@ -57,7 +57,7 @@ NSString *const SubCategoryCellReuseIdentifier = @"SubCategoryTableCellView";
     
     NSString *selectedValue = [segmentedControl labelForSegment:segmentedControl.selectedSegment];
     
-    UXConfigOption *selectedOption = self.objectValue;
+    id<UXConfigOption> selectedOption = self.objectValue;
     selectedOption.value = selectedValue;
 }
 
@@ -65,7 +65,7 @@ NSString *const SubCategoryCellReuseIdentifier = @"SubCategoryTableCellView";
 
 - (void)controlTextDidChange:(NSNotification *)notification {
     NSTextField *textField = notification.object;
-    UXConfigOption *selectedOption = self.objectValue;
+    id<UXConfigOption> selectedOption = self.objectValue;
     selectedOption.value = textField.stringValue;
 }
 

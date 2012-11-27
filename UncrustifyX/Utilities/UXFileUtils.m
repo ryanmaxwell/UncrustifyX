@@ -40,7 +40,7 @@
     [contents appendString:header];
     
     // TODO: sort config options by category and subcategory
-    for (UXConfigOption *configOption in configOptions) {
+    for (id<UXConfigOption> configOption in configOptions) {
         if (configOption.configString) {
             
             if (documentation && configOption.option.name) {
