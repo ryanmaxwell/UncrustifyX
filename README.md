@@ -9,9 +9,7 @@ The documentation browser categorizes the options and provides easy searching an
 
 Additionally, UncrustifyX allows importing and exporting of Uncrustify .cfg files, and provides a GUI to run a configuration set on a list of files, or direct source code input.
 
-## Screenshots
-![Main Window](https://raw.github.com/ryanmaxwell/UncrustifyX/screenshots/MainWindow.png "Main Window")
-![Documentation Panel](https://raw.github.com/ryanmaxwell/UncrustifyX/screenshots/DocumentationPanel.png "Documentation Panel")
+![Screenshot](https://raw.github.com/ryanmaxwell/UncrustifyX/screenshots/Desktop.jpg "Screenshot")
 
 ## 2-Sentence Manual
 Drag options from the documentation panel into the main window's option table. 
