@@ -38,8 +38,6 @@
 		944403271652377600E2115D /* UXFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 944403261652377600E2115D /* UXFileUtils.m */; };
 		944403431653960F00E2115D /* UXConfigOptionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944403421653960F00E2115D /* UXConfigOptionTableView.m */; };
 		944ED07E164F7AE800F785DC /* UXConfigOptionTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944ED07D164F7AE800F785DC /* UXConfigOptionTableCellView.m */; };
-		944ED0B4164FB12F00F785DC /* DisclosureArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 944ED0B2164FB12F00F785DC /* DisclosureArrow.png */; };
-		944ED0B5164FB12F00F785DC /* DisclosureArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 944ED0B3164FB12F00F785DC /* DisclosureArrow@2x.png */; };
 		945A0DAD1664049A00398587 /* Docset.png in Resources */ = {isa = PBXBuildFile; fileRef = 945A0DAC1664049A00398587 /* Docset.png */; };
 		9464B987162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */; };
 		9464B9AD162ABA4500F61C28 /* UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9AC162ABA4500F61C28 /* UXCodeSample.m */; };
@@ -73,6 +71,8 @@
 		94F0C6E71650B7440071C8FA /* UXConfigOptionTableCellViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F0C6E61650B7440071C8FA /* UXConfigOptionTableCellViews.xib */; };
 		94F0C6F21650C39E0071C8FA /* Play.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 94F0C6F11650C39E0071C8FA /* Play.tiff */; };
 		94F0C70B1650FE4E0071C8FA /* UncrustifyX.icns in Resources */ = {isa = PBXBuildFile; fileRef = 94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */; };
+		94F2E7791664B2CF004E6DF5 /* SearchGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F2E7781664B2CF004E6DF5 /* SearchGradient.png */; };
+		94F2E77D1664B471004E6DF5 /* UXSearchGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2E77C1664B471004E6DF5 /* UXSearchGradientView.m */; };
 		B489627C9B1B42639C619A56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5687B4905B4503A809BD53 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -145,8 +145,6 @@
 		944403421653960F00E2115D /* UXConfigOptionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXConfigOptionTableView.m; path = Views/UXConfigOptionTableView.m; sourceTree = "<group>"; };
 		944ED07C164F7AE800F785DC /* UXConfigOptionTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXConfigOptionTableCellView.h; path = Views/UXConfigOptionTableCellView.h; sourceTree = "<group>"; };
 		944ED07D164F7AE800F785DC /* UXConfigOptionTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXConfigOptionTableCellView.m; path = Views/UXConfigOptionTableCellView.m; sourceTree = "<group>"; };
-		944ED0B2164FB12F00F785DC /* DisclosureArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DisclosureArrow.png; path = Resources/DisclosureArrow.png; sourceTree = "<group>"; };
-		944ED0B3164FB12F00F785DC /* DisclosureArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureArrow@2x.png"; path = "Resources/DisclosureArrow@2x.png"; sourceTree = "<group>"; };
 		945A0DAC1664049A00398587 /* Docset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Docset.png; path = Resources/Docset.png; sourceTree = "<group>"; };
 		9464B985162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionDisplayNameValueTransformer.h; sourceTree = "<group>"; };
 		9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXCollectionDisplayNameValueTransformer.m; sourceTree = "<group>"; };
@@ -202,6 +200,9 @@
 		94F0C6E61650B7440071C8FA /* UXConfigOptionTableCellViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UXConfigOptionTableCellViews.xib; path = Views/UXConfigOptionTableCellViews.xib; sourceTree = "<group>"; };
 		94F0C6F11650C39E0071C8FA /* Play.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Play.tiff; path = Resources/Play.tiff; sourceTree = "<group>"; };
 		94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = UncrustifyX.icns; path = Resources/UncrustifyX.icns; sourceTree = "<group>"; };
+		94F2E7781664B2CF004E6DF5 /* SearchGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SearchGradient.png; path = Resources/SearchGradient.png; sourceTree = "<group>"; };
+		94F2E77B1664B471004E6DF5 /* UXSearchGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXSearchGradientView.h; path = Views/UXSearchGradientView.h; sourceTree = "<group>"; };
+		94F2E77C1664B471004E6DF5 /* UXSearchGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXSearchGradientView.m; path = Views/UXSearchGradientView.m; sourceTree = "<group>"; };
 		C7A6021EF6394CE488B6CC22 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CB5687B4905B4503A809BD53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -370,6 +371,8 @@
 				94ED6134165F2DD8008A0862 /* UXExportPanelAccessoryView.xib */,
 				94ED6137165F2E4F008A0862 /* UXExportPanelAccessoryView.h */,
 				94ED6138165F2E4F008A0862 /* UXExportPanelAccessoryView.m */,
+				94F2E77B1664B471004E6DF5 /* UXSearchGradientView.h */,
+				94F2E77C1664B471004E6DF5 /* UXSearchGradientView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -378,8 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				9405B52D1651FF01001A1C7F /* Info.png */,
-				944ED0B2164FB12F00F785DC /* DisclosureArrow.png */,
-				944ED0B3164FB12F00F785DC /* DisclosureArrow@2x.png */,
+				94F2E7781664B2CF004E6DF5 /* SearchGradient.png */,
 				945A0DAC1664049A00398587 /* Docset.png */,
 				94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */,
 				94F0C6F11650C39E0071C8FA /* Play.tiff */,
@@ -554,8 +556,6 @@
 				941723BC163B7D4A00324CD6 /* Objective-C.plist in Resources */,
 				941723BD163B7D4A00324CD6 /* SyntaxColorDefaults.plist in Resources */,
 				941723BE163B7D4A00324CD6 /* SyntaxDefinition.plist in Resources */,
-				944ED0B4164FB12F00F785DC /* DisclosureArrow.png in Resources */,
-				944ED0B5164FB12F00F785DC /* DisclosureArrow@2x.png in Resources */,
 				94F0C6E71650B7440071C8FA /* UXConfigOptionTableCellViews.xib in Resources */,
 				94F0C6F21650C39E0071C8FA /* Play.tiff in Resources */,
 				94F0C70B1650FE4E0071C8FA /* UncrustifyX.icns in Resources */,
@@ -564,6 +564,7 @@
 				9444032316522D1C00E2115D /* Import.tiff in Resources */,
 				94ED6135165F2DD8008A0862 /* UXExportPanelAccessoryView.xib in Resources */,
 				945A0DAD1664049A00398587 /* Docset.png in Resources */,
+				94F2E7791664B2CF004E6DF5 /* SearchGradient.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +674,7 @@
 				94ED6139165F2E4F008A0862 /* UXExportPanelAccessoryView.m in Sources */,
 				940BE3E31664899500EE4C2B /* UXTransientConfigOption.m in Sources */,
 				940BE3E616648A3B00EE4C2B /* _UXPersistentConfigOption.m in Sources */,
+				94F2E77D1664B471004E6DF5 /* UXSearchGradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

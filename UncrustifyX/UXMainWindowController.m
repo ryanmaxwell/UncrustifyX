@@ -95,6 +95,8 @@
             
             [self.inputLanguageArrayController fetch:nil];
             
+            
+            
             [self.window makeKeyAndOrderFront:self];
         }
     }
