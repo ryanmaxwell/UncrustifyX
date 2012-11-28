@@ -1336,6 +1336,14 @@ wGw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
+						<string key="label">searchField</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="528301183"/>
+					</object>
+					<int key="connectionID">287</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="971607101"/>
 						<reference key="destination" ref="1001"/>
@@ -1470,6 +1478,14 @@ wGw</bytes>
 						</object>
 					</object>
 					<int key="connectionID">273</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="528301183"/>
+						<reference key="destination" ref="1001"/>
+					</object>
+					<int key="connectionID">288</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1890,7 +1906,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">286</int>
+			<int key="maxID">288</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2043,6 +2059,7 @@ wGw</bytes>
 						<string key="mainContainerView">NSView</string>
 						<string key="mainSplitView">NSSplitView</string>
 						<string key="runToolbarItem">NSToolbarItem</string>
+						<string key="searchField">NSSearchField</string>
 						<string key="sourceContainerView">NSView</string>
 						<string key="syntaxColoringController">UXSyntaxColoredTextViewController</string>
 						<string key="toolbar">NSToolbar</string>
@@ -2107,6 +2124,10 @@ wGw</bytes>
 						<object class="IBToOneOutletInfo" key="runToolbarItem">
 							<string key="name">runToolbarItem</string>
 							<string key="candidateClassName">NSToolbarItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="searchField">
+							<string key="name">searchField</string>
+							<string key="candidateClassName">NSSearchField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="sourceContainerView">
 							<string key="name">sourceContainerView</string>

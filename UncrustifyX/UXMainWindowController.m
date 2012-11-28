@@ -30,6 +30,8 @@
 @property (strong, nonatomic) NSView *spaceView;
 @property (strong, nonatomic) NSToolbarItem *spaceItem;
 
+@property (strong, nonatomic) NSString *searchQuery;
+
 @end
 
 @implementation UXMainWindowController
@@ -148,6 +150,108 @@
     } else {
         DLog(@"ALREADY HAVE CONFIG OPTION WITH %@ code", code);
     }
+}
+
+- (void)filterOptions {
+//    NSSortDescriptor *displayNameSort = [NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES];
+//    
+//    NSArray *sortedSubCategories = nil;
+//    
+//    if (self.selectedCategory) {
+//        NSPredicate *subCategoriesFilter = [NSPredicate predicateWithFormat:@"%@ IN %K",
+//                                            self.selectedCategory,
+//                                            UXSubCategoryRelationships.parentCategories];
+//        
+//        sortedSubCategories = [[self.allSubCategories filteredArrayUsingPredicate:subCategoriesFilter]
+//                               sortedArrayUsingDescriptors:@[displayNameSort]];
+//    } else {
+//        sortedSubCategories = [self.allSubCategories sortedArrayUsingDescriptors:@[displayNameSort]];
+//    }
+//    
+//    [self.currentOptionsAndSubCategories removeAllObjects];
+//    
+//    NSPredicate *searchFilter = self.keywordSearchPredicate;
+//    
+//    /* subcategories and their options */
+//    for (UXSubCategory *subCategory in sortedSubCategories) {
+//        
+//        NSPredicate *categoryFilter = nil;
+//        if (self.selectedCategory) {
+//            categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == %@",
+//                              UXOptionRelationships.category,
+//                              self.selectedCategory,
+//                              UXOptionRelationships.subCategory,
+//                              subCategory];
+//        } else {
+//            categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@",
+//                              UXOptionRelationships.subCategory,
+//                              subCategory];
+//        }
+//        
+//        NSPredicate *optionsFilter = categoryFilter;
+//        
+//        if (searchFilter) {
+//            optionsFilter = [NSCompoundPredicate andPredicateWithSubpredicates:@[
+//                             categoryFilter,
+//                             searchFilter
+//                             ]];
+//        }
+//        
+//        NSArray *filteredOptions = [[self.allOptions filteredArrayUsingPredicate:optionsFilter]
+//                                    sortedArrayUsingDescriptors:@[displayNameSort]];
+//        
+//        if (filteredOptions.count > 0) {
+//            [self.currentOptionsAndSubCategories addObject:subCategory];
+//            [self.currentOptionsAndSubCategories addObjectsFromArray:filteredOptions];
+//        }
+//    }
+//    
+//    /* remaining options without subcategories */
+//    NSPredicate *categoryFilter = nil;
+//    if (self.selectedCategory) {
+//        categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == nil",
+//                          UXOptionRelationships.category,
+//                          self.selectedCategory,
+//                          UXOptionRelationships.subCategory];
+//    } else {
+//        categoryFilter = [NSPredicate predicateWithFormat:@"%K == nil",
+//                          UXOptionRelationships.subCategory];
+//    }
+//    
+//    NSPredicate *optionsFilter = categoryFilter;
+//    
+//    if (searchFilter) {
+//        optionsFilter = [NSCompoundPredicate andPredicateWithSubpredicates:@[
+//                         categoryFilter,
+//                         searchFilter
+//                         ]];
+//    }
+//    
+//    NSArray *filteredOptions = [[self.allOptions filteredArrayUsingPredicate:optionsFilter]
+//                                sortedArrayUsingDescriptors:@[displayNameSort]];
+//    
+//    if (sortedSubCategories.count > 0 && filteredOptions.count > 0) {
+//        /* show "Other" header */
+//        [self.currentOptionsAndSubCategories addObject:UXSubCategory.otherSubCategory];
+//    }
+//    
+//    [self.currentOptionsAndSubCategories addObjectsFromArray:filteredOptions];
+//    
+//    [self.optionsTableView reloadData];
+//    
+//    /* select first option */
+//    [self.currentOptionsAndSubCategories enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
+//        if ([obj isKindOfClass:UXOption.class]) {
+//            
+//            [self.optionsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index]
+//                               byExtendingSelection:NO];
+//            
+//            /* fire KVO for bindings */
+//            self.selectedOption = obj;
+//            
+//            *stop = YES;
+//        }
+//    }];
 }
 
 - (void)sortConfigOptions {
@@ -541,6 +645,20 @@
     if (notification.object == self.codeTextView) {
         //TODO
 //        [self.syntaxColoringController recolorCompleteFile:self];
+    }
+}
+
+#pragma mark - NSControl Delegate
+
+- (void)controlTextDidChange:(NSNotification *)aNotification {
+    id sender = aNotification.object;
+    if (sender == self.searchField) {
+        NSSearchField *searchField = (NSSearchField *)sender;
+        
+        NSString *query = searchField.stringValue;
+        self.searchQuery = (query.length) ? query : nil;
+        
+        [self filterOptions];
     }
 }
 
