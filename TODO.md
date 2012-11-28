@@ -13,7 +13,7 @@
 - ensure forward-compatibility with options not defined
 - compile latest uncrustify from github
 - presets (apple/google/github style)
-- Search filter in options table in main window
+- update options rather than trashing them on reimport.
 
 # Bugs
 - update to MR 2.0.8 - identify problem with data not persisting?
