@@ -23,7 +23,10 @@
 @interface UXMainWindowController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate> {
     BOOL _initialize;
 }
+@property (strong, nonatomic) NSArray *sortedCategories;
+
 @property (strong, nonatomic) NSMutableArray *configOptions;
+
 @property (strong, nonatomic) NSMutableArray *sortedConfigOptionsAndCategories;
 @property (strong, nonatomic) NSMutableArray *filePaths;
 
@@ -45,8 +48,10 @@
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
         
-        _configOptions = [[NSMutableArray alloc] init];
-        [_configOptions addObjectsFromArray:[UXPersistentConfigOption findAll]];
+        _sortedCategories = [UXCategory findAllSortedBy:UXAbstractCategoryAttributes.name
+                                              ascending:YES];
+        
+        _configOptions = [[NSMutableArray alloc] initWithArray:[UXPersistentConfigOption findAll]];
         [self sortConfigOptions];
         
         _inputLanguageArrayController = [[NSArrayController alloc] init];
@@ -152,140 +157,50 @@
     }
 }
 
-- (void)filterOptions {
-//    NSSortDescriptor *displayNameSort = [NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES];
-//    
-//    NSArray *sortedSubCategories = nil;
-//    
-//    if (self.selectedCategory) {
-//        NSPredicate *subCategoriesFilter = [NSPredicate predicateWithFormat:@"%@ IN %K",
-//                                            self.selectedCategory,
-//                                            UXSubCategoryRelationships.parentCategories];
-//        
-//        sortedSubCategories = [[self.allSubCategories filteredArrayUsingPredicate:subCategoriesFilter]
-//                               sortedArrayUsingDescriptors:@[displayNameSort]];
-//    } else {
-//        sortedSubCategories = [self.allSubCategories sortedArrayUsingDescriptors:@[displayNameSort]];
-//    }
-//    
-//    [self.currentOptionsAndSubCategories removeAllObjects];
-//    
-//    NSPredicate *searchFilter = self.keywordSearchPredicate;
-//    
-//    /* subcategories and their options */
-//    for (UXSubCategory *subCategory in sortedSubCategories) {
-//        
-//        NSPredicate *categoryFilter = nil;
-//        if (self.selectedCategory) {
-//            categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == %@",
-//                              UXOptionRelationships.category,
-//                              self.selectedCategory,
-//                              UXOptionRelationships.subCategory,
-//                              subCategory];
-//        } else {
-//            categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@",
-//                              UXOptionRelationships.subCategory,
-//                              subCategory];
-//        }
-//        
-//        NSPredicate *optionsFilter = categoryFilter;
-//        
-//        if (searchFilter) {
-//            optionsFilter = [NSCompoundPredicate andPredicateWithSubpredicates:@[
-//                             categoryFilter,
-//                             searchFilter
-//                             ]];
-//        }
-//        
-//        NSArray *filteredOptions = [[self.allOptions filteredArrayUsingPredicate:optionsFilter]
-//                                    sortedArrayUsingDescriptors:@[displayNameSort]];
-//        
-//        if (filteredOptions.count > 0) {
-//            [self.currentOptionsAndSubCategories addObject:subCategory];
-//            [self.currentOptionsAndSubCategories addObjectsFromArray:filteredOptions];
-//        }
-//    }
-//    
-//    /* remaining options without subcategories */
-//    NSPredicate *categoryFilter = nil;
-//    if (self.selectedCategory) {
-//        categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == nil",
-//                          UXOptionRelationships.category,
-//                          self.selectedCategory,
-//                          UXOptionRelationships.subCategory];
-//    } else {
-//        categoryFilter = [NSPredicate predicateWithFormat:@"%K == nil",
-//                          UXOptionRelationships.subCategory];
-//    }
-//    
-//    NSPredicate *optionsFilter = categoryFilter;
-//    
-//    if (searchFilter) {
-//        optionsFilter = [NSCompoundPredicate andPredicateWithSubpredicates:@[
-//                         categoryFilter,
-//                         searchFilter
-//                         ]];
-//    }
-//    
-//    NSArray *filteredOptions = [[self.allOptions filteredArrayUsingPredicate:optionsFilter]
-//                                sortedArrayUsingDescriptors:@[displayNameSort]];
-//    
-//    if (sortedSubCategories.count > 0 && filteredOptions.count > 0) {
-//        /* show "Other" header */
-//        [self.currentOptionsAndSubCategories addObject:UXSubCategory.otherSubCategory];
-//    }
-//    
-//    [self.currentOptionsAndSubCategories addObjectsFromArray:filteredOptions];
-//    
-//    [self.optionsTableView reloadData];
-//    
-//    /* select first option */
-//    [self.currentOptionsAndSubCategories enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
-//        if ([obj isKindOfClass:UXOption.class]) {
-//            
-//            [self.optionsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index]
-//                               byExtendingSelection:NO];
-//            
-//            /* fire KVO for bindings */
-//            self.selectedOption = obj;
-//            
-//            *stop = YES;
-//        }
-//    }];
-}
-
 - (void)sortConfigOptions {
+    if (self.configOptions.count == 0) return;
+    
+    NSArray *filteredConfigOptions = nil;
+    
+    if (self.searchQuery) {
+        NSPredicate  *searchFilter = [NSPredicate predicateWithFormat:@"%K.%K CONTAINS[c] %@ OR %K.%K CONTAINS[c] %@ OR %K.%K CONTAINS[c] %@ OR %K.%K CONTAINS[c] %@",
+                                      UXPersistentConfigOptionRelationships.option, UXOptionAttributes.optionDescription, self.searchQuery,
+                                      UXPersistentConfigOptionRelationships.option, UXOptionAttributes.code, self.searchQuery,
+                                      UXPersistentConfigOptionRelationships.option, UXOptionAttributes.name, self.searchQuery,
+                                      UXPersistentConfigOptionRelationships.option, @"explodedCode", self.searchQuery];
+        
+        filteredConfigOptions = [self.configOptions filteredArrayUsingPredicate:searchFilter];
+    } else {
+        filteredConfigOptions = [NSArray arrayWithArray:self.configOptions];
+    }
+    
     [self.sortedConfigOptionsAndCategories removeAllObjects];
     
-    NSSortDescriptor *nameSort = [NSSortDescriptor sortDescriptorWithKey:@"option.name"
-                                                               ascending:YES];
-    
-    NSArray *sortedCategories = [UXCategory findAllSortedBy:UXAbstractCategoryAttributes.name
-                                                  ascending:YES];
+    NSString *sortKey = [NSString stringWithFormat:@"%@.%@",
+                         UXPersistentConfigOptionRelationships.option, UXOptionAttributes.name];
+    NSSortDescriptor *optionNameSort = [NSSortDescriptor sortDescriptorWithKey:sortKey
+                                                                     ascending:YES];
     
     NSMutableArray *optionsInCategory = NSMutableArray.array;
     
     /* Categories and their config options */
-    for (UXCategory *category in sortedCategories) {
+    for (UXCategory *category in self.sortedCategories) {
         
-        NSPredicate *subCategoriesFilter = [NSPredicate predicateWithFormat:@"%@ IN %K",
-                                            category,
-                                            UXSubCategoryRelationships.parentCategories];
+        NSSortDescriptor *subCategoryNameSort = [NSSortDescriptor sortDescriptorWithKey:UXAbstractCategoryAttributes.name
+                                                                              ascending:YES];
         
-        NSArray *filteredSubCategories = [UXSubCategory findAllSortedBy:UXAbstractCategoryAttributes.name
-                                                              ascending:YES
-                                                          withPredicate:subCategoriesFilter];
+        NSArray *filteredSubCategories = [category.subCategories sortedArrayUsingDescriptors:@[subCategoryNameSort]];
         
         NSMutableArray *optionsInSubCategories = NSMutableArray.array;
         
         for (UXSubCategory *subCategory in filteredSubCategories) {
             
-            NSPredicate *categoryFilter = [NSPredicate predicateWithFormat:@"option.category == %@ && option.subCategory == %@",
-                                           category,
-                                           subCategory];
+            NSPredicate *categoryFilter = [NSPredicate predicateWithFormat:@"%K.%K == %@ && %K.%K == %@",
+                                           UXPersistentConfigOptionRelationships.option, UXOptionRelationships.category, category,
+                                           UXPersistentConfigOptionRelationships.option, UXOptionRelationships.subCategory, subCategory];
             
-            NSArray *filteredOptions = [[self.configOptions filteredArrayUsingPredicate:categoryFilter]
-                                        sortedArrayUsingDescriptors:@[nameSort]];
+            NSArray *filteredOptions = [[filteredConfigOptions filteredArrayUsingPredicate:categoryFilter]
+                                        sortedArrayUsingDescriptors:@[optionNameSort]];
             
             /* Add Subcategory Header and options */
             if (filteredOptions.count > 0) {
@@ -658,7 +573,7 @@
         NSString *query = searchField.stringValue;
         self.searchQuery = (query.length) ? query : nil;
         
-        [self filterOptions];
+        [self sortConfigOptions];
     }
 }
 
