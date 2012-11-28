@@ -16,7 +16,8 @@
 @property (strong, nonatomic) UXDocumentationPanelController *documentationPanelController;
 @property (strong, nonatomic) IBOutlet UXSyntaxColoredTextViewController *syntaxColoringController;
 
-@property (weak, nonatomic) IBOutlet NSView *containerView;
+@property (weak, nonatomic) IBOutlet NSView *mainContainerView;
+@property (weak, nonatomic) IBOutlet NSView *sourceContainerView;
 @property (strong, nonatomic) IBOutlet NSView *fileInputView;
 @property (strong, nonatomic) IBOutlet NSView *directInputView;
 
@@ -36,7 +37,7 @@
 @property (weak, nonatomic) IBOutlet NSTableColumn *configOptionsTableColumn;
 
 @property (weak, nonatomic) IBOutlet NSPopUpButton *inputLanguagesPopUpButton;
-@property (strong, nonatomic) IBOutlet NSArrayController *inputLanguageArrayController;
+@property (strong, nonatomic) NSArrayController *inputLanguageArrayController;
 
 @property (strong, nonatomic) IBOutlet UXExportPanelAccessoryView *exportPanelAccessoryView;
 

@@ -84,18 +84,14 @@
             if (!self.toolbar.selectedItemIdentifier) {
                 self.toolbar.selectedItemIdentifier = @"UXFileInput";
                 
-                self.fileInputView.frame = self.containerView.bounds;
-                [self.containerView addSubview:self.fileInputView];
+                self.fileInputView.frame = self.mainContainerView.bounds;
+                [self.mainContainerView addSubview:self.fileInputView];
             }
             
-            if (!_spaceView) {
-                _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-                [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
-            }
+            _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+            [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
             
             [self.inputLanguageArrayController fetch:nil];
-            
-            
             
             [self.window makeKeyAndOrderFront:self];
         }
@@ -221,8 +217,8 @@
     if (!self.fileInputView.superview) {
         [self.directInputView removeFromSuperview];
         
-        self.fileInputView.frame = self.containerView.bounds;
-        [self.containerView addSubview:self.fileInputView];
+        self.fileInputView.frame = self.mainContainerView.bounds;
+        [self.mainContainerView addSubview:self.fileInputView];
     }
 }
 
@@ -230,8 +226,8 @@
     if (!self.directInputView.superview) {
         [self.fileInputView removeFromSuperview];
         
-        self.directInputView.frame = self.containerView.bounds;
-        [self.containerView addSubview:self.directInputView];
+        self.directInputView.frame = self.mainContainerView.bounds;
+        [self.mainContainerView addSubview:self.directInputView];
     }
 }
 
@@ -489,7 +485,7 @@
 #pragma mark - NSSplitViewDelegate
 
 - (BOOL)splitView:(NSSplitView *)splitView shouldAdjustSizeOfSubview:(NSView *)subview {
-    if (splitView == self.mainSplitView && subview == self.configOptionsScrollView) {
+    if (splitView == self.mainSplitView && subview == self.sourceContainerView) {
         // keep options list fixed width on view resize
         return NO;
     }
