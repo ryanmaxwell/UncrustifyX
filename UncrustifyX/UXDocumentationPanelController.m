@@ -70,14 +70,6 @@ static CGFloat const PreviewViewHeight = 300.0f;
     
     [self.optionsTableView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
     
-    if (UXDefaultsManager.documentationPreviewExpanded) {
-        [self setPreviewExpanded:YES animated:NO];
-        self.disclosureTriangle.state = NSOnState;
-    } else {
-        [self setPreviewExpanded:NO animated:NO];
-        self.disclosureTriangle = NSOffState;
-    }
-    
     self.browseLanguagesArrayController.sortDescriptors =
     self.previewLanguagesArrayController.sortDescriptors =
     self.categoriesArrayController.sortDescriptors =
@@ -379,7 +371,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
 - (void)setPreviewExpanded:(BOOL)previewExpanded animated:(BOOL)animated {
     if (previewExpanded == _previewExpanded) return;
     
-    UXDefaultsManager.documentationPreviewExpanded = _previewExpanded = previewExpanded;
+    _previewExpanded = previewExpanded;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         /* perform window resize async so that disclosure triangle can do flip animation at same time */
@@ -474,6 +466,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
 }
 
 - (IBAction)disclosureTriangleClicked:(id)sender {
+    [self.window invalidateRestorableState];
     [self setPreviewExpanded:!self.previewExpanded animated:YES];
 }
 
@@ -533,15 +526,19 @@ static CGFloat const PreviewViewHeight = 300.0f;
 }
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
-    //TODO
+    [state encodeInteger:self.disclosureTriangle.state forKey:@"DisclosureTriangleState"];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
-    //TODO
-}
-
-- (void)windowWillClose:(NSNotification *)notification {
-    UXDefaultsManager.documentationPanelVisible = NO;
+    NSInteger disclosureState = [state decodeIntegerForKey:@"DisclosureTriangleState"];
+    
+    if (disclosureState == NSOnState) {
+        [self setPreviewExpanded:YES animated:NO];
+        self.disclosureTriangle.state = NSOnState;
+    } else {
+        [self setPreviewExpanded:NO animated:NO];
+        self.disclosureTriangle = NSOffState;
+    }
 }
 
 @end

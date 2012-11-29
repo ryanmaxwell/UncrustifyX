@@ -11,8 +11,6 @@
 #define kOverwriteFilesKey                  @"OverwriteFiles"
 #define kUseCustomBinaryKey                 @"UseCustomBinary"
 #define kCustomBinaryPathKey                @"CustomBinaryPath"
-#define kDocumentationPreviewExpandedKey    @"DocumentationPreviewExpanded"
-#define kDocumentationPanelVisibleKey       @"DocumentationPanelVisible"
 #define kDefinitionsUpdatedAtKey            @"DefinitionsUpdatedAt"
 #define kBundledUncrustifyBinaryVersionKey  @"BundledUncrustifyBinaryVersion"
 
@@ -53,22 +51,6 @@
 
 + (void)setDefinitionsUpdatedAt:(NSDate *)date {
     [self setDefaultsObject:date forKey:kDefinitionsUpdatedAtKey];
-}
-
-+ (BOOL)documentationPreviewExpanded {
-    return [[self defaultsObjectForKey:kDocumentationPreviewExpandedKey] boolValue];
-}
-
-+ (void)setDocumentationPreviewExpanded:(BOOL)expanded {
-    [self setDefaultsObject:@(expanded) forKey:kDocumentationPreviewExpandedKey];
-}
-
-+ (BOOL)documentationPanelVisible {
-    return [[self defaultsObjectForKey:kDocumentationPanelVisibleKey] boolValue];
-}
-
-+ (void)setDocumentationPanelVisible:(BOOL)visible {
-    [self setDefaultsObject:@(visible) forKey:kDocumentationPanelVisibleKey];
 }
 
 #pragma mark -

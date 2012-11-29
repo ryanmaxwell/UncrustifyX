@@ -19,12 +19,6 @@
 + (NSDate *)definitionsUpdatedAt;
 + (void)setDefinitionsUpdatedAt:(NSDate *)date;
 
-+ (BOOL)documentationPreviewExpanded;
-+ (void)setDocumentationPreviewExpanded:(BOOL)expanded;
-
-+ (BOOL)documentationPanelVisible;
-+ (void)setDocumentationPanelVisible:(BOOL)visible;
-
 + (void)registerDefaults;
 
 @end

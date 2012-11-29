@@ -43,7 +43,6 @@
     self = [super initWithWindowNibName:windowNibName];
     if (self) {
         _documentationPanelController = [[UXDocumentationPanelController alloc] initWithWindowNibName:@"UXDocumentationPanelController"];
-        _documentationPanelController.window.isVisible = UXDefaultsManager.documentationPanelVisible;
         
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
@@ -274,8 +273,7 @@
 }
 
 - (IBAction)showDocumentationPanel:(id)sender {
-    self.documentationPanelController.window.isVisible = 
-    UXDefaultsManager.documentationPanelVisible = !self.documentationPanelController.window.isVisible;
+    self.documentationPanelController.window.isVisible = !self.documentationPanelController.window.isVisible;
 }
 
 - (IBAction)exportConfiguration:(id)sender {
@@ -567,6 +565,7 @@
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
     [state encodeObject:self.toolbar.selectedItemIdentifier forKey:@"SelectedToolbarItemIdentifier"];
+    [state encodeBool:self.documentationPanelController.window.isVisible forKey:@"DocumentationPanelVisible"];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
@@ -585,6 +584,8 @@
             }
         }
     }
+    
+    self.documentationPanelController.window.isVisible = [state decodeBoolForKey:@"DocumentationPanelVisible"];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
