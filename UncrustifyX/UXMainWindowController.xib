@@ -1233,22 +1233,6 @@ wGw</bytes>
 					<int key="connectionID">203</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showFileList:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="240107926"/>
-					</object>
-					<int key="connectionID">204</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showDirectInput:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="223343292"/>
-					</object>
-					<int key="connectionID">205</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">toolbar</string>
 						<reference key="source" ref="1001"/>
@@ -1369,12 +1353,20 @@ wGw</bytes>
 					<int key="connectionID">276</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="971607101"/>
-						<reference key="destination" ref="1001"/>
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showView:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="223343292"/>
 					</object>
-					<int key="connectionID">39</int>
+					<int key="connectionID">293</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showView:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="240107926"/>
+					</object>
+					<int key="connectionID">294</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1383,6 +1375,14 @@ wGw</bytes>
 						<reference key="destination" ref="65171887"/>
 					</object>
 					<int key="connectionID">227</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="281368311"/>
+						<reference key="destination" ref="1001"/>
+					</object>
+					<int key="connectionID">290</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1920,6 +1920,7 @@ wGw</bytes>
 				<boolean value="YES" key="43.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="43.NSWindowTemplate.visibleAtLaunch"/>
+				<string key="43.userInterfaceItemIdentifier">MainWindow</string>
 				<string key="44.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="46.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1941,7 +1942,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">289</int>
+			<int key="maxID">294</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1991,9 +1992,8 @@ wGw</bytes>
 						<string key="exportConfiguration:">id</string>
 						<string key="importConfiguration:">id</string>
 						<string key="runButtonPressed:">id</string>
-						<string key="showDirectInput:">id</string>
 						<string key="showDocumentationPanel:">id</string>
-						<string key="showFileList:">id</string>
+						<string key="showView:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="deletePressed:">
@@ -2012,16 +2012,12 @@ wGw</bytes>
 							<string key="name">runButtonPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="showDirectInput:">
-							<string key="name">showDirectInput:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="showDocumentationPanel:">
 							<string key="name">showDocumentationPanel:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="showFileList:">
-							<string key="name">showFileList:</string>
+						<object class="IBActionInfo" key="showView:">
+							<string key="name">showView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

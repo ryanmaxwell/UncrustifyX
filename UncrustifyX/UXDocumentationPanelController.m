@@ -524,12 +524,16 @@ static CGFloat const PreviewViewHeight = 300.0f;
     }
 }
 
-#pragma mark - NSResponder
+#pragma mark - NSResponder (NSRestorableState)
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
     [super encodeRestorableStateWithCoder:coder];
     
     //TODO
+}
+
+- (void)restoreStateWithCoder:(NSCoder *)coder {
+    [super restoreStateWithCoder:coder];
 }
 
 #pragma mark - NSWindowDelegate

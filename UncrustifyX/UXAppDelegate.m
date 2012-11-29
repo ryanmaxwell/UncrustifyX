@@ -21,12 +21,18 @@
     [UXDefaultsManager registerDefaults];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [MagicalRecord setupAutoMigratingCoreDataStack];
+- (void)awakeFromNib {
+    [super awakeFromNib];
     
+    [MagicalRecord setupAutoMigratingCoreDataStack];
     [UXDataImporter importDefinitions];
     
-    self.mainWindowController.window.isVisible = YES;
+    _mainWindowController = [[UXMainWindowController alloc] initWithWindowNibName:@"UXMainWindowController"];
+    _mainWindowController.window.isVisible = YES;
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -43,24 +49,12 @@
     [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
 - (NSWindowController *)preferencesWindowController {
     if (!_preferencesWindowController) {
         _preferencesWindowController = [[UXPreferencesWindowController alloc] initWithWindowNibName:@"UXPreferencesWindowController"];
     }
     return _preferencesWindowController;
 }
-
-- (NSWindowController *)mainWindowController {
-    if (!_mainWindowController) {
-        _mainWindowController = [[UXMainWindowController alloc] initWithWindowNibName:@"UXMainWindowController"];
-    }
-    return _mainWindowController;
-}
-
 
 - (IBAction)showPreferences:(id)sender {
     self.preferencesWindowController.window.isVisible = YES;

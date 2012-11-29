@@ -2950,6 +2950,7 @@ wGw</bytes>
 				<boolean value="YES" key="163.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="163.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="163.NSWindowTemplate.visibleAtLaunch"/>
+				<string key="163.userInterfaceItemIdentifier">DocumentationPanel</string>
 				<string key="164.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="237.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="239.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

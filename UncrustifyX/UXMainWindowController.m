@@ -20,7 +20,7 @@
 #import "UXConfigOptionTableView.h"
 #import "UXExportPanelAccessoryView.h"
 
-@interface UXMainWindowController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate> {
+@interface UXMainWindowController () <NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate> {
     BOOL _initialize;
 }
 @property (strong, nonatomic) NSArray *sortedCategories;
@@ -88,12 +88,8 @@
              NSPasteboardTypeString
              ]];
             
-            if (!self.toolbar.selectedItemIdentifier) {
-                self.toolbar.selectedItemIdentifier = @"UXFileInput";
-                
-                self.fileInputView.frame = self.mainContainerView.bounds;
-                [self.mainContainerView addSubview:self.fileInputView];
-            }
+            self.toolbar.selectedItemIdentifier = @"UXFileInput";
+            [self showView:self.fileInputToolbarItem];
             
             _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
             [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
@@ -232,21 +228,21 @@
 
 #pragma mark - IBAction
 
-- (IBAction)showFileList:(id)sender {
-    if (!self.fileInputView.superview) {
-        [self.directInputView removeFromSuperview];
-        
-        self.fileInputView.frame = self.mainContainerView.bounds;
-        [self.mainContainerView addSubview:self.fileInputView];
-    }
-}
-
-- (IBAction)showDirectInput:(id)sender {
-    if (!self.directInputView.superview) {
-        [self.fileInputView removeFromSuperview];
-        
-        self.directInputView.frame = self.mainContainerView.bounds;
-        [self.mainContainerView addSubview:self.directInputView];
+- (IBAction)showView:(id)sender {
+    if (sender == self.fileInputToolbarItem) {
+        if (!self.fileInputView.superview) {
+            [self.directInputView removeFromSuperview];
+            
+            self.fileInputView.frame = self.mainContainerView.bounds;
+            [self.mainContainerView addSubview:self.fileInputView];
+        }
+    } else if (sender == self.directInputToolbarItem) {
+        if (!self.directInputView.superview) {
+            [self.fileInputView removeFromSuperview];
+            
+            self.directInputView.frame = self.mainContainerView.bounds;
+            [self.mainContainerView addSubview:self.directInputView];
+        }
     }
 }
 
@@ -368,16 +364,6 @@
         }
     }
     [self.filesTableView reloadData];
-}
-
-#pragma mark - UKSyntaxColoredTextViewDelegate
-
-- (void)textViewControllerWillStartSyntaxRecoloring:(UKSyntaxColoredTextViewController *)sender {
-    DLog(@"Starting Syntax Coloring");
-}
-
-- (void)textViewControllerDidFinishSyntaxRecoloring:(UKSyntaxColoredTextViewController *)sender {
-    DLog(@"Done Syntax Coloring");
 }
 
 #pragma mark - NSTableViewDataSource
@@ -574,6 +560,30 @@
         self.searchQuery = (query.length) ? query : nil;
         
         [self sortConfigOptions];
+    }
+}
+
+#pragma mark - NSWindowDelegate
+
+- (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
+    [state encodeObject:self.toolbar.selectedItemIdentifier forKey:@"SelectedToolbarItemIdentifier"];
+}
+
+- (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
+    NSString *selectedToolbarItemIdentifer = [state decodeObjectForKey:@"SelectedToolbarItemIdentifier"];
+    
+    if (selectedToolbarItemIdentifer) {
+        
+        /* find toolbar item with identifier */
+        for (NSToolbarItem *item in self.toolbar.items) {
+            if ([item.itemIdentifier isEqualToString:selectedToolbarItemIdentifer]) {
+                
+                self.toolbar.selectedItemIdentifier = selectedToolbarItemIdentifer;
+                [self showView:item];
+                
+                break;
+            }
+        }
     }
 }
 

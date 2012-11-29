@@ -47,8 +47,7 @@
 - (IBAction)importConfiguration:(id)sender;
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)runButtonPressed:(id)sender;
-- (IBAction)showFileList:(id)sender;
-- (IBAction)showDirectInput:(id)sender;
+- (IBAction)showView:(id)sender;
 
 - (IBAction)showDocumentationPanel:(id)sender;
 
