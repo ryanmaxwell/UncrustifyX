@@ -40,10 +40,6 @@
     [MagicalRecord cleanUp];
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
-    return YES;
-}
-
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
     [self.mainWindowController addFilePaths:filenames];
     [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];

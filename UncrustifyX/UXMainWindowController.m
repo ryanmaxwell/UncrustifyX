@@ -587,4 +587,8 @@
     }
 }
 
+- (void)windowWillClose:(NSNotification *)notification {
+    [NSApplication.sharedApplication terminate:self];
+}
+
 @end

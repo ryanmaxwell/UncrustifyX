@@ -23,7 +23,7 @@
 
 static CGFloat const PreviewViewHeight = 300.0f;
 
-@interface UXDocumentationPanelController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate>
+@interface UXDocumentationPanelController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate, NSWindowDelegate>
 @property (strong, nonatomic) UXPlaceholder *languagesHeader;
 @property (strong, nonatomic) UXPlaceholder *categoriesHeader;
 @property (strong, nonatomic) NSString *searchQuery;
@@ -524,24 +524,24 @@ static CGFloat const PreviewViewHeight = 300.0f;
     }
 }
 
-#pragma mark - NSResponder (NSRestorableState)
-
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
-    [super encodeRestorableStateWithCoder:coder];
-    
-    //TODO
-}
-
-- (void)restoreStateWithCoder:(NSCoder *)coder {
-    [super restoreStateWithCoder:coder];
-}
-
 #pragma mark - NSWindowDelegate
 
 - (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)frameSize {
     /* no vertical resizing */
     frameSize.height = self.window.frame.size.height;
     return frameSize;
+}
+
+- (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
+    //TODO
+}
+
+- (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
+    //TODO
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    UXDefaultsManager.documentationPanelVisible = NO;
 }
 
 @end
