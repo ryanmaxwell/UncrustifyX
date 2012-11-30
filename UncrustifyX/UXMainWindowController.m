@@ -122,12 +122,12 @@
         NSString *optionValue = nil;
         
         if (lineOptions.count > 0) {
-            optionCode = [lineOptions[0] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+            optionCode = [lineOptions[0] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
             NSLog(@"Code: '%@'", optionCode);
         }
         
         if (lineOptions.count > 1) {
-            optionValue = [lineOptions[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+            optionValue = [lineOptions[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
             NSLog(@"Value: '%@'", optionValue);
         }
         [self addConfigOptionWithCode:optionCode value:optionValue];
