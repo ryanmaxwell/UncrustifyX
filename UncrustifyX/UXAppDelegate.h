@@ -17,5 +17,6 @@
 
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)deletePressed:(id)sender;
+- (IBAction)showView:(id)sender;
 
 @end

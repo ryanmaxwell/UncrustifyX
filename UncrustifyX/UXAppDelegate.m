@@ -62,6 +62,20 @@
     [self.mainWindowController deletePressed:sender];
 }
 
+- (IBAction)showView:(id)sender {
+    NSMenuItem *menuItem = (NSMenuItem *)sender;
+    
+    if (menuItem.tag == 1) {
+        /* Files View */
+        self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.fileInputToolbarItem.itemIdentifier;
+        [self.mainWindowController showView:self.mainWindowController.fileInputToolbarItem];
+    } else if (menuItem.tag == 2) {
+        /* Direct Input View */
+        self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.directInputToolbarItem.itemIdentifier;
+        [self.mainWindowController showView:self.mainWindowController.directInputToolbarItem];
+    }
+}
+
 - (void)NSLogger {
 #if TEST_CONSOLE_LOGGING
 	LoggerSetOptions(NULL, kLoggerOption_LogToConsole);
