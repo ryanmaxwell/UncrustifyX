@@ -10,6 +10,7 @@
 #import "UXDataImporter.h"
 #import "UXMainWindowController.h"
 #import "UXPreferencesWindowController.h"
+#import "UXDocumentationPanelController.h"
 
 @implementation UXAppDelegate
 
@@ -65,14 +66,25 @@
 - (IBAction)showView:(id)sender {
     NSMenuItem *menuItem = (NSMenuItem *)sender;
     
-    if (menuItem.tag == 1) {
-        /* Files View */
-        self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.fileInputToolbarItem.itemIdentifier;
-        [self.mainWindowController showView:self.mainWindowController.fileInputToolbarItem];
-    } else if (menuItem.tag == 2) {
-        /* Direct Input View */
-        self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.directInputToolbarItem.itemIdentifier;
-        [self.mainWindowController showView:self.mainWindowController.directInputToolbarItem];
+    switch (menuItem.tag) {
+        case 1: {
+            /* Files View */
+            self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.fileInputToolbarItem.itemIdentifier;
+            [self.mainWindowController showView:self.mainWindowController.fileInputToolbarItem];
+            break;
+        }
+            
+        case 2: {
+            /* Direct Input View */
+            self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.directInputToolbarItem.itemIdentifier;
+            [self.mainWindowController showView:self.mainWindowController.directInputToolbarItem];
+            break;
+        }
+        case 3: {
+            /* Documentation */
+            [self.mainWindowController showDocumentationPanel:self];
+            break;
+        }
     }
 }
 
