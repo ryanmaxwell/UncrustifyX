@@ -82,7 +82,7 @@
         }
         case 3: {
             /* Documentation */
-            [self.mainWindowController showDocumentationPanel:self];
+            [self.mainWindowController toggleDocumentationPanel:self];
             break;
         }
     }

@@ -10,6 +10,7 @@
 #import "UXSyntaxColoredTextViewController.h"
 @class UXDocumentationPanelController;
 @class UXExportPanelAccessoryView;
+@class UXLanguage;
 
 @interface UXMainWindowController : NSWindowController
 
@@ -38,8 +39,9 @@
 @property (weak, nonatomic) IBOutlet NSTableView *configOptionsTableView;
 @property (weak, nonatomic) IBOutlet NSTableColumn *configOptionsTableColumn;
 
-@property (weak, nonatomic) IBOutlet NSPopUpButton *inputLanguagesPopUpButton;
+@property (weak, nonatomic) IBOutlet NSPopUpButton *inputLanguagePopUpButton;
 @property (strong, nonatomic) NSArrayController *inputLanguageArrayController;
+@property (strong, nonatomic) UXLanguage *selectedLanguage;
 
 @property (strong, nonatomic) IBOutlet UXExportPanelAccessoryView *exportPanelAccessoryView;
 
@@ -49,7 +51,7 @@
 - (IBAction)runButtonPressed:(id)sender;
 - (IBAction)showView:(id)sender;
 
-- (IBAction)showDocumentationPanel:(id)sender;
+- (IBAction)toggleDocumentationPanel:(id)sender;
 
 - (void)addFilePaths:(NSArray *)filePaths;
 

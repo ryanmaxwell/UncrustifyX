@@ -1186,14 +1186,6 @@ wGw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">showDocumentationPanel:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="380750639"/>
-					</object>
-					<int key="connectionID">53</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">exportConfiguration:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="7715135"/>
@@ -1345,14 +1337,6 @@ wGw</bytes>
 					<int key="connectionID">287</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">inputLanguagesPopUpButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="737609357"/>
-					</object>
-					<int key="connectionID">276</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">showView:</string>
 						<reference key="source" ref="1001"/>
@@ -1367,6 +1351,22 @@ wGw</bytes>
 						<reference key="destination" ref="240107926"/>
 					</object>
 					<int key="connectionID">294</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleDocumentationPanel:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="380750639"/>
+					</object>
+					<int key="connectionID">295</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">inputLanguagePopUpButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="737609357"/>
+					</object>
+					<int key="connectionID">298</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1493,7 +1493,7 @@ wGw</bytes>
 						<string key="label">contentValues: inputLanguageArrayController.arrangedObjects.name</string>
 						<reference key="source" ref="737609357"/>
 						<reference key="destination" ref="1001"/>
-						<object class="NSNibBindingConnector" key="connector">
+						<object class="NSNibBindingConnector" key="connector" id="784766372">
 							<reference key="NSSource" ref="737609357"/>
 							<reference key="NSDestination" ref="1001"/>
 							<string key="NSLabel">contentValues: inputLanguageArrayController.arrangedObjects.name</string>
@@ -1504,6 +1504,23 @@ wGw</bytes>
 						</object>
 					</object>
 					<int key="connectionID">273</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedObject: selectedLanguage</string>
+						<reference key="source" ref="737609357"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="737609357"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">selectedObject: selectedLanguage</string>
+							<string key="NSBinding">selectedObject</string>
+							<string key="NSKeyPath">selectedLanguage</string>
+							<reference key="NSPreviousConnector" ref="784766372"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">310</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1942,10 +1959,63 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">294</int>
+			<int key="maxID">310</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">UKSyntaxColoredTextViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="indentSelection:">id</string>
+						<string key="recolorCompleteFile:">id</string>
+						<string key="toggleAutoSyntaxColoring:">id</string>
+						<string key="toggleCommentForSelection:">id</string>
+						<string key="toggleMaintainIndentation:">id</string>
+						<string key="unindentSelection:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="indentSelection:">
+							<string key="name">indentSelection:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="recolorCompleteFile:">
+							<string key="name">recolorCompleteFile:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleAutoSyntaxColoring:">
+							<string key="name">toggleAutoSyntaxColoring:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleCommentForSelection:">
+							<string key="name">toggleCommentForSelection:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleMaintainIndentation:">
+							<string key="name">toggleMaintainIndentation:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="unindentSelection:">
+							<string key="name">unindentSelection:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">delegate</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">delegate</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">delegate</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/UKSyntaxColoredTextViewController.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UXConfigOptionTableView</string>
 					<string key="superclassName">NSTableView</string>
@@ -1992,8 +2062,8 @@ wGw</bytes>
 						<string key="exportConfiguration:">id</string>
 						<string key="importConfiguration:">id</string>
 						<string key="runButtonPressed:">id</string>
-						<string key="showDocumentationPanel:">id</string>
 						<string key="showView:">id</string>
+						<string key="toggleDocumentationPanel:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="deletePressed:">
@@ -2012,12 +2082,12 @@ wGw</bytes>
 							<string key="name">runButtonPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="showDocumentationPanel:">
-							<string key="name">showDocumentationPanel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="showView:">
 							<string key="name">showView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleDocumentationPanel:">
+							<string key="name">toggleDocumentationPanel:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
@@ -2033,7 +2103,7 @@ wGw</bytes>
 						<string key="fileInputToolbarItem">NSToolbarItem</string>
 						<string key="fileInputView">NSView</string>
 						<string key="filesTableView">NSTableView</string>
-						<string key="inputLanguagesPopUpButton">NSPopUpButton</string>
+						<string key="inputLanguagePopUpButton">NSPopUpButton</string>
 						<string key="mainContainerView">NSView</string>
 						<string key="mainSplitView">NSSplitView</string>
 						<string key="runToolbarItem">NSToolbarItem</string>
@@ -2087,8 +2157,8 @@ wGw</bytes>
 							<string key="name">filesTableView</string>
 							<string key="candidateClassName">NSTableView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="inputLanguagesPopUpButton">
-							<string key="name">inputLanguagesPopUpButton</string>
+						<object class="IBToOneOutletInfo" key="inputLanguagePopUpButton">
+							<string key="name">inputLanguagePopUpButton</string>
 							<string key="candidateClassName">NSPopUpButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mainContainerView">

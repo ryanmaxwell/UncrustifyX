@@ -55,9 +55,8 @@
         
         _inputLanguageArrayController = [[NSArrayController alloc] init];
         _inputLanguageArrayController.sortDescriptors = @[
-        [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                      ascending:YES
-                                       selector:@selector(localizedStandardCompare:)]
+            [NSSortDescriptor sortDescriptorWithKey:UXLanguageAttributes.name
+                                          ascending:YES]
         ];
         _inputLanguageArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
         _inputLanguageArrayController.entityName = UXLanguage.entityName;
@@ -94,6 +93,9 @@
             [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
             
             [self.inputLanguageArrayController fetch:nil];
+            
+            self.selectedLanguage = [UXLanguage findFirstOrderedByAttribute:UXLanguageAttributes.name
+                                                                  ascending:YES];
             
             [self.window makeKeyAndOrderFront:self];
         }
@@ -260,11 +262,9 @@
     } else if ([self.toolbar.selectedItemIdentifier isEqualToString:self.directInputToolbarItem.itemIdentifier]
         && self.codeTextView.string.length > 0) {
         
-        UXLanguage *selectedLangauge = self.inputLanguagesPopUpButton.selectedItem.representedObject;
-        
         NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.codeTextView.string
                                               withConfigOptions:self.configOptions
-                                                      arguments:@[@"-l", selectedLangauge.code]];
+                                                      arguments:@[@"-l", self.selectedLanguage.code]];
         if (result) {
             self.codeTextView.string = result;
             [self.syntaxColoringController recolorCompleteFile:self];
@@ -272,7 +272,7 @@
     }
 }
 
-- (IBAction)showDocumentationPanel:(id)sender {
+- (IBAction)toggleDocumentationPanel:(id)sender {
     self.documentationPanelController.window.isVisible = !self.documentationPanelController.window.isVisible;
 }
 
@@ -566,6 +566,7 @@
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
     [state encodeObject:self.toolbar.selectedItemIdentifier forKey:@"SelectedToolbarItemIdentifier"];
     [state encodeBool:self.documentationPanelController.window.isVisible forKey:@"DocumentationPanelVisible"];
+    [state encodeObject:self.selectedLanguage.code forKey:@"SelectedLanguageCode"];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
@@ -583,6 +584,12 @@
                 break;
             }
         }
+    }
+    
+    NSString *selectedLanguageCode = [state decodeObjectForKey:@"SelectedLanguageCode"];
+    if (selectedLanguageCode) {
+        self.selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
+                                                       withValue:selectedLanguageCode];
     }
     
     self.documentationPanelController.window.isVisible = [state decodeBoolForKey:@"DocumentationPanelVisible"];
