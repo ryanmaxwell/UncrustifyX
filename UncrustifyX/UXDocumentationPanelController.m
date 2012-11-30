@@ -466,8 +466,8 @@ static CGFloat const PreviewViewHeight = 300.0f;
 }
 
 - (IBAction)disclosureTriangleClicked:(id)sender {
-    [self.window invalidateRestorableState];
     [self setPreviewExpanded:!self.previewExpanded animated:YES];
+    [self.window invalidateRestorableState];
 }
 
 - (void)showInfoForOption:(UXOption *)option {
@@ -526,13 +526,13 @@ static CGFloat const PreviewViewHeight = 300.0f;
 }
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
-    [state encodeInteger:self.disclosureTriangle.state forKey:@"DisclosureTriangleState"];
+    [state encodeBool:self.previewExpanded forKey:@"PreviewExpanded"];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
-    NSInteger disclosureState = [state decodeIntegerForKey:@"DisclosureTriangleState"];
+    BOOL expanded = [state decodeBoolForKey:@"PreviewExpanded"];
     
-    if (disclosureState == NSOnState) {
+    if (expanded) {
         [self setPreviewExpanded:YES animated:NO];
         self.disclosureTriangle.state = NSOnState;
     } else {

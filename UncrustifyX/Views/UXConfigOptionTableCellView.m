@@ -7,7 +7,6 @@
 //
 
 #import "UXConfigOptionTableCellView.h"
-#import "UXAppDelegate.h"
 #import "UXMainWindowController.h"
 #import "UXDocumentationPanelController.h"
 #import "UXConfigOption.h"

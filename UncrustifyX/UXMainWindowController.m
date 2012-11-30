@@ -20,7 +20,9 @@
 #import "UXConfigOptionTableView.h"
 #import "UXExportPanelAccessoryView.h"
 
-@interface UXMainWindowController () <NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate> {
+#define kDocumentationPanelIdentifier @"DocumentationPanel"
+
+@interface UXMainWindowController () <NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate, NSWindowRestoration> {
     BOOL _initialize;
 }
 @property (strong, nonatomic) NSArray *sortedCategories;
@@ -43,6 +45,8 @@
     self = [super initWithWindowNibName:windowNibName];
     if (self) {
         _documentationPanelController = [[UXDocumentationPanelController alloc] initWithWindowNibName:@"UXDocumentationPanelController"];
+        _documentationPanelController.window.restorationClass = self.class;
+        _documentationPanelController.window.identifier = kDocumentationPanelIdentifier;
         
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
@@ -597,6 +601,18 @@
 
 - (void)windowWillClose:(NSNotification *)notification {
     [NSApplication.sharedApplication terminate:self];
+}
+
+#pragma mark - NSWindowRestoration
+
++ (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler {
+    
+    if ([identifier isEqualToString:kDocumentationPanelIdentifier]) {
+        UXAppDelegate *appDelegate = (UXAppDelegate *)NSApplication.sharedApplication.delegate;
+        NSWindow *documentationPanel = appDelegate.mainWindowController.documentationPanelController.window;
+        
+        completionHandler(documentationPanel, nil);
+    }
 }
 
 @end
