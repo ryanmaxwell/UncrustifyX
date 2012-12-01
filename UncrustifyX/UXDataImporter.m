@@ -45,8 +45,6 @@
          definitionsUpdatedAt,
          UXDefaultsManager.definitionsUpdatedAt);
     
-    [self deleteData];
-    
     UXDefaultsManager.definitionsUpdatedAt = definitionsUpdatedAt;
     
     NSMutableDictionary *languagesDict = NSMutableDictionary.dictionary;
@@ -54,35 +52,55 @@
     NSMutableDictionary *subCategoriesDict = NSMutableDictionary.dictionary;
     NSMutableArray *valueTypesArray = NSMutableArray.array;
     
+    /* Create or Update Languages */
     NSDictionary *languages = rootDict[@"Languages"];
     [languages enumerateKeysAndObjectsUsingBlock:^(NSString *key, id value, BOOL *stop){
         if ([value isKindOfClass:NSDictionary.class]) {
             NSDictionary *language = (NSDictionary *)value;
             
-            UXLanguage *newLanguage = [UXLanguage createEntity];
-            newLanguage.code = key;
-            newLanguage.name = language[@"Name"];
+            UXLanguage *languageEntity = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
+                                                                withValue:key];
+            if (!languageEntity) {
+                languageEntity = [UXLanguage createEntity];
+                languageEntity.code = key;
+            }
             
-            languagesDict[key] = newLanguage;
+            languageEntity.name = language[@"Name"];
+            
+            languagesDict[key] = languageEntity;
         }
     }];
-
+    
+    /* Create or Update Value Types */
     for (NSDictionary *valueType in rootDict[@"ValueTypes"]) {
-        UXValueType *newValueType = [UXValueType createEntity];
-        newValueType.type = valueType[@"Type"];
+        NSString *theType = valueType[@"Type"];
+        
+        UXValueType *valueTypeEntity = [UXValueType findFirstByAttribute:UXValueTypeAttributes.type
+                                                               withValue:theType];
+        if (!valueTypeEntity) {
+            valueTypeEntity = [UXValueType createEntity];
+            valueTypeEntity.type = theType;
+        } else {
+            /* trash old values rather than update */
+            for (UXValueType *vt in valueTypeEntity.values) {
+                [vt deleteEntity];
+            }
+        }
         
         for (NSString *value in valueType[@"Values"]) {
             UXValue *newValue = [UXValue createEntity];
             newValue.value = value;
-            [newValueType addValuesObject:newValue];
+            newValue.valueType = valueTypeEntity;
         }
 
         NSNumber *valueTypeID = valueType[@"ID"];
         if (valueTypeID) {
-            valueTypesArray[valueTypeID.unsignedIntegerValue] = newValueType;
+            valueTypesArray[valueTypeID.unsignedIntegerValue] = valueTypeEntity;
         }
     }
     
+    /* Replace all code samples */
+    [UXCodeSample truncateAll];
     for (NSDictionary *codeSample in rootDict[@"CodeSamples"]) {
         UXCodeSample *newCodeSample = [UXCodeSample createEntity];
         newCodeSample.codeSampleDescription = codeSample[@"Description"];
@@ -94,60 +112,81 @@
         newCodeSample.source = codeSample[@"Source"];
     }
     
+    /* Create or Update Options */
     NSDictionary *options = rootDict[@"Options"];
     [options enumerateKeysAndObjectsUsingBlock:^(NSString *key, id value, BOOL *stop){
         if ([value isKindOfClass:NSDictionary.class]) {
             NSDictionary *option = (NSDictionary *)value;
             
-            UXOption *newOption = [UXOption createEntity];
-            newOption.code = key;
-            newOption.name = option[@"Name"];
-            newOption.optionDescription = option[@"Description"];
+            UXOption *optionEntity = [UXOption findFirstByAttribute:UXOptionAttributes.code
+                                                          withValue:key];
+            if (!optionEntity) {
+                optionEntity = [UXOption createEntity];
+                optionEntity.code = key;
+            }
+            
+            optionEntity.name = option[@"Name"];
+            optionEntity.optionDescription = option[@"Description"];
             
             NSString *categoryName = option[@"Category"];
-            UXCategory *theCategory = nil;
+            UXCategory *categoryEntity = nil;
             if (categoryName.length) {
-                theCategory = categoriesDict[categoryName];
-                if (!theCategory) {
-                    theCategory = [UXCategory createEntity];
-                    theCategory.name = categoryName;
+                categoryEntity = categoriesDict[categoryName];
+                if (!categoryEntity) {
+                    categoryEntity = [UXCategory findFirstByAttribute:UXAbstractCategoryAttributes.name
+                                                            withValue:categoryName];
+                    if (!categoryEntity) {
+                        categoryEntity = [UXCategory createEntity];
+                        categoryEntity.name = categoryName;
+                    }
                     
-                    categoriesDict[categoryName] = theCategory;
+                    categoriesDict[categoryName] = categoryEntity;
                 }
-                newOption.category = theCategory;
+                optionEntity.category = categoryEntity;
             } else {
-                newOption.category =
-                theCategory = UXCategory.otherCategory;
+                optionEntity.category =
+                categoryEntity = UXCategory.otherCategory;
             }
             
             NSString *subCategoryName = option[@"SubCategory"];
-            UXSubCategory *theSubCategory = nil;
+            UXSubCategory *subCategoryEntity = nil;
             if (subCategoryName.length) {
-                theSubCategory = subCategoriesDict[subCategoryName];
-                if (!theSubCategory) {
-                    theSubCategory = [UXSubCategory createEntity];
-                    theSubCategory.name = subCategoryName;
+                subCategoryEntity = subCategoriesDict[subCategoryName];
+                if (!subCategoryEntity) {
+                    subCategoryEntity = [UXSubCategory findFirstByAttribute:UXAbstractCategoryAttributes.name
+                                                                  withValue:subCategoryName];
+                    if (!subCategoryEntity) {
+                        subCategoryEntity = [UXSubCategory createEntity];
+                        subCategoryEntity.name = subCategoryName;
+                    } else {
+                        /* relink parent categories */
+                        subCategoryEntity.parentCategories = nil;
+                    }
                     
-                    subCategoriesDict[subCategoryName] = theSubCategory;
+                    subCategoriesDict[subCategoryName] = subCategoryEntity;
                 }
                 
-                newOption.subCategory = theSubCategory;
+                optionEntity.subCategory = subCategoryEntity;
             } else {
-                newOption.subCategory = theSubCategory = UXSubCategory.otherSubCategory;
+                optionEntity.subCategory = subCategoryEntity = UXSubCategory.otherSubCategory;
             }
-            [theSubCategory addParentCategoriesObject:theCategory];
+            [subCategoryEntity addParentCategoriesObject:categoryEntity];
             
+            /* Relink Value Types */
+            optionEntity.valueType = nil;
             NSNumber *valueTypeID = option[@"ValueTypeID"];
             if (valueTypeID && valueTypeID.unsignedIntegerValue < valueTypesArray.count) {
-                newOption.valueType = valueTypesArray[valueTypeID.unsignedIntegerValue];
+                optionEntity.valueType = valueTypesArray[valueTypeID.unsignedIntegerValue];
             }
             
-            newOption.defaultValue = option[@"Default"];
+            optionEntity.defaultValue = option[@"Default"];
             
+            /* Relink Languages */
+            optionEntity.languages = nil;
             for (NSString *languageCode in option[@"Languages"]) {
                 UXLanguage *language = languagesDict[languageCode];
                 if (language) {
-                    [newOption addLanguagesObject:language];
+                    [optionEntity addLanguagesObject:language];
                 }
             }
         }
