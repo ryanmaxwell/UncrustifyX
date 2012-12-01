@@ -20,7 +20,17 @@
 #import "UXConfigOptionTableView.h"
 #import "UXExportPanelAccessoryView.h"
 
-#define kDocumentationPanelIdentifier @"DocumentationPanel"
+/* NSWindowRestoration keys */
+#define kSourceContainerViewWidthKey        @"SourceContainerViewWidth"
+#define kSelectedLanguageCodeKey            @"SelectedLanguageCode"
+#define kDocumentationPanelVisibleKey       @"DocumentationPanelVisible"
+#define kSelectedToolbarItemIdentifierKey   @"SelectedToolbarItemIdentifier"
+
+#define kDocumentationPanelIdentifier       @"DocumentationPanel"
+#define kSidebarSpaceToolbarItemIdentifier  @"UXSidebarSpace"
+
+static const CGFloat SourceViewMinWidth = 200.0f;
+static const CGFloat SourceViewMaxWidth = 450.0f;
 
 @interface UXMainWindowController () <NSTableViewDelegate, NSTableViewDataSource, NSSplitViewDelegate, UXConfigOptionTableViewDelegate, NSTextViewDelegate, NSWindowRestoration> {
     BOOL _initialize;
@@ -91,7 +101,8 @@
             [self showFileInputView];
             
             _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-            [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
+            [self.toolbar insertItemWithItemIdentifier:kSidebarSpaceToolbarItemIdentifier
+                                               atIndex:2];
             
             [self.inputLanguageArrayController fetch:nil];
             
@@ -522,14 +533,14 @@
 
 - (CGFloat)splitView:(NSSplitView *)splitView constrainMinCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)dividerIndex {
     if (splitView == self.mainSplitView && dividerIndex == 0) {
-        proposedMin = 200.0f;
+        proposedMin = SourceViewMinWidth;
     }
     return proposedMin;
 }
 
 - (CGFloat)splitView:(NSSplitView *)splitView constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)dividerIndex {
     if (splitView == self.mainSplitView && dividerIndex == 0) {
-        proposedMax = 450.0f;
+        proposedMax = SourceViewMaxWidth;
     }
     return proposedMax;
 }
@@ -550,8 +561,8 @@
 #pragma mark - NSToolbarDelegate
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag {
-    if ([itemIdentifier isEqualToString:@"UXSidebarSpace"]) {
-        _spaceItem = [[NSToolbarItem alloc] initWithItemIdentifier:@"UXSidebarSpace"];
+    if ([itemIdentifier isEqualToString:kSidebarSpaceToolbarItemIdentifier]) {
+        _spaceItem = [[NSToolbarItem alloc] initWithItemIdentifier:kSidebarSpaceToolbarItemIdentifier];
         _spaceItem.view = self.spaceView;
         return _spaceItem;
     }
@@ -590,13 +601,14 @@
 #pragma mark - NSWindowDelegate
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
-    [state encodeObject:self.toolbar.selectedItemIdentifier forKey:@"SelectedToolbarItemIdentifier"];
-    [state encodeBool:self.documentationPanelController.window.isVisible forKey:@"DocumentationPanelVisible"];
-    [state encodeObject:self.selectedLanguage.code forKey:@"SelectedLanguageCode"];
+    [state encodeObject:self.toolbar.selectedItemIdentifier forKey:kSelectedToolbarItemIdentifierKey];
+    [state encodeBool:self.documentationPanelController.window.isVisible forKey:kDocumentationPanelVisibleKey];
+    [state encodeObject:self.selectedLanguage.code forKey:kSelectedLanguageCodeKey];
+    [state encodeFloat:self.sourceContainerView.frame.size.width forKey:kSourceContainerViewWidthKey];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
-    NSString *selectedToolbarItemIdentifer = [state decodeObjectForKey:@"SelectedToolbarItemIdentifier"];
+    NSString *selectedToolbarItemIdentifer = [state decodeObjectForKey:kSelectedToolbarItemIdentifierKey];
     
     if (selectedToolbarItemIdentifer) {
         
@@ -612,13 +624,21 @@
         }
     }
     
-    NSString *selectedLanguageCode = [state decodeObjectForKey:@"SelectedLanguageCode"];
+    NSString *selectedLanguageCode = [state decodeObjectForKey:kSelectedLanguageCodeKey];
     if (selectedLanguageCode) {
         self.selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
                                                        withValue:selectedLanguageCode];
     }
     
-    self.documentationPanelController.window.isVisible = [state decodeBoolForKey:@"DocumentationPanelVisible"];
+    CGFloat sourceWidth = [state decodeFloatForKey:kSourceContainerViewWidthKey];
+    if (sourceWidth >= SourceViewMinWidth && sourceWidth <= SourceViewMaxWidth) {
+        self.sourceContainerView.frame = NSMakeRect(self.sourceContainerView.frame.origin.x,
+                                                    self.sourceContainerView.frame.origin.y,
+                                                    sourceWidth,
+                                                    self.sourceContainerView.frame.size.height);
+    }
+    
+    self.documentationPanelController.window.isVisible = [state decodeBoolForKey:kDocumentationPanelVisibleKey];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {

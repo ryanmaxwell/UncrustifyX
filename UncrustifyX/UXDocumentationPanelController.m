@@ -21,6 +21,11 @@
 #import "UXTaskRunner.h"
 #import "UXUIUtils.h"
 
+/* NSWindowRestoration keys */
+#define kPreviewExpandedKey                         @"PreviewExpanded"
+#define kSelectedPreviewLanguageCodeKey             @"SelectedPreviewLanguageCode"
+#define kSelectedPreviewCodeSampleDescriptionKey    @"SelectedPreviewCodeSampleDescription"
+
 static CGFloat const PreviewViewHeight = 300.0f;
 
 @interface UXDocumentationPanelController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate, NSWindowDelegate>
@@ -531,14 +536,13 @@ static CGFloat const PreviewViewHeight = 300.0f;
 }
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
-    [state encodeBool:self.previewExpanded forKey:@"PreviewExpanded"];
-    
-    [state encodeObject:self.selectedPreviewLanguage.code forKey:@"SelectedPreviewLanguageCode"];
-    [state encodeObject:self.selectedCodeSample.codeSampleDescription forKey:@"SelectedPreviewCodeSampleDescription"];
+    [state encodeBool:self.previewExpanded forKey:kPreviewExpandedKey];
+    [state encodeObject:self.selectedPreviewLanguage.code forKey:kSelectedPreviewLanguageCodeKey];
+    [state encodeObject:self.selectedCodeSample.codeSampleDescription forKey:kSelectedPreviewCodeSampleDescriptionKey];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
-    BOOL expanded = [state decodeBoolForKey:@"PreviewExpanded"];
+    BOOL expanded = [state decodeBoolForKey:kPreviewExpandedKey];
     
     if (expanded) {
         /* move up to account for initial window position */
@@ -548,7 +552,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
         self.disclosureTriangle.state = NSOnState;
     }
     
-    NSString *selectedPreviewLanguageCode = [state decodeObjectForKey:@"SelectedPreviewLanguageCode"];
+    NSString *selectedPreviewLanguageCode = [state decodeObjectForKey:kSelectedPreviewLanguageCodeKey];
     if (selectedPreviewLanguageCode) {
         UXLanguage *language = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedPreviewLanguageCode];
         if (language) {
@@ -556,7 +560,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
             
             [self filterCodeSamplesForLanguage:language];
             
-            NSString *selectedCodeSampleDescription = [state decodeObjectForKey:@"SelectedPreviewCodeSampleDescription"];
+            NSString *selectedCodeSampleDescription = [state decodeObjectForKey:kSelectedPreviewCodeSampleDescriptionKey];
             if (selectedCodeSampleDescription) {
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@",
                                           UXCodeSampleAttributes.codeSampleDescription, selectedCodeSampleDescription, UXCodeSampleRelationships.language, language];
