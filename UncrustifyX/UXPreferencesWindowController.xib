@@ -39,16 +39,14 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="1005">
-				<int key="NSWindowStyleMask">15</int>
+				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {546, 105}}</string>
+				<string key="NSWindowRect">{{196, 240}, {550, 105}}</string>
 				<int key="NSWTFlags">544735232</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">UXPreferencesWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMaxSize">{450, 108}</string>
-				<string key="NSWindowContentMinSize">{450, 108}</string>
 				<object class="NSView" key="NSWindowView" id="1006">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -56,7 +54,7 @@
 						<object class="NSTextField" id="491554721">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{220, 20}, {306, 22}}</string>
+							<string key="NSFrame">{{220, 20}, {310, 22}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="117673914"/>
@@ -303,7 +301,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<object class="NSTextField" id="641172631">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{256, 66}, {171, 17}}</string>
+							<string key="NSFrame">{{256, 66}, {175, 17}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="532385032"/>
@@ -351,14 +349,13 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
 					</array>
-					<string key="NSFrameSize">{546, 105}</string>
+					<string key="NSFrameSize">{550, 105}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="672549658"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
-				<string key="NSMinSize">{450, 130}</string>
-				<string key="NSMaxSize">{450, 130}</string>
+				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSUserDefaultsController" id="84117325">
@@ -670,17 +667,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<object class="IBPartialClassDescription">
 					<string key="className">UXPreferencesWindow</string>
 					<string key="superclassName">NSWindow</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/UXPreferencesWindow.h</string>

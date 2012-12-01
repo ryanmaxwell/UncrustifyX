@@ -81,12 +81,9 @@
             NSInteger result = [alert runModal];
             
             if (result == NSAlertFirstButtonReturn) {
-                NSLog(@"Use Bundled");
                 UXDefaultsManager.useCustomBinary = NO;
                 executablePath = UXDefaultsManager.uncrustifyBinaryPath;
             } else if (result == NSAlertSecondButtonReturn) {
-                NSLog(@"View Preferences");
-                
                 UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
                 [appDelegate showPreferences:self];
                 return;
