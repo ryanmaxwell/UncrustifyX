@@ -104,7 +104,9 @@ static CGFloat const PreviewViewHeight = 300.0f;
     [self.previewLanguagesArrayController fetch:nil];
     [self.codeSamplesArrayController fetch:nil];
     
-    [self filterCodeSamplesForLanguage:self.browseLanguagesArrayController.selection];
+    self.selectedPreviewLanguage = [UXLanguage findFirstOrderedByAttribute:UXLanguageAttributes.name
+                                                                 ascending:YES];
+    [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
 }
 
 #pragma mark - UKSyntaxColoredTextViewDelegate
@@ -228,6 +230,11 @@ static CGFloat const PreviewViewHeight = 300.0f;
     self.codeSamplesArrayController.filterPredicate = [NSPredicate predicateWithFormat:@"%K == %@",
                                                        UXCodeSampleRelationships.language,
                                                        language];
+    if ([self.codeSamplesArrayController.arrangedObjects count] == 0) {
+        self.selectedCodeSample = nil;
+    } else {
+        self.selectedCodeSample = self.codeSamplesArrayController.arrangedObjects[0];
+    }
 }
 
 - (void)filterOptions {
@@ -426,16 +433,13 @@ static CGFloat const PreviewViewHeight = 300.0f;
 }
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {
-    NSPopUpButton *senderButton = (NSPopUpButton *)sender;
-    UXLanguage *selectedLanguage = senderButton.selectedItem.representedObject;
-    [self filterCodeSamplesForLanguage:selectedLanguage];
-    
-    [self codeSamplePopUpChanged:self.codeSamplePopUpButton];
+    [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
+    [self codeSamplePopUpChanged:nil];
 }
 
 - (IBAction)codeSamplePopUpChanged:(id)sender {
-    NSPopUpButton *senderButton = (NSPopUpButton *)sender;
-    UXCodeSample *selectedSample = senderButton.selectedItem.representedObject;
+    UXCodeSample *selectedSample = self.selectedCodeSample;
+    
     if (selectedSample) {
         self.codePreviewTextView.string = selectedSample.source;
         [self.syntaxColoringController recolorCompleteFile:self];
@@ -527,6 +531,9 @@ static CGFloat const PreviewViewHeight = 300.0f;
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
     [state encodeBool:self.previewExpanded forKey:@"PreviewExpanded"];
+    
+    [state encodeObject:self.selectedPreviewLanguage.code forKey:@"SelectedPreviewLanguageCode"];
+    [state encodeObject:self.selectedCodeSample.codeSampleDescription forKey:@"SelectedPreviewCodeSampleDescription"];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
@@ -538,6 +545,23 @@ static CGFloat const PreviewViewHeight = 300.0f;
         
         [self setPreviewExpanded:YES animated:NO];
         self.disclosureTriangle.state = NSOnState;
+    }
+    
+    NSString *selectedPreviewLanguageCode = [state decodeObjectForKey:@"SelectedPreviewLanguageCode"];
+    if (selectedPreviewLanguageCode) {
+        UXLanguage *language = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedPreviewLanguageCode];
+        if (language) {
+            self.selectedPreviewLanguage = language;
+            
+            [self filterCodeSamplesForLanguage:language];
+            
+            NSString *selectedCodeSampleDescription = [state decodeObjectForKey:@"SelectedPreviewCodeSampleDescription"];
+            if (selectedCodeSampleDescription) {
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@",
+                                          UXCodeSampleAttributes.codeSampleDescription, selectedCodeSampleDescription, UXCodeSampleRelationships.language, language];
+                self.selectedCodeSample = [UXCodeSample findFirstWithPredicate:predicate];
+            }
+        }
     }
 }
 

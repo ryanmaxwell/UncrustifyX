@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 @class UXSyntaxColoredTextViewController;
 @class UXOption;
+@class UXLanguage;
+@class UXCodeSample;
 
 @interface UXDocumentationPanelController : NSWindowController
 
@@ -27,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet NSTextField *valueTextField;
 @property (weak, nonatomic) IBOutlet NSSegmentedControl *valueSegmentedControl;
 @property (weak, nonatomic) IBOutlet NSButton *disclosureTriangle;
+
+@property (weak, nonatomic) UXLanguage *selectedPreviewLanguage;
+@property (weak, nonatomic) UXCodeSample *selectedCodeSample;
 
 @property (strong, nonatomic) IBOutlet UXSyntaxColoredTextViewController *syntaxColoringController;
 @property (assign, nonatomic) IBOutlet NSTextView *codePreviewTextView;
