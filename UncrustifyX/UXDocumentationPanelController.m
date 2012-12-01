@@ -533,11 +533,11 @@ static CGFloat const PreviewViewHeight = 300.0f;
     BOOL expanded = [state decodeBoolForKey:@"PreviewExpanded"];
     
     if (expanded) {
+        /* move up to account for initial window position */
+        self.window.frameOrigin = NSMakePoint(self.window.frame.origin.x, self.window.frame.origin.y + PreviewViewHeight);
+        
         [self setPreviewExpanded:YES animated:NO];
         self.disclosureTriangle.state = NSOnState;
-    } else {
-        [self setPreviewExpanded:NO animated:NO];
-        self.disclosureTriangle = NSOffState;
     }
 }
 
