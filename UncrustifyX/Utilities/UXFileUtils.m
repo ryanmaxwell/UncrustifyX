@@ -41,29 +41,41 @@
     
     // TODO: sort config options by category and subcategory
     for (id<UXConfigOption> configOption in configOptions) {
-        if (configOption.configString) {
-            
-            if (documentation && configOption.option.name) {
-                [contents appendFormat:@"\n\n# %@",configOption.option.name];
-            }
-            [contents appendFormat:@"\n%@", configOption.configString];
+        if (configOption.option && configOption.value.length) {
             
             if (documentation) {
-                UXValueType *valueType = configOption.option.valueType;
                 
-                NSInteger tabs = 12;
-                NSInteger totalSpaces = (tabs * 4);
-                NSInteger trailingSpaces = (totalSpaces - configOption.configString.length);
+                NSInteger spacesPerTab = 4;
                 
-                if (trailingSpaces > 0) {
-                    for (NSInteger i = 0; i < trailingSpaces; i++) {
-                        [contents appendString:@" "];
-                    }
-                } else {
-                    [contents appendString:@" "];
+                NSInteger tabsBeforeValueAssignment = 10;
+                NSInteger tabsBeforeValueDocumentation = 14;
+                
+                [contents appendString:@"\n"];
+                
+                if (configOption.option.name) {
+                    [contents appendFormat:@"\n# %@",configOption.option.name];
                 }
                 
-                [contents appendFormat:@"# %@", valueType.type];
+                NSMutableString *optionLine = [NSMutableString stringWithString:configOption.option.code];
+                
+                NSInteger trailingSpaces1 = ((tabsBeforeValueAssignment * spacesPerTab) - optionLine.length);
+                NSInteger spacesToAppend1 = (trailingSpaces1 > 0) ? trailingSpaces1 : 1;
+                
+                for (NSInteger i = 0; i < spacesToAppend1; i++) {
+                    [optionLine appendString:@" "];
+                }
+                
+                [optionLine appendFormat:@"= %@", configOption.value.lowercaseString];
+                
+                NSInteger trailingSpaces2 = ((tabsBeforeValueDocumentation * spacesPerTab) - optionLine.length);
+                NSInteger spacesToAppend2 = (trailingSpaces2 > 0) ? trailingSpaces2 : 1;
+                
+                for (NSInteger i = 0; i < spacesToAppend2; i++) {
+                    [optionLine appendString:@" "];
+                }
+                
+                UXValueType *valueType = configOption.option.valueType;
+                [optionLine appendFormat:@"# %@", valueType.type.lowercaseString];
                 if (valueType.values.count) {
                     
                     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"value" ascending:YES];
@@ -71,11 +83,15 @@
                     NSMutableArray *valueNamesArray = NSMutableArray.array;
                     
                     for (UXValue *value in valuesArray) {
-                        [valueNamesArray addObject:value.value];
+                        [valueNamesArray addObject:value.value.lowercaseString];
                     }
                     
-                    [contents appendFormat:@" (%@)", [valueNamesArray componentsJoinedByString:@", "]];
+                    [optionLine appendFormat:@" (%@)", [valueNamesArray componentsJoinedByString:@"/"]];
                 }
+                
+                [contents appendFormat:@"\n%@", optionLine];
+            } else {
+                [contents appendFormat:@"\n%@", configOption.configString];
             }
         }
     }

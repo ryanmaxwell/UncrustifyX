@@ -12,7 +12,7 @@
 
 + (NSString *)configStringForOption:(UXOption *)option value:(NSString *)value {
     if (option && value.length) {
-        return [NSString stringWithFormat:@"%@ = %@", option.code, value];
+        return [NSString stringWithFormat:@"%@ = %@", option.code, value.lowercaseString];
     }
     return nil;
 }
