@@ -42,6 +42,19 @@
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
+    
+    for (NSString *filePath in filenames) {
+        if ([filePath.pathExtension isEqualToString:@"cfg"]) {
+            /* parse config */
+            
+            NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+            [self.mainWindowController importConfigurationAtURL:fileURL];
+            
+            [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
+            return;
+        }
+    }
+    
     [self.mainWindowController addFilePaths:filenames];
     [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
 }

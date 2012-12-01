@@ -45,8 +45,8 @@
 
 @property (strong, nonatomic) IBOutlet UXExportPanelAccessoryView *exportPanelAccessoryView;
 
-- (IBAction)exportConfiguration:(id)sender;
-- (IBAction)importConfiguration:(id)sender;
+- (IBAction)exportConfigurationPressed:(id)sender;
+- (IBAction)importConfigurationPressed:(id)sender;
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)runButtonPressed:(id)sender;
 - (IBAction)showView:(id)sender;
@@ -54,5 +54,6 @@
 - (IBAction)toggleDocumentationPanel:(id)sender;
 
 - (void)addFilePaths:(NSArray *)filePaths;
+- (void)importConfigurationAtURL:(NSURL *)fileURL;
 
 @end

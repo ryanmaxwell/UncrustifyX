@@ -37,8 +37,13 @@
     NSError *error = nil;
     NSString *result = [NSString stringWithContentsOfFile:tempPath encoding:NSUTF8StringEncoding error:&error];
     
-    DLog(@"%@", result);
-    return error ? nil : result;
+    if (error) {
+        DErr(@"%@", error);
+        return nil;
+    } else {
+        DLog(@"%@", result);
+        return result;
+    }
 }
 
 + (void)uncrustifyFilesAtPaths:(NSArray *)filePaths withConfigOptions:(NSArray *)configOptions arguments:(NSArray *)arguments {

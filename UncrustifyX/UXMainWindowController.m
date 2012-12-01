@@ -279,7 +279,7 @@
     self.documentationPanelController.window.isVisible = !self.documentationPanelController.window.isVisible;
 }
 
-- (IBAction)exportConfiguration:(id)sender {
+- (IBAction)exportConfigurationPressed:(id)sender {
     NSSavePanel *savePanel = NSSavePanel.savePanel;
     savePanel.allowedFileTypes = @[@"cfg"];
     savePanel.accessoryView = self.exportPanelAccessoryView;
@@ -297,28 +297,35 @@
     }];
 }
 
-- (IBAction)importConfiguration:(id)sender {
+- (IBAction)importConfigurationPressed:(id)sender {
     NSOpenPanel *openPanel = NSOpenPanel.openPanel;
     openPanel.allowedFileTypes = @[@"cfg"];
     
     [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
         if (result == NSFileHandlingPanelOKButton) {
-            NSError *error = nil;
-            NSString *contents = [NSString stringWithContentsOfURL:openPanel.URL
-                                                          encoding:NSUTF8StringEncoding
-                                                             error:&error];
-            
-            [self.configOptions removeAllObjects];
-            
-            NSArray *lines = [contents componentsSeparatedByString:@"\n"];
-            
-            for (NSString *line in lines) {
-                [self parseConfigLine:line];
-            }
-            
-            [self sortConfigOptions];
+            [self importConfigurationAtURL:openPanel.URL];
         }
     }];
+}
+
+- (void)importConfigurationAtURL:(NSURL *)fileURL {
+    NSError *error = nil;
+    NSString *contents = [NSString stringWithContentsOfURL:fileURL
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:&error];
+    if (!error) {
+        [self.configOptions removeAllObjects];
+        
+        NSArray *lines = [contents componentsSeparatedByString:@"\n"];
+        
+        for (NSString *line in lines) {
+            [self parseConfigLine:line];
+        }
+        
+        [self sortConfigOptions];
+    } else {
+        DErr(@"%@", error);
+    }
 }
 
 - (IBAction)deletePressed:(id)sender {

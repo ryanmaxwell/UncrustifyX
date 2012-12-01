@@ -1185,14 +1185,6 @@ wGw</bytes>
 					<int key="connectionID">45</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">exportConfiguration:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="7715135"/>
-					</object>
-					<int key="connectionID">188</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">exportToolbarItem</string>
 						<reference key="source" ref="1001"/>
@@ -1215,14 +1207,6 @@ wGw</bytes>
 						<reference key="destination" ref="881353348"/>
 					</object>
 					<int key="connectionID">199</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">importConfiguration:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="148375419"/>
-					</object>
-					<int key="connectionID">203</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1367,6 +1351,22 @@ wGw</bytes>
 						<reference key="destination" ref="737609357"/>
 					</object>
 					<int key="connectionID">298</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">importConfigurationPressed:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="148375419"/>
+					</object>
+					<int key="connectionID">311</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">exportConfigurationPressed:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="7715135"/>
+					</object>
+					<int key="connectionID">312</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1959,7 +1959,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">310</int>
+			<int key="maxID">312</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2059,8 +2059,8 @@ wGw</bytes>
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="deletePressed:">id</string>
-						<string key="exportConfiguration:">id</string>
-						<string key="importConfiguration:">id</string>
+						<string key="exportConfigurationPressed:">id</string>
+						<string key="importConfigurationPressed:">id</string>
 						<string key="runButtonPressed:">id</string>
 						<string key="showView:">id</string>
 						<string key="toggleDocumentationPanel:">id</string>
@@ -2070,12 +2070,12 @@ wGw</bytes>
 							<string key="name">deletePressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="exportConfiguration:">
-							<string key="name">exportConfiguration:</string>
+						<object class="IBActionInfo" key="exportConfigurationPressed:">
+							<string key="name">exportConfigurationPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="importConfiguration:">
-							<string key="name">importConfiguration:</string>
+						<object class="IBActionInfo" key="importConfigurationPressed:">
+							<string key="name">importConfigurationPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="runButtonPressed:">

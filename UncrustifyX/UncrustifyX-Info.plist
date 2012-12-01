@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSSupportsSuddenTermination</key>
-	<true/>
-	<key>SUFeedURL</key>
-	<string>https://raw.github.com/ryanmaxwell/uncrustifyx/appcast/uncrustifyx-appcast.xml</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
@@ -13,6 +9,7 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>cfg</string>
 				<string>h</string>
 				<string>m</string>
 				<string>mm</string>
@@ -56,5 +53,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSSupportsSuddenTermination</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://raw.github.com/ryanmaxwell/uncrustifyx/appcast/uncrustifyx-appcast.xml</string>
 </dict>
 </plist>
