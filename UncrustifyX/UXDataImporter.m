@@ -50,7 +50,7 @@
     NSMutableDictionary *languagesDict = NSMutableDictionary.dictionary;
     NSMutableDictionary *categoriesDict = NSMutableDictionary.dictionary;
     NSMutableDictionary *subCategoriesDict = NSMutableDictionary.dictionary;
-    NSMutableArray *valueTypesArray = NSMutableArray.array;
+    NSMutableDictionary *valueTypesDict = NSMutableDictionary.dictionary;
     
     /* Create or Update Languages */
     NSDictionary *languages = rootDict[@"Languages"];
@@ -71,21 +71,13 @@
         }
     }];
     
-    /* Create or Update Value Types */
+    /* Replace all Value Types */
+    [UXValueType truncateAll];
     for (NSDictionary *valueType in rootDict[@"ValueTypes"]) {
         NSString *theType = valueType[@"Type"];
         
-        UXValueType *valueTypeEntity = [UXValueType findFirstByAttribute:UXValueTypeAttributes.type
-                                                               withValue:theType];
-        if (!valueTypeEntity) {
-            valueTypeEntity = [UXValueType createEntity];
-            valueTypeEntity.type = theType;
-        } else {
-            /* trash old values rather than update */
-            for (UXValueType *vt in valueTypeEntity.values) {
-                [vt deleteEntity];
-            }
-        }
+        UXValueType *valueTypeEntity = [UXValueType createEntity];
+        valueTypeEntity.type = theType;
         
         for (NSString *value in valueType[@"Values"]) {
             UXValue *newValue = [UXValue createEntity];
@@ -95,7 +87,7 @@
 
         NSNumber *valueTypeID = valueType[@"ID"];
         if (valueTypeID) {
-            valueTypesArray[valueTypeID.unsignedIntegerValue] = valueTypeEntity;
+            valueTypesDict[valueTypeID] = valueTypeEntity;
         }
     }
     
@@ -175,8 +167,8 @@
             /* Relink Value Types */
             optionEntity.valueType = nil;
             NSNumber *valueTypeID = option[@"ValueTypeID"];
-            if (valueTypeID && valueTypeID.unsignedIntegerValue < valueTypesArray.count) {
-                optionEntity.valueType = valueTypesArray[valueTypeID.unsignedIntegerValue];
+            if (valueTypeID) {
+                optionEntity.valueType = valueTypesDict[valueTypeID];
             }
             
             optionEntity.defaultValue = option[@"Default"];
