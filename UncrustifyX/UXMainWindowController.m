@@ -159,7 +159,6 @@
 }
 
 - (void)sortConfigOptions {
-    if (self.configOptions.count == 0) return;
     
     NSArray *filteredConfigOptions = nil;
     
