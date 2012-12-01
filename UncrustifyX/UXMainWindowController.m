@@ -159,10 +159,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [self.configOptions addObject:newConfigOption];
             [NSManagedObjectContext.defaultContext save];
         } else {
-            DLog(@"COULD NOT FIND OPTION WITH %@ code", code);
+            DWarn(@"COULD NOT FIND OPTION WITH %@ code", code);
         }
     } else {
-        DLog(@"ALREADY HAVE CONFIG OPTION WITH %@ code", code);
+        DWarn(@"ALREADY HAVE CONFIG OPTION WITH %@ code", code);
     }
 }
 
@@ -549,7 +549,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (BOOL)validateToolbarItem:(NSToolbarItem *)theItem {
     if (theItem == self.exportToolbarItem) {
-        NSLog(@"%d", self.configOptions.count);
         return (self.configOptions.count > 0);
     } else if (theItem == self.runToolbarItem) {
         return (self.configOptions.count > 0
