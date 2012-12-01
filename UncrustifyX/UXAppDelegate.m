@@ -12,6 +12,10 @@
 #import "UXPreferencesWindowController.h"
 #import "UXDocumentationPanelController.h"
 
+@interface UXAppDelegate () <NSMenuDelegate>
+
+@end
+
 @implementation UXAppDelegate
 
 #pragma mark - NSApplicationDelegate
@@ -66,6 +70,16 @@
     return _preferencesWindowController;
 }
 
+#pragma mark - IBAction
+
+- (IBAction)importConfiguration:(id)sender {
+    [self.mainWindowController importConfigurationPressed:sender];
+}
+
+- (IBAction)exportConfiguration:(id)sender {
+    [self.mainWindowController exportConfigurationPressed:sender];
+}
+
 - (IBAction)showPreferences:(id)sender {
     self.preferencesWindowController.window.isVisible = YES;
     self.preferencesWindowController.window.level = 3; /* Documentation Panel Level */
@@ -116,6 +130,16 @@
 	// test restricting bonjour lookup for a specific machine
 	LoggerSetupBonjour(NULL, NULL, CFSTR("Awesome"));
 #endif
+}
+
+#pragma mark - NSMenuValidation
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+    if (menuItem.tag == 11) {
+        /* Export Configuration */
+        return (self.mainWindowController.configOptions.count > 0);
+    }
+    return YES;
 }
 
 @end

@@ -27,8 +27,6 @@
 }
 @property (strong, nonatomic) NSArray *sortedCategories;
 
-@property (strong, nonatomic) NSMutableArray *configOptions;
-
 @property (strong, nonatomic) NSMutableArray *sortedConfigOptionsAndCategories;
 @property (strong, nonatomic) NSMutableArray *filePaths;
 
@@ -90,8 +88,7 @@
              NSPasteboardTypeString
              ]];
             
-            self.toolbar.selectedItemIdentifier = @"UXFileInput";
-            [self showView:self.fileInputToolbarItem];
+            [self showFileInputView];
             
             _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
             [self.toolbar insertItemWithItemIdentifier:@"UXSidebarSpace" atIndex:2];
@@ -110,7 +107,7 @@
 
 - (UXPersistentConfigOption *)configOptionWithCode:(NSString *)code {
     for (UXPersistentConfigOption *configOption in self.configOptions) {
-        if ([configOption.option.code isEqualToString:code]) {
+        if (configOption.option && ([configOption.option.code caseInsensitiveCompare:code] == NSOrderedSame)) {
             return configOption;
         }
     }
@@ -230,23 +227,35 @@
     return _exportPanelAccessoryView;
 }
 
+- (void)showFileInputView {
+    self.toolbar.selectedItemIdentifier = @"UXFileInput";
+    
+    if (!self.fileInputView.superview) {
+        [self.directInputView removeFromSuperview];
+        
+        self.fileInputView.frame = self.mainContainerView.bounds;
+        [self.mainContainerView addSubview:self.fileInputView];
+    }
+}
+
+- (void)showDirectInputView {
+    self.toolbar.selectedItemIdentifier = @"UXDirectInput";
+    
+    if (!self.directInputView.superview) {
+        [self.fileInputView removeFromSuperview];
+        
+        self.directInputView.frame = self.mainContainerView.bounds;
+        [self.mainContainerView addSubview:self.directInputView];
+    }
+}
+
 #pragma mark - IBAction
 
 - (IBAction)showView:(id)sender {
     if (sender == self.fileInputToolbarItem) {
-        if (!self.fileInputView.superview) {
-            [self.directInputView removeFromSuperview];
-            
-            self.fileInputView.frame = self.mainContainerView.bounds;
-            [self.mainContainerView addSubview:self.fileInputView];
-        }
+        [self showFileInputView];
     } else if (sender == self.directInputToolbarItem) {
-        if (!self.directInputView.superview) {
-            [self.fileInputView removeFromSuperview];
-            
-            self.directInputView.frame = self.mainContainerView.bounds;
-            [self.mainContainerView addSubview:self.directInputView];
-        }
+        [self showDirectInputView];
     }
 }
 
@@ -314,7 +323,12 @@
                                                   encoding:NSUTF8StringEncoding
                                                      error:&error];
     if (!error) {
+        
+        for (UXPersistentConfigOption *configOption in self.configOptions) {
+            [configOption deleteEntity];
+        }
         [self.configOptions removeAllObjects];
+        
         
         NSArray *lines = [contents componentsSeparatedByString:@"\n"];
         
@@ -352,9 +366,9 @@
             [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[index]];
         }];
         
-        for (UXPersistentConfigOption *configOption in objectsToRemove) {
-            [self.configOptions removeObject:configOption];
-            [NSManagedObjectContext.defaultContext deleteObject:configOption];
+        [self.configOptions removeObjectsInArray:objectsToRemove];
+        for (NSManagedObject *mo in objectsToRemove) {
+            [NSManagedObjectContext.defaultContext deleteObject:mo];
         }
         [NSManagedObjectContext.defaultContext save];
         
@@ -371,6 +385,7 @@
             [self.filePaths addObject:obj];
         }
     }
+    [self showFileInputView];
     [self.filesTableView reloadData];
 }
 
@@ -523,6 +538,7 @@
 
 - (BOOL)validateToolbarItem:(NSToolbarItem *)theItem {
     if (theItem == self.exportToolbarItem) {
+        NSLog(@"%d", self.configOptions.count);
         return (self.configOptions.count > 0);
     } else if (theItem == self.runToolbarItem) {
         return (self.configOptions.count > 0

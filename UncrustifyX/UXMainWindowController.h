@@ -45,6 +45,8 @@
 
 @property (strong, nonatomic) IBOutlet UXExportPanelAccessoryView *exportPanelAccessoryView;
 
+@property (strong, nonatomic) NSMutableArray *configOptions;
+
 - (IBAction)exportConfigurationPressed:(id)sender;
 - (IBAction)importConfigurationPressed:(id)sender;
 - (IBAction)deletePressed:(id)sender;

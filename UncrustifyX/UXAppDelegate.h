@@ -16,6 +16,8 @@
 @property (strong, nonatomic) UXPreferencesWindowController *preferencesWindowController;
 
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)importConfiguration:(id)sender;
+- (IBAction)exportConfiguration:(id)sender;
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)showView:(id)sender;
 

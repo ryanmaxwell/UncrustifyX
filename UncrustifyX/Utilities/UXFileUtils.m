@@ -45,7 +45,7 @@
             
             if (documentation) {
                 
-                NSInteger spacesPerTab = 4;
+                static const NSInteger SpacesPerTab = 4;
                 
                 NSInteger tabsBeforeValueAssignment = 10;
                 NSInteger tabsBeforeValueDocumentation = 14;
@@ -58,7 +58,7 @@
                 
                 NSMutableString *optionLine = [NSMutableString stringWithString:configOption.option.code];
                 
-                NSInteger trailingSpaces1 = ((tabsBeforeValueAssignment * spacesPerTab) - optionLine.length);
+                NSInteger trailingSpaces1 = ((tabsBeforeValueAssignment * SpacesPerTab) - optionLine.length);
                 NSInteger spacesToAppend1 = (trailingSpaces1 > 0) ? trailingSpaces1 : 1;
                 
                 for (NSInteger i = 0; i < spacesToAppend1; i++) {
@@ -67,7 +67,7 @@
                 
                 [optionLine appendFormat:@"= %@", configOption.value.lowercaseString];
                 
-                NSInteger trailingSpaces2 = ((tabsBeforeValueDocumentation * spacesPerTab) - optionLine.length);
+                NSInteger trailingSpaces2 = ((tabsBeforeValueDocumentation * SpacesPerTab) - optionLine.length);
                 NSInteger spacesToAppend2 = (trailingSpaces2 > 0) ? trailingSpaces2 : 1;
                 
                 for (NSInteger i = 0; i < spacesToAppend2; i++) {
