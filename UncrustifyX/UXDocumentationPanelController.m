@@ -371,27 +371,6 @@ static CGFloat const PreviewViewHeight = 300.0f;
     return (appliedPredicates.count > 0) ? [NSCompoundPredicate andPredicateWithSubpredicates:appliedPredicates] : nil;
 }
 
-- (void)setPreviewExpanded:(BOOL)previewExpanded {
-    [self setPreviewExpanded:previewExpanded animated:NO];
-}
-
-- (void)setPreviewExpanded:(BOOL)previewExpanded animated:(BOOL)animated {
-    if (previewExpanded == _previewExpanded) return;
-    
-    _previewExpanded = previewExpanded;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        /* perform window resize async so that disclosure triangle can do flip animation at same time */
-        
-        CGFloat deltaY = (self.previewExpanded) ? PreviewViewHeight : - PreviewViewHeight;
-        
-        NSRect oldFrame = self.window.frame;
-        NSRect newFrame = NSMakeRect(oldFrame.origin.x, oldFrame.origin.y - deltaY, oldFrame.size.width, oldFrame.size.height + deltaY);
-        
-        [self.window setFrame:newFrame display:YES animate:animated];
-    });
-}
-
 #pragma mark - Readonly Getters
 
 - (UXCategory *)selectedCategory {
@@ -423,6 +402,40 @@ static CGFloat const PreviewViewHeight = 300.0f;
     }
 }
 
+- (void)setSelectedCodeSample:(UXCodeSample *)selectedCodeSample {
+    if (_selectedCodeSample != selectedCodeSample) {
+        _selectedCodeSample = selectedCodeSample;
+        
+        if (selectedCodeSample) {
+            self.codePreviewTextView.string = selectedCodeSample.source;
+            [self.syntaxColoringController recolorCompleteFile:self];
+        } else {
+            self.codePreviewTextView.string = @"";
+        }
+    }
+}
+
+- (void)setPreviewExpanded:(BOOL)previewExpanded {
+    [self setPreviewExpanded:previewExpanded animated:NO];
+}
+
+- (void)setPreviewExpanded:(BOOL)previewExpanded animated:(BOOL)animated {
+    if (previewExpanded == _previewExpanded) return;
+    
+    _previewExpanded = previewExpanded;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        /* perform window resize async so that disclosure triangle can do flip animation at same time */
+        
+        CGFloat deltaY = (self.previewExpanded) ? PreviewViewHeight : - PreviewViewHeight;
+        
+        NSRect oldFrame = self.window.frame;
+        NSRect newFrame = NSMakeRect(oldFrame.origin.x, oldFrame.origin.y - deltaY, oldFrame.size.width, oldFrame.size.height + deltaY);
+        
+        [self.window setFrame:newFrame display:YES animate:animated];
+    });
+}
+
 #pragma mark - IBAction
 
 - (IBAction)browseLanguagesPopUpChanged:(id)sender {
@@ -434,18 +447,6 @@ static CGFloat const PreviewViewHeight = 300.0f;
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {
     [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
-    [self codeSamplePopUpChanged:nil];
-}
-
-- (IBAction)codeSamplePopUpChanged:(id)sender {
-    UXCodeSample *selectedSample = self.selectedCodeSample;
-    
-    if (selectedSample) {
-        self.codePreviewTextView.string = selectedSample.source;
-        [self.syntaxColoringController recolorCompleteFile:self];
-    } else {
-        self.codePreviewTextView.string = @"";
-    }
 }
 
 - (IBAction)valueSegmentedControlChanged:(id)sender {

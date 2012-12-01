@@ -40,7 +40,6 @@
 
 - (IBAction)browseLanguagesPopUpChanged:(id)sender;
 - (IBAction)previewLanguagePopUpChanged:(id)sender;
-- (IBAction)codeSamplePopUpChanged:(id)sender;
 - (IBAction)valueSegmentedControlChanged:(id)sender;
 - (IBAction)disclosureTriangleClicked:(id)sender;
 

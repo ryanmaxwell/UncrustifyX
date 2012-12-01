@@ -1728,14 +1728,6 @@ wGw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">codeSamplePopUpChanged:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="344305909"/>
-					</object>
-					<int key="connectionID">681</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">previewLanguagePopUpChanged:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="702719483"/>
