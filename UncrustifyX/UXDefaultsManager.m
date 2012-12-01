@@ -45,6 +45,10 @@
     return [self defaultsObjectForKey:kCustomBinaryPathKey];
 }
 
++ (void)setCustomBinaryPath:(NSString *)path {
+    [self setDefaultsObject:path forKey:kCustomBinaryPathKey];
+}
+
 + (NSDate *)definitionsUpdatedAt {
     return [self defaultsObjectForKey:kDefinitionsUpdatedAtKey];
 }

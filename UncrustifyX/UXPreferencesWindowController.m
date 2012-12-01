@@ -8,7 +8,7 @@
 
 #import "UXPreferencesWindowController.h"
 
-@interface UXPreferencesWindowController ()
+@interface UXPreferencesWindowController () <NSOpenSavePanelDelegate>
 
 @end
 
@@ -25,6 +25,28 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
+}
+
+- (IBAction)choosePressed:(id)sender {
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    
+    NSURL *initialDirectoryURL = nil;
+    BOOL isDir;
+    if ([NSFileManager.defaultManager fileExistsAtPath:@"/usr/local/bin" isDirectory:&isDir] && isDir) {
+        initialDirectoryURL = [NSURL fileURLWithPath:@"/usr/local/bin" isDirectory:YES];
+    } else {
+        initialDirectoryURL = [NSURL fileURLWithPath:@"/usr/bin" isDirectory:YES];
+    }
+    
+    openPanel.directoryURL = initialDirectoryURL;
+    NSInteger result = [openPanel runModal];
+    
+    if (result == NSFileHandlingPanelOKButton) {
+        NSURL *chosenFileURL = openPanel.URL;
+        
+        self.customBinaryPathTextField.stringValue = chosenFileURL.path;
+        UXDefaultsManager.customBinaryPath = chosenFileURL.path;
+    }
 }
 
 @end

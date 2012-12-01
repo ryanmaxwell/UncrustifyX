@@ -16,6 +16,9 @@
 + (BOOL)overwriteFiles;
 + (BOOL)useCustomBinary;
 
++ (NSString *)customBinaryPath;
++ (void)setCustomBinaryPath:(NSString *)path;
+
 + (NSDate *)definitionsUpdatedAt;
 + (void)setDefinitionsUpdatedAt:(NSDate *)date;
 
