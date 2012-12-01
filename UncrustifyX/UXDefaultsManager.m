@@ -37,6 +37,10 @@
     return [[self defaultsObjectForKey:kUseCustomBinaryKey] boolValue];
 }
 
++ (void)setUseCustomBinary:(BOOL)useCustomBinary {
+    [self setDefaultsObject:@(useCustomBinary) forKey:kUseCustomBinaryKey];
+}
+
 + (BOOL)overwriteFiles {
     return [[self defaultsObjectForKey:kOverwriteFilesKey] boolValue];
 }

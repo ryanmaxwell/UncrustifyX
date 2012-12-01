@@ -45,6 +45,7 @@
         NSURL *chosenFileURL = openPanel.URL;
         
         self.customBinaryPathTextField.stringValue = chosenFileURL.path;
+        UXDefaultsManager.useCustomBinary = YES;
         UXDefaultsManager.customBinaryPath = chosenFileURL.path;
     }
 }

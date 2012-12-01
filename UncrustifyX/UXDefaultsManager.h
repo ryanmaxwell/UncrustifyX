@@ -14,7 +14,9 @@
 + (NSString *)bundledUncrustifyBinaryVersion;
 
 + (BOOL)overwriteFiles;
+
 + (BOOL)useCustomBinary;
++ (void)setUseCustomBinary:(BOOL)useCustomBinary;
 
 + (NSString *)customBinaryPath;
 + (void)setCustomBinaryPath:(NSString *)path;
