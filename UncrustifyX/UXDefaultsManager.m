@@ -8,16 +8,16 @@
 
 #import "UXDefaultsManager.h"
 
-#define kOverwriteFilesKey                  @"OverwriteFiles"
-#define kUseCustomBinaryKey                 @"UseCustomBinary"
-#define kCustomBinaryPathKey                @"CustomBinaryPath"
-#define kDefinitionsUpdatedAtKey            @"DefinitionsUpdatedAt"
-#define kBundledUncrustifyBinaryVersionKey  @"BundledUncrustifyBinaryVersion"
+static NSString *const UXOverwriteFilesKey                  = @"OverwriteFiles";
+static NSString *const UXUseCustomBinaryKey                 = @"UseCustomBinary";
+static NSString *const UXCustomBinaryPathKey                = @"CustomBinaryPath";
+static NSString *const UXDefinitionsUpdatedAtKey            = @"DefinitionsUpdatedAt";
+static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"BundledUncrustifyBinaryVersion";
 
 @implementation UXDefaultsManager
 
 + (void)registerDefaults {
-    NSDictionary *defaults = @{kBundledUncrustifyBinaryVersionKey: @"0.59 (f91f1aa05b)"};
+    NSDictionary *defaults = @{UXBundledUncrustifyBinaryVersionKey: @"0.59 (f91f1aa05b)"};
     [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
 }
 
@@ -30,35 +30,35 @@
 }
 
 + (NSString *)bundledUncrustifyBinaryVersion {
-    return [self defaultsObjectForKey:kBundledUncrustifyBinaryVersionKey];
+    return [self defaultsObjectForKey:UXBundledUncrustifyBinaryVersionKey];
 }
 
 + (BOOL)useCustomBinary {
-    return [[self defaultsObjectForKey:kUseCustomBinaryKey] boolValue];
+    return [[self defaultsObjectForKey:UXUseCustomBinaryKey] boolValue];
 }
 
 + (void)setUseCustomBinary:(BOOL)useCustomBinary {
-    [self setDefaultsObject:@(useCustomBinary) forKey:kUseCustomBinaryKey];
+    [self setDefaultsObject:@(useCustomBinary) forKey:UXUseCustomBinaryKey];
 }
 
 + (BOOL)overwriteFiles {
-    return [[self defaultsObjectForKey:kOverwriteFilesKey] boolValue];
+    return [[self defaultsObjectForKey:UXOverwriteFilesKey] boolValue];
 }
 
 + (NSString *)customBinaryPath {
-    return [self defaultsObjectForKey:kCustomBinaryPathKey];
+    return [self defaultsObjectForKey:UXCustomBinaryPathKey];
 }
 
 + (void)setCustomBinaryPath:(NSString *)path {
-    [self setDefaultsObject:path forKey:kCustomBinaryPathKey];
+    [self setDefaultsObject:path forKey:UXCustomBinaryPathKey];
 }
 
 + (NSDate *)definitionsUpdatedAt {
-    return [self defaultsObjectForKey:kDefinitionsUpdatedAtKey];
+    return [self defaultsObjectForKey:UXDefinitionsUpdatedAtKey];
 }
 
 + (void)setDefinitionsUpdatedAt:(NSDate *)date {
-    [self setDefaultsObject:date forKey:kDefinitionsUpdatedAtKey];
+    [self setDefaultsObject:date forKey:UXDefinitionsUpdatedAtKey];
 }
 
 #pragma mark -

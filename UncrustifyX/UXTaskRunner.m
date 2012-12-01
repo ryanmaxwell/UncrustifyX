@@ -65,9 +65,32 @@
         }
         
         if (![NSFileManager.defaultManager fileExistsAtPath:executablePath]) {
-            [NSException raise:@"UXTaskRunnerException"
-                        format:@"Uncrustify binary not found at path %@", executablePath];
-            return;
+            NSString *errorDescription = [NSString stringWithFormat:@"Uncrustify binary not found at path '%@'", executablePath];
+            
+            NSError *error = [NSError errorWithDomain:@"UXError"
+                                                 code:0
+                                             userInfo:@{
+                            NSLocalizedDescriptionKey: errorDescription,
+                NSLocalizedRecoverySuggestionErrorKey: @"Check the path specified in the preferences",
+                   NSLocalizedRecoveryOptionsErrorKey: @[@"Use Bundled Binary", @"View Preferences…"]
+                              }];
+            
+            DErr(@"%@", error);
+            
+            NSAlert *alert = [NSAlert alertWithError:error];
+            NSInteger result = [alert runModal];
+            
+            if (result == NSAlertFirstButtonReturn) {
+                NSLog(@"Use Bundled");
+                UXDefaultsManager.useCustomBinary = NO;
+                executablePath = UXDefaultsManager.uncrustifyBinaryPath;
+            } else if (result == NSAlertSecondButtonReturn) {
+                NSLog(@"View Preferences");
+                
+                UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
+                [appDelegate showPreferences:self];
+                return;
+            }
         }
         
         NSMutableArray *args = NSMutableArray.array;

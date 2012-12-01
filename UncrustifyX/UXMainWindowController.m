@@ -21,13 +21,13 @@
 #import "UXExportPanelAccessoryView.h"
 
 /* NSWindowRestoration keys */
-#define kSourceContainerViewWidthKey        @"SourceContainerViewWidth"
-#define kSelectedLanguageCodeKey            @"SelectedLanguageCode"
-#define kDocumentationPanelVisibleKey       @"DocumentationPanelVisible"
-#define kSelectedToolbarItemIdentifierKey   @"SelectedToolbarItemIdentifier"
+static NSString *const UXSourceContainerViewWidthKey        = @"SourceContainerViewWidth";
+static NSString *const UXSelectedLanguageCodeKey            = @"SelectedLanguageCode";
+static NSString *const UXDocumentationPanelVisibleKey       = @"DocumentationPanelVisible";
+static NSString *const UXSelectedToolbarItemIdentifierKey   = @"SelectedToolbarItemIdentifier";
 
-#define kDocumentationPanelIdentifier       @"DocumentationPanel"
-#define kSidebarSpaceToolbarItemIdentifier  @"UXSidebarSpace"
+static NSString *const UXDocumentationPanelIdentifier       = @"DocumentationPanel";
+static NSString *const UXSidebarSpaceToolbarItemIdentifier  = @"UXSidebarSpace";
 
 static const CGFloat SourceViewMinWidth = 200.0f;
 static const CGFloat SourceViewMaxWidth = 450.0f;
@@ -54,7 +54,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     if (self) {
         _documentationPanelController = [[UXDocumentationPanelController alloc] initWithWindowNibName:@"UXDocumentationPanelController"];
         _documentationPanelController.window.restorationClass = self.class;
-        _documentationPanelController.window.identifier = kDocumentationPanelIdentifier;
+        _documentationPanelController.window.identifier = UXDocumentationPanelIdentifier;
         
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
@@ -101,7 +101,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [self showFileInputView];
             
             _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-            [self.toolbar insertItemWithItemIdentifier:kSidebarSpaceToolbarItemIdentifier
+            [self.toolbar insertItemWithItemIdentifier:UXSidebarSpaceToolbarItemIdentifier
                                                atIndex:2];
             
             [self.inputLanguageArrayController fetch:nil];
@@ -560,8 +560,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 #pragma mark - NSToolbarDelegate
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag {
-    if ([itemIdentifier isEqualToString:kSidebarSpaceToolbarItemIdentifier]) {
-        _spaceItem = [[NSToolbarItem alloc] initWithItemIdentifier:kSidebarSpaceToolbarItemIdentifier];
+    if ([itemIdentifier isEqualToString:UXSidebarSpaceToolbarItemIdentifier]) {
+        _spaceItem = [[NSToolbarItem alloc] initWithItemIdentifier:UXSidebarSpaceToolbarItemIdentifier];
         _spaceItem.view = self.spaceView;
         return _spaceItem;
     }
@@ -600,14 +600,14 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 #pragma mark - NSWindowDelegate
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
-    [state encodeObject:self.toolbar.selectedItemIdentifier forKey:kSelectedToolbarItemIdentifierKey];
-    [state encodeBool:self.documentationPanelController.window.isVisible forKey:kDocumentationPanelVisibleKey];
-    [state encodeObject:self.selectedLanguage.code forKey:kSelectedLanguageCodeKey];
-    [state encodeFloat:self.sourceContainerView.frame.size.width forKey:kSourceContainerViewWidthKey];
+    [state encodeObject:self.toolbar.selectedItemIdentifier forKey:UXSelectedToolbarItemIdentifierKey];
+    [state encodeBool:self.documentationPanelController.window.isVisible forKey:UXDocumentationPanelVisibleKey];
+    [state encodeObject:self.selectedLanguage.code forKey:UXSelectedLanguageCodeKey];
+    [state encodeFloat:self.sourceContainerView.frame.size.width forKey:UXSourceContainerViewWidthKey];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
-    NSString *selectedToolbarItemIdentifer = [state decodeObjectForKey:kSelectedToolbarItemIdentifierKey];
+    NSString *selectedToolbarItemIdentifer = [state decodeObjectForKey:UXSelectedToolbarItemIdentifierKey];
     
     if (selectedToolbarItemIdentifer) {
         
@@ -623,13 +623,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         }
     }
     
-    NSString *selectedLanguageCode = [state decodeObjectForKey:kSelectedLanguageCodeKey];
+    NSString *selectedLanguageCode = [state decodeObjectForKey:UXSelectedLanguageCodeKey];
     if (selectedLanguageCode) {
         self.selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
                                                        withValue:selectedLanguageCode];
     }
     
-    CGFloat sourceWidth = [state decodeFloatForKey:kSourceContainerViewWidthKey];
+    CGFloat sourceWidth = [state decodeFloatForKey:UXSourceContainerViewWidthKey];
     if (sourceWidth >= SourceViewMinWidth && sourceWidth <= SourceViewMaxWidth) {
         self.sourceContainerView.frame = NSMakeRect(self.sourceContainerView.frame.origin.x,
                                                     self.sourceContainerView.frame.origin.y,
@@ -637,7 +637,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                                                     self.sourceContainerView.frame.size.height);
     }
     
-    self.documentationPanelController.window.isVisible = [state decodeBoolForKey:kDocumentationPanelVisibleKey];
+    self.documentationPanelController.window.isVisible = [state decodeBoolForKey:UXDocumentationPanelVisibleKey];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
@@ -648,7 +648,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 + (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler {
     
-    if ([identifier isEqualToString:kDocumentationPanelIdentifier]) {
+    if ([identifier isEqualToString:UXDocumentationPanelIdentifier]) {
         UXAppDelegate *appDelegate = (UXAppDelegate *)NSApplication.sharedApplication.delegate;
         NSWindow *documentationPanel = appDelegate.mainWindowController.documentationPanelController.window;
         
