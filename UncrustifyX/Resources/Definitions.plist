@@ -3,9 +3,54 @@
 <plist version="1.0">
 <dict>
 	<key>UpdatedAt</key>
-	<date>2012-11-30T11:00:00Z</date>
+	<date>2012-12-01T11:00:00Z</date>
 	<key>CodeSamples</key>
 	<array>
+		<dict>
+			<key>Language</key>
+			<string>OC</string>
+			<key>Description</key>
+			<string>Class Implementation</string>
+			<key>Source</key>
+			<string>@implementation MyClass
+
+- (void)doStuff:(NSString *)stuff {
+	[self doStuff:stuff withThing:nil];
+}
+
+#pragma region
+
+- (void)doStuff:(NSString *)stuff withThing:(NSObject *)thing {
+	[self doStuff withThing:thing usingThings:nil];
+}
+
+- (void)doStuff:(NSString *)stuff withThing:(NSObject *)thing usingThings:(NSArray *)things {
+	NSLog(@&quot;Do some Stuff: %@&quot;, stuff);
+	NSLog(@&quot;On the Thing: %@&quot;, thing);
+	NSLog(@&quot;Using the Things: %@&quot;, things);
+}
+
+@end</string>
+		</dict>
+		<dict>
+			<key>Language</key>
+			<string>OC</string>
+			<key>Description</key>
+			<string>Class Interface</string>
+			<key>Source</key>
+			<string>@interface MyClass
+
+- (void)doStuff:(NSString *)stuff;
+
+- (void)doStuff:(NSString *)stuff withThing:(NSObject *)thing;
+
+/*
+My Comment
+*/
+- (void)doStuff:(NSString *)stuff withThing:(NSObject *)thing usingThings:(NSArray *)things;
+
+@end</string>
+		</dict>
 		<dict>
 			<key>Description</key>
 			<string>A simple &quot;getter&quot; method</string>
