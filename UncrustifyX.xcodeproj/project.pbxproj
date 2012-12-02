@@ -32,7 +32,6 @@
 		941FD3751620220B0001C909 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 941FD3731620220B0001C909 /* Credits.rtf */; };
 		941FD3781620220B0001C909 /* UXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 941FD3771620220B0001C909 /* UXAppDelegate.m */; };
 		941FD37B1620220C0001C909 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941FD3791620220C0001C909 /* MainMenu.xib */; };
-		941FD38216202A930001C909 /* uncrustify in Resources */ = {isa = PBXBuildFile; fileRef = 941FD38116202A930001C909 /* uncrustify */; };
 		941FD38F1620343C0001C909 /* UXDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941FD38E1620343C0001C909 /* UXDefaultsManager.m */; };
 		9444032216522D1C00E2115D /* Export.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 9444032016522D1C00E2115D /* Export.tiff */; };
 		9444032316522D1C00E2115D /* Import.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 9444032116522D1C00E2115D /* Import.tiff */; };
@@ -55,7 +54,6 @@
 		9469205F1632329F003C5688 /* UXPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469205D1632329F003C5688 /* UXPreferencesWindowController.m */; };
 		946920601632329F003C5688 /* UXPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */; };
 		9469207016327BD9003C5688 /* UXSyntaxColoredTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469206F16327BD9003C5688 /* UXSyntaxColoredTextViewController.m */; };
-		946920CA16329D21003C5688 /* Definitions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946920C916329D21003C5688 /* Definitions.plist */; };
 		9473F95D1655E05A00457B1A /* UXUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473F95C1655E05A00457B1A /* UXUIUtils.m */; };
 		9499331F164E5B250036CB53 /* UXSubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499331E164E5B250036CB53 /* UXSubCategory.m */; };
 		94993323164E5B350036CB53 /* _UXSubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94993322164E5B350036CB53 /* _UXSubCategory.m */; };
@@ -63,6 +61,8 @@
 		94993329164E5D700036CB53 /* UXAbstractCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94993328164E5D700036CB53 /* UXAbstractCategory.m */; };
 		9499335D164F74A10036CB53 /* UXPersistentConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499335C164F74A10036CB53 /* UXPersistentConfigOption.m */; };
 		94993360164F74BF0036CB53 /* UXPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499335F164F74BD0036CB53 /* UXPlaceholder.m */; };
+		949A4AD6166AE20E009D3E9B /* Definitions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949A4AD5166AE20E009D3E9B /* Definitions.plist */; };
+		949A4AD9166AE265009D3E9B /* uncrustify in Resources */ = {isa = PBXBuildFile; fileRef = 949A4AD8166AE265009D3E9B /* uncrustify */; };
 		94C68D001626BED100BE175D /* UncrustifyX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94C68CFE1626BED100BE175D /* UncrustifyX.xcdatamodeld */; };
 		94CD350616291B3900362AFB /* UXDocumentationPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CD350416291B3900362AFB /* UXDocumentationPanelController.m */; };
 		94CD350716291B3900362AFB /* UXDocumentationPanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CD350516291B3900362AFB /* UXDocumentationPanelController.xib */; };
@@ -137,7 +137,6 @@
 		941FD3761620220B0001C909 /* UXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UXAppDelegate.h; sourceTree = "<group>"; };
 		941FD3771620220B0001C909 /* UXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UXAppDelegate.m; sourceTree = "<group>"; };
 		941FD37A1620220C0001C909 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		941FD38116202A930001C909 /* uncrustify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = uncrustify; sourceTree = "<group>"; };
 		941FD38D1620343C0001C909 /* UXDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXDefaultsManager.h; sourceTree = "<group>"; };
 		941FD38E1620343C0001C909 /* UXDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXDefaultsManager.m; sourceTree = "<group>"; };
 		9444032016522D1C00E2115D /* Export.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Export.tiff; path = Resources/Export.tiff; sourceTree = "<group>"; };
@@ -178,7 +177,6 @@
 		9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UXPreferencesWindowController.xib; sourceTree = "<group>"; };
 		9469206E16327BD9003C5688 /* UXSyntaxColoredTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXSyntaxColoredTextViewController.h; sourceTree = "<group>"; };
 		9469206F16327BD9003C5688 /* UXSyntaxColoredTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXSyntaxColoredTextViewController.m; sourceTree = "<group>"; };
-		946920C916329D21003C5688 /* Definitions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Definitions.plist; sourceTree = "<group>"; };
 		9473F95B1655E05A00457B1A /* UXUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXUIUtils.h; path = Utilities/UXUIUtils.h; sourceTree = "<group>"; };
 		9473F95C1655E05A00457B1A /* UXUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXUIUtils.m; path = Utilities/UXUIUtils.m; sourceTree = "<group>"; };
 		9499331D164E5B250036CB53 /* UXSubCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXSubCategory.h; path = Models/UXSubCategory.h; sourceTree = "<group>"; };
@@ -193,6 +191,8 @@
 		9499335C164F74A10036CB53 /* UXPersistentConfigOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXPersistentConfigOption.m; path = Models/UXPersistentConfigOption.m; sourceTree = "<group>"; };
 		9499335E164F74BC0036CB53 /* UXPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXPlaceholder.h; path = Models/UXPlaceholder.h; sourceTree = "<group>"; };
 		9499335F164F74BD0036CB53 /* UXPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXPlaceholder.m; path = Models/UXPlaceholder.m; sourceTree = "<group>"; };
+		949A4AD5166AE20E009D3E9B /* Definitions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Definitions.plist; path = Resources/Definitions.plist; sourceTree = "<group>"; };
+		949A4AD8166AE265009D3E9B /* uncrustify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = uncrustify; path = Resources/uncrustify; sourceTree = "<group>"; };
 		94C68CFF1626BED100BE175D /* UncrustifyX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UncrustifyX.xcdatamodel; sourceTree = "<group>"; };
 		94CD350316291B3900362AFB /* UXDocumentationPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXDocumentationPanelController.h; sourceTree = "<group>"; };
 		94CD350416291B3900362AFB /* UXDocumentationPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXDocumentationPanelController.m; sourceTree = "<group>"; };
@@ -357,13 +357,11 @@
 			isa = PBXGroup;
 			children = (
 				944ED086164F81D900F785DC /* Resources */,
-				941FD38116202A930001C909 /* uncrustify */,
 				941FD36C1620220B0001C909 /* UncrustifyX-Info.plist */,
 				941FD36D1620220B0001C909 /* InfoPlist.strings */,
 				941FD3701620220B0001C909 /* main.m */,
 				941FD3721620220B0001C909 /* UncrustifyX-Prefix.pch */,
 				941FD3731620220B0001C909 /* Credits.rtf */,
-				946920C916329D21003C5688 /* Definitions.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -388,6 +386,8 @@
 		944ED086164F81D900F785DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				949A4AD8166AE265009D3E9B /* uncrustify */,
+				949A4AD5166AE20E009D3E9B /* Definitions.plist */,
 				9405B52D1651FF01001A1C7F /* Info.png */,
 				94F2E7781664B2CF004E6DF5 /* SearchGradient.png */,
 				945A0DAC1664049A00398587 /* Docset.png */,
@@ -554,11 +554,9 @@
 				941FD36F1620220B0001C909 /* InfoPlist.strings in Resources */,
 				941FD3751620220B0001C909 /* Credits.rtf in Resources */,
 				941FD37B1620220C0001C909 /* MainMenu.xib in Resources */,
-				941FD38216202A930001C909 /* uncrustify in Resources */,
 				94049EB71629158D00587269 /* UXMainWindowController.xib in Resources */,
 				94CD350716291B3900362AFB /* UXDocumentationPanelController.xib in Resources */,
 				946920601632329F003C5688 /* UXPreferencesWindowController.xib in Resources */,
-				946920CA16329D21003C5688 /* Definitions.plist in Resources */,
 				941723BA163B7D4A00324CD6 /* CSS.plist in Resources */,
 				941723BB163B7D4A00324CD6 /* HTML.plist in Resources */,
 				941723BC163B7D4A00324CD6 /* Objective-C.plist in Resources */,
@@ -573,6 +571,8 @@
 				94ED6135165F2DD8008A0862 /* UXExportPanelAccessoryView.xib in Resources */,
 				945A0DAD1664049A00398587 /* Docset.png in Resources */,
 				94F2E7791664B2CF004E6DF5 /* SearchGradient.png in Resources */,
+				949A4AD6166AE20E009D3E9B /* Definitions.plist in Resources */,
+				949A4AD9166AE265009D3E9B /* uncrustify in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
