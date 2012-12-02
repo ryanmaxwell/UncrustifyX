@@ -13,6 +13,8 @@
 #import "UXFileUtils.h"
 #import "UXOption.h"
 #import "UXCategory.h"
+#import "UXOption.h"
+#import "UXValueType.h"
 #import "UXSubCategory.h"
 #import "UXLanguage.h"
 #import "UXPersistentConfigOption.h"
@@ -156,15 +158,43 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         if (theOption) {
             UXPersistentConfigOption *newConfigOption = [UXPersistentConfigOption createEntity];
             newConfigOption.option = theOption;
-            newConfigOption.value = value;
+            
+            if (value != nil) {
+                NSString *valueToSet = nil;
+                
+                if ([theOption.valueType isValidValue:value]) {
+                    valueToSet = value;
+                } else {
+                    /* value may be the code of a previously parsed option */
+                    UXPersistentConfigOption *previousConfigOption = [self configOptionWithCode:value];
+                    
+                    if (previousConfigOption != nil) {
+                        valueToSet = previousConfigOption.value;
+                    }
+                }
+                
+                if (valueToSet != nil) {
+                    if ([theOption.valueType.type caseInsensitiveCompare:@"Boolean"] == NSOrderedSame) {
+                        /* sanitize boolean input */
+                        newConfigOption.value = [UXValueType booleanStringForBooleanValue:valueToSet];
+                    } else {
+                        newConfigOption.value = valueToSet;
+                    }
+                } else {
+                    DWarn(@"The value '%@' is not valid for the %@ value type required for the %@ option",
+                          value,
+                          theOption.valueType.type,
+                          theOption.code);
+                }
+            }
             
             [self.configOptions addObject:newConfigOption];
             [NSManagedObjectContext.defaultContext save];
         } else {
-            DWarn(@"COULD NOT FIND OPTION WITH %@ code", code);
+            DWarn(@"Could not find option with %@ code", code);
         }
     } else {
-        DWarn(@"ALREADY HAVE CONFIG OPTION WITH %@ code", code);
+        DWarn(@"Already have config option with %@ code", code);
     }
 }
 
