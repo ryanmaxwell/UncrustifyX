@@ -15,7 +15,7 @@
 @implementation UXSyntaxColoredTextViewController
 
 - (NSDictionary *)defaultTextAttributes {
-    return @{NSFontAttributeName: [NSFont fontWithName:@"Monaco" size:10.0]};
+    return @{NSFontAttributeName: [NSFont fontWithName:@"Menlo" size:11.0]};
 }
 
 @end
