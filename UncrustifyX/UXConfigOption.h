@@ -24,4 +24,6 @@
  */
 + (NSString *)configStringForOption:(UXOption *)option value:(NSString *)value;
 
++ (NSArray *)categorizedConfigOptionsFromConfigOptions:(NSArray *)configOptions searchQuery:(NSString *)searchQuery;
+
 @end

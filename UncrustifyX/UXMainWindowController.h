@@ -24,9 +24,9 @@
 
 @property (weak, nonatomic) IBOutlet NSSearchField *searchField;
 
-@property (strong, nonatomic) IBOutlet NSTextView *codeTextView;
+@property (strong, nonatomic) IBOutlet NSTextView *directInputTextView;
 
-@property (weak, nonatomic) IBOutlet NSTableView *filesTableView;
+@property (weak, nonatomic) IBOutlet NSTableView *filePathsTableView;
 @property (weak, nonatomic) IBOutlet NSSplitView *mainSplitView;
 
 @property (weak, nonatomic) IBOutlet NSToolbar *toolbar;

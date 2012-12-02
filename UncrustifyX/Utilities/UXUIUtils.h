@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 @class UXOption;
-@class UXValue;
 
 @interface UXUIUtils : NSObject
 

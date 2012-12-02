@@ -14,6 +14,7 @@
 
 - (void)keyDown:(NSEvent *)theEvent {
     if (theEvent.keyCode == 53) {
+        /* ESC Key */
         [self close];
     } else {
         [super keyDown:theEvent];
