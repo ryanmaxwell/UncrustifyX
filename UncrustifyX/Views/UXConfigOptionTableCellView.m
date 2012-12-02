@@ -46,6 +46,8 @@ NSString *const SubCategoryCellReuseIdentifier = @"SubCategoryTableCellView";
             /* value type is free-form string */
             if (configOption.value) {
                 self.valueTextField.stringValue = configOption.value;
+            } else {
+                self.valueTextField.stringValue = @"";
             }
         }
     }
