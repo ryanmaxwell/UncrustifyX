@@ -17,7 +17,7 @@ static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"BundledUncrustif
 @implementation UXDefaultsManager
 
 + (void)registerDefaults {
-    NSDictionary *defaults = @{UXBundledUncrustifyBinaryVersionKey: @"0.59 (f91f1aa05b)"};
+    NSDictionary *defaults = @{UXBundledUncrustifyBinaryVersionKey: @"0.59"};
     [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
 }
 
