@@ -67,7 +67,7 @@
         if (![NSFileManager.defaultManager fileExistsAtPath:executablePath]) {
             NSString *errorDescription = [NSString stringWithFormat:@"Uncrustify binary not found at path '%@'", executablePath];
             
-            NSError *error = [NSError errorWithDomain:@"UXError"
+            NSError *error = [NSError errorWithDomain:UXErrorDomain
                                                  code:0
                                              userInfo:@{
                             NSLocalizedDescriptionKey: errorDescription,

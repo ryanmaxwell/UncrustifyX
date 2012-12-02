@@ -18,7 +18,10 @@ static NSNumberFormatter *nf;
 
 + (BOOL)isValidNumber:(NSString *)value {
     if (!nf) {
-        nf = [[NSNumberFormatter alloc] init];
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            nf = [[NSNumberFormatter alloc] init];
+        });
     }
     return ([nf numberFromString:value] != nil);
 }

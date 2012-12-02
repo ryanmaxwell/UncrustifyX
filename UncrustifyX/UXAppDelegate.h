@@ -10,6 +10,8 @@
 @class UXMainWindowController;
 @class UXPreferencesWindowController;
 
+extern NSString *const UXErrorDomain;
+
 @interface UXAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (strong, nonatomic) UXMainWindowController *mainWindowController;

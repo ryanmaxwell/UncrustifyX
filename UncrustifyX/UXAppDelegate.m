@@ -12,6 +12,8 @@
 #import "UXPreferencesWindowController.h"
 #import "UXDocumentationPanelController.h"
 
+NSString *const UXErrorDomain                               = @"UXError";
+
 @interface UXAppDelegate () <NSMenuDelegate>
 
 @end

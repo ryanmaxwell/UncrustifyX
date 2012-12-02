@@ -129,7 +129,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     return nil;
 }
 
-- (void)parseConfigLine:(NSString *)line {
+
+- (void)parseConfigLine:(NSString *)line error:(NSError **)error {
     NSString *lineValue = nil;
     NSScanner *lineScanner = [NSScanner scannerWithString:line];
     [lineScanner scanUpToString:@"#" intoString:&lineValue];
@@ -148,18 +149,24 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             optionValue = [lineOptions[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
             NSLog(@"Value: '%@'", optionValue);
         }
-        [self addConfigOptionWithCode:optionCode value:optionValue];
+        
+        NSError *inError = nil;
+        [self addConfigOptionWithCode:optionCode value:optionValue error:&inError];
+        
+        if (inError) {
+            *error = inError;
+        }
     }
 }
 
-- (void)addConfigOptionWithCode:(NSString *)code value:(NSString *)value {
+- (void)addConfigOptionWithCode:(NSString *)code value:(NSString *)value error:(NSError **)error {
     if (![self configOptionWithCode:code]) {
         UXOption *theOption = [UXOption findFirstByAttribute:UXOptionAttributes.code withValue:code];
         if (theOption) {
             UXPersistentConfigOption *newConfigOption = [UXPersistentConfigOption createEntity];
             newConfigOption.option = theOption;
             
-            if (value != nil) {
+            if (value.length) {
                 NSString *valueToSet = nil;
                 
                 if ([theOption.valueType isValidValue:value]) {
@@ -181,20 +188,33 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                         newConfigOption.value = valueToSet;
                     }
                 } else {
-                    DWarn(@"The value '%@' is not valid for the %@ value type required for the %@ option",
-                          value,
-                          theOption.valueType.type,
-                          theOption.code);
+                    NSString *errorDescription = [NSString stringWithFormat:@"The value '%@' is not valid for the %@ value type required for the %@ option",
+                                             value,
+                                             theOption.valueType.type.lowercaseString,
+                                             theOption.code];
+                    
+                    *error = [NSError errorWithDomain:UXErrorDomain
+                                                code:0
+                                            userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
                 }
             }
             
             [self.configOptions addObject:newConfigOption];
             [NSManagedObjectContext.defaultContext save];
         } else {
-            DWarn(@"Could not find option with %@ code", code);
+            NSString *errorDescription = [NSString stringWithFormat:@"Could not find option with %@ code", code];
+            
+            *error = [NSError errorWithDomain:UXErrorDomain
+                                         code:0
+                                     userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
         }
     } else {
-        DWarn(@"Already have config option with %@ code", code);
+        
+        NSString *errorDescription = [NSString stringWithFormat:@"Already have config option with %@ code", code];
+        
+        *error = [NSError errorWithDomain:UXErrorDomain
+                                     code:0
+                                 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
     }
 }
 
@@ -321,11 +341,27 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         
         NSArray *lines = [contents componentsSeparatedByString:@"\n"];
         
+        NSMutableArray *errorStrings = NSMutableArray.array;
+        
         for (NSString *line in lines) {
-            [self parseConfigLine:line];
+            NSError *parseError = nil;
+            [self parseConfigLine:line error:&parseError];
+            if (parseError) {
+                DErr(@"%@", parseError);
+                [errorStrings addObject:parseError.localizedDescription];
+            }
         }
         
         [self sortConfigOptions];
+        
+        if (errorStrings.count) {
+            NSAlert *errorAlert = [NSAlert alertWithMessageText:@"An error occurred during import"
+                                                  defaultButton:@"OK"
+                                                alternateButton:nil
+                                                    otherButton:nil
+                                      informativeTextWithFormat:@"%@", [errorStrings componentsJoinedByString:@"\n\n"]];
+            [errorAlert runModal];
+        }
     } else {
         DErr(@"%@", error);
     }
@@ -417,10 +453,25 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         NSArray *stringItems = [pboard readObjectsForClasses:@[NSString.class]
                                                      options:nil];
         
+        NSMutableArray *errorStrings = NSMutableArray.array;
+        
         for (NSString *optionLine in stringItems) {
             DLog(@"%@", optionLine);
-            
-            [self parseConfigLine:optionLine];
+            NSError *parseError = nil;
+            [self parseConfigLine:optionLine error:&parseError];
+            if (parseError) {
+                DErr(@"%@", parseError);
+                [errorStrings addObject:parseError.localizedDescription];
+            }
+        }
+        
+        if (errorStrings.count) {
+            NSAlert *errorAlert = [NSAlert alertWithMessageText:@"An error occurred during import"
+                                                  defaultButton:@"OK"
+                                                alternateButton:nil
+                                                    otherButton:nil
+                                      informativeTextWithFormat:@"%@", [errorStrings componentsJoinedByString:@"\n\n"]];
+            [errorAlert runModal];
         }
         
         [self sortConfigOptions];
