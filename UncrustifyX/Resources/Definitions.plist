@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UpdatedAt</key>
-	<date>2012-12-02T11:00:01Z</date>
+	<date>2012-12-02T11:00:03Z</date>
 	<key>CodeSamples</key>
 	<array>
 		<dict>
@@ -222,6 +222,88 @@ My Comment
 	</dict>
 	<key>Options</key>
 	<dict>
+		<key>utf8_bom</key>
+		<dict/>
+		<key>utf8_byte</key>
+		<dict/>
+		<key>utf8_force</key>
+		<dict/>
+		<key>indent_ctor_init_leading</key>
+		<dict/>
+		<key>indent_ctor_init</key>
+		<dict/>
+		<key>indent_func_def_force_col1</key>
+		<dict/>
+		<key>sp_cpp_lambda_assign</key>
+		<dict/>
+		<key>sp_cpp_lambda_paren</key>
+		<dict/>
+		<key>sp_ptr_star_paren</key>
+		<dict/>
+		<key>sp_before_template_paren</key>
+		<dict/>
+		<key>sp_permit_cpp11_shift</key>
+		<dict/>
+		<key>sp_inside_sparen_open</key>
+		<dict/>
+		<key>sp_inside_tparen</key>
+		<dict/>
+		<key>sp_after_tparen_close</key>
+		<dict/>
+		<key>sp_after_oc_dict_colon</key>
+		<dict/>
+		<key>sp_before_oc_dict_colon</key>
+		<dict/>
+		<key>sp_after_oc_msg_receiver</key>
+		<dict/>
+		<key>sp_after_new</key>
+		<dict/>
+		<key>sp_before_tr_emb_cmt</key>
+		<dict/>
+		<key>sp_num_before_tr_emb_cmt</key>
+		<dict/>
+		<key>sp_annotation_paren</key>
+		<dict/>
+		<key>align_pp_define_together</key>
+		<dict/>
+		<key>nl_typedef_blk_start</key>
+		<dict/>
+		<key>nl_typedef_blk_end</key>
+		<dict/>
+		<key>nl_typedef_blk_in</key>
+		<dict/>
+		<key>nl_var_def_blk_start</key>
+		<dict/>
+		<key>nl_var_def_blk_end</key>
+		<dict/>
+		<key>nl_var_def_blk_in</key>
+		<dict/>
+		<key>nl_scope_brace</key>
+		<dict/>
+		<key>nl_unittest_brace</key>
+		<dict/>
+		<key>nl_version_brace</key>
+		<dict/>
+		<key>nl_case_colon_brace</key>
+		<dict/>
+		<key>nl_brace_struct_var</key>
+		<dict/>
+		<key>ls_code_width</key>
+		<dict/>
+		<key>nl_after_func_body_class</key>
+		<dict/>
+		<key>nl_after_struct</key>
+		<dict/>
+		<key>nl_after_class</key>
+		<dict/>
+		<key>nl_property_brace</key>
+		<dict/>
+		<key>nl_remove_extra_newlines</key>
+		<dict/>
+		<key>nl_after_annotation</key>
+		<dict/>
+		<key>nl_between_annotation</key>
+		<dict/>
 		<key>align_assign_span</key>
 		<dict>
 			<key>Category</key>
