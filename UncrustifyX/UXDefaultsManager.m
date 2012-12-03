@@ -14,12 +14,23 @@ static NSString *const UXCustomBinaryPathKey                = @"UXCustomBinaryPa
 static NSString *const UXDefinitionsUpdatedAtKey            = @"UXDefinitionsUpdatedAt";
 static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"UXBundledUncrustifyBinaryVersion";
 static NSString *const UXExportDocumentationKey             = @"UXExportDocumentation";
+static NSString *const UXExportCategoriesKey                = @"UXExportCategories";
+static NSString *const UXExportSubcategoriesKey             = @"UXExportSubcategories";
+static NSString *const UXExportOptionNameKey                = @"UXExportOptionName";
+static NSString *const UXExportOptionValueKey               = @"UXExportOptionValue";
 static NSString *const UXExportBlankOptionsKey              = @"UXExportBlankOptions";
 
 @implementation UXDefaultsManager
 
 + (void)registerDefaults {
-    NSDictionary *defaults = @{UXBundledUncrustifyBinaryVersionKey: @"0.59"};
+    NSDictionary *defaults = @{
+        UXBundledUncrustifyBinaryVersionKey: @"0.59",
+        UXExportDocumentationKey: @YES,
+        UXExportCategoriesKey: @YES,
+        UXExportSubcategoriesKey: @YES,
+        UXExportOptionNameKey: @YES,
+        UXExportOptionValueKey: @YES
+    };
     [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
 }
 
