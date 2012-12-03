@@ -13,6 +13,8 @@ static NSString *const UXUseCustomBinaryKey                 = @"UXUseCustomBinar
 static NSString *const UXCustomBinaryPathKey                = @"UXCustomBinaryPath";
 static NSString *const UXDefinitionsUpdatedAtKey            = @"UXDefinitionsUpdatedAt";
 static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"UXBundledUncrustifyBinaryVersion";
+static NSString *const UXExportDocumentationKey             = @"UXExportDocumentation";
+static NSString *const UXExportBlankOptionsKey              = @"UXExportBlankOptions";
 
 @implementation UXDefaultsManager
 
@@ -59,6 +61,14 @@ static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"UXBundledUncrust
 
 + (void)setDefinitionsUpdatedAt:(NSDate *)date {
     [self setDefaultsObject:date forKey:UXDefinitionsUpdatedAtKey];
+}
+
++ (BOOL)exportDocumentation {
+    return [[self defaultsObjectForKey:UXExportDocumentationKey] boolValue];
+}
+
++ (BOOL)exportBlankOptions {
+    return [[self defaultsObjectForKey:UXExportBlankOptionsKey] boolValue];
 }
 
 #pragma mark -

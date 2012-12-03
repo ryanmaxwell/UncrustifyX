@@ -15,6 +15,7 @@
 			<string>NSButtonCell</string>
 			<string>NSCustomObject</string>
 			<string>NSCustomView</string>
+			<string>NSUserDefaultsController</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -37,33 +38,33 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="NSButton" id="915192824">
+					<object class="NSButton" id="35222274">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{18, 18}, {250, 18}}</string>
+						<string key="NSFrame">{{18, 18}, {159, 18}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="815225582">
+						<object class="NSButtonCell" key="NSCell" id="330050207">
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">268435456</int>
-							<string key="NSContents">Include documentation in config file</string>
-							<object class="NSFont" key="NSSupport">
+							<string key="NSContents">Include blank options</string>
+							<object class="NSFont" key="NSSupport" id="414032861">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
 								<int key="NSfFlags">1044</int>
 							</object>
 							<string key="NSCellIdentifier">_NS:9</string>
-							<reference key="NSControlView" ref="915192824"/>
+							<reference key="NSControlView" ref="35222274"/>
 							<int key="NSButtonFlags">1211912448</int>
 							<int key="NSButtonFlags2">2</int>
-							<object class="NSCustomResource" key="NSNormalImage">
+							<object class="NSCustomResource" key="NSNormalImage" id="94248270">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">NSSwitch</string>
 							</object>
-							<object class="NSButtonImageSource" key="NSAlternateImage">
+							<object class="NSButtonImageSource" key="NSAlternateImage" id="496743540">
 								<string key="NSImageName">NSSwitch</string>
 							</object>
 							<string key="NSAlternateContents"/>
@@ -73,12 +74,42 @@
 						</object>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 					</object>
+					<object class="NSButton" id="915192824">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">266</int>
+						<string key="NSFrame">{{18, 43}, {167, 18}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="35222274"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSButtonCell" key="NSCell" id="815225582">
+							<int key="NSCellFlags">-2080374784</int>
+							<int key="NSCellFlags2">268435456</int>
+							<string key="NSContents">Include documentation</string>
+							<reference key="NSSupport" ref="414032861"/>
+							<string key="NSCellIdentifier">_NS:9</string>
+							<reference key="NSControlView" ref="915192824"/>
+							<int key="NSButtonFlags">1211912448</int>
+							<int key="NSButtonFlags2">2</int>
+							<reference key="NSNormalImage" ref="94248270"/>
+							<reference key="NSAlternateImage" ref="496743540"/>
+							<string key="NSAlternateContents"/>
+							<string key="NSKeyEquivalent"/>
+							<int key="NSPeriodicDelay">200</int>
+							<int key="NSPeriodicInterval">25</int>
+						</object>
+						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+					</object>
 				</array>
-				<string key="NSFrameSize">{286, 54}</string>
+				<string key="NSFrameSize">{286, 79}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="915192824"/>
 				<string key="NSClassName">UXExportPanelAccessoryView</string>
+			</object>
+			<object class="NSUserDefaultsController" id="126562772">
+				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -98,6 +129,38 @@
 						<reference key="destination" ref="915192824"/>
 					</object>
 					<int key="connectionID">6</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.UXExportDocumentation</string>
+						<reference key="source" ref="915192824"/>
+						<reference key="destination" ref="126562772"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="915192824"/>
+							<reference key="NSDestination" ref="126562772"/>
+							<string key="NSLabel">value: values.UXExportDocumentation</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.UXExportDocumentation</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.UXExportBlankOptions</string>
+						<reference key="source" ref="35222274"/>
+						<reference key="destination" ref="126562772"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="35222274"/>
+							<reference key="NSDestination" ref="126562772"/>
+							<string key="NSLabel">value: values.UXExportBlankOptions</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.UXExportBlankOptions</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">16</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -131,6 +194,7 @@
 						<reference key="object" ref="1005"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="915192824"/>
+							<reference ref="35222274"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -147,6 +211,24 @@
 						<reference key="object" ref="815225582"/>
 						<reference key="parent" ref="915192824"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">8</int>
+						<reference key="object" ref="35222274"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="330050207"/>
+						</array>
+						<reference key="parent" ref="1005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9</int>
+						<reference key="object" ref="330050207"/>
+						<reference key="parent" ref="35222274"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">10</int>
+						<reference key="object" ref="126562772"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -154,14 +236,17 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">7</int>
+			<int key="maxID">16</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -242,40 +327,35 @@
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="deletePressed:">id</string>
-						<string key="exportConfiguration:">id</string>
-						<string key="importConfiguration:">id</string>
+						<string key="exportConfigurationPressed:">id</string>
+						<string key="importConfigurationPressed:">id</string>
 						<string key="runButtonPressed:">id</string>
-						<string key="showDirectInput:">id</string>
-						<string key="showDocumentationPanel:">id</string>
-						<string key="showFileList:">id</string>
+						<string key="showView:">id</string>
+						<string key="toggleDocumentationPanel:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="deletePressed:">
 							<string key="name">deletePressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="exportConfiguration:">
-							<string key="name">exportConfiguration:</string>
+						<object class="IBActionInfo" key="exportConfigurationPressed:">
+							<string key="name">exportConfigurationPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="importConfiguration:">
-							<string key="name">importConfiguration:</string>
+						<object class="IBActionInfo" key="importConfigurationPressed:">
+							<string key="name">importConfigurationPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="runButtonPressed:">
 							<string key="name">runButtonPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="showDirectInput:">
-							<string key="name">showDirectInput:</string>
+						<object class="IBActionInfo" key="showView:">
+							<string key="name">showView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="showDocumentationPanel:">
-							<string key="name">showDocumentationPanel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showFileList:">
-							<string key="name">showFileList:</string>
+						<object class="IBActionInfo" key="toggleDocumentationPanel:">
+							<string key="name">toggleDocumentationPanel:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
@@ -283,15 +363,20 @@
 						<string key="configOptionsScrollView">NSScrollView</string>
 						<string key="configOptionsTableColumn">NSTableColumn</string>
 						<string key="configOptionsTableView">NSTableView</string>
-						<string key="containerView">NSView</string>
+						<string key="directInputTextView">NSTextView</string>
 						<string key="directInputToolbarItem">NSToolbarItem</string>
 						<string key="directInputView">NSView</string>
 						<string key="exportPanelAccessoryView">UXExportPanelAccessoryView</string>
 						<string key="exportToolbarItem">NSToolbarItem</string>
 						<string key="fileInputToolbarItem">NSToolbarItem</string>
 						<string key="fileInputView">NSView</string>
-						<string key="filesTableView">NSTableView</string>
+						<string key="filePathsTableView">NSTableView</string>
+						<string key="inputLanguagePopUpButton">NSPopUpButton</string>
+						<string key="mainContainerView">NSView</string>
 						<string key="mainSplitView">NSSplitView</string>
+						<string key="runToolbarItem">NSToolbarItem</string>
+						<string key="searchField">NSSearchField</string>
+						<string key="sourceContainerView">NSView</string>
 						<string key="syntaxColoringController">UXSyntaxColoredTextViewController</string>
 						<string key="toolbar">NSToolbar</string>
 					</dictionary>
@@ -308,9 +393,9 @@
 							<string key="name">configOptionsTableView</string>
 							<string key="candidateClassName">NSTableView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="containerView">
-							<string key="name">containerView</string>
-							<string key="candidateClassName">NSView</string>
+						<object class="IBToOneOutletInfo" key="directInputTextView">
+							<string key="name">directInputTextView</string>
+							<string key="candidateClassName">NSTextView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="directInputToolbarItem">
 							<string key="name">directInputToolbarItem</string>
@@ -336,13 +421,33 @@
 							<string key="name">fileInputView</string>
 							<string key="candidateClassName">NSView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="filesTableView">
-							<string key="name">filesTableView</string>
+						<object class="IBToOneOutletInfo" key="filePathsTableView">
+							<string key="name">filePathsTableView</string>
 							<string key="candidateClassName">NSTableView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="inputLanguagePopUpButton">
+							<string key="name">inputLanguagePopUpButton</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="mainContainerView">
+							<string key="name">mainContainerView</string>
+							<string key="candidateClassName">NSView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mainSplitView">
 							<string key="name">mainSplitView</string>
 							<string key="candidateClassName">NSSplitView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="runToolbarItem">
+							<string key="name">runToolbarItem</string>
+							<string key="candidateClassName">NSToolbarItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="searchField">
+							<string key="name">searchField</string>
+							<string key="candidateClassName">NSSearchField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="sourceContainerView">
+							<string key="name">sourceContainerView</string>
+							<string key="candidateClassName">NSView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="syntaxColoringController">
 							<string key="name">syntaxColoringController</string>

@@ -10,10 +10,10 @@
 
 @interface UXDefaultsManager : NSObject
 
++ (void)registerDefaults;
+
 + (NSString *)uncrustifyBinaryPath;
 + (NSString *)bundledUncrustifyBinaryVersion;
-
-+ (BOOL)overwriteFiles;
 
 + (BOOL)useCustomBinary;
 + (void)setUseCustomBinary:(BOOL)useCustomBinary;
@@ -24,6 +24,8 @@
 + (NSDate *)definitionsUpdatedAt;
 + (void)setDefinitionsUpdatedAt:(NSDate *)date;
 
-+ (void)registerDefaults;
++ (BOOL)overwriteFiles;
++ (BOOL)exportBlankOptions;
++ (BOOL)exportDocumentation;
 
 @end

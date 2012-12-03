@@ -126,6 +126,9 @@
                 } else {
                     [contents appendFormat:@"\n%@", configOption.configString];
                 }
+            } else if (configOption.option && UXDefaultsManager.exportBlankOptions) {
+                /* blank options */
+                [contents appendFormat:@"\n%@", configOption.option.code];
             }
         }
     }
