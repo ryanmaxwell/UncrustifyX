@@ -1735,6 +1735,14 @@ wGw</bytes>
 					<int key="connectionID">682</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">applyPressed:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="169163462"/>
+					</object>
+					<int key="connectionID">687</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">hidden: selectedOption.valueType.values.@count</string>
 						<reference key="source" ref="494334157"/>
@@ -3039,7 +3047,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">686</int>
+			<int key="maxID">687</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3100,12 +3108,17 @@ wGw</bytes>
 					<string key="className">UXDocumentationPanelController</string>
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="applyPressed:">id</string>
 						<string key="browseLanguagesPopUpChanged:">id</string>
 						<string key="disclosureTriangleClicked:">id</string>
 						<string key="previewLanguagePopUpChanged:">id</string>
 						<string key="valueSegmentedControlChanged:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="applyPressed:">
+							<string key="name">applyPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="browseLanguagesPopUpChanged:">
 							<string key="name">browseLanguagesPopUpChanged:</string>
 							<string key="candidateClassName">id</string>

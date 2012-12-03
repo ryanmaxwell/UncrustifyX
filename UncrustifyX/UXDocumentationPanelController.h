@@ -42,6 +42,7 @@
 - (IBAction)previewLanguagePopUpChanged:(id)sender;
 - (IBAction)valueSegmentedControlChanged:(id)sender;
 - (IBAction)disclosureTriangleClicked:(id)sender;
+- (IBAction)applyPressed:(id)sender;
 
 - (void)showInfoForOption:(UXOption *)option;
 

@@ -454,14 +454,26 @@ static CGFloat const PreviewViewHeight = 300.0f;
     [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
 }
 
+- (IBAction)disclosureTriangleClicked:(id)sender {
+    [self setPreviewExpanded:!self.previewExpanded animated:YES];
+    [self.window invalidateRestorableState];
+}
+
 - (IBAction)valueSegmentedControlChanged:(id)sender {
     NSSegmentedControl *segmentedControl = (NSSegmentedControl *)sender;
-    UXOption *selectedOption = self.selectedOption;
     NSString *selectedValue = [segmentedControl labelForSegment:segmentedControl.selectedSegment];
     
+    [self uncrustifyCodePreviewUsingOption:self.selectedOption value:selectedValue];
+}
+
+- (IBAction)applyPressed:(id)sender {
+    [self uncrustifyCodePreviewUsingOption:self.selectedOption value:self.valueTextField.stringValue];
+}
+
+- (void)uncrustifyCodePreviewUsingOption:(UXOption *)option value:(NSString *)value {
     UXTransientConfigOption *configOption = UXTransientConfigOption.new;
-    configOption.option = selectedOption;
-    configOption.value = selectedValue;
+    configOption.option = option;
+    configOption.value = value;
     
     UXLanguage *selectedLangauge = self.previewLanguagePopUpButton.selectedItem.representedObject;
     
@@ -473,11 +485,6 @@ static CGFloat const PreviewViewHeight = 300.0f;
         self.codePreviewTextView.string = result;
         [self.syntaxColoringController recolorCompleteFile:self];
     }
-}
-
-- (IBAction)disclosureTriangleClicked:(id)sender {
-    [self setPreviewExpanded:!self.previewExpanded animated:YES];
-    [self.window invalidateRestorableState];
 }
 
 - (void)showInfoForOption:(UXOption *)option {

@@ -141,12 +141,12 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         NSString *optionValue = nil;
         
         if (lineOptions.count > 0) {
-            optionCode = [lineOptions[0] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+            optionCode = [lineOptions[0] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
             NSLog(@"Code: '%@'", optionCode);
         }
         
         if (lineOptions.count > 1) {
-            optionValue = [lineOptions[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+            optionValue = [lineOptions[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
             NSLog(@"Value: '%@'", optionValue);
         }
         
@@ -339,7 +339,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         [self.configOptions removeAllObjects];
         
         
-        NSArray *lines = [contents componentsSeparatedByString:@"\n"];
+        NSArray *lines = [contents componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet];
         
         NSMutableArray *errorStrings = NSMutableArray.array;
         
