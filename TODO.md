@@ -12,6 +12,8 @@
 - ensure forward-compatibility with options not defined
 - compile latest uncrustify from github
 - presets (apple/google/github style)
+- scroll to option when dragged into option table view
+- fix apply button in documentation panel
 
 # Bugs
 - update to MR 2.0.8 - identify problem with data not persisting?
