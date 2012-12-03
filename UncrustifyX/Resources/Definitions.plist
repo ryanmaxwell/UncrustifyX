@@ -145,11 +145,22 @@ My Comment
 	</array>
 	<key>Languages</key>
 	<dict>
+		<key>VALA</key>
+		<dict>
+			<key>Name</key>
+			<string>Vala</string>
+			<key>Extensions</key>
+			<array>
+				<string>vala</string>
+			</array>
+		</dict>
 		<key>C</key>
 		<dict>
 			<key>Extensions</key>
 			<array>
 				<string>c</string>
+				<string>h</string>
+				<string>sqc</string>
 			</array>
 			<key>Name</key>
 			<string>C</string>
@@ -160,6 +171,9 @@ My Comment
 			<string>C++</string>
 			<key>Extensions</key>
 			<array>
+				<string>c++</string>
+				<string>hxx</string>
+				<string>c</string>
 				<string>cpp</string>
 				<string>cxx</string>
 				<string>cc</string>
@@ -181,6 +195,7 @@ My Comment
 			<key>Extensions</key>
 			<array>
 				<string>d</string>
+				<string>di</string>
 			</array>
 		</dict>
 		<key>JAVA</key>
@@ -217,6 +232,10 @@ My Comment
 			<key>Extensions</key>
 			<array>
 				<string>pwn</string>
+				<string>pawn</string>
+				<string>p</string>
+				<string>sma</string>
+				<string>inl</string>
 			</array>
 		</dict>
 	</dict>
