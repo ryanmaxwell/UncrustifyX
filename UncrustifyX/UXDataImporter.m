@@ -66,6 +66,19 @@
             }
             
             languageEntity.name = language[@"Name"];
+
+            /* Replace all Extensions */
+            NSArray *extensions = language[@"Extensions"];
+            NSMutableString *extensionsString = NSMutableString.string;
+            if (extensions && extensions.count) {
+                [extensions enumerateObjectsUsingBlock:^(NSString *extension, NSUInteger index, BOOL *stop){
+                    [extensionsString appendString:extension];
+                    if (index != extensions.count -1) {
+                        [extensionsString appendString:UXLanguageExtensionDelimiter];
+                    }
+                }];
+            }
+            languageEntity.extensions = extensionsString;
             
             languagesDict[key] = languageEntity;
         }

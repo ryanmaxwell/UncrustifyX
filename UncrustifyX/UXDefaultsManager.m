@@ -8,11 +8,11 @@
 
 #import "UXDefaultsManager.h"
 
-static NSString *const UXOverwriteFilesKey                  = @"OverwriteFiles";
-static NSString *const UXUseCustomBinaryKey                 = @"UseCustomBinary";
-static NSString *const UXCustomBinaryPathKey                = @"CustomBinaryPath";
-static NSString *const UXDefinitionsUpdatedAtKey            = @"DefinitionsUpdatedAt";
-static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"BundledUncrustifyBinaryVersion";
+static NSString *const UXOverwriteFilesKey                  = @"UXOverwriteFiles";
+static NSString *const UXUseCustomBinaryKey                 = @"UXUseCustomBinary";
+static NSString *const UXCustomBinaryPathKey                = @"UXCustomBinaryPath";
+static NSString *const UXDefinitionsUpdatedAtKey            = @"UXDefinitionsUpdatedAt";
+static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"UXBundledUncrustifyBinaryVersion";
 
 @implementation UXDefaultsManager
 

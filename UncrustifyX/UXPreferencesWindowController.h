@@ -10,8 +10,6 @@
 
 @interface UXPreferencesWindowController : NSWindowController
 
-@property (weak, nonatomic) IBOutlet NSTextField *customBinaryPathTextField;
-
 - (IBAction)choosePressed:(id)sender;
 
 @end

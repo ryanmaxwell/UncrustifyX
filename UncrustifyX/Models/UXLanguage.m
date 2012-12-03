@@ -8,6 +8,8 @@
 
 #import "UXLanguage.h"
 
+NSString * const UXLanguageExtensionDelimiter = @":";
+
 @implementation UXLanguage
 
 - (void)setIncludedInDocumentation:(NSNumber *)includedInDocumentation {
@@ -25,6 +27,10 @@
 - (NSString *)menuDisplayName {
     return self.primitiveIncludedInDocumentationValue ?
     [NSString stringWithFormat:@"✓ %@", self.name] : [NSString stringWithFormat:@"   %@", self.name];
+}
+
+- (NSArray *)fileExtensions {
+    return [self.extensions componentsSeparatedByString:UXLanguageExtensionDelimiter];
 }
 
 @end

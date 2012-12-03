@@ -19,6 +19,7 @@
     <entity name="UXLanguage" representedClassName="UXLanguage" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="extensions" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="includedInDocumentation" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -65,11 +66,11 @@
         <element name="UXAbstractCategory" positionX="-4986" positionY="-2140" width="128" height="88"/>
         <element name="UXCategory" positionX="-5150" positionY="-2026" width="128" height="73"/>
         <element name="UXCodeSample" positionX="-4797" positionY="-1584" width="153" height="118"/>
-        <element name="UXLanguage" positionX="-4995" positionY="-1728" width="153" height="148"/>
+        <element name="UXLanguage" positionX="-4995" positionY="-1728" width="153" height="163"/>
         <element name="UXOption" positionX="-5355" positionY="-1917" width="128" height="208"/>
+        <element name="UXPersistentConfigOption" positionX="-5609" positionY="-2007" width="173" height="103"/>
         <element name="UXSubCategory" positionX="-4943" positionY="-1953" width="128" height="73"/>
         <element name="UXValue" positionX="-5220" positionY="-1467" width="128" height="103"/>
         <element name="UXValueType" positionX="-5427" positionY="-1584" width="128" height="118"/>
-        <element name="UXPersistentConfigOption" positionX="-5609" positionY="-2007" width="173" height="103"/>
     </elements>
 </model>

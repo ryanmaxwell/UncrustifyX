@@ -6,6 +6,7 @@
 const struct UXLanguageAttributes UXLanguageAttributes = {
 	.code = @"code",
 	.createdAt = @"createdAt",
+	.extensions = @"extensions",
 	.includedInDocumentation = @"includedInDocumentation",
 	.name = @"name",
 	.updatedAt = @"updatedAt",
@@ -65,6 +66,13 @@ const struct UXLanguageFetchedProperties UXLanguageFetchedProperties = {
 
 
 @dynamic createdAt;
+
+
+
+
+
+
+@dynamic extensions;
 
 
 

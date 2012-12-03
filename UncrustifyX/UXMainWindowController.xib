@@ -547,6 +547,7 @@
 									<string key="NSFrame">{{251, 0}, {549, 500}}</string>
 									<reference key="NSSuperview" ref="431151794"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:13</string>
 									<string key="NSClassName">NSView</string>
 								</object>
@@ -583,6 +584,7 @@
 						<string key="NSFrame">{{17, 20}, {316, 17}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1060075792">
@@ -611,7 +613,7 @@
 										<string key="NSFrameSize">{527, 274}</string>
 										<reference key="NSSuperview" ref="243302724"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="999151099"/>
+										<reference key="NSNextKeyView" ref="666369616"/>
 										<string key="NSReuseIdentifierKey">_NS:13</string>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -736,7 +738,7 @@
 						<string key="NSFrame">{{20, 67}, {529, 292}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="243302724"/>
+						<reference key="NSNextKeyView" ref="999151099"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="666369616"/>
@@ -802,6 +804,7 @@
 								<string key="NSFrame">{{405, 3}, {163, 22}}</string>
 								<reference key="NSSuperview" ref="907512466"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="NSEnabled">YES</bool>
 								<object class="NSPopUpButtonCell" key="NSCell" id="843331643">
@@ -885,7 +888,7 @@
 										<string key="NSFrameSize">{569, 330}</string>
 										<reference key="NSSuperview" ref="657778822"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="158648832"/>
+										<reference key="NSNextKeyView" ref="144316715"/>
 										<string key="NSReuseIdentifierKey">_NS:13</string>
 										<object class="NSTextContainer" key="NSTextContainer" id="130794741">
 											<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1140,7 +1143,7 @@ wGw</bytes>
 						<string key="NSFrame">{{0, 30}, {569, 330}}</string>
 						<reference key="NSSuperview" ref="977851870"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="657778822"/>
+						<reference key="NSNextKeyView" ref="158648832"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="NSsFlags">133136</int>
 						<reference key="NSVScroller" ref="144316715"/>
@@ -1398,19 +1401,19 @@ wGw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.OverwriteFiles</string>
+						<string key="label">value: values.UXOverwriteFiles</string>
 						<reference key="source" ref="702953980"/>
 						<reference key="destination" ref="764228459"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="702953980"/>
 							<reference key="NSDestination" ref="764228459"/>
-							<string key="NSLabel">value: values.OverwriteFiles</string>
+							<string key="NSLabel">value: values.UXOverwriteFiles</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.OverwriteFiles</string>
+							<string key="NSKeyPath">values.UXOverwriteFiles</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">251</int>
+					<int key="connectionID">315</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1955,7 +1958,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">314</int>
+			<int key="maxID">315</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

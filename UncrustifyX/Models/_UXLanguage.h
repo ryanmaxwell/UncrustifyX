@@ -7,6 +7,7 @@
 extern const struct UXLanguageAttributes {
 	__unsafe_unretained NSString *code;
 	__unsafe_unretained NSString *createdAt;
+	__unsafe_unretained NSString *extensions;
 	__unsafe_unretained NSString *includedInDocumentation;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *updatedAt;
@@ -22,6 +23,7 @@ extern const struct UXLanguageFetchedProperties {
 
 @class UXCodeSample;
 @class UXOption;
+
 
 
 
@@ -57,6 +59,16 @@ extern const struct UXLanguageFetchedProperties {
 
 
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* extensions;
+
+
+
+//- (BOOL)validateExtensions:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -138,6 +150,12 @@ extern const struct UXLanguageFetchedProperties {
 
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveExtensions;
+- (void)setPrimitiveExtensions:(NSString*)value;
 
 
 

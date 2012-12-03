@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UpdatedAt</key>
-	<date>2012-12-01T11:00:00Z</date>
+	<date>2012-12-02T11:00:01Z</date>
 	<key>CodeSamples</key>
 	<array>
 		<dict>
@@ -147,6 +147,10 @@ My Comment
 	<dict>
 		<key>C</key>
 		<dict>
+			<key>Extensions</key>
+			<array>
+				<string>c</string>
+			</array>
 			<key>Name</key>
 			<string>C</string>
 		</dict>
@@ -154,36 +158,66 @@ My Comment
 		<dict>
 			<key>Name</key>
 			<string>C++</string>
+			<key>Extensions</key>
+			<array>
+				<string>cpp</string>
+				<string>cxx</string>
+				<string>cc</string>
+			</array>
 		</dict>
 		<key>CS</key>
 		<dict>
 			<key>Name</key>
 			<string>C#</string>
+			<key>Extensions</key>
+			<array>
+				<string>cs</string>
+			</array>
 		</dict>
 		<key>D</key>
 		<dict>
 			<key>Name</key>
 			<string>D</string>
+			<key>Extensions</key>
+			<array>
+				<string>d</string>
+			</array>
 		</dict>
 		<key>JAVA</key>
 		<dict>
 			<key>Name</key>
 			<string>Java</string>
+			<key>Extensions</key>
+			<array>
+				<string>java</string>
+			</array>
 		</dict>
 		<key>OC</key>
 		<dict>
 			<key>Name</key>
 			<string>Objective-C</string>
+			<key>Extensions</key>
+			<array>
+				<string>m</string>
+			</array>
 		</dict>
 		<key>OC+</key>
 		<dict>
 			<key>Name</key>
 			<string>Objective-C++</string>
+			<key>Extensions</key>
+			<array>
+				<string>mm</string>
+			</array>
 		</dict>
 		<key>PAWN</key>
 		<dict>
 			<key>Name</key>
 			<string>Pawn</string>
+			<key>Extensions</key>
+			<array>
+				<string>pwn</string>
+			</array>
 		</dict>
 	</dict>
 	<key>Options</key>
@@ -2242,6 +2276,19 @@ This also adds a newline before the matching brace close.</string>
 			<string>Newline after return</string>
 			<key>SubCategory</key>
 			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_before_return</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put a newline before &apos;return&apos; statement</string>
+			<key>Name</key>
+			<string>Newline before return</string>
+			<key>SubCategory</key>
+			<string>Newline Before</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
