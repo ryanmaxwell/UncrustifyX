@@ -3,7 +3,6 @@
 ## Definitions.plist
 - Assign languages to every option
 - More code samples
-- ensure all of the latest options are in there
 
 ## Other
 - Look into swapping out UKSyntaxColoredTextViewController to [Fragaria](https://github.com/mugginsoft/Fragaria) for syntax coloring
@@ -13,7 +12,6 @@
 - compile latest uncrustify from github
 - presets (apple/google/github style)
 - scroll to option when dragged into option table view
-- fix apply button in documentation panel
 
 # Bugs
 - update to MR 2.0.8 - identify problem with data not persisting?
