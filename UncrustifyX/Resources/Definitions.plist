@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UpdatedAt</key>
-	<date>2012-12-03T11:00:03Z</date>
+	<date>2012-12-04T11:00:05Z</date>
 	<key>CodeSamples</key>
 	<array>
 		<dict>
@@ -241,10 +241,29 @@ My Comment
 	</dict>
 	<key>Options</key>
 	<dict>
+		<key>sp_after_throw</key>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+			<key>Name</key>
+			<string>Space after throw</string>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;throw&apos; and anything other than &apos;(&apos; as in &apos;@throw [...];&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+		</dict>
 		<key>sp_before_pp_stringify</key>
 		<dict>
 			<key>Name</key>
 			<string>Space before preprocessor stringify operator</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
 			<key>Category</key>
 			<string>Preprocessor</string>
 			<key>Subcategory</key>
@@ -254,6 +273,8 @@ My Comment
 		</dict>
 		<key>indent_oc_block</key>
 		<dict>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
 			<key>Description</key>
 			<string>Indent OC blocks at brace level instead of usual rules.</string>
 			<key>Name</key>
@@ -265,6 +286,8 @@ My Comment
 		</dict>
 		<key>sp_after_oc_property</key>
 		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
 			<key>Description</key>
 			<string>Add or remove space after @property.</string>
 			<key>Languages</key>
@@ -275,87 +298,246 @@ My Comment
 			<string>Space after obj-c property</string>
 		</dict>
 		<key>utf8_bom</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>utf8_byte</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>utf8_force</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>indent_ctor_init_leading</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>indent_ctor_init</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>indent_func_def_force_col1</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>sp_cpp_lambda_assign</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_cpp_lambda_paren</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_ptr_star_paren</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_before_template_paren</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>sp_permit_cpp11_shift</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>sp_inside_sparen_open</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_inside_tparen</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_after_tparen_close</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_after_oc_dict_colon</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Space after obj-c dictionary colon</string>
+		</dict>
 		<key>sp_before_oc_dict_colon</key>
-		<dict/>
+		<dict>
+			<key>Name</key>
+			<string>Space before obj-c dictionary colon</string>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+		</dict>
 		<key>sp_after_oc_msg_receiver</key>
-		<dict/>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+			<key>Name</key>
+			<string>Space after obj-c message receiver</string>
+		</dict>
 		<key>sp_after_new</key>
-		<dict/>
+		<dict>
+			<key>Name</key>
+			<string>Space after new</string>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_before_tr_emb_cmt</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_num_before_tr_emb_cmt</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>sp_annotation_paren</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>align_pp_define_together</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>nl_typedef_blk_start</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_typedef_blk_end</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_typedef_blk_in</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_var_def_blk_start</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_var_def_blk_end</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_var_def_blk_in</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_scope_brace</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_unittest_brace</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_version_brace</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_case_colon_brace</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_brace_struct_var</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>ls_code_width</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>nl_after_func_body_class</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_after_struct</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_after_class</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_property_brace</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_remove_extra_newlines</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>nl_after_annotation</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_between_annotation</key>
-		<dict/>
+		<dict>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>align_assign_span</key>
 		<dict>
 			<key>Category</key>
@@ -5507,8 +5689,6 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Default</key>
-			<string>Add</string>
 			<key>Description</key>
 			<string>Add or remove space after preprocessor &apos;#&apos; stringify operator. Also affects the &apos;#@&apos; charizing operator.</string>
 			<key>Name</key>
