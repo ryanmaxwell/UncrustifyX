@@ -20,7 +20,7 @@ Git checkout the project including its submodule. Xcode 4.5, 10.7+ Required. Ins
 
 ## Current Status
 UncrustifyX is new as of November 2012, and as such there will be rough edges. Hopefully it shows promise!
-The current releases of the uncrustify binary have regressions in Obj-C support - an older binary is currently bundled. File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/projects/uncrustify/) or [Github](https://github.com/bengardner/uncrustify) home.
+File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/projects/uncrustify/) or [Github](https://github.com/bengardner/uncrustify) home.
 
 ## Contribution
 I welcome contributors to this project. Raise any bugs/suggestions/feature requests within the Issues tab.

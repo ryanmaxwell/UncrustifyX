@@ -24,7 +24,7 @@ static NSString *const UXExportBlankOptionsKey              = @"UXExportBlankOpt
 
 + (void)registerDefaults {
     NSDictionary *defaults = @{
-        UXBundledUncrustifyBinaryVersionKey: @"0.59",
+        UXBundledUncrustifyBinaryVersionKey: @"0.59 (0b34f6412a)",
         UXExportDocumentationKey: @YES,
         UXExportCategoriesKey: @YES,
         UXExportSubcategoriesKey: @YES,
