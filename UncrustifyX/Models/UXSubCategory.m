@@ -1,29 +1,29 @@
 //
-//  UXSubCategory.m
+//  UXSubcategory.m
 //  UncrustifyX
 //
 //  Created by Ryan Maxwell on 10/11/12.
 //  Copyright (c) 2012 Ryan Maxwell. All rights reserved.
 //
 
-#import "UXSubCategory.h"
+#import "UXSubcategory.h"
 
-@implementation UXSubCategory
+@implementation UXSubcategory
 
 - (NSString *)displayName {
     return self.name;
 }
 
-+ (UXSubCategory *)otherSubCategory {
-    static UXSubCategory *other;
++ (UXSubcategory *)otherSubcategory {
+    static UXSubcategory *other;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        other = [UXSubCategory findFirstByAttribute:UXAbstractCategoryAttributes.name
+        other = [UXSubcategory findFirstByAttribute:UXAbstractCategoryAttributes.name
                                                 withValue:@"Other"];
         
         if (!other) {
-            other = [UXSubCategory createEntity];
+            other = [UXSubcategory createEntity];
             other.name = @"Other";
             [NSManagedObjectContext.defaultContext save];
         }

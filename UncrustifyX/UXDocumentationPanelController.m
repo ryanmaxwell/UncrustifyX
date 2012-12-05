@@ -10,7 +10,7 @@
 #import "UXSyntaxColoredTextViewController.h"
 
 #import "UXCategory.h"
-#import "UXSubCategory.h"
+#import "UXSubcategory.h"
 #import "UXTransientConfigOption.h"
 #import "UXOption.h"
 #import "UXLanguage.h"
@@ -35,8 +35,8 @@ static CGFloat const PreviewViewHeight = 300.0f;
 @property (assign, nonatomic) BOOL previewExpanded;
 
 @property (strong, nonatomic) NSArray *allOptions;
-@property (strong, nonatomic) NSArray *allSubCategories;
-@property (strong, nonatomic) NSMutableArray *currentOptionsAndSubCategories;
+@property (strong, nonatomic) NSArray *allSubcategories;
+@property (strong, nonatomic) NSMutableArray *currentOptionsAndSubcategories;
 
 @property (weak, nonatomic) UXOption *selectedOption;
 @end
@@ -58,9 +58,9 @@ static CGFloat const PreviewViewHeight = 300.0f;
         _codeSamplesArrayController = [[NSArrayController alloc] init];
         
         _allOptions = [[NSArray alloc] initWithArray:[UXOption findAll]];
-        _allSubCategories = [[NSArray alloc] initWithArray:[UXSubCategory findAll]];
+        _allSubcategories = [[NSArray alloc] initWithArray:[UXSubcategory findAll]];
         
-        _currentOptionsAndSubCategories = [[NSMutableArray alloc] init];
+        _currentOptionsAndSubcategories = [[NSMutableArray alloc] init];
         
         _previewExpanded = NO;
     }
@@ -125,13 +125,13 @@ static CGFloat const PreviewViewHeight = 300.0f;
     } else if (sender == self.optionsTableView) {
         NSUInteger selectedRow = sender.selectedRow;
         if (selectedRow < sender.numberOfRows) {
-            self.selectedOption = [self.currentOptionsAndSubCategories objectAtIndex:sender.selectedRow];
+            self.selectedOption = [self.currentOptionsAndSubcategories objectAtIndex:sender.selectedRow];
         }
     }
 }
 
 - (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row {
-    return (tableView == self.optionsTableView && [self.currentOptionsAndSubCategories[row] isKindOfClass:UXSubCategory.class]);
+    return (tableView == self.optionsTableView && [self.currentOptionsAndSubcategories[row] isKindOfClass:UXSubcategory.class]);
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
@@ -142,21 +142,21 @@ static CGFloat const PreviewViewHeight = 300.0f;
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     if (tableView == self.optionsTableView) {
-        return self.currentOptionsAndSubCategories.count;
+        return self.currentOptionsAndSubcategories.count;
     }
     return 0;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
     if (tableView == self.optionsTableView) {
-        return [self.currentOptionsAndSubCategories[rowIndex] displayName];
+        return [self.currentOptionsAndSubcategories[rowIndex] displayName];
     }
     return nil;
 }
 
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
     if (tableView == self.optionsTableView) {
-        [self.currentOptionsAndSubCategories[rowIndex] setDisplayName:object];
+        [self.currentOptionsAndSubcategories[rowIndex] setDisplayName:object];
     }
 }
 
@@ -175,7 +175,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
         [rowIndexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop){
             if (![self tableView:tableView isGroupRow:index]) {
                 NSPasteboardItem *item = [[NSPasteboardItem alloc] init];
-                UXOption *option = self.currentOptionsAndSubCategories[index];
+                UXOption *option = self.currentOptionsAndSubcategories[index];
                 
                 [item setString:option.code forType:NSPasteboardTypeString];
                 
@@ -245,37 +245,37 @@ static CGFloat const PreviewViewHeight = 300.0f;
 - (void)filterOptions {
     NSSortDescriptor *displayNameSort = [NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES];
     
-    NSArray *sortedSubCategories = nil;
+    NSArray *sortedSubcategories = nil;
     
     if (self.selectedCategory) {
-        NSPredicate *subCategoriesFilter = [NSPredicate predicateWithFormat:@"%@ IN %K",
+        NSPredicate *subcategoriesFilter = [NSPredicate predicateWithFormat:@"%@ IN %K",
                                             self.selectedCategory,
-                                            UXSubCategoryRelationships.parentCategories];
+                                            UXSubcategoryRelationships.parentCategories];
         
-        sortedSubCategories = [[self.allSubCategories filteredArrayUsingPredicate:subCategoriesFilter]
+        sortedSubcategories = [[self.allSubcategories filteredArrayUsingPredicate:subcategoriesFilter]
                                sortedArrayUsingDescriptors:@[displayNameSort]];
     } else {
-        sortedSubCategories = [self.allSubCategories sortedArrayUsingDescriptors:@[displayNameSort]];
+        sortedSubcategories = [self.allSubcategories sortedArrayUsingDescriptors:@[displayNameSort]];
     }
     
-    [self.currentOptionsAndSubCategories removeAllObjects];
+    [self.currentOptionsAndSubcategories removeAllObjects];
     
     NSPredicate *searchFilter = self.keywordSearchPredicate;
     
     /* subcategories and their options */
-    for (UXSubCategory *subCategory in sortedSubCategories) {
+    for (UXSubcategory *subcategory in sortedSubcategories) {
         
         NSPredicate *categoryFilter = nil;
         if (self.selectedCategory) {
             categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == %@",
                              UXOptionRelationships.category,
                              self.selectedCategory,
-                             UXOptionRelationships.subCategory,
-                             subCategory];
+                             UXOptionRelationships.subcategory,
+                             subcategory];
         } else {
             categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@",
-                             UXOptionRelationships.subCategory,
-                             subCategory];
+                             UXOptionRelationships.subcategory,
+                             subcategory];
         }
         
         NSPredicate *optionsFilter = categoryFilter;
@@ -291,8 +291,8 @@ static CGFloat const PreviewViewHeight = 300.0f;
                                     sortedArrayUsingDescriptors:@[displayNameSort]];
         
         if (filteredOptions.count > 0) {
-            [self.currentOptionsAndSubCategories addObject:subCategory];
-            [self.currentOptionsAndSubCategories addObjectsFromArray:filteredOptions];
+            [self.currentOptionsAndSubcategories addObject:subcategory];
+            [self.currentOptionsAndSubcategories addObjectsFromArray:filteredOptions];
         }
     }
     
@@ -302,10 +302,10 @@ static CGFloat const PreviewViewHeight = 300.0f;
         categoryFilter = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == nil",
                          UXOptionRelationships.category,
                          self.selectedCategory,
-                         UXOptionRelationships.subCategory];
+                         UXOptionRelationships.subcategory];
     } else {
         categoryFilter = [NSPredicate predicateWithFormat:@"%K == nil",
-                         UXOptionRelationships.subCategory];
+                         UXOptionRelationships.subcategory];
     }
     
     NSPredicate *optionsFilter = categoryFilter;
@@ -320,17 +320,17 @@ static CGFloat const PreviewViewHeight = 300.0f;
     NSArray *filteredOptions = [[self.allOptions filteredArrayUsingPredicate:optionsFilter]
                                 sortedArrayUsingDescriptors:@[displayNameSort]];
     
-    if (sortedSubCategories.count > 0 && filteredOptions.count > 0) {
+    if (sortedSubcategories.count > 0 && filteredOptions.count > 0) {
         /* show "Other" header */
-        [self.currentOptionsAndSubCategories addObject:UXSubCategory.otherSubCategory];
+        [self.currentOptionsAndSubcategories addObject:UXSubcategory.otherSubcategory];
     }
     
-    [self.currentOptionsAndSubCategories addObjectsFromArray:filteredOptions];
+    [self.currentOptionsAndSubcategories addObjectsFromArray:filteredOptions];
     
     [self.optionsTableView reloadData];
     
     /* select first option */
-    [self.currentOptionsAndSubCategories enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
+    [self.currentOptionsAndSubcategories enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
         if ([obj isKindOfClass:UXOption.class]) {
             
             [self.optionsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index]
@@ -347,8 +347,11 @@ static CGFloat const PreviewViewHeight = 300.0f;
 - (NSPredicate *)keywordSearchPredicate {
     NSMutableArray *appliedPredicates = NSMutableArray.array;
     
-    NSArray *selectedLanguages = [UXLanguage findByAttribute:UXLanguageAttributes.includedInDocumentation
-                                                   withValue:@YES];
+    NSArray *selectedLanguageCodes = [UXDefaultsManager languagesIncludedInDocumentationPanel];
+    NSPredicate *selectedLanguagePredicate = [NSPredicate predicateWithFormat:@"%K IN %@",
+                                              UXLanguageAttributes.code,
+                                              selectedLanguageCodes];
+    NSArray *selectedLanguages = [UXLanguage findAllWithPredicate:selectedLanguagePredicate];
     
     BOOL requiresLanguageFilter = (selectedLanguages.count < UXLanguage.findAll.count);
     
@@ -446,7 +449,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
 - (IBAction)browseLanguagesPopUpChanged:(id)sender {
     NSPopUpButton *senderButton = (NSPopUpButton *)sender;
     UXLanguage *selectedLanguage = senderButton.selectedItem.representedObject;
-    selectedLanguage.includedInDocumentationValue = !selectedLanguage.includedInDocumentationValue;
+    selectedLanguage.includedInDocumentation = !selectedLanguage.includedInDocumentation;
     [self filterOptions];
 }
 
@@ -504,7 +507,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
         }
         
         /* select option on right */
-        NSUInteger filteredOptionIndex = [self.currentOptionsAndSubCategories indexOfObject:option];
+        NSUInteger filteredOptionIndex = [self.currentOptionsAndSubcategories indexOfObject:option];
         
         if (filteredOptionIndex != NSNotFound) {
             NSIndexSet *selectionIndexSet = [NSIndexSet indexSetWithIndex:filteredOptionIndex];

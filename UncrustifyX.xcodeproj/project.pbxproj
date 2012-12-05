@@ -40,6 +40,8 @@
 		944ED07E164F7AE800F785DC /* UXConfigOptionTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944ED07D164F7AE800F785DC /* UXConfigOptionTableCellView.m */; };
 		94558AE6166AAEAE0094327D /* UXPreferencesWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94558AE5166AAEAE0094327D /* UXPreferencesWindow.m */; };
 		945A0DAD1664049A00398587 /* Docset.png in Resources */ = {isa = PBXBuildFile; fileRef = 945A0DAC1664049A00398587 /* Docset.png */; };
+		945C40BF166F346600D2F356 /* _UXSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C40BE166F346600D2F356 /* _UXSubcategory.m */; };
+		945C40C2166F348000D2F356 /* UXSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C40C1166F348000D2F356 /* UXSubcategory.m */; };
 		9464B987162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */; };
 		9464B9AD162ABA4500F61C28 /* UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9AC162ABA4500F61C28 /* UXCodeSample.m */; };
 		9464B9B1162ABA4F00F61C28 /* _UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9B0162ABA4F00F61C28 /* _UXCodeSample.m */; };
@@ -55,8 +57,6 @@
 		946920601632329F003C5688 /* UXPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */; };
 		9469207016327BD9003C5688 /* UXSyntaxColoredTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469206F16327BD9003C5688 /* UXSyntaxColoredTextViewController.m */; };
 		9473F95D1655E05A00457B1A /* UXUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473F95C1655E05A00457B1A /* UXUIUtils.m */; };
-		9499331F164E5B250036CB53 /* UXSubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499331E164E5B250036CB53 /* UXSubCategory.m */; };
-		94993323164E5B350036CB53 /* _UXSubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94993322164E5B350036CB53 /* _UXSubCategory.m */; };
 		94993326164E5D5E0036CB53 /* _UXAbstractCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94993325164E5D5E0036CB53 /* _UXAbstractCategory.m */; };
 		94993329164E5D700036CB53 /* UXAbstractCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94993328164E5D700036CB53 /* UXAbstractCategory.m */; };
 		9499335D164F74A10036CB53 /* UXPersistentConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499335C164F74A10036CB53 /* UXPersistentConfigOption.m */; };
@@ -150,6 +150,10 @@
 		94558AE4166AAEAE0094327D /* UXPreferencesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXPreferencesWindow.h; sourceTree = "<group>"; };
 		94558AE5166AAEAE0094327D /* UXPreferencesWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXPreferencesWindow.m; sourceTree = "<group>"; };
 		945A0DAC1664049A00398587 /* Docset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Docset.png; path = Resources/Docset.png; sourceTree = "<group>"; };
+		945C40BD166F346600D2F356 /* _UXSubcategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _UXSubcategory.h; path = Models/_UXSubcategory.h; sourceTree = "<group>"; };
+		945C40BE166F346600D2F356 /* _UXSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _UXSubcategory.m; path = Models/_UXSubcategory.m; sourceTree = "<group>"; };
+		945C40C0166F348000D2F356 /* UXSubcategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXSubcategory.h; path = Models/UXSubcategory.h; sourceTree = "<group>"; };
+		945C40C1166F348000D2F356 /* UXSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXSubcategory.m; path = Models/UXSubcategory.m; sourceTree = "<group>"; };
 		9464B985162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionDisplayNameValueTransformer.h; sourceTree = "<group>"; };
 		9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXCollectionDisplayNameValueTransformer.m; sourceTree = "<group>"; };
 		9464B9AB162ABA4500F61C28 /* UXCodeSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXCodeSample.h; path = Models/UXCodeSample.h; sourceTree = "<group>"; };
@@ -179,10 +183,6 @@
 		9469206F16327BD9003C5688 /* UXSyntaxColoredTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXSyntaxColoredTextViewController.m; sourceTree = "<group>"; };
 		9473F95B1655E05A00457B1A /* UXUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXUIUtils.h; path = Utilities/UXUIUtils.h; sourceTree = "<group>"; };
 		9473F95C1655E05A00457B1A /* UXUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXUIUtils.m; path = Utilities/UXUIUtils.m; sourceTree = "<group>"; };
-		9499331D164E5B250036CB53 /* UXSubCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXSubCategory.h; path = Models/UXSubCategory.h; sourceTree = "<group>"; };
-		9499331E164E5B250036CB53 /* UXSubCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXSubCategory.m; path = Models/UXSubCategory.m; sourceTree = "<group>"; };
-		94993321164E5B350036CB53 /* _UXSubCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _UXSubCategory.h; path = Models/_UXSubCategory.h; sourceTree = "<group>"; };
-		94993322164E5B350036CB53 /* _UXSubCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _UXSubCategory.m; path = Models/_UXSubCategory.m; sourceTree = "<group>"; };
 		94993324164E5D5E0036CB53 /* _UXAbstractCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _UXAbstractCategory.h; path = Models/_UXAbstractCategory.h; sourceTree = "<group>"; };
 		94993325164E5D5E0036CB53 /* _UXAbstractCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _UXAbstractCategory.m; path = Models/_UXAbstractCategory.m; sourceTree = "<group>"; };
 		94993327164E5D700036CB53 /* UXAbstractCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXAbstractCategory.h; path = Models/UXAbstractCategory.h; sourceTree = "<group>"; };
@@ -438,10 +438,10 @@
 				94659C4F1626CB0800A0C496 /* _UXLanguage.m */,
 				94659C501626CB0800A0C496 /* _UXOption.h */,
 				94659C511626CB0800A0C496 /* _UXOption.m */,
+				945C40BD166F346600D2F356 /* _UXSubcategory.h */,
+				945C40BE166F346600D2F356 /* _UXSubcategory.m */,
 				940BE3E416648A3B00EE4C2B /* _UXPersistentConfigOption.h */,
 				940BE3E516648A3B00EE4C2B /* _UXPersistentConfigOption.m */,
-				94993321164E5B350036CB53 /* _UXSubCategory.h */,
-				94993322164E5B350036CB53 /* _UXSubCategory.m */,
 				94035896162A34FE00D5FD3A /* _UXValue.h */,
 				94035897162A34FE00D5FD3A /* _UXValue.m */,
 				94035898162A34FE00D5FD3A /* _UXValueType.h */,
@@ -465,10 +465,10 @@
 				94659C581626CB1400A0C496 /* UXLanguage.m */,
 				94659C591626CB1400A0C496 /* UXOption.h */,
 				94659C5A1626CB1400A0C496 /* UXOption.m */,
-				9499331D164E5B250036CB53 /* UXSubCategory.h */,
-				9499331E164E5B250036CB53 /* UXSubCategory.m */,
 				9403589D162A350D00D5FD3A /* UXValue.h */,
 				9403589E162A350D00D5FD3A /* UXValue.m */,
+				945C40C0166F348000D2F356 /* UXSubcategory.h */,
+				945C40C1166F348000D2F356 /* UXSubcategory.m */,
 				9403589F162A350D00D5FD3A /* UXValueType.h */,
 				940358A0162A350D00D5FD3A /* UXValueType.m */,
 				9499335B164F74A00036CB53 /* UXPersistentConfigOption.h */,
@@ -669,8 +669,6 @@
 				941723AF163B7D4A00324CD6 /* NSArray+Color.m in Sources */,
 				941723B0163B7D4A00324CD6 /* NSScanner+SkipUpToCharset.m in Sources */,
 				941723B1163B7D4A00324CD6 /* UKSyntaxColoredTextViewController.m in Sources */,
-				9499331F164E5B250036CB53 /* UXSubCategory.m in Sources */,
-				94993323164E5B350036CB53 /* _UXSubCategory.m in Sources */,
 				94993326164E5D5E0036CB53 /* _UXAbstractCategory.m in Sources */,
 				94993329164E5D700036CB53 /* UXAbstractCategory.m in Sources */,
 				9499335D164F74A10036CB53 /* UXPersistentConfigOption.m in Sources */,
@@ -685,6 +683,8 @@
 				94F2E77D1664B471004E6DF5 /* UXSearchGradientView.m in Sources */,
 				940BE3F31665859A00EE4C2B /* UXConfigOption.m in Sources */,
 				94558AE6166AAEAE0094327D /* UXPreferencesWindow.m in Sources */,
+				945C40BF166F346600D2F356 /* _UXSubcategory.m in Sources */,
+				945C40C2166F348000D2F356 /* UXSubcategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

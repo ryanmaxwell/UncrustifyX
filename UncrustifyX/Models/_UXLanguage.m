@@ -7,7 +7,6 @@ const struct UXLanguageAttributes UXLanguageAttributes = {
 	.code = @"code",
 	.createdAt = @"createdAt",
 	.extensions = @"extensions",
-	.includedInDocumentation = @"includedInDocumentation",
 	.name = @"name",
 	.updatedAt = @"updatedAt",
 };
@@ -46,11 +45,6 @@ const struct UXLanguageFetchedProperties UXLanguageFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"includedInDocumentationValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"includedInDocumentation"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 
 	return keyPaths;
 }
@@ -74,32 +68,6 @@ const struct UXLanguageFetchedProperties UXLanguageFetchedProperties = {
 
 @dynamic extensions;
 
-
-
-
-
-
-@dynamic includedInDocumentation;
-
-
-
-- (BOOL)includedInDocumentationValue {
-	NSNumber *result = [self includedInDocumentation];
-	return [result boolValue];
-}
-
-- (void)setIncludedInDocumentationValue:(BOOL)value_ {
-	[self setIncludedInDocumentation:[NSNumber numberWithBool:value_]];
-}
-
-- (BOOL)primitiveIncludedInDocumentationValue {
-	NSNumber *result = [self primitiveIncludedInDocumentation];
-	return [result boolValue];
-}
-
-- (void)setPrimitiveIncludedInDocumentationValue:(BOOL)value_ {
-	[self setPrimitiveIncludedInDocumentation:[NSNumber numberWithBool:value_]];
-}
 
 
 

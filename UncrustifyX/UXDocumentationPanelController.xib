@@ -2274,19 +2274,19 @@ wGw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: selectedOption.subCategoryName</string>
+						<string key="label">value: selectedOption.subcategoryName</string>
 						<reference key="source" ref="587571645"/>
 						<reference key="destination" ref="1001"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="587571645"/>
 							<reference key="NSDestination" ref="1001"/>
-							<string key="NSLabel">value: selectedOption.subCategoryName</string>
+							<string key="NSLabel">value: selectedOption.subcategoryName</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">selectedOption.subCategoryName</string>
+							<string key="NSKeyPath">selectedOption.subcategoryName</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">647</int>
+					<int key="connectionID">689</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3047,7 +3047,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">687</int>
+			<int key="maxID">689</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

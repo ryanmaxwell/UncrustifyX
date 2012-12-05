@@ -16,7 +16,7 @@
 
 NSString *const ConfigOptionCellReuseIdentifier = @"ConfigOptionTableCellView";
 NSString *const CategoryCellReuseIdentifier = @"CategoryTableCellView";
-NSString *const SubCategoryCellReuseIdentifier = @"SubCategoryTableCellView";
+NSString *const SubcategoryCellReuseIdentifier = @"SubcategoryTableCellView";
 
 @implementation UXConfigOptionTableCellView
 

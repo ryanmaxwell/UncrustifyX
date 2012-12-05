@@ -1,40 +1,40 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to UXSubCategory.m instead.
+// Make changes to UXSubcategory.m instead.
 
-#import "_UXSubCategory.h"
+#import "_UXSubcategory.h"
 
-const struct UXSubCategoryAttributes UXSubCategoryAttributes = {
+const struct UXSubcategoryAttributes UXSubcategoryAttributes = {
 };
 
-const struct UXSubCategoryRelationships UXSubCategoryRelationships = {
+const struct UXSubcategoryRelationships UXSubcategoryRelationships = {
 	.options = @"options",
 	.parentCategories = @"parentCategories",
 };
 
-const struct UXSubCategoryFetchedProperties UXSubCategoryFetchedProperties = {
+const struct UXSubcategoryFetchedProperties UXSubcategoryFetchedProperties = {
 };
 
-@implementation UXSubCategoryID
+@implementation UXSubcategoryID
 @end
 
-@implementation _UXSubCategory
+@implementation _UXSubcategory
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"UXSubCategory" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"UXSubcategory" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"UXSubCategory";
+	return @"UXSubcategory";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"UXSubCategory" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"UXSubcategory" inManagedObjectContext:moc_];
 }
 
-- (UXSubCategoryID*)objectID {
-	return (UXSubCategoryID*)[super objectID];
+- (UXSubcategoryID*)objectID {
+	return (UXSubcategoryID*)[super objectID];
 }
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {

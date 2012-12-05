@@ -8,17 +8,18 @@
 
 #import "UXDefaultsManager.h"
 
-static NSString *const UXOverwriteFilesKey                  = @"UXOverwriteFiles";
-static NSString *const UXUseCustomBinaryKey                 = @"UXUseCustomBinary";
-static NSString *const UXCustomBinaryPathKey                = @"UXCustomBinaryPath";
-static NSString *const UXDefinitionsUpdatedAtKey            = @"UXDefinitionsUpdatedAt";
-static NSString *const UXBundledUncrustifyBinaryVersionKey  = @"UXBundledUncrustifyBinaryVersion";
-static NSString *const UXExportDocumentationKey             = @"UXExportDocumentation";
-static NSString *const UXExportCategoriesKey                = @"UXExportCategories";
-static NSString *const UXExportSubcategoriesKey             = @"UXExportSubcategories";
-static NSString *const UXExportOptionNameKey                = @"UXExportOptionName";
-static NSString *const UXExportOptionValueKey               = @"UXExportOptionValue";
-static NSString *const UXExportBlankOptionsKey              = @"UXExportBlankOptions";
+static NSString *const UXOverwriteFilesKey                      = @"UXOverwriteFiles";
+static NSString *const UXUseCustomBinaryKey                     = @"UXUseCustomBinary";
+static NSString *const UXCustomBinaryPathKey                    = @"UXCustomBinaryPath";
+static NSString *const UXDefinitionsUpdatedAtKey                = @"UXDefinitionsUpdatedAt";
+static NSString *const UXBundledUncrustifyBinaryVersionKey      = @"UXBundledUncrustifyBinaryVersion";
+static NSString *const UXExportDocumentationKey                 = @"UXExportDocumentation";
+static NSString *const UXExportCategoriesKey                    = @"UXExportCategories";
+static NSString *const UXExportSubcategoriesKey                 = @"UXExportSubcategories";
+static NSString *const UXExportOptionNameKey                    = @"UXExportOptionName";
+static NSString *const UXExportOptionValueKey                   = @"UXExportOptionValue";
+static NSString *const UXExportBlankOptionsKey                  = @"UXExportBlankOptions";
+static NSString *const UXLanguagesIncludedInDocumentationKey    = @"UXLanguagesIncludedInDocumentation";
 
 @implementation UXDefaultsManager
 
@@ -80,6 +81,32 @@ static NSString *const UXExportBlankOptionsKey              = @"UXExportBlankOpt
 
 + (BOOL)exportBlankOptions {
     return [[self defaultsObjectForKey:UXExportBlankOptionsKey] boolValue];
+}
+
++ (NSArray *)languagesIncludedInDocumentationPanel {
+    return [self defaultsObjectForKey:UXLanguagesIncludedInDocumentationKey];
+}
+
++ (void)addLanguageIncludedInDocumentation:(NSString *)languageCode {
+    if (languageCode != nil) {
+        NSArray *currentLanguages = [self languagesIncludedInDocumentationPanel];
+        if (![currentLanguages containsObject:languageCode]) {
+            NSMutableArray *newLangauges = [NSMutableArray arrayWithArray:currentLanguages];
+            [newLangauges addObject:languageCode];
+            [self setDefaultsObject:newLangauges forKey:UXLanguagesIncludedInDocumentationKey];
+        }
+    }
+}
+
++ (void)removeLanguageIncludedInDocumentation:(NSString *)languageCode {
+    if (languageCode != nil) {
+        NSArray *currentLanguages = [self languagesIncludedInDocumentationPanel];
+        if ([currentLanguages containsObject:languageCode]) {
+            NSMutableArray *newLanguages = [NSMutableArray arrayWithArray:currentLanguages];
+            [newLanguages removeObject:languageCode];
+            [self setDefaultsObject:newLanguages forKey:UXLanguagesIncludedInDocumentationKey];
+        }
+    }
 }
 
 #pragma mark -

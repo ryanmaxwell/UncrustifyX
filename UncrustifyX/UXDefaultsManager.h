@@ -24,6 +24,13 @@
 + (NSDate *)definitionsUpdatedAt;
 + (void)setDefinitionsUpdatedAt:(NSDate *)date;
 
+/**
+ * @return an array of NSStrings of the language code
+ */
++ (NSArray *)languagesIncludedInDocumentationPanel;
++ (void)addLanguageIncludedInDocumentation:(NSString *)languageCode;
++ (void)removeLanguageIncludedInDocumentation:(NSString *)languageCode;
+
 + (BOOL)overwriteFiles;
 + (BOOL)exportBlankOptions;
 + (BOOL)exportDocumentation;

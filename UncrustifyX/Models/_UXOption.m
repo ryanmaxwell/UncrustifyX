@@ -16,7 +16,7 @@ const struct UXOptionRelationships UXOptionRelationships = {
 	.category = @"category",
 	.configOption = @"configOption",
 	.languages = @"languages",
-	.subCategory = @"subCategory",
+	.subcategory = @"subcategory",
 	.valueType = @"valueType",
 };
 
@@ -119,7 +119,7 @@ const struct UXOptionFetchedProperties UXOptionFetchedProperties = {
 }
 	
 
-@dynamic subCategory;
+@dynamic subcategory;
 
 	
 

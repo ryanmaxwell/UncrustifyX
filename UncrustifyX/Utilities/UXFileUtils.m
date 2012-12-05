@@ -12,7 +12,7 @@
 #import "UXValueType.h"
 #import "UXValue.h"
 #import "UXCategory.h"
-#import "UXSubCategory.h"
+#import "UXSubcategory.h"
 
 @implementation UXFileUtils
 
@@ -61,8 +61,8 @@
                     [contents appendString:@"-"];
                 }
             }
-        } else if (documentation && [object isKindOfClass:UXSubCategory.class]) {
-            UXSubCategory *subcategory = object;
+        } else if (documentation && [object isKindOfClass:UXSubcategory.class]) {
+            UXSubcategory *subcategory = object;
             /*
               
              ## Subcategory name

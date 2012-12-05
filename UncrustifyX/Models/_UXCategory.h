@@ -9,14 +9,14 @@ extern const struct UXCategoryAttributes {
 
 extern const struct UXCategoryRelationships {
 	__unsafe_unretained NSString *options;
-	__unsafe_unretained NSString *subCategories;
+	__unsafe_unretained NSString *subcategories;
 } UXCategoryRelationships;
 
 extern const struct UXCategoryFetchedProperties {
 } UXCategoryFetchedProperties;
 
 @class UXOption;
-@class UXSubCategory;
+@class UXSubcategory;
 
 
 @interface UXCategoryID : NSManagedObjectID {}
@@ -39,9 +39,9 @@ extern const struct UXCategoryFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *subCategories;
+@property (nonatomic, strong) NSSet *subcategories;
 
-- (NSMutableSet*)subCategoriesSet;
+- (NSMutableSet*)subcategoriesSet;
 
 
 
@@ -56,10 +56,10 @@ extern const struct UXCategoryFetchedProperties {
 - (void)addOptionsObject:(UXOption*)value_;
 - (void)removeOptionsObject:(UXOption*)value_;
 
-- (void)addSubCategories:(NSSet*)value_;
-- (void)removeSubCategories:(NSSet*)value_;
-- (void)addSubCategoriesObject:(UXSubCategory*)value_;
-- (void)removeSubCategoriesObject:(UXSubCategory*)value_;
+- (void)addSubcategories:(NSSet*)value_;
+- (void)removeSubcategories:(NSSet*)value_;
+- (void)addSubcategoriesObject:(UXSubcategory*)value_;
+- (void)removeSubcategoriesObject:(UXSubcategory*)value_;
 
 @end
 
@@ -72,8 +72,8 @@ extern const struct UXCategoryFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveSubCategories;
-- (void)setPrimitiveSubCategories:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveSubcategories;
+- (void)setPrimitiveSubcategories:(NSMutableSet*)value;
 
 
 @end

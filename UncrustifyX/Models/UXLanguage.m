@@ -12,12 +12,21 @@ NSString * const UXLanguageExtensionDelimiter = @":";
 
 @implementation UXLanguage
 
-- (void)setIncludedInDocumentation:(NSNumber *)includedInDocumentation {
+- (void)setIncludedInDocumentation:(BOOL)includedInDocumentation {
     [self willChangeValueForKey:@"menuDisplayName"];
     [self willChangeValueForKey:@"includedInDocumentation"];
-    self.primitiveIncludedInDocumentation = includedInDocumentation;
+    if (includedInDocumentation) {
+        [UXDefaultsManager addLanguageIncludedInDocumentation:self.code];
+    } else {
+        [UXDefaultsManager removeLanguageIncludedInDocumentation:self.code];
+    }
+    
     [self didChangeValueForKey:@"menuDisplayName"];
     [self didChangeValueForKey:@"includedInDocumentation"];
+}
+
+- (BOOL)isIncludedInDocumentation {
+    return [[UXDefaultsManager languagesIncludedInDocumentationPanel] containsObject:self.code];
 }
 
 - (NSString *)displayName {
@@ -25,7 +34,7 @@ NSString * const UXLanguageExtensionDelimiter = @":";
 }
 
 - (NSString *)menuDisplayName {
-    return self.primitiveIncludedInDocumentationValue ?
+    return self.isIncludedInDocumentation ?
     [NSString stringWithFormat:@"✓ %@", self.name] : [NSString stringWithFormat:@"   %@", self.name];
 }
 

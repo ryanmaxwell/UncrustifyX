@@ -10,7 +10,7 @@
 
 #import "UXLanguage.h"
 #import "UXCategory.h"
-#import "UXSubCategory.h"
+#import "UXSubcategory.h"
 #import "UXOption.h"
 #import "UXValueType.h"
 #import "UXValue.h"
@@ -20,7 +20,7 @@
 
 + (void)deleteData {
     [UXCategory truncateAll];
-    [UXSubCategory truncateAll];
+    [UXSubcategory truncateAll];
     [UXLanguage truncateAll];
     [UXOption truncateAll];
     [UXValueType truncateAll];
@@ -49,7 +49,7 @@
     
     NSMutableDictionary *languagesDict = NSMutableDictionary.dictionary;
     NSMutableDictionary *categoriesDict = NSMutableDictionary.dictionary;
-    NSMutableDictionary *subCategoriesDict = NSMutableDictionary.dictionary;
+    NSMutableDictionary *subcategoriesDict = NSMutableDictionary.dictionary;
     NSMutableDictionary *valueTypesDict = NSMutableDictionary.dictionary;
     
     /* Create or Update Languages */
@@ -63,6 +63,7 @@
             if (!languageEntity) {
                 languageEntity = [UXLanguage createEntity];
                 languageEntity.code = key;
+                languageEntity.includedInDocumentation = YES;
             }
             
             languageEntity.name = language[@"Name"];
@@ -153,29 +154,29 @@
                 categoryEntity = UXCategory.otherCategory;
             }
             
-            NSString *subCategoryName = option[@"SubCategory"];
-            UXSubCategory *subCategoryEntity = nil;
-            if (subCategoryName.length) {
-                subCategoryEntity = subCategoriesDict[subCategoryName];
-                if (!subCategoryEntity) {
-                    subCategoryEntity = [UXSubCategory findFirstByAttribute:UXAbstractCategoryAttributes.name
-                                                                  withValue:subCategoryName];
-                    if (!subCategoryEntity) {
-                        subCategoryEntity = [UXSubCategory createEntity];
-                        subCategoryEntity.name = subCategoryName;
+            NSString *subcategoryName = option[@"Subcategory"];
+            UXSubcategory *subcategoryEntity = nil;
+            if (subcategoryName.length) {
+                subcategoryEntity = subcategoriesDict[subcategoryName];
+                if (!subcategoryEntity) {
+                    subcategoryEntity = [UXSubcategory findFirstByAttribute:UXAbstractCategoryAttributes.name
+                                                                  withValue:subcategoryName];
+                    if (!subcategoryEntity) {
+                        subcategoryEntity = [UXSubcategory createEntity];
+                        subcategoryEntity.name = subcategoryName;
                     } else {
                         /* relink parent categories */
-                        subCategoryEntity.parentCategories = nil;
+                        subcategoryEntity.parentCategories = nil;
                     }
                     
-                    subCategoriesDict[subCategoryName] = subCategoryEntity;
+                    subcategoriesDict[subcategoryName] = subcategoryEntity;
                 }
                 
-                optionEntity.subCategory = subCategoryEntity;
+                optionEntity.subcategory = subcategoryEntity;
             } else {
-                optionEntity.subCategory = subCategoryEntity = UXSubCategory.otherSubCategory;
+                optionEntity.subcategory = subcategoryEntity = UXSubcategory.otherSubcategory;
             }
-            [subCategoryEntity addParentCategoriesObject:categoryEntity];
+            [subcategoryEntity addParentCategoriesObject:categoryEntity];
             
             /* Relink Value Types */
             optionEntity.valueType = nil;

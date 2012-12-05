@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-FOUNDATION_EXPORT NSString *const ConfigOptionCellReuseIdentifier;
-FOUNDATION_EXPORT NSString *const CategoryCellReuseIdentifier;
-FOUNDATION_EXPORT NSString *const SubCategoryCellReuseIdentifier;
+extern NSString *const ConfigOptionCellReuseIdentifier;
+extern NSString *const CategoryCellReuseIdentifier;
+extern NSString *const SubcategoryCellReuseIdentifier;
 
 @interface UXConfigOptionTableCellView : NSTableCellView <NSTextFieldDelegate>
 

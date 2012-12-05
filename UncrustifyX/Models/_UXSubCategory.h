@@ -1,32 +1,32 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to UXSubCategory.h instead.
+// Make changes to UXSubcategory.h instead.
 
 #import <CoreData/CoreData.h>
 #import "UXAbstractCategory.h"
 
-extern const struct UXSubCategoryAttributes {
-} UXSubCategoryAttributes;
+extern const struct UXSubcategoryAttributes {
+} UXSubcategoryAttributes;
 
-extern const struct UXSubCategoryRelationships {
+extern const struct UXSubcategoryRelationships {
 	__unsafe_unretained NSString *options;
 	__unsafe_unretained NSString *parentCategories;
-} UXSubCategoryRelationships;
+} UXSubcategoryRelationships;
 
-extern const struct UXSubCategoryFetchedProperties {
-} UXSubCategoryFetchedProperties;
+extern const struct UXSubcategoryFetchedProperties {
+} UXSubcategoryFetchedProperties;
 
 @class UXOption;
 @class UXCategory;
 
 
-@interface UXSubCategoryID : NSManagedObjectID {}
+@interface UXSubcategoryID : NSManagedObjectID {}
 @end
 
-@interface _UXSubCategory : UXAbstractCategory {}
+@interface _UXSubcategory : UXAbstractCategory {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (UXSubCategoryID*)objectID;
+- (UXSubcategoryID*)objectID;
 
 
 
@@ -49,7 +49,7 @@ extern const struct UXSubCategoryFetchedProperties {
 
 @end
 
-@interface _UXSubCategory (CoreDataGeneratedAccessors)
+@interface _UXSubcategory (CoreDataGeneratedAccessors)
 
 - (void)addOptions:(NSSet*)value_;
 - (void)removeOptions:(NSSet*)value_;
@@ -63,7 +63,7 @@ extern const struct UXSubCategoryFetchedProperties {
 
 @end
 
-@interface _UXSubCategory (CoreDataGeneratedPrimitiveAccessors)
+@interface _UXSubcategory (CoreDataGeneratedPrimitiveAccessors)
 
 
 

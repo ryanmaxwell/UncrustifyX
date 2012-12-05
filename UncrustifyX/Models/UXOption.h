@@ -11,7 +11,7 @@
 
 @interface UXOption : _UXOption <UXDisplayable>
 
-@property (nonatomic, readwrite) NSString *subCategoryName;
+@property (nonatomic, readwrite) NSString *subcategoryName;
 @property (nonatomic, readwrite) NSString *displayName;
 
 /**

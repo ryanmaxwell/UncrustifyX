@@ -1,19 +1,19 @@
 //
-//  UXSubCategory.h
+//  UXSubcategory.h
 //  UncrustifyX
 //
 //  Created by Ryan Maxwell on 10/11/12.
 //  Copyright (c) 2012 Ryan Maxwell. All rights reserved.
 //
 
-#import "_UXSubCategory.h"
+#import "_UXSubcategory.h"
 #import "UXDisplayable.h"
 
-@interface UXSubCategory : _UXSubCategory <UXDisplayable>
+@interface UXSubcategory : _UXSubcategory <UXDisplayable>
 
 /**
  * Singleton
  */
-+ (UXSubCategory *)otherSubCategory;
++ (UXSubcategory *)otherSubcategory;
 
 @end

@@ -57,33 +57,33 @@ static NSArray *sortedCategories;
     
     for (UXCategory *category in sortedCategories) {
         
-        NSSortDescriptor *subCategoryNameSort = [NSSortDescriptor sortDescriptorWithKey:UXAbstractCategoryAttributes.name
+        NSSortDescriptor *subcategoryNameSort = [NSSortDescriptor sortDescriptorWithKey:UXAbstractCategoryAttributes.name
                                                                               ascending:YES];
         
-        NSArray *filteredSubCategories = [category.subCategories sortedArrayUsingDescriptors:@[subCategoryNameSort]];
+        NSArray *filteredSubcategories = [category.subcategories sortedArrayUsingDescriptors:@[subcategoryNameSort]];
         
-        NSMutableArray *optionsInSubCategories = NSMutableArray.array;
+        NSMutableArray *optionsInSubcategories = NSMutableArray.array;
         
-        for (UXSubCategory *subCategory in filteredSubCategories) {
+        for (UXSubcategory *subcategory in filteredSubcategories) {
             
             NSPredicate *categoryFilter = [NSPredicate predicateWithFormat:@"%K.%K == %@ && %K.%K == %@",
                                            UXPersistentConfigOptionRelationships.option, UXOptionRelationships.category, category,
-                                           UXPersistentConfigOptionRelationships.option, UXOptionRelationships.subCategory, subCategory];
+                                           UXPersistentConfigOptionRelationships.option, UXOptionRelationships.subcategory, subcategory];
             
             NSArray *filteredOptions = [[filteredConfigOptions filteredArrayUsingPredicate:categoryFilter]
                                         sortedArrayUsingDescriptors:@[optionNameSort]];
             
             /* Add Subcategory Header and options */
             if (filteredOptions.count > 0) {
-                [optionsInSubCategories addObject:subCategory];
-                [optionsInSubCategories addObjectsFromArray:filteredOptions];
+                [optionsInSubcategories addObject:subcategory];
+                [optionsInSubcategories addObjectsFromArray:filteredOptions];
             }
         }
         
         /* Add Category Header and options */
-        if (optionsInSubCategories.count > 0) {
+        if (optionsInSubcategories.count > 0) {
             [optionsInCategory addObject:category];
-            [optionsInCategory addObjectsFromArray:optionsInSubCategories];
+            [optionsInCategory addObjectsFromArray:optionsInSubcategories];
         }
     }
     

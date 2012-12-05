@@ -8,7 +8,7 @@ const struct UXCategoryAttributes UXCategoryAttributes = {
 
 const struct UXCategoryRelationships UXCategoryRelationships = {
 	.options = @"options",
-	.subCategories = @"subCategories",
+	.subcategories = @"subcategories",
 };
 
 const struct UXCategoryFetchedProperties UXCategoryFetchedProperties = {
@@ -60,15 +60,15 @@ const struct UXCategoryFetchedProperties UXCategoryFetchedProperties = {
 }
 	
 
-@dynamic subCategories;
+@dynamic subcategories;
 
 	
-- (NSMutableSet*)subCategoriesSet {
-	[self willAccessValueForKey:@"subCategories"];
+- (NSMutableSet*)subcategoriesSet {
+	[self willAccessValueForKey:@"subcategories"];
   
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"subCategories"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"subcategories"];
   
-	[self didAccessValueForKey:@"subCategories"];
+	[self didAccessValueForKey:@"subcategories"];
 	return result;
 }
 	

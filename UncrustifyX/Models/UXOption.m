@@ -7,7 +7,7 @@
 //
 
 #import "UXOption.h"
-#import "UXSubCategory.h"
+#import "UXSubcategory.h"
 
 @implementation UXOption
 
@@ -28,19 +28,19 @@
     [self updateOptionValue:newName forKey:@"Name"];
 }
 
-- (NSString *)subCategoryName {
-    return self.subCategory.name;
+- (NSString *)subcategoryName {
+    return self.subcategory.name;
 }
 
-- (void)setSubCategoryName:(NSString *)newName {
-    self.subCategory.name = newName;
+- (void)setSubcategoryName:(NSString *)newName {
+    self.subcategory.name = newName;
     
     if (!newName.length)
         newName = @"";
     
-    [self willChangeValueForKey:@"SubCategory"];
-    [self updateOptionValue:newName forKey:@"SubCategory"];
-    [self didChangeValueForKey:@"SubCategory"];
+    [self willChangeValueForKey:@"Subcategory"];
+    [self updateOptionValue:newName forKey:@"Subcategory"];
+    [self didChangeValueForKey:@"Subcategory"];
 }
 
 - (void)updateOptionValue:(id)value forKey:(NSString *)key {

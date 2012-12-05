@@ -17,7 +17,7 @@ extern const struct UXOptionRelationships {
 	__unsafe_unretained NSString *category;
 	__unsafe_unretained NSString *configOption;
 	__unsafe_unretained NSString *languages;
-	__unsafe_unretained NSString *subCategory;
+	__unsafe_unretained NSString *subcategory;
 	__unsafe_unretained NSString *valueType;
 } UXOptionRelationships;
 
@@ -27,7 +27,7 @@ extern const struct UXOptionFetchedProperties {
 @class UXCategory;
 @class UXPersistentConfigOption;
 @class UXLanguage;
-@class UXSubCategory;
+@class UXSubcategory;
 @class UXValueType;
 
 
@@ -131,9 +131,9 @@ extern const struct UXOptionFetchedProperties {
 
 
 
-@property (nonatomic, strong) UXSubCategory *subCategory;
+@property (nonatomic, strong) UXSubcategory *subcategory;
 
-//- (BOOL)validateSubCategory:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateSubcategory:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -212,8 +212,8 @@ extern const struct UXOptionFetchedProperties {
 
 
 
-- (UXSubCategory*)primitiveSubCategory;
-- (void)setPrimitiveSubCategory:(UXSubCategory*)value;
+- (UXSubcategory*)primitiveSubcategory;
+- (void)setPrimitiveSubcategory:(UXSubcategory*)value;
 
 
 

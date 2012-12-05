@@ -18,4 +18,6 @@ extern NSString * const UXLanguageExtensionDelimiter;
  */
 @property (nonatomic, readonly) NSArray *fileExtensions;
 
+@property (nonatomic, getter = isIncludedInDocumentation) BOOL includedInDocumentation;
+
 @end

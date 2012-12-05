@@ -15,7 +15,7 @@
 #import "UXCategory.h"
 #import "UXOption.h"
 #import "UXValueType.h"
-#import "UXSubCategory.h"
+#import "UXSubcategory.h"
 #import "UXLanguage.h"
 #import "UXPersistentConfigOption.h"
 #import "UXConfigOptionTableCellView.h"
@@ -92,7 +92,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"UXConfigOptionTableCellViews" bundle:nil];
             [self.configOptionsTableView registerNib:cellNib forIdentifier:ConfigOptionCellReuseIdentifier];
             [self.configOptionsTableView registerNib:cellNib forIdentifier:CategoryCellReuseIdentifier];
-            [self.configOptionsTableView registerNib:cellNib forIdentifier:SubCategoryCellReuseIdentifier];
+            [self.configOptionsTableView registerNib:cellNib forIdentifier:SubcategoryCellReuseIdentifier];
             
             [self.filePathsTableView registerForDraggedTypes:@[
              NSURLPboardType
@@ -512,10 +512,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                 tableCellView.textField.stringValue = category.name.uppercaseString;
                 
                 return tableCellView;
-            } else if ([objectValue isKindOfClass:UXSubCategory.class]) {
-                UXSubCategory *subcategory = (UXSubCategory *) objectValue;
+            } else if ([objectValue isKindOfClass:UXSubcategory.class]) {
+                UXSubcategory *subcategory = (UXSubcategory *) objectValue;
                 
-                NSTableCellView *tableCellView = [tableView makeViewWithIdentifier:SubCategoryCellReuseIdentifier
+                NSTableCellView *tableCellView = [tableView makeViewWithIdentifier:SubcategoryCellReuseIdentifier
                                                                              owner:self];
                 tableCellView.textField.stringValue = subcategory.name.uppercaseString;
                 
@@ -543,7 +543,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row {
     return (tableView == self.configOptionsTableView
             && ([self.sortedConfigOptionsAndCategories[row] isKindOfClass:UXCategory.class]
-                || [self.sortedConfigOptionsAndCategories[row] isKindOfClass:UXSubCategory.class]));
+                || [self.sortedConfigOptionsAndCategories[row] isKindOfClass:UXSubcategory.class]));
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
