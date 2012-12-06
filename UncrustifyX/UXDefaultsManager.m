@@ -14,10 +14,10 @@ static NSString *const UXCustomBinaryPathKey                    = @"UXCustomBina
 static NSString *const UXDefinitionsUpdatedAtKey                = @"UXDefinitionsUpdatedAt";
 static NSString *const UXBundledUncrustifyBinaryVersionKey      = @"UXBundledUncrustifyBinaryVersion";
 static NSString *const UXExportDocumentationKey                 = @"UXExportDocumentation";
-static NSString *const UXExportCategoriesKey                    = @"UXExportCategories";
-static NSString *const UXExportSubcategoriesKey                 = @"UXExportSubcategories";
-static NSString *const UXExportOptionNameKey                    = @"UXExportOptionName";
-static NSString *const UXExportOptionValueKey                   = @"UXExportOptionValue";
+static NSString *const UXExportCategoryDocumentationKey         = @"UXExportCategoryDocumentation";
+static NSString *const UXExportSubcategoryDocumentationKey      = @"UXExportSubcategoryDocumentation";
+static NSString *const UXExportOptionNameDocumentationKey       = @"UXExportOptionNameDocumentation";
+static NSString *const UXExportOptionValueDocumentationKey      = @"UXExportOptionValueDocumentation";
 static NSString *const UXExportBlankOptionsKey                  = @"UXExportBlankOptions";
 static NSString *const UXLanguagesIncludedInDocumentationKey    = @"UXLanguagesIncludedInDocumentation";
 
@@ -27,10 +27,10 @@ static NSString *const UXLanguagesIncludedInDocumentationKey    = @"UXLanguagesI
     NSDictionary *defaults = @{
         UXBundledUncrustifyBinaryVersionKey: @"0.59 (126a8b4474)",
         UXExportDocumentationKey: @YES,
-        UXExportCategoriesKey: @YES,
-        UXExportSubcategoriesKey: @YES,
-        UXExportOptionNameKey: @YES,
-        UXExportOptionValueKey: @YES
+        UXExportCategoryDocumentationKey: @YES,
+        UXExportSubcategoryDocumentationKey: @YES,
+        UXExportOptionNameDocumentationKey: @YES,
+        UXExportOptionValueDocumentationKey: @YES
     };
     [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
 }
@@ -73,14 +73,6 @@ static NSString *const UXLanguagesIncludedInDocumentationKey    = @"UXLanguagesI
 
 + (void)setDefinitionsUpdatedAt:(NSDate *)date {
     [self setDefaultsObject:date forKey:UXDefinitionsUpdatedAtKey];
-}
-
-+ (BOOL)exportDocumentation {
-    return [[self defaultsObjectForKey:UXExportDocumentationKey] boolValue];
-}
-
-+ (BOOL)exportBlankOptions {
-    return [[self defaultsObjectForKey:UXExportBlankOptionsKey] boolValue];
 }
 
 + (NSArray *)languagesIncludedInDocumentationPanel {

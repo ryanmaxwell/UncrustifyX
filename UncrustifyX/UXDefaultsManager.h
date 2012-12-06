@@ -32,7 +32,5 @@
 + (void)removeLanguageIncludedInDocumentation:(NSString *)languageCode;
 
 + (BOOL)overwriteFiles;
-+ (BOOL)exportBlankOptions;
-+ (BOOL)exportDocumentation;
 
 @end

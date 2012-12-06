@@ -14,6 +14,8 @@
 #import "UXCategory.h"
 #import "UXSubcategory.h"
 
+static const NSUInteger SpacesPerTab = 4;
+
 @implementation UXFileUtils
 
 + (NSString *)writeStringToTempFile:(NSString *)contents {
@@ -29,7 +31,14 @@
     return path;
 }
 
-+ (BOOL)writeConfigOptions:(NSArray *)configOptions toFileAtPath:(NSString *)filePath withDocumentation:(BOOL)documentation {
++ (BOOL)  writeConfigOptions:(NSArray *)configOptions
+                toFileAtPath:(NSString *)filePath
+         includeBlankOptions:(BOOL)includeBlankOptions
+    documentationForCategory:(BOOL)categoryDocumentation
+                 subcategory:(BOOL)subcategoryDocumentation
+                  optionName:(BOOL)optionNameDocumentation
+                 optionValue:(BOOL)optionValueDocumentation {
+    
     NSMutableString *contents = NSMutableString.string;
     
     NSString *header = [NSString stringWithFormat:@"#\n\
@@ -46,60 +55,60 @@
     
     for (id object in categorizedConfigOptions) {
         
-        if (documentation && [object isKindOfClass:UXCategory.class]) {
+        if (categoryDocumentation && [object isKindOfClass:UXCategory.class]) {
             UXCategory *category = object;
-            /*
-             
-             # Category name
-             # -------------
-             
-             */
+            
             if (category.name.length) {
+                /*
+                 
+                 # Category name
+                 # -------------
+                 
+                 */
                 [contents appendFormat:@"\n\n# %@\n# ", category.name];
                 
                 for (NSUInteger i = 0; i < category.name.length; i++) {
                     [contents appendString:@"-"];
                 }
             }
-        } else if (documentation && [object isKindOfClass:UXSubcategory.class]) {
+        } else if (subcategoryDocumentation && [object isKindOfClass:UXSubcategory.class]) {
             UXSubcategory *subcategory = object;
-            /*
-              
-             ## Subcategory name
-             
-             */
+            
             if (subcategory.name.length) {
+                /*
+                 
+                 ## Subcategory name
+                 
+                 */
                 [contents appendFormat:@"\n\n## %@", subcategory.name];
             }
         } else if ([object conformsToProtocol:@protocol(UXConfigOption)]) {
             id<UXConfigOption> configOption = object;
             
-            if (configOption.option && configOption.value.length) {
+            if (configOption.option == nil) continue;
+            
+            if (optionNameDocumentation && configOption.option.name) {
+                [contents appendFormat:@"\n\n# %@",configOption.option.name];
+            }
+            
+            if (configOption.value.length > 0 || includeBlankOptions) {
+                NSInteger tabsBeforeValueAssignment = 10;
+                NSInteger tabsBeforeValueDocumentation = 14;
                 
-                if (documentation) {
-                    
-                    static const NSInteger SpacesPerTab = 4;
-                    
-                    NSInteger tabsBeforeValueAssignment = 10;
-                    NSInteger tabsBeforeValueDocumentation = 14;
-                    
-                    [contents appendString:@"\n"];
-                    
-                    if (configOption.option.name) {
-                        [contents appendFormat:@"\n# %@",configOption.option.name];
-                    }
-                    
-                    NSMutableString *optionLine = [NSMutableString stringWithString:configOption.option.code];
-                    
-                    NSInteger trailingSpaces1 = ((tabsBeforeValueAssignment * SpacesPerTab) - optionLine.length);
-                    NSInteger spacesToAppend1 = (trailingSpaces1 > 0) ? trailingSpaces1 : 1;
-                    
-                    for (NSInteger i = 0; i < spacesToAppend1; i++) {
-                        [optionLine appendString:@" "];
-                    }
-                    
+                NSMutableString *optionLine = [NSMutableString stringWithString:configOption.option.code];
+                
+                NSInteger trailingSpaces1 = ((tabsBeforeValueAssignment * SpacesPerTab) - optionLine.length);
+                NSInteger spacesToAppend1 = (trailingSpaces1 > 0) ? trailingSpaces1 : 1;
+                
+                for (NSInteger i = 0; i < spacesToAppend1; i++) {
+                    [optionLine appendString:@" "];
+                }
+                
+                if (configOption.value.length) {
                     [optionLine appendFormat:@"= %@", configOption.value.lowercaseString];
-                    
+                }
+                
+                if (optionValueDocumentation) {
                     NSInteger trailingSpaces2 = ((tabsBeforeValueDocumentation * SpacesPerTab) - optionLine.length);
                     NSInteger spacesToAppend2 = (trailingSpaces2 > 0) ? trailingSpaces2 : 1;
                     
@@ -121,14 +130,9 @@
                         
                         [optionLine appendFormat:@" (%@)", [valueNamesArray componentsJoinedByString:@"/"]];
                     }
-                    
-                    [contents appendFormat:@"\n%@", optionLine];
-                } else {
-                    [contents appendFormat:@"\n%@", configOption.configString];
                 }
-            } else if (configOption.option && UXDefaultsManager.exportBlankOptions) {
-                /* blank options */
-                [contents appendFormat:@"\n%@", configOption.option.code];
+                
+                [contents appendFormat:@"\n%@", optionLine];
             }
         }
     }

@@ -16,6 +16,12 @@
  */
 + (NSString *)writeStringToTempFile:(NSString *)contents;
 
-+ (BOOL)writeConfigOptions:(NSArray *)configOptions toFileAtPath:(NSString *)filePath withDocumentation:(BOOL)documentation;
++ (BOOL)  writeConfigOptions:(NSArray *)configOptions
+                toFileAtPath:(NSString *)filePath
+         includeBlankOptions:(BOOL)includeBlankOptions
+    documentationForCategory:(BOOL)categoryDocumentation
+                 subcategory:(BOOL)subcategoryDocumentation
+                  optionName:(BOOL)optionNameDocumentation
+                 optionValue:(BOOL)optionValueDocumentation;
 
 @end

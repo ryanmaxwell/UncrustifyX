@@ -303,17 +303,19 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     savePanel.accessoryView = self.exportPanelAccessoryView;
     
     [savePanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
-        
-        BOOL includeDocumentation = (self.exportPanelAccessoryView.includeDocumentationCheckbox.state == NSOnState);
-        DLog(@"Include documentation %d", includeDocumentation);
-        
         if (result == NSFileHandlingPanelOKButton) {
+            
             [UXFileUtils writeConfigOptions:self.configOptions
                                toFileAtPath:savePanel.URL.path
-                               withDocumentation:includeDocumentation];
+                        includeBlankOptions:(self.exportPanelAccessoryView.includeBlankOptionsCheckbox.state == NSOnState)
+                   documentationForCategory:(self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState)                                subcategory:(self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState)
+                                 optionName:(self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState)
+                                optionValue:(self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState)];
         }
     }];
 }
+
+
 
 - (IBAction)importConfigurationPressed:(id)sender {
     NSOpenPanel *openPanel = NSOpenPanel.openPanel;
