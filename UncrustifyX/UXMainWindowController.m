@@ -110,8 +110,9 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             
             [self.inputLanguageArrayController fetch:nil];
             
-            self.selectedLanguage = [UXLanguage findFirstOrderedByAttribute:UXLanguageAttributes.name
-                                                                  ascending:YES];
+            /* Select obj-c by default */
+            self.selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
+                                                           withValue:@"OC"];
             
             [self.window makeKeyAndOrderFront:self];
         }
@@ -308,7 +309,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [UXFileUtils writeConfigOptions:self.configOptions
                                toFileAtPath:savePanel.URL.path
                         includeBlankOptions:(self.exportPanelAccessoryView.includeBlankOptionsCheckbox.state == NSOnState)
-                   documentationForCategory:(self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState)                                subcategory:(self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState)
+                   documentationForCategory:(self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState)
+                                subcategory:(self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState)
                                  optionName:(self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState)
                                 optionValue:(self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState)];
         }
