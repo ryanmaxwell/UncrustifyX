@@ -131,7 +131,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 }
 
 
-- (void)parseConfigLine:(NSString *)line error:(NSError **)error {
+- (BOOL)parseConfigLine:(NSString *)line error:(NSError **)error {
     NSString *lineValue = nil;
     NSScanner *lineScanner = [NSScanner scannerWithString:line];
     [lineScanner scanUpToString:@"#" intoString:&lineValue];
@@ -156,11 +156,15 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         
         if (inError) {
             *error = inError;
+            return YES;
         }
     }
+    return NO;
 }
 
-- (void)addConfigOptionWithCode:(NSString *)code value:(NSString *)value error:(NSError **)error {
+- (BOOL)addConfigOptionWithCode:(NSString *)code value:(NSString *)value error:(NSError **)error {
+    BOOL errorOccurred = NO;
+    
     if (![self configOptionWithCode:code]) {
         UXOption *theOption = [UXOption findFirstByAttribute:UXOptionAttributes.code withValue:code];
         if (theOption) {
@@ -189,34 +193,48 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                         newConfigOption.value = valueToSet;
                     }
                 } else {
-                    NSString *errorDescription = [NSString stringWithFormat:@"The value '%@' is not valid for the %@ value type required for the %@ option",
-                                             value,
-                                             theOption.valueType.type.lowercaseString,
-                                             theOption.code];
+                    if (*error) {
+                        NSString *errorDescription = [NSString stringWithFormat:@"The value '%@' is not valid for the %@ value type required for the %@ option",
+                                                      value,
+                                                      theOption.valueType.type.lowercaseString,
+                                                      theOption.code];
+                        
+                        *error = [NSError errorWithDomain:UXErrorDomain
+                                                     code:0
+                                                 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+                    }
                     
-                    *error = [NSError errorWithDomain:UXErrorDomain
-                                                code:0
-                                            userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+                    errorOccurred = YES;
                 }
             }
             
             [self.configOptions addObject:newConfigOption];
             [NSManagedObjectContext.defaultContext saveNestedContexts];
         } else {
-            NSString *errorDescription = [NSString stringWithFormat:@"Could not find option with %@ code", code];
+            if (*error) {
+                NSString *errorDescription = [NSString stringWithFormat:@"Could not find option with %@ code", code];
+                
+                *error = [NSError errorWithDomain:UXErrorDomain
+                                             code:0
+                                         userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+            }
+            
+            errorOccurred = YES;
+        }
+    } else {
+        
+        if (*error) {
+            NSString *errorDescription = [NSString stringWithFormat:@"Already have config option with %@ code", code];
             
             *error = [NSError errorWithDomain:UXErrorDomain
                                          code:0
                                      userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
         }
-    } else {
         
-        NSString *errorDescription = [NSString stringWithFormat:@"Already have config option with %@ code", code];
-        
-        *error = [NSError errorWithDomain:UXErrorDomain
-                                     code:0
-                                 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+        errorOccurred = YES;
     }
+    
+    return errorOccurred;
 }
 
 - (void)sortConfigOptions {
