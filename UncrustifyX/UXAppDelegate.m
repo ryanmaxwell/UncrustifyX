@@ -43,7 +43,7 @@ NSString *const UXErrorDomain                               = @"UXError";
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
-    [NSManagedObjectContext.defaultContext save];
+    [NSManagedObjectContext.defaultContext saveNestedContexts];
     [MagicalRecord cleanUp];
 }
 

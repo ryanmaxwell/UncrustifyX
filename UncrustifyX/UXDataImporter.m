@@ -25,7 +25,7 @@
     [UXOption truncateAll];
     [UXValueType truncateAll];
     [UXCodeSample truncateAll];
-    [NSManagedObjectContext.defaultContext save];
+    [NSManagedObjectContext.defaultContext saveNestedContexts];
 }
 
 + (void)importDefinitions {
@@ -198,7 +198,7 @@
         }
     }];
     
-    [NSManagedObjectContext.defaultContext save];
+    [NSManagedObjectContext.defaultContext saveNestedContexts];
 }
 
 @end

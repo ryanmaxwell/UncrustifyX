@@ -201,7 +201,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             }
             
             [self.configOptions addObject:newConfigOption];
-            [NSManagedObjectContext.defaultContext save];
+            [NSManagedObjectContext.defaultContext saveNestedContexts];
         } else {
             NSString *errorDescription = [NSString stringWithFormat:@"Could not find option with %@ code", code];
             
@@ -399,7 +399,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         for (NSManagedObject *mo in objectsToRemove) {
             [NSManagedObjectContext.defaultContext deleteObject:mo];
         }
-        [NSManagedObjectContext.defaultContext save];
+        [NSManagedObjectContext.defaultContext saveNestedContexts];
         
         /* Validate immediately as system only does it periodically */
         [self.toolbar validateVisibleItems];

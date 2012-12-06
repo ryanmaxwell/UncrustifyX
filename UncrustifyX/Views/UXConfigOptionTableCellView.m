@@ -60,7 +60,7 @@ NSString *const SubcategoryCellReuseIdentifier = @"SubcategoryTableCellView";
     
     id<UXConfigOption> selectedOption = self.objectValue;
     selectedOption.value = selectedValue;
-    [NSManagedObjectContext.defaultContext save];
+    [NSManagedObjectContext.defaultContext saveNestedContexts];
 }
 
 #pragma mark - NSTextFieldDelegate
@@ -69,7 +69,7 @@ NSString *const SubcategoryCellReuseIdentifier = @"SubcategoryTableCellView";
     NSTextField *textField = notification.object;
     id<UXConfigOption> selectedOption = self.objectValue;
     selectedOption.value = textField.stringValue;
-    [NSManagedObjectContext.defaultContext save];
+    [NSManagedObjectContext.defaultContext saveNestedContexts];
 }
 
 @end
