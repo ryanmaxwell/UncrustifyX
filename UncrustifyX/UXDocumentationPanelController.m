@@ -495,6 +495,13 @@ static CGFloat const PreviewViewHeight = 300.0f;
         self.window.isVisible = YES;
     }
     
+    /* Clear any search query */
+    if (self.searchQuery) {
+        self.searchQuery = nil;
+        self.searchField.stringValue = @"";
+        [self filterOptions];
+    }
+    
     NSUInteger optionIndex = [self.allOptions indexOfObject:option];
     
     if (optionIndex != NSNotFound) {
