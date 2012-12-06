@@ -5,16 +5,15 @@
 - More code samples
 
 ## Other
-- Look into swapping out UKSyntaxColoredTextViewController to [Fragaria](https://github.com/mugginsoft/Fragaria) for syntax coloring
+- Swap out UKSyntaxColoredTextViewController to [Fragaria](https://github.com/mugginsoft/Fragaria) for syntax coloring
 - find icons that can be used royalty-free in toolbar
 - validation of config options (especially after importing)
 - ensure forward-compatibility with options not defined
-- compile latest uncrustify from github
 - presets (apple/google/github style)
 - scroll to option when dragged into option table view
-
-# Bugs
-- update to MR 2.0.8 - identify problem with data not persisting?
+- script to pull out file extensions from definitions.plist and add them into info.plist editor types on build
+- scroll to option when dragging into table view
+- key binding for search field
 
 ## Publishing alpha
 - create 0.1 tag
