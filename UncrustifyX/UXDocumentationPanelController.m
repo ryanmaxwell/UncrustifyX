@@ -7,7 +7,7 @@
 //
 
 #import "UXDocumentationPanelController.h"
-#import "UXSyntaxColoredTextViewController.h"
+#import <MGSFragaria/MGSFragaria.h>
 
 #import "UXCategory.h"
 #import "UXSubcategory.h"
@@ -28,7 +28,7 @@ static NSString *const UXSelectedPreviewCodeSampleDescriptionKey    = @"Selected
 
 static CGFloat const PreviewViewHeight = 300.0f;
 
-@interface UXDocumentationPanelController () <UKSyntaxColoredTextViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate, NSWindowDelegate>
+@interface UXDocumentationPanelController () <NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate, NSWindowDelegate>
 @property (strong, nonatomic) UXPlaceholder *languagesHeader;
 @property (strong, nonatomic) UXPlaceholder *categoriesHeader;
 @property (strong, nonatomic) NSString *searchQuery;
@@ -39,6 +39,7 @@ static CGFloat const PreviewViewHeight = 300.0f;
 @property (strong, nonatomic) NSMutableArray *currentOptionsAndSubcategories;
 
 @property (weak, nonatomic) UXOption *selectedOption;
+@property (strong, nonatomic) MGSFragaria *fragaria;
 @end
 
 @implementation UXDocumentationPanelController
@@ -63,6 +64,8 @@ static CGFloat const PreviewViewHeight = 300.0f;
         _currentOptionsAndSubcategories = [[NSMutableArray alloc] init];
         
         _previewExpanded = NO;
+        
+        _fragaria = [[MGSFragaria alloc] init];
     }
     return self;
 }
@@ -112,6 +115,8 @@ static CGFloat const PreviewViewHeight = 300.0f;
     self.selectedPreviewLanguage = [UXLanguage findFirstOrderedByAttribute:UXLanguageAttributes.name
                                                                  ascending:YES];
     [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
+    
+    [self.fragaria embedInView:self.fragariaContainerView];
 }
 
 #pragma mark - UKSyntaxColoredTextViewDelegate
@@ -415,10 +420,9 @@ static CGFloat const PreviewViewHeight = 300.0f;
         _selectedCodeSample = selectedCodeSample;
         
         if (selectedCodeSample) {
-            self.codePreviewTextView.string = selectedCodeSample.source;
-            [self.syntaxColoringController recolorCompleteFile:self];
+            self.fragaria.string = selectedCodeSample.source;
         } else {
-            self.codePreviewTextView.string = @"";
+            self.fragaria.string = @"";
         }
     }
 }
@@ -480,13 +484,12 @@ static CGFloat const PreviewViewHeight = 300.0f;
     
     UXLanguage *selectedLangauge = self.previewLanguagePopUpButton.selectedItem.representedObject;
     
-    NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.codePreviewTextView.string
+    NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.fragaria.string
                                           withConfigOptions:@[configOption]
                                                   arguments:@[@"-l", selectedLangauge.code]];
     
     if (result) {
-        self.codePreviewTextView.string = result;
-        [self.syntaxColoringController recolorCompleteFile:self];
+        self.fragaria.string = result;
     }
 }
 

@@ -22,6 +22,8 @@
 #import "UXConfigOptionTableView.h"
 #import "UXExportPanelAccessoryView.h"
 
+#import <MGSFragaria/MGSFragaria.h>
+
 /* NSWindowRestoration keys */
 static NSString *const UXSourceContainerViewWidthKey        = @"SourceContainerViewWidth";
 static NSString *const UXSelectedLanguageCodeKey            = @"SelectedLanguageCode";
@@ -48,6 +50,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 @property (strong, nonatomic) NSToolbarItem *spaceItem;
 
 @property (strong, nonatomic) NSString *searchQuery;
+
+@property (strong, nonatomic) MGSFragaria *fragaria;
 
 @end
 
@@ -76,6 +80,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         ];
         _inputLanguageArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
         _inputLanguageArrayController.entityName = UXLanguage.entityName;
+        
+        _fragaria = [[MGSFragaria alloc] init];
         
         _initialize = YES;
     }
@@ -114,12 +120,16 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             self.selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
                                                            withValue:@"OC"];
             
+            [self.fragaria setObject:self forKey:MGSFODelegate];
+            [self.fragaria embedInView:self.fragariaContainerView];
+            self.syntaxDefinition = @"Objective-C";
+            
             [self.window makeKeyAndOrderFront:self];
         }
     }
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (UXPersistentConfigOption *)configOptionWithCode:(NSString *)code {
     for (UXPersistentConfigOption *configOption in self.configOptions) {
@@ -282,14 +292,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                            withConfigOptions:self.configOptions
                                    arguments:args];
     } else if ([self.toolbar.selectedItemIdentifier isEqualToString:self.directInputToolbarItem.itemIdentifier]
-        && self.directInputTextView.string.length > 0) {
+        && self.fragaria.string.length > 0) {
         
-        NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.directInputTextView.string
+        NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.fragaria.string
                                               withConfigOptions:self.configOptions
                                                       arguments:@[@"-l", self.selectedLanguage.code]];
         if (result) {
-            self.directInputTextView.string = result;
-            [self.syntaxColoringController recolorCompleteFile:self];
+            self.fragaria.string = result;
         }
     }
 }
@@ -585,7 +594,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         return (self.configOptions.count > 0);
     } else if (theItem == self.runToolbarItem) {
         return (self.configOptions.count > 0
-                && (self.filePaths.count > 0 || self.directInputTextView.string.length > 0));
+                && (self.filePaths.count > 0 || self.fragaria.string.length > 0));
     }
     return YES;
 }
@@ -605,15 +614,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (void)tableView:(UXConfigOptionTableView *)tableView didUpdateFrame:(NSSize)newSize {
     self.spaceItem.minSize = self.spaceItem.maxSize = NSMakeSize(newSize.width - 147.0f, 32.0f);
-}
-
-#pragma mark - NSTextViewDelegate
-
-- (void)textDidChange:(NSNotification *)notification {
-    if (notification.object == self.directInputTextView) {
-        //TODO
-//        [self.syntaxColoringController recolorCompleteFile:self];
-    }
 }
 
 #pragma mark - NSControl Delegate
@@ -637,7 +637,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     [state encodeBool:self.documentationPanelController.window.isVisible forKey:UXDocumentationPanelVisibleKey];
     [state encodeObject:self.selectedLanguage.code forKey:UXSelectedLanguageCodeKey];
     [state encodeFloat:self.sourceContainerView.frame.size.width forKey:UXSourceContainerViewWidthKey];
-    [state encodeObject:self.directInputTextView.string forKey:UXDirectInputStringKey];
+    [state encodeObject:self.fragaria.string forKey:UXDirectInputStringKey];
     [state encodeObject:self.filePaths forKey:UXFilePathsKey];
 }
 
@@ -676,8 +676,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     
     NSString *savedText = [state decodeObjectForKey:UXDirectInputStringKey];
     if (savedText.length) {
-        self.directInputTextView.string = savedText;
-        [self.syntaxColoringController recolorCompleteFile:self];
+        self.fragaria.string = savedText;
     }
     
     NSArray *filePaths = [state decodeObjectForKey:UXFilePathsKey];

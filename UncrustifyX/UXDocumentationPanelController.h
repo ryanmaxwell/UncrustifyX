@@ -34,7 +34,7 @@
 @property (weak, nonatomic) UXCodeSample *selectedCodeSample;
 
 @property (strong, nonatomic) IBOutlet UXSyntaxColoredTextViewController *syntaxColoringController;
-@property (assign, nonatomic) IBOutlet NSTextView *codePreviewTextView;
+@property (weak, nonatomic) IBOutlet NSView *fragariaContainerView;
 
 @property (readonly, nonatomic) UXOption *selectedOption;
 

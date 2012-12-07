@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "UXSyntaxColoredTextViewController.h"
 @class UXDocumentationPanelController;
 @class UXExportPanelAccessoryView;
 @class UXLanguage;
@@ -15,7 +14,6 @@
 @interface UXMainWindowController : NSWindowController
 
 @property (strong, nonatomic) UXDocumentationPanelController *documentationPanelController;
-@property (strong, nonatomic) IBOutlet UXSyntaxColoredTextViewController *syntaxColoringController;
 
 @property (weak, nonatomic) IBOutlet NSView *mainContainerView;
 @property (weak, nonatomic) IBOutlet NSView *sourceContainerView;
@@ -24,7 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet NSSearchField *searchField;
 
-@property (strong, nonatomic) IBOutlet NSTextView *directInputTextView;
+@property (weak, nonatomic) IBOutlet NSView *fragariaContainerView;
+@property (strong, nonatomic) NSString *syntaxDefinition;
 
 @property (weak, nonatomic) IBOutlet NSTableView *filePathsTableView;
 @property (weak, nonatomic) IBOutlet NSSplitView *mainSplitView;
