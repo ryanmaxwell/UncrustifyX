@@ -1248,6 +1248,8 @@ If FALSE or the '=' is followed by a newline, the next line is indent one tab.</
 			<string>Indent based on the size of the brace parent, i.e. 'if' =&gt; 3 spaces, 'for' =&gt; 4 spaces, etc.</string>
 			<key>Name</key>
 			<string>Indent size based on brace parent</string>
+			<key>Subcategory</key>
+			<string>Indentation Size</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -1418,6 +1420,8 @@ For FreeBSD, this is set to 4.</string>
 		</dict>
 		<key>indent_ctor_init</key>
 		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
 			<key>Description</key>
 			<string>Additional indenting for constructor initializer list</string>
 			<key>Name</key>
@@ -1427,6 +1431,8 @@ For FreeBSD, this is set to 4.</string>
 		</dict>
 		<key>indent_ctor_init_leading</key>
 		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
 			<key>Default</key>
 			<string>2</string>
 			<key>Description</key>
@@ -1523,6 +1529,8 @@ True=indent the 'if' one level</string>
 		</dict>
 		<key>indent_func_def_force_col1</key>
 		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
 			<key>Description</key>
 			<string>True:  force indentation of function definition to start in column 1
 False: use the default behavior</string>
@@ -1650,6 +1658,8 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 		</dict>
 		<key>indent_oc_block</key>
 		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
 			<key>Description</key>
 			<string>Indent OC blocks at brace level instead of usual rules.</string>
 			<key>Languages</key>
@@ -2950,6 +2960,8 @@ Related to pos_class_colon, nl_class_init_args, and pos_comma.</string>
    0: No change.</string>
 			<key>Name</key>
 			<string>Newline count between function def and function comment</string>
+			<key>Subcategory</key>
+			<string>Newline Count Between</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
@@ -3759,6 +3771,8 @@ Overrides nl_for_brace, nl_if_brace, nl_switch_brace, nl_while_switch, and nl_ca
 			<array>
 				<string>D</string>
 			</array>
+			<key>Name</key>
+			<string>Newline between unittest and open brace</string>
 			<key>Subcategory</key>
 			<string>Newline Between</string>
 			<key>ValueTypeID</key>
@@ -4370,6 +4384,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_after_oc_property</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove space after @property.</string>
 			<key>Languages</key>
@@ -4596,6 +4612,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_after_tparen_close</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove between the parens in the function type: 'void (*x)(...)'</string>
 			<key>Name</key>
@@ -4666,6 +4684,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_annotation_paren</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Control space between a Java annotation and the open paren.</string>
 			<key>Name</key>
@@ -5063,6 +5083,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_before_template_paren</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove space before the paren in the D constructs 'template Foo(' and 'class Foo('.</string>
 			<key>Languages</key>
@@ -5076,6 +5098,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_before_tr_emb_cmt</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Controls the spaces before a trailing or embedded comment</string>
 			<key>Name</key>
@@ -5304,6 +5328,8 @@ If set to ignore, sp_before_sparen is used.</string>
 		</dict>
 		<key>sp_cpp_lambda_assign</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove space around '=' in C++11 lambda capture specifications. Overrides sp_assign</string>
 			<key>Languages</key>
@@ -5317,6 +5343,8 @@ If set to ignore, sp_before_sparen is used.</string>
 		</dict>
 		<key>sp_cpp_lambda_paren</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove space after the capture specification in C++11 lambda.</string>
 			<key>Languages</key>
@@ -5739,6 +5767,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_inside_sparen_open</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove space before if-condition '('. Overrides sp_inside_sparen.</string>
 			<key>Name</key>
@@ -5761,6 +5791,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_inside_tparen</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove space inside the first parens in the function type: 'void (*x)(...)'</string>
 			<key>Name</key>
@@ -5858,6 +5890,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_num_before_tr_emb_cmt</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Number of spaces before a trailing or embedded comment</string>
 			<key>Name</key>
@@ -5906,6 +5940,8 @@ Also applies to @protocol() constructs</string>
 		</dict>
 		<key>sp_permit_cpp11_shift</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Default</key>
 			<string>False</string>
 			<key>Description</key>
@@ -5950,6 +5986,8 @@ sp_angle_shift cannot remove the space without this option.</string>
 		</dict>
 		<key>sp_ptr_star_paren</key>
 		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
 			<key>Description</key>
 			<string>Add or remove space after a pointer star '*', if followed by an open paren (function types).</string>
 			<key>Name</key>
@@ -6218,7 +6256,7 @@ Improvements to template detection may make this option obsolete.</string>
 		</dict>
 	</dict>
 	<key>UpdatedAt</key>
-	<date>2012-12-08T21:50:37Z</date>
+	<date>2012-12-08T23:48:36Z</date>
 	<key>ValueTypes</key>
 	<array>
 		<dict>
