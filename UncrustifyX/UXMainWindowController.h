@@ -39,7 +39,7 @@
 
 @property (weak, nonatomic) IBOutlet NSPopUpButton *inputLanguagePopUpButton;
 @property (strong, nonatomic) NSArrayController *inputLanguageArrayController;
-@property (weak, nonatomic) UXLanguage *selectedLanguage;
+@property (weak, nonatomic) UXLanguage *selectedPreviewLanguage;
 
 @property (strong, nonatomic) IBOutlet UXExportPanelAccessoryView *exportPanelAccessoryView;
 

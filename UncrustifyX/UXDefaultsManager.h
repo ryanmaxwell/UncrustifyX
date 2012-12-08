@@ -24,6 +24,12 @@
 + (NSDate *)definitionsUpdatedAt;
 + (void)setDefinitionsUpdatedAt:(NSDate *)date;
 
++ (NSString *)selectedPreviewLanguageInDocumentation;
++ (void)setSelectedPreviewLanguageInDocumentation:(NSString *)languageCode;
+
++ (NSString *)selectedPreviewLanguageInMainWindow;
++ (void)setSelectedPreviewLanguageInMainWindow:(NSString *)languageCode;
+
 /**
  * @return an array of NSStrings of the language code
  */

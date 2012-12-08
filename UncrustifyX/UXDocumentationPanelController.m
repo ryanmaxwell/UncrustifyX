@@ -23,8 +23,6 @@
 
 /* NSWindowRestoration keys */
 static NSString *const UXPreviewExpandedKey                         = @"PreviewExpanded";
-static NSString *const UXSelectedPreviewLanguageCodeKey             = @"SelectedPreviewLanguageCode";
-static NSString *const UXSelectedPreviewCodeSampleDescriptionKey    = @"SelectedPreviewCodeSampleDescription";
 
 static CGFloat const PreviewViewHeight = 300.0f;
 
@@ -112,8 +110,8 @@ static CGFloat const PreviewViewHeight = 300.0f;
     [self.previewLanguagesArrayController fetch:nil];
     [self.codeSamplesArrayController fetch:nil];
     
-    self.selectedPreviewLanguage = [UXLanguage findFirstOrderedByAttribute:UXLanguageAttributes.name
-                                                                 ascending:YES];
+    NSString *selectedLanguageCode = UXDefaultsManager.selectedPreviewLanguageInDocumentation;
+    self.selectedPreviewLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedLanguageCode];
     [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
     
     [self.fragaria setObject:self forKey:MGSFODelegate];
@@ -429,6 +427,13 @@ static CGFloat const PreviewViewHeight = 300.0f;
     }
 }
 
+- (void)setSelectedPreviewLanguage:(UXLanguage *)selectedPreviewLanguage {
+    if (selectedPreviewLanguage != _selectedPreviewLanguage) {
+        _selectedPreviewLanguage = selectedPreviewLanguage;
+        UXDefaultsManager.selectedPreviewLanguageInDocumentation = selectedPreviewLanguage.code;
+    }
+}
+
 - (void)setPreviewExpanded:(BOOL)previewExpanded {
     [self setPreviewExpanded:previewExpanded animated:NO];
 }
@@ -559,8 +564,6 @@ static CGFloat const PreviewViewHeight = 300.0f;
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
     [state encodeBool:self.previewExpanded forKey:UXPreviewExpandedKey];
-    [state encodeObject:self.selectedPreviewLanguage.code forKey:UXSelectedPreviewLanguageCodeKey];
-    [state encodeObject:self.selectedCodeSample.codeSampleDescription forKey:UXSelectedPreviewCodeSampleDescriptionKey];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
@@ -572,23 +575,6 @@ static CGFloat const PreviewViewHeight = 300.0f;
         
         [self setPreviewExpanded:YES animated:NO];
         self.disclosureTriangle.state = NSOnState;
-    }
-    
-    NSString *selectedPreviewLanguageCode = [state decodeObjectForKey:UXSelectedPreviewLanguageCodeKey];
-    if (selectedPreviewLanguageCode) {
-        UXLanguage *language = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedPreviewLanguageCode];
-        if (language) {
-            self.selectedPreviewLanguage = language;
-            
-            [self filterCodeSamplesForLanguage:language];
-            
-            NSString *selectedCodeSampleDescription = [state decodeObjectForKey:UXSelectedPreviewCodeSampleDescriptionKey];
-            if (selectedCodeSampleDescription) {
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@",
-                                          UXCodeSampleAttributes.codeSampleDescription, selectedCodeSampleDescription, UXCodeSampleRelationships.language, language];
-                self.selectedCodeSample = [UXCodeSample findFirstWithPredicate:predicate];
-            }
-        }
     }
 }
 

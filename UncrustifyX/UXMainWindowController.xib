@@ -608,7 +608,7 @@
 										<string key="NSFrameSize">{527, 274}</string>
 										<reference key="NSSuperview" ref="243302724"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="999151099"/>
+										<reference key="NSNextKeyView" ref="666369616"/>
 										<string key="NSReuseIdentifierKey">_NS:13</string>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -733,7 +733,7 @@
 						<string key="NSFrame">{{20, 67}, {529, 292}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="243302724"/>
+						<reference key="NSNextKeyView" ref="999151099"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="666369616"/>
@@ -795,6 +795,7 @@
 						<string key="NSFrame">{{0, 30}, {569, 330}}</string>
 						<reference key="NSSuperview" ref="977851870"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="907512466"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSClassName">NSView</string>
 					</object>
@@ -862,6 +863,7 @@
 				<string key="NSFrameSize">{569, 360}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="707839940"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -1194,20 +1196,20 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedObject: selectedLanguage</string>
+						<string key="label">selectedObject: selectedPreviewLanguage</string>
 						<reference key="source" ref="737609357"/>
 						<reference key="destination" ref="1001"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="737609357"/>
 							<reference key="NSDestination" ref="1001"/>
-							<string key="NSLabel">selectedObject: selectedLanguage</string>
+							<string key="NSLabel">selectedObject: selectedPreviewLanguage</string>
 							<string key="NSBinding">selectedObject</string>
-							<string key="NSKeyPath">selectedLanguage</string>
+							<string key="NSKeyPath">selectedPreviewLanguage</string>
 							<reference key="NSPreviousConnector" ref="784766372"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">310</int>
+					<int key="connectionID">319</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1616,7 +1618,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">318</int>
+			<int key="maxID">319</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

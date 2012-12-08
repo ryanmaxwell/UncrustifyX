@@ -8,18 +8,20 @@
 
 #import "UXDefaultsManager.h"
 
-static NSString *const UXOverwriteFilesKey                      = @"UXOverwriteFiles";
-static NSString *const UXUseCustomBinaryKey                     = @"UXUseCustomBinary";
-static NSString *const UXCustomBinaryPathKey                    = @"UXCustomBinaryPath";
-static NSString *const UXDefinitionsUpdatedAtKey                = @"UXDefinitionsUpdatedAt";
-static NSString *const UXBundledUncrustifyBinaryVersionKey      = @"UXBundledUncrustifyBinaryVersion";
-static NSString *const UXExportDocumentationKey                 = @"UXExportDocumentation";
-static NSString *const UXExportCategoryDocumentationKey         = @"UXExportCategoryDocumentation";
-static NSString *const UXExportSubcategoryDocumentationKey      = @"UXExportSubcategoryDocumentation";
-static NSString *const UXExportOptionNameDocumentationKey       = @"UXExportOptionNameDocumentation";
-static NSString *const UXExportOptionValueDocumentationKey      = @"UXExportOptionValueDocumentation";
-static NSString *const UXExportBlankOptionsKey                  = @"UXExportBlankOptions";
-static NSString *const UXLanguagesIncludedInDocumentationKey    = @"UXLanguagesIncludedInDocumentation";
+static NSString *const UXOverwriteFilesKey                          = @"UXOverwriteFiles";
+static NSString *const UXUseCustomBinaryKey                         = @"UXUseCustomBinary";
+static NSString *const UXCustomBinaryPathKey                        = @"UXCustomBinaryPath";
+static NSString *const UXDefinitionsUpdatedAtKey                    = @"UXDefinitionsUpdatedAt";
+static NSString *const UXBundledUncrustifyBinaryVersionKey          = @"UXBundledUncrustifyBinaryVersion";
+static NSString *const UXExportDocumentationKey                     = @"UXExportDocumentation";
+static NSString *const UXExportCategoryDocumentationKey             = @"UXExportCategoryDocumentation";
+static NSString *const UXExportSubcategoryDocumentationKey          = @"UXExportSubcategoryDocumentation";
+static NSString *const UXExportOptionNameDocumentationKey           = @"UXExportOptionNameDocumentation";
+static NSString *const UXExportOptionValueDocumentationKey          = @"UXExportOptionValueDocumentation";
+static NSString *const UXExportBlankOptionsKey                      = @"UXExportBlankOptions";
+static NSString *const UXLanguagesIncludedInDocumentationKey        = @"UXLanguagesIncludedInDocumentation";
+static NSString *const UXSelectedPreviewLanguageInDocumentationKey  = @"UXSelectedPreviewLanguageInDocumentation";
+static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelectedPreviewLanguageInMainWindow";
 
 @implementation UXDefaultsManager
 
@@ -30,7 +32,9 @@ static NSString *const UXLanguagesIncludedInDocumentationKey    = @"UXLanguagesI
         UXExportCategoryDocumentationKey: @YES,
         UXExportSubcategoryDocumentationKey: @YES,
         UXExportOptionNameDocumentationKey: @YES,
-        UXExportOptionValueDocumentationKey: @YES
+        UXExportOptionValueDocumentationKey: @YES,
+        UXSelectedPreviewLanguageInDocumentationKey: @"OC",
+        UXSelectedPreviewLanguageInMainWindowKey: @"OC"
     };
     [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
 }
@@ -99,6 +103,22 @@ static NSString *const UXLanguagesIncludedInDocumentationKey    = @"UXLanguagesI
             [self setDefaultsObject:newLanguages forKey:UXLanguagesIncludedInDocumentationKey];
         }
     }
+}
+
++ (NSString *)selectedPreviewLanguageInDocumentation {
+    return [self defaultsObjectForKey:UXSelectedPreviewLanguageInDocumentationKey];
+}
+
++ (void)setSelectedPreviewLanguageInDocumentation:(NSString *)languageCode {
+    [self setDefaultsObject:languageCode forKey:UXSelectedPreviewLanguageInDocumentationKey];
+}
+
++ (NSString *)selectedPreviewLanguageInMainWindow {
+    return [self defaultsObjectForKey:UXSelectedPreviewLanguageInMainWindowKey];
+}
+
++ (void)setSelectedPreviewLanguageInMainWindow:(NSString *)languageCode {
+    [self setDefaultsObject:languageCode forKey:UXSelectedPreviewLanguageInMainWindowKey];
 }
 
 #pragma mark -

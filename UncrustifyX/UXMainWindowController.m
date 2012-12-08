@@ -27,7 +27,6 @@
 
 /* NSWindowRestoration keys */
 static NSString *const UXSourceContainerViewWidthKey        = @"SourceContainerViewWidth";
-static NSString *const UXSelectedLanguageCodeKey            = @"SelectedLanguageCode";
 static NSString *const UXDocumentationPanelVisibleKey       = @"DocumentationPanelVisible";
 static NSString *const UXSelectedToolbarItemIdentifierKey   = @"SelectedToolbarItemIdentifier";
 static NSString *const UXDirectInputStringKey               = @"DirectInputString";
@@ -117,9 +116,9 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             
             [self.inputLanguageArrayController fetch:nil];
             
-            /* Select obj-c by default */
-            self.selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
-                                                           withValue:@"OC"];
+            
+            NSString *selectedLanguageCode = UXDefaultsManager.selectedPreviewLanguageInMainWindow;
+            self.selectedPreviewLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedLanguageCode];
             
             [self.fragaria setObject:self forKey:MGSFODelegate];
             [self.fragaria embedInView:self.fragariaContainerView];
@@ -288,6 +287,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     }
 }
 
+- (void)setSelectedPreviewLanguage:(UXLanguage *)selectedPreviewLanguage {
+    if (selectedPreviewLanguage != _selectedPreviewLanguage) {
+        _selectedPreviewLanguage = selectedPreviewLanguage;
+        UXDefaultsManager.selectedPreviewLanguageInMainWindow = selectedPreviewLanguage.code;
+    }
+}
+
 #pragma mark - IBAction
 
 - (IBAction)showView:(id)sender {
@@ -315,7 +321,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         
         NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.fragaria.string
                                               withConfigOptions:self.configOptions
-                                                      arguments:@[@"-l", self.selectedLanguage.code]];
+                                                      arguments:@[@"-l", self.selectedPreviewLanguage.code]];
         if (result) {
             self.fragaria.string = result;
         }
@@ -437,7 +443,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 }
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {
-    [self.fragaria setObject:self.selectedLanguage.name forKey:MGSFOSyntaxDefinitionName];
+    [self.fragaria setObject:self.selectedPreviewLanguage.name forKey:MGSFOSyntaxDefinitionName];
 }
 
 - (void)addFilePaths:(NSArray *)filePaths {
@@ -658,7 +664,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
     [state encodeObject:self.toolbar.selectedItemIdentifier forKey:UXSelectedToolbarItemIdentifierKey];
     [state encodeBool:self.documentationPanelController.window.isVisible forKey:UXDocumentationPanelVisibleKey];
-    [state encodeObject:self.selectedLanguage.code forKey:UXSelectedLanguageCodeKey];
     [state encodeFloat:self.sourceContainerView.frame.size.width forKey:UXSourceContainerViewWidthKey];
     [state encodeObject:self.fragaria.string forKey:UXDirectInputStringKey];
     [state encodeObject:self.filePaths forKey:UXFilePathsKey];
@@ -679,12 +684,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                 break;
             }
         }
-    }
-    
-    NSString *selectedLanguageCode = [state decodeObjectForKey:UXSelectedLanguageCodeKey];
-    if (selectedLanguageCode) {
-        self.selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
-                                                       withValue:selectedLanguageCode];
     }
     
     CGFloat sourceWidth = [state decodeFloatForKey:UXSourceContainerViewWidthKey];
