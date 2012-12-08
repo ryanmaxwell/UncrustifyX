@@ -44,7 +44,7 @@
 }
 
 - (void)updateOptionValue:(id)value forKey:(NSString *)key {
-    NSString *plistPath = @"/Users/ryan/Code/uncrustifyx/UncrustifyX/Definitions.plist";
+    NSString *plistPath = @"/Users/ryan/Code/UncrustifyX-Github/UncrustifyX/Resources/Definitions.plist";
     NSFileManager *manager = NSFileManager.defaultManager;
     
     if (![manager fileExistsAtPath:plistPath]) return;
@@ -55,7 +55,10 @@
         NSMutableDictionary *oldOption = infoDict[@"Options"][self.code];
         oldOption[key] = value;
         
+        infoDict[@"UpdatedAt"] = NSDate.date;
+        
         [infoDict writeToFile:plistPath atomically:NO];
+        
         
         [manager setAttributes:@{NSFileModificationDate : NSDate.date}
                   ofItemAtPath:plistPath
