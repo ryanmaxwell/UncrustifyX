@@ -34,7 +34,6 @@
 			<string>NSTextFieldCell</string>
 			<string>NSUserDefaultsController</string>
 			<string>NSView</string>
-			<string>NSViewController</string>
 			<string>NSWindowTemplate</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -91,7 +90,7 @@
 															<string key="NSFrameSize">{148, 254}</string>
 															<reference key="NSSuperview" ref="355393066"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="754468296"/>
+															<reference key="NSNextKeyView" ref="93380813"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -255,7 +254,7 @@
 											<string key="NSFrameSize">{150, 272}</string>
 											<reference key="NSSuperview" ref="1071105972"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="93380813"/>
+											<reference key="NSNextKeyView" ref="355393066"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="754468296"/>
@@ -293,7 +292,7 @@
 															<string key="NSFrameSize">{339, 254}</string>
 															<reference key="NSSuperview" ref="658301309"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="526608517"/>
+															<reference key="NSNextKeyView" ref="692325067"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -342,6 +341,7 @@
 																	</object>
 																	<int key="NSResizingMask">3</int>
 																	<bool key="NSIsResizeable">YES</bool>
+																	<bool key="NSIsEditable">YES</bool>
 																	<reference key="NSTableView" ref="846383121"/>
 																</object>
 															</array>
@@ -420,7 +420,7 @@
 											<string key="NSFrameSize">{341, 272}</string>
 											<reference key="NSSuperview" ref="838863549"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="692325067"/>
+											<reference key="NSNextKeyView" ref="658301309"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="526608517"/>
@@ -676,11 +676,10 @@
 								</object>
 								<object class="NSTextField" id="587571645">
 									<reference key="NSNextResponder" ref="10417775"/>
-									<int key="NSvFlags">-2147483380</int>
+									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{89, 436}, {404, 17}}</string>
 									<reference key="NSSuperview" ref="10417775"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:1535</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSTextFieldCell" key="NSCell" id="6578911">
@@ -702,7 +701,7 @@
 								</object>
 								<object class="NSTextField" id="296247291">
 									<reference key="NSNextResponder" ref="10417775"/>
-									<int key="NSvFlags">-2147483380</int>
+									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{-1, 436}, {82, 17}}</string>
 									<reference key="NSSuperview" ref="10417775"/>
 									<reference key="NSWindow"/>
@@ -1307,21 +1306,12 @@
 				<string key="NSMaxSize">{800, 966}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
-			<object class="NSViewController" id="333999010"/>
 			<object class="NSUserDefaultsController" id="141001567">
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">syntaxColoringController</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="333999010"/>
-					</object>
-					<int key="connectionID">150</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">window</string>
@@ -1607,14 +1597,6 @@
 						</object>
 					</object>
 					<int key="connectionID">494</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="333999010"/>
-						<reference key="destination" ref="1001"/>
-					</object>
-					<int key="connectionID">149</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2014,11 +1996,6 @@
 						<reference key="object" ref="1004"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Application</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">147</int>
-						<reference key="object" ref="333999010"/>
-						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">163</int>
@@ -2645,8 +2622,6 @@
 				<string key="116.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="0" key="121.IBNSSegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="121.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="147.CustomClassName">UXSyntaxColoredTextViewController</string>
-				<string key="147.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="151.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="152.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="NO" key="163.IBNSWindowAutoPositionCentersHorizontal"/>
