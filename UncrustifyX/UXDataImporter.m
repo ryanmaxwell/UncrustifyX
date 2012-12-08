@@ -198,6 +198,21 @@
         }
     }];
     
+    /* Remove empty categories/subcategories */
+    NSPredicate *emptyCategoriesPredicate = [NSPredicate predicateWithFormat:@"%K.@count == 0", UXCategoryRelationships.options];
+    NSArray *emptyCategories = [UXCategory findAllWithPredicate:emptyCategoriesPredicate];
+    
+    for (UXCategory *category in emptyCategories) {
+        [category deleteEntity];
+    }
+    
+    NSArray *emptySubcategories = [UXSubcategory findAllWithPredicate:emptyCategoriesPredicate];
+    
+    for (UXSubcategory *subcategory in emptySubcategories) {
+        [subcategory deleteEntity];
+    }
+    
+    
     [NSManagedObjectContext.defaultContext saveNestedContexts];
 }
 
