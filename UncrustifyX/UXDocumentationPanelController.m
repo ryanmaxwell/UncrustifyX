@@ -116,7 +116,9 @@ static CGFloat const PreviewViewHeight = 300.0f;
                                                                  ascending:YES];
     [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
     
+    [self.fragaria setObject:self forKey:MGSFODelegate];
     [self.fragaria embedInView:self.fragariaContainerView];
+    [self.fragaria setObject:@"Objective-C" forKey:MGSFOSyntaxDefinitionName];
 }
 
 #pragma mark - UKSyntaxColoredTextViewDelegate

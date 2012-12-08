@@ -23,6 +23,7 @@
 #import "UXExportPanelAccessoryView.h"
 
 #import <MGSFragaria/MGSFragaria.h>
+#import <MGSFragaria/MGSSyntaxController.h>
 
 /* NSWindowRestoration keys */
 static NSString *const UXSourceContainerViewWidthKey        = @"SourceContainerViewWidth";
@@ -122,7 +123,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             
             [self.fragaria setObject:self forKey:MGSFODelegate];
             [self.fragaria embedInView:self.fragariaContainerView];
-            self.syntaxDefinition = @"Objective-C";
+            [self.fragaria setObject:@"Objective-C" forKey:MGSFOSyntaxDefinitionName];
             
             [self.window makeKeyAndOrderFront:self];
         }

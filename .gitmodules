@@ -1,0 +1,6 @@
+[submodule "UncrustifyX/Frameworks/Sparkle"]
+	path = UncrustifyX/Frameworks/Sparkle
+	url = git@github.com:ryanmaxwell/Sparkle.git
+[submodule "UncrustifyX/Frameworks/Fragaria"]
+	path = UncrustifyX/Frameworks/Fragaria
+	url = git@github.com:ryanmaxwell/Fragaria.git

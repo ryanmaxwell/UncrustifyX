@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet NSSearchField *searchField;
 
 @property (weak, nonatomic) IBOutlet NSView *fragariaContainerView;
-@property (strong, nonatomic) NSString *syntaxDefinition;
 
 @property (weak, nonatomic) IBOutlet NSTableView *filePathsTableView;
 @property (weak, nonatomic) IBOutlet NSSplitView *mainSplitView;
