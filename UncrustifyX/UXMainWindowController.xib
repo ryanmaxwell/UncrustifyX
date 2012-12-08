@@ -864,7 +864,6 @@
 				<string key="NSFrameSize">{569, 360}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -1073,6 +1072,14 @@
 						<reference key="destination" ref="707839940"/>
 					</object>
 					<int key="connectionID">317</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">previewLanguagePopUpChanged:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="737609357"/>
+					</object>
+					<int key="connectionID">318</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1626,63 +1633,10 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">317</int>
+			<int key="maxID">318</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">UKSyntaxColoredTextViewController</string>
-					<string key="superclassName">NSViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="indentSelection:">id</string>
-						<string key="recolorCompleteFile:">id</string>
-						<string key="toggleAutoSyntaxColoring:">id</string>
-						<string key="toggleCommentForSelection:">id</string>
-						<string key="toggleMaintainIndentation:">id</string>
-						<string key="unindentSelection:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="indentSelection:">
-							<string key="name">indentSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="recolorCompleteFile:">
-							<string key="name">recolorCompleteFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toggleAutoSyntaxColoring:">
-							<string key="name">toggleAutoSyntaxColoring:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toggleCommentForSelection:">
-							<string key="name">toggleCommentForSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toggleMaintainIndentation:">
-							<string key="name">toggleMaintainIndentation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="unindentSelection:">
-							<string key="name">unindentSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/UKSyntaxColoredTextViewController.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UXConfigOptionTableView</string>
 					<string key="superclassName">NSTableView</string>
@@ -1746,6 +1700,7 @@
 						<string key="deletePressed:">id</string>
 						<string key="exportConfigurationPressed:">id</string>
 						<string key="importConfigurationPressed:">id</string>
+						<string key="previewLanguagePopUpChanged:">id</string>
 						<string key="runButtonPressed:">id</string>
 						<string key="showView:">id</string>
 						<string key="toggleDocumentationPanel:">id</string>
@@ -1761,6 +1716,10 @@
 						</object>
 						<object class="IBActionInfo" key="importConfigurationPressed:">
 							<string key="name">importConfigurationPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="previewLanguagePopUpChanged:">
+							<string key="name">previewLanguagePopUpChanged:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="runButtonPressed:">
@@ -1780,7 +1739,6 @@
 						<string key="configOptionsScrollView">NSScrollView</string>
 						<string key="configOptionsTableColumn">NSTableColumn</string>
 						<string key="configOptionsTableView">NSTableView</string>
-						<string key="directInputTextView">NSTextView</string>
 						<string key="directInputToolbarItem">NSToolbarItem</string>
 						<string key="directInputView">NSView</string>
 						<string key="exportPanelAccessoryView">UXExportPanelAccessoryView</string>
@@ -1795,7 +1753,6 @@
 						<string key="runToolbarItem">NSToolbarItem</string>
 						<string key="searchField">NSSearchField</string>
 						<string key="sourceContainerView">NSView</string>
-						<string key="syntaxColoringController">UXSyntaxColoredTextViewController</string>
 						<string key="toolbar">NSToolbar</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1810,10 +1767,6 @@
 						<object class="IBToOneOutletInfo" key="configOptionsTableView">
 							<string key="name">configOptionsTableView</string>
 							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="directInputTextView">
-							<string key="name">directInputTextView</string>
-							<string key="candidateClassName">NSTextView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="directInputToolbarItem">
 							<string key="name">directInputToolbarItem</string>
@@ -1871,10 +1824,6 @@
 							<string key="name">sourceContainerView</string>
 							<string key="candidateClassName">NSView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="syntaxColoringController">
-							<string key="name">syntaxColoringController</string>
-							<string key="candidateClassName">UXSyntaxColoredTextViewController</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="toolbar">
 							<string key="name">toolbar</string>
 							<string key="candidateClassName">NSToolbar</string>
@@ -1891,14 +1840,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/UXSearchGradientView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">UXSyntaxColoredTextViewController</string>
-					<string key="superclassName">UKSyntaxColoredTextViewController</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/UXSyntaxColoredTextViewController.h</string>
 					</object>
 				</object>
 			</array>

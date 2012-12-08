@@ -50,7 +50,7 @@
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)runButtonPressed:(id)sender;
 - (IBAction)showView:(id)sender;
-
+- (IBAction)previewLanguagePopUpChanged:(id)sender;
 - (IBAction)toggleDocumentationPanel:(id)sender;
 
 - (void)addFilePaths:(NSArray *)filePaths;

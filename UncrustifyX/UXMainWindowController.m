@@ -436,6 +436,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     }
 }
 
+- (IBAction)previewLanguagePopUpChanged:(id)sender {
+    [self.fragaria setObject:self.selectedLanguage.name forKey:MGSFOSyntaxDefinitionName];
+}
+
 - (void)addFilePaths:(NSArray *)filePaths {
     for (id obj in filePaths) {
         if ([obj isKindOfClass:NSString.class] && ![self.filePaths containsObject:obj]) {
