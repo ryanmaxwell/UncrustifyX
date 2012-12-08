@@ -38,6 +38,7 @@
 		945C8C471672CBDC00374B7F /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C3B1672CBC400374B7F /* Sparkle.framework */; };
 		945C8C601672CC0800374B7F /* MGSFragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* MGSFragaria.framework */; };
 		945C8C611672CC1000374B7F /* MGSFragaria.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* MGSFragaria.framework */; };
+		945C8D6F167406EB00374B7F /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 945C8D6E167406EB00374B7F /* dsa_pub.pem */; };
 		9464B987162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */; };
 		9464B9AD162ABA4500F61C28 /* UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9AC162ABA4500F61C28 /* UXCodeSample.m */; };
 		9464B9B1162ABA4F00F61C28 /* _UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9B0162ABA4F00F61C28 /* _UXCodeSample.m */; };
@@ -219,6 +220,7 @@
 		945C40C1166F348000D2F356 /* UXSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXSubcategory.m; path = Models/UXSubcategory.m; sourceTree = "<group>"; };
 		945C8C2C1672CBC300374B7F /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = UncrustifyX/Frameworks/Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
 		945C8C481672CBE400374B7F /* Fragaria.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Fragaria.xcodeproj; path = UncrustifyX/Frameworks/Fragaria/Fragaria.xcodeproj; sourceTree = "<group>"; };
+		945C8D6E167406EB00374B7F /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		9464B985162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionDisplayNameValueTransformer.h; sourceTree = "<group>"; };
 		9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXCollectionDisplayNameValueTransformer.m; sourceTree = "<group>"; };
 		9464B9AB162ABA4500F61C28 /* UXCodeSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXCodeSample.h; path = Models/UXCodeSample.h; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 		944ED086164F81D900F785DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				945C8D6E167406EB00374B7F /* dsa_pub.pem */,
 				949A4AD8166AE265009D3E9B /* uncrustify */,
 				949A4AD5166AE20E009D3E9B /* Definitions.plist */,
 				9405B52D1651FF01001A1C7F /* Info.png */,
@@ -679,6 +682,7 @@
 				94F2E7791664B2CF004E6DF5 /* SearchGradient.png in Resources */,
 				949A4AD6166AE20E009D3E9B /* Definitions.plist in Resources */,
 				949A4AD9166AE265009D3E9B /* uncrustify in Resources */,
+				945C8D6F167406EB00374B7F /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
