@@ -203,7 +203,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                         newConfigOption.value = valueToSet;
                     }
                 } else {
-                    if (*error) {
+                    if (error) {
                         NSString *errorDescription = [NSString stringWithFormat:@"The value '%@' is not valid for the %@ value type required for the %@ option",
                                                       value,
                                                       theOption.valueType.type.lowercaseString,
@@ -221,7 +221,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [self.configOptions addObject:newConfigOption];
             [NSManagedObjectContext.defaultContext saveNestedContexts];
         } else {
-            if (*error) {
+            if (error) {
                 NSString *errorDescription = [NSString stringWithFormat:@"Could not find option with %@ code", code];
                 
                 *error = [NSError errorWithDomain:UXErrorDomain
@@ -233,7 +233,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         }
     } else {
         
-        if (*error) {
+        if (error) {
             NSString *errorDescription = [NSString stringWithFormat:@"Already have config option with %@ code", code];
             
             *error = [NSError errorWithDomain:UXErrorDomain
