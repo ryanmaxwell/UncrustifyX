@@ -5,5 +5,14 @@
       <link>https://raw.github.com/ryanmaxwell/uncrustifyx/appcast/uncrustifyx-appcast.xml</link>
       <description>Most recent changes with links to updates.</description>
       <language>en</language>
+      <item>
+          <title>Initial Release</title>
+          <pubDate>Sun, 09 Dec 2012 13:37:00 +1300</pubDate>
+          <enclosure url="https://github.com/downloads/ryanmaxwell/UncrustifyX/UncrustifyX-0.1.zip"
+                     sparkle:version="0.2"
+                     sparkle:dsaSignature="MC4CFQC+P5Lpio3PuAXLiWOLox+Jxs55LgIVAIEqiDLnHl9z9u/QSMtlLBCUNjnx"
+                     length="2349130"
+                     type="application/octet-stream" />
+      </item>
    </channel>
 </rss>
