@@ -17,8 +17,11 @@ Drag source files (.h, .m etc.) onto the dock icon, or into the main window's fi
 
 No preset configuration files are currently included. [Here](https://gist.github.com/4242629) is a good starting point for an Objective-C configuration.
 
+## Download
+Release builds are available on the (Downloads)[https://github.com/ryanmaxwell/UncrustifyX/downloads] page.
+
 ## Building Project
-Git checkout the project including its submodule. Xcode 4.5, 10.7+ Required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
+Git checkout the project including its submodules. Xcode 4.5, 10.7+ Required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
 
 ## Current Status
 UncrustifyX is new as of November 2012, and as such there will be rough edges. Hopefully it shows promise!
