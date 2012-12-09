@@ -9,6 +9,7 @@
           <title>Update Release</title>
           <enclosure url="https://github.com/downloads/ryanmaxwell/UncrustifyX/UncrustifyX-0.1.zip"
                      sparkle:version="0.2"
+                     sparkle:shortVersionString="108"
                      sparkle:dsaSignature="MC4CFQC+P5Lpio3PuAXLiWOLox+Jxs55LgIVAIEqiDLnHl9z9u/QSMtlLBCUNjnx"
                      length="2349130"
                      type="application/octet-stream" />
@@ -17,6 +18,7 @@
           <title>Initial Release</title>
           <enclosure url="https://github.com/downloads/ryanmaxwell/UncrustifyX/UncrustifyX-0.1.zip"
                      sparkle:version="0.1"
+                     sparkle:shortVersionString="106"
                      sparkle:dsaSignature="MC4CFQC+P5Lpio3PuAXLiWOLox+Jxs55LgIVAIEqiDLnHl9z9u/QSMtlLBCUNjnx"
                      length="2349130"
                      type="application/octet-stream" />
