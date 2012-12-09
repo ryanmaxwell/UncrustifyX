@@ -12,8 +12,3 @@
 - scroll to option when dragged into option table view
 - script to pull out file extensions from definitions.plist and add them into info.plist editor types on build
 - key binding for search field
-
-## Publishing alpha
-- create 0.1 tag
-- create downloadable .app binary
-- create entry into appcast branch .xml for sparkle updating - sign zip.

@@ -15,6 +15,8 @@ Additionally, UncrustifyX allows importing and exporting of Uncrustify .cfg file
 Drag options from the documentation panel into the main window's option table. 
 Drag source files (.h, .m etc.) onto the dock icon, or into the main window's file table. 
 
+No preset configuration files are currently included. [Here](https://gist.github.com/4242629) is a good starting point for an Objective-C configuration.
+
 ## Building Project
 Git checkout the project including its submodule. Xcode 4.5, 10.7+ Required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
 
