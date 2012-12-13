@@ -116,13 +116,17 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             
             [self.inputLanguageArrayController fetch:nil];
             
+            [self.fragaria embedInView:self.fragariaContainerView];
             
             NSString *selectedLanguageCode = UXDefaultsManager.selectedPreviewLanguageInMainWindow;
-            self.selectedPreviewLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedLanguageCode];
+            UXLanguage *selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
+                                                                  withValue:selectedLanguageCode];
             
-            [self.fragaria setObject:self forKey:MGSFODelegate];
-            [self.fragaria embedInView:self.fragariaContainerView];
-            [self.fragaria setObject:@"Objective-C" forKey:MGSFOSyntaxDefinitionName];
+            if (selectedLanguage) {
+                self.selectedPreviewLanguage = selectedLanguage;
+                
+                [self.fragaria setObject:selectedLanguage.name forKey:MGSFOSyntaxDefinitionName];
+            }
             
             [self.window makeKeyAndOrderFront:self];
         }
