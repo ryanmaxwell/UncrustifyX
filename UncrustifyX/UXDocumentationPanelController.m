@@ -22,11 +22,14 @@
 #import "UXUIUtils.h"
 
 /* NSWindowRestoration keys */
-static NSString *const UXPreviewExpandedKey                         = @"PreviewExpanded";
+static NSString *const UXPreviewExpandedKey = @"PreviewExpanded";
 
-static CGFloat const PreviewViewHeight = 300.0f;
+static CGFloat const PreviewViewHeight = 250.0f;
 
-@interface UXDocumentationPanelController () <NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate, NSWindowDelegate>
+@interface UXDocumentationPanelController () <NSTableViewDelegate, NSTableViewDataSource, NSTextDelegate, NSSplitViewDelegate, NSWindowDelegate> {
+    /* may be used if screen is too small for expanded window */
+    CGFloat _previewViewUsedHeight;
+}
 @property (strong, nonatomic) UXPlaceholder *languagesHeader;
 @property (strong, nonatomic) UXPlaceholder *categoriesHeader;
 @property (strong, nonatomic) NSString *searchQuery;
@@ -446,12 +449,42 @@ static CGFloat const PreviewViewHeight = 300.0f;
     dispatch_async(dispatch_get_main_queue(), ^{
         /* perform window resize async so that disclosure triangle can do flip animation at same time */
         
-        CGFloat deltaY = (self.previewExpanded) ? PreviewViewHeight : - PreviewViewHeight;
-        
         NSRect oldFrame = self.window.frame;
-        NSRect newFrame = NSMakeRect(oldFrame.origin.x, oldFrame.origin.y - deltaY, oldFrame.size.width, oldFrame.size.height + deltaY);
+        CGFloat deltaY = 0.0f;
         
-        [self.window setFrame:newFrame display:YES animate:animated];
+        CGFloat newOriginY;
+        
+        if (!self.previewExpanded) {
+            /* contract view */
+            if (_previewViewUsedHeight != 0.0f) {
+                deltaY = -_previewViewUsedHeight;
+                _previewViewUsedHeight = 0.0f;
+            } else {
+                deltaY = -PreviewViewHeight;
+            }
+            
+            newOriginY = oldFrame.origin.y - deltaY;
+        } else {
+            /* expand view */
+            NSRect screenFrame = self.window.screen.visibleFrame;
+            
+            CGFloat proposedHeight = oldFrame.size.height + PreviewViewHeight;
+
+            if (screenFrame.size.height < proposedHeight) {
+                proposedHeight = screenFrame.size.height;
+                _previewViewUsedHeight = (proposedHeight - oldFrame.size.height);
+                deltaY = _previewViewUsedHeight;
+                newOriginY = screenFrame.origin.y;
+            } else {
+                deltaY = PreviewViewHeight;
+                newOriginY = oldFrame.origin.y - deltaY;
+            }
+        }
+        
+        CGFloat newHeight = oldFrame.size.height + deltaY;
+        NSRect newFrame = NSMakeRect(oldFrame.origin.x, newOriginY, oldFrame.size.width, newHeight);
+        
+        [self.window setFrame:newFrame display:YES animate:YES];
     });
 }
 
