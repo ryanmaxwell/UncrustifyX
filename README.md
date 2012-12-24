@@ -21,10 +21,10 @@ No preset configuration files are currently included. [Here](https://gist.github
 Release builds are available on the [Downloads](https://github.com/ryanmaxwell/UncrustifyX/downloads) page.
 
 ## Building Project
-Git checkout the project including its submodules. Xcode 4.5, 10.7+ Required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
+Git checkout the project including its submodules. Xcode 4.5, 10.8+ required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
 
 ## Current Status
-UncrustifyX is new as of November 2012, and as such there will be rough edges. Hopefully it shows promise!
+UncrustifyX is new as of November 2012, and as such there may be rough edges. Hopefully it shows promise!
 File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/projects/uncrustify/) or [Github](https://github.com/bengardner/uncrustify) home.
 
 ## Contribution
