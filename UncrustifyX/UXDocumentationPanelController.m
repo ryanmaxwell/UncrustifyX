@@ -114,12 +114,16 @@ static CGFloat const PreviewViewHeight = 250.0f;
     [self.codeSamplesArrayController fetch:nil];
     
     NSString *selectedLanguageCode = UXDefaultsManager.selectedPreviewLanguageInDocumentation;
-    self.selectedPreviewLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedLanguageCode];
-    [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
+    UXLanguage *selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code withValue:selectedLanguageCode];
+    if (selectedLanguage) {
+        self.selectedPreviewLanguage = selectedLanguage;
+        
+        [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
+        
+        [self.fragaria setObject:selectedLanguage.name forKey:MGSFOSyntaxDefinitionName];
+    }
     
-    [self.fragaria setObject:self forKey:MGSFODelegate];
     [self.fragaria embedInView:self.fragariaContainerView];
-    [self.fragaria setObject:@"Objective-C" forKey:MGSFOSyntaxDefinitionName];
 }
 
 #pragma mark - UKSyntaxColoredTextViewDelegate
@@ -499,6 +503,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {
     [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
+    [self.fragaria setObject:self.selectedPreviewLanguage.name forKey:MGSFOSyntaxDefinitionName];
 }
 
 - (IBAction)disclosureTriangleClicked:(id)sender {
