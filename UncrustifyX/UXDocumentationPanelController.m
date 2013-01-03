@@ -488,7 +488,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
         CGFloat newHeight = oldFrame.size.height + deltaY;
         NSRect newFrame = NSMakeRect(oldFrame.origin.x, newOriginY, oldFrame.size.width, newHeight);
         
-        [self.window setFrame:newFrame display:YES animate:YES];
+        [self.window setFrame:newFrame display:YES animate:animated];
     });
 }
 
