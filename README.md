@@ -18,7 +18,7 @@ Drag source files (.h, .m etc.) onto the dock icon, or into the main window's fi
 No preset configuration files are currently included. [Here](https://gist.github.com/4242629) is a good starting point for an Objective-C configuration.
 
 ## Download
-Release builds are available on the [Downloads](https://github.com/ryanmaxwell/UncrustifyX/downloads) page.
+Prebuit release is available [here](http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.1.zip), and tagged releases can be easily updated to via Sparkle in-app updates.
 
 ## Building Project
 Git checkout the project including its submodules. Xcode 4.5, 10.8+ required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
