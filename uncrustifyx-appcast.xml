@@ -25,5 +25,15 @@
                      length="2585762"
                      type="application/octet-stream" />
       </item>
+      <item>
+          <title>Release 0.1.2</title>
+          <pubDate>Fri, 4 Jan 2013 17:00:00 +0000</pubDate>
+          <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.2.zip"
+                     sparkle:version="126"
+                     sparkle:shortVersionString="0.1.2"
+                     sparkle:dsaSignature="MC0CFHgMWt/hH3XsxySlqr3k47ljV/I3AhUAjmPRJ+RNvFmAUe79r7ZfMZ6xe8w="
+                     length="2587474"
+                     type="application/octet-stream" />
+      </item>
    </channel>
 </rss>
