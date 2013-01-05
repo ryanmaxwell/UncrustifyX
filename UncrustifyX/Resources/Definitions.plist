@@ -3323,7 +3323,7 @@ list_for_each(item, &amp;list) { }</string>
 			<key>Description</key>
 			<string>Add or remove newline between &apos;for&apos; and &apos;{&apos;</string>
 			<key>Name</key>
-			<string>Newlline between for and open brace</string>
+			<string>Newline between for and open brace</string>
 			<key>Subcategory</key>
 			<string>Newline Between</string>
 			<key>ValueTypeID</key>
@@ -4520,6 +4520,8 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
 			<key>Description</key>
 			<string>Add or remove space after @property.</string>
 			<key>Languages</key>
@@ -4748,6 +4750,8 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>Description</key>
 			<string>Add or remove between the parens in the function type: &apos;void (*x)(...)&apos;</string>
 			<key>Name</key>
@@ -4820,6 +4824,8 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>Description</key>
 			<string>Control space between a Java annotation and the open paren.</string>
 			<key>Name</key>
@@ -5219,6 +5225,8 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
 			<key>Description</key>
 			<string>Add or remove space before the paren in the D constructs &apos;template Foo(&apos; and &apos;class Foo(&apos;.</string>
 			<key>Languages</key>
@@ -5234,6 +5242,8 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
 			<key>Description</key>
 			<string>Controls the spaces before a trailing or embedded comment</string>
 			<key>Name</key>
@@ -5464,6 +5474,8 @@ If set to ignore, sp_before_sparen is used.</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Around</string>
 			<key>Description</key>
 			<string>Add or remove space around &apos;=&apos; in C++11 lambda capture specifications. Overrides sp_assign</string>
 			<key>Languages</key>
@@ -5479,6 +5491,8 @@ If set to ignore, sp_before_sparen is used.</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
 			<key>Description</key>
 			<string>Add or remove space after the capture specification in C++11 lambda.</string>
 			<key>Languages</key>
@@ -5880,7 +5894,7 @@ Also applies to @protocol() constructs</string>
 			<key>Description</key>
 			<string>Add or remove space inside if-condition &apos;(&apos; and &apos;)&apos;</string>
 			<key>Name</key>
-			<string>Space inside if condition parentheses</string>
+			<string>Space inside if-condition parentheses</string>
 			<key>Subcategory</key>
 			<string>Space Inside</string>
 			<key>ValueTypeID</key>
@@ -5893,7 +5907,7 @@ Also applies to @protocol() constructs</string>
 			<key>Description</key>
 			<string>Add or remove space before if-condition &apos;)&apos;. Overrides sp_inside_sparen.</string>
 			<key>Name</key>
-			<string>Space inside if condition parenthesis close</string>
+			<string>Space inside if-condition close parenthesis</string>
 			<key>Subcategory</key>
 			<string>Space Inside</string>
 			<key>ValueTypeID</key>
@@ -5903,10 +5917,12 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Inside</string>
 			<key>Description</key>
 			<string>Add or remove space before if-condition &apos;(&apos;. Overrides sp_inside_sparen.</string>
 			<key>Name</key>
-			<string>Space before if-condition open parenthesis</string>
+			<string>Space inside if-condition open parenthesis</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5927,6 +5943,8 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Inside</string>
 			<key>Description</key>
 			<string>Add or remove space inside the first parens in the function type: &apos;void (*x)(...)&apos;</string>
 			<key>Name</key>
@@ -6076,6 +6094,8 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>Default</key>
 			<string>False</string>
 			<key>Description</key>
@@ -6122,6 +6142,8 @@ sp_angle_shift cannot remove the space without this option.</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
 			<key>Description</key>
 			<string>Add or remove space after a pointer star &apos;*&apos;, if followed by an open paren (function types).</string>
 			<key>Name</key>
@@ -6390,7 +6412,7 @@ Improvements to template detection may make this option obsolete.</string>
 		</dict>
 	</dict>
 	<key>UpdatedAt</key>
-	<date>2013-01-04T01:48:36Z</date>
+	<date>2013-01-05T02:00:00Z</date>
 	<key>ValueTypes</key>
 	<array>
 		<dict>
