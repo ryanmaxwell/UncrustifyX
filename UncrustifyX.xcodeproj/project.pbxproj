@@ -25,6 +25,10 @@
 		941FD3781620220B0001C909 /* UXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 941FD3771620220B0001C909 /* UXAppDelegate.m */; };
 		941FD37B1620220C0001C909 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941FD3791620220C0001C909 /* MainMenu.xib */; };
 		941FD38F1620343C0001C909 /* UXDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941FD38E1620343C0001C909 /* UXDefaultsManager.m */; };
+		943552FD1698E95C0052DCD4 /* UXInfoButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 943552FC1698E95C0052DCD4 /* UXInfoButtonCell.m */; };
+		943552FF1698EF100052DCD4 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943552FE1698EF100052DCD4 /* Info@2x.png */; };
+		943553011698EFBE0052DCD4 /* Info-Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 943553001698EFBE0052DCD4 /* Info-Down.png */; };
+		943553031698F11B0052DCD4 /* Info-Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943553021698F11B0052DCD4 /* Info-Down@2x.png */; };
 		9444032216522D1C00E2115D /* Export.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 9444032016522D1C00E2115D /* Export.tiff */; };
 		9444032316522D1C00E2115D /* Import.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 9444032116522D1C00E2115D /* Import.tiff */; };
 		944403271652377600E2115D /* UXFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 944403261652377600E2115D /* UXFileUtils.m */; };
@@ -203,6 +207,11 @@
 		941FD37A1620220C0001C909 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		941FD38D1620343C0001C909 /* UXDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXDefaultsManager.h; sourceTree = "<group>"; };
 		941FD38E1620343C0001C909 /* UXDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXDefaultsManager.m; sourceTree = "<group>"; };
+		943552FB1698E95C0052DCD4 /* UXInfoButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXInfoButtonCell.h; path = Views/UXInfoButtonCell.h; sourceTree = "<group>"; };
+		943552FC1698E95C0052DCD4 /* UXInfoButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXInfoButtonCell.m; path = Views/UXInfoButtonCell.m; sourceTree = "<group>"; };
+		943552FE1698EF100052DCD4 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info@2x.png"; path = "Resources/Info@2x.png"; sourceTree = "<group>"; };
+		943553001698EFBE0052DCD4 /* Info-Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info-Down.png"; path = "Resources/Info-Down.png"; sourceTree = "<group>"; };
+		943553021698F11B0052DCD4 /* Info-Down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info-Down@2x.png"; path = "Resources/Info-Down@2x.png"; sourceTree = "<group>"; };
 		9444032016522D1C00E2115D /* Export.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Export.tiff; path = Resources/Export.tiff; sourceTree = "<group>"; };
 		9444032116522D1C00E2115D /* Import.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Import.tiff; path = Resources/Import.tiff; sourceTree = "<group>"; };
 		944403251652377600E2115D /* UXFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXFileUtils.h; path = Utilities/UXFileUtils.h; sourceTree = "<group>"; };
@@ -400,6 +409,8 @@
 				94ED6138165F2E4F008A0862 /* UXExportPanelAccessoryView.m */,
 				94F2E77B1664B471004E6DF5 /* UXSearchGradientView.h */,
 				94F2E77C1664B471004E6DF5 /* UXSearchGradientView.m */,
+				943552FB1698E95C0052DCD4 /* UXInfoButtonCell.h */,
+				943552FC1698E95C0052DCD4 /* UXInfoButtonCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -407,16 +418,19 @@
 		944ED086164F81D900F785DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				94CDF7B016968CF4006B22EB /* dsa_pub.pem */,
-				949A4AD8166AE265009D3E9B /* uncrustify */,
 				949A4AD5166AE20E009D3E9B /* Definitions.plist */,
-				9405B52D1651FF01001A1C7F /* Info.png */,
-				94F2E7781664B2CF004E6DF5 /* SearchGradient.png */,
 				945A0DAC1664049A00398587 /* Docset.png */,
-				94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */,
-				94F0C6F11650C39E0071C8FA /* Play.tiff */,
+				94CDF7B016968CF4006B22EB /* dsa_pub.pem */,
 				9444032016522D1C00E2115D /* Export.tiff */,
 				9444032116522D1C00E2115D /* Import.tiff */,
+				943553001698EFBE0052DCD4 /* Info-Down.png */,
+				943553021698F11B0052DCD4 /* Info-Down@2x.png */,
+				9405B52D1651FF01001A1C7F /* Info.png */,
+				943552FE1698EF100052DCD4 /* Info@2x.png */,
+				94F0C6F11650C39E0071C8FA /* Play.tiff */,
+				94F2E7781664B2CF004E6DF5 /* SearchGradient.png */,
+				949A4AD8166AE265009D3E9B /* uncrustify */,
+				94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -683,6 +697,9 @@
 				949A4AD6166AE20E009D3E9B /* Definitions.plist in Resources */,
 				949A4AD9166AE265009D3E9B /* uncrustify in Resources */,
 				94CDF7B116968CF4006B22EB /* dsa_pub.pem in Resources */,
+				943552FF1698EF100052DCD4 /* Info@2x.png in Resources */,
+				943553011698EFBE0052DCD4 /* Info-Down.png in Resources */,
+				943553031698F11B0052DCD4 /* Info-Down@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +808,7 @@
 				94558AE6166AAEAE0094327D /* UXPreferencesWindow.m in Sources */,
 				945C40BF166F346600D2F356 /* _UXSubcategory.m in Sources */,
 				945C40C2166F348000D2F356 /* UXSubcategory.m in Sources */,
+				943552FD1698E95C0052DCD4 /* UXInfoButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
