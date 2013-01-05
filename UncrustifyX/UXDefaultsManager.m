@@ -27,7 +27,7 @@ static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelect
 
 + (void)registerDefaults {
     NSDictionary *defaults = @{
-        UXBundledUncrustifyBinaryVersionKey: @"0.59 (edfb4f0bd7)",
+        UXBundledUncrustifyBinaryVersionKey: @"0.60 (432aa0b373)",
         UXExportDocumentationKey: @YES,
         UXExportCategoryDocumentationKey: @YES,
         UXExportSubcategoryDocumentationKey: @YES,
