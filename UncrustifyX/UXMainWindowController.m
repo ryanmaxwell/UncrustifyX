@@ -344,18 +344,25 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     [savePanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
         if (result == NSFileHandlingPanelOKButton) {
             
+            BOOL documentationForCategory, documentationForSubcategory, documentationForOptionName, documentationForOptionValue = NO;
+            
+            if (self.exportPanelAccessoryView.includeDocumentationCheckbox.state == NSOnState) {
+                documentationForCategory = (self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState);
+                documentationForSubcategory = (self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState);
+                documentationForOptionName = (self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState);
+                documentationForOptionValue = (self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState);
+            }
+            
             [UXFileUtils writeConfigOptions:self.configOptions
                                toFileAtPath:savePanel.URL.path
                         includeBlankOptions:(self.exportPanelAccessoryView.includeBlankOptionsCheckbox.state == NSOnState)
-                   documentationForCategory:(self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState)
-                                subcategory:(self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState)
-                                 optionName:(self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState)
-                                optionValue:(self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState)];
+                   documentationForCategory:documentationForCategory
+                                subcategory:documentationForSubcategory
+                                 optionName:documentationForOptionName
+                                optionValue:documentationForOptionValue];
         }
     }];
 }
-
-
 
 - (IBAction)importConfigurationPressed:(id)sender {
     NSOpenPanel *openPanel = NSOpenPanel.openPanel;
