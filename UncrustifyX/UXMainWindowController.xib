@@ -628,16 +628,14 @@
 											<string key="NSFrameSize">{527, 17}</string>
 											<reference key="NSSuperview" ref="999151099"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1017577317"/>
+											<reference key="NSNextKeyView" ref="243302724"/>
 											<string key="NSReuseIdentifierKey">_NS:16</string>
 											<reference key="NSTableView" ref="809347098"/>
 										</object>
-										<object class="_NSCornerView" key="NSCornerView" id="1017577317">
-											<reference key="NSNextResponder" ref="436780817"/>
+										<object class="_NSCornerView" key="NSCornerView">
+											<nil key="NSNextResponder"/>
 											<int key="NSvFlags">-2147483392</int>
 											<string key="NSFrame">{{224, 0}, {16, 17}}</string>
-											<reference key="NSSuperview" ref="436780817"/>
-											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="243302724"/>
 											<string key="NSReuseIdentifierKey">_NS:19</string>
 										</object>
@@ -740,7 +738,6 @@
 								<reference key="NSBGColor" ref="42961862"/>
 								<int key="NScvFlags">4</int>
 							</object>
-							<reference ref="1017577317"/>
 						</array>
 						<string key="NSFrame">{{20, 67}, {529, 292}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
@@ -752,7 +749,6 @@
 						<reference key="NSHScroller" ref="535447201"/>
 						<reference key="NSContentView" ref="243302724"/>
 						<reference key="NSHeaderClipView" ref="999151099"/>
-						<reference key="NSCornerView" ref="1017577317"/>
 						<bytes key="NSScrollAmts">QSAAAEEgAABBmAAAQZgAAA</bytes>
 						<double key="NSMinMagnification">0.25</double>
 						<double key="NSMaxMagnification">4</double>
@@ -799,7 +795,7 @@
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSCustomView" id="977851870">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSCustomView" id="707839940">
@@ -807,7 +803,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 30}, {569, 330}}</string>
 						<reference key="NSSuperview" ref="977851870"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="907512466"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSClassName">NSView</string>
@@ -821,8 +816,6 @@
 								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{405, 3}, {163, 22}}</string>
 								<reference key="NSSuperview" ref="907512466"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="NSEnabled">YES</bool>
 								<object class="NSPopUpButtonCell" key="NSCell" id="843331643">
@@ -868,15 +861,12 @@
 						</array>
 						<string key="NSFrameSize">{569, 30}</string>
 						<reference key="NSSuperview" ref="977851870"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="737609357"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSClassName">UXSearchGradientView</string>
 					</object>
 				</array>
 				<string key="NSFrameSize">{569, 360}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="707839940"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">NSView</string>
@@ -1170,14 +1160,10 @@
 							<string key="NSLabel">hidden: values.UXOverwriteFiles</string>
 							<string key="NSBinding">hidden</string>
 							<string key="NSKeyPath">values.UXOverwriteFiles</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSNegateBoolean</string>
-							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">321</int>
+					<int key="connectionID">322</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1636,7 +1622,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">321</int>
+			<int key="maxID">322</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
