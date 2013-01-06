@@ -572,7 +572,7 @@
 					<reference key="NSNextKeyView" ref="457152894"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMinSize">{600, 578}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
@@ -664,7 +664,7 @@
 													<reference key="NSBackgroundColor" ref="42961862"/>
 													<reference key="NSTextColor" ref="413153526"/>
 												</object>
-												<int key="NSResizingMask">3</int>
+												<int key="NSResizingMask">1</int>
 												<bool key="NSIsResizeable">YES</bool>
 												<bool key="NSIsEditable">YES</bool>
 												<reference key="NSTableView" ref="809347098"/>
@@ -675,7 +675,7 @@
 										<reference key="NSBackgroundColor" ref="353923354"/>
 										<reference key="NSGridColor" ref="296782926"/>
 										<double key="NSRowHeight">17</double>
-										<int key="NSTvFlags">-700448768</int>
+										<int key="NSTvFlags">373293056</int>
 										<reference key="NSDelegate"/>
 										<reference key="NSDataSource"/>
 										<int key="NSColumnAutoresizingStyle">5</int>
