@@ -194,6 +194,16 @@
 									<reference key="NSMixedImage" ref="502551668"/>
 									<int key="NSTag">11</int>
 								</object>
+								<object class="NSMenuItem" id="107663070">
+									<reference key="NSMenu" ref="720053764"/>
+									<string key="NSTitle">Run</string>
+									<string key="NSKeyEquiv">r</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+									<int key="NSTag">12</int>
+								</object>
 								<object class="NSMenuItem" id="425164168">
 									<reference key="NSMenu" ref="720053764"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -1954,6 +1964,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
+						<string key="label">run:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="107663070"/>
+					</object>
+					<int key="connectionID">808</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
 						<string key="label">checkForUpdates:</string>
 						<reference key="source" ref="887978287"/>
 						<reference key="destination" ref="146043196"/>
@@ -2044,6 +2062,7 @@
 							<reference ref="1010469920"/>
 							<reference ref="247597182"/>
 							<reference ref="225180156"/>
+							<reference ref="107663070"/>
 						</array>
 						<reference key="parent" ref="379814623"/>
 					</object>
@@ -2921,6 +2940,11 @@
 						<reference key="object" ref="225180156"/>
 						<reference key="parent" ref="720053764"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">807</int>
+						<reference key="object" ref="107663070"/>
+						<reference key="parent" ref="720053764"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3068,6 +3092,7 @@
 				<string key="799.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="801.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="803.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="807.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="81.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="83.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3076,7 +3101,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">806</int>
+			<int key="maxID">808</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3117,6 +3142,7 @@
 						<string key="deletePressed:">id</string>
 						<string key="exportConfiguration:">id</string>
 						<string key="importConfiguration:">id</string>
+						<string key="run:">id</string>
 						<string key="showPreferences:">id</string>
 						<string key="showView:">id</string>
 					</dictionary>
@@ -3131,6 +3157,10 @@
 						</object>
 						<object class="IBActionInfo" key="importConfiguration:">
 							<string key="name">importConfiguration:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="run:">
+							<string key="name">run:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showPreferences:">

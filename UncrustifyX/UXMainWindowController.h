@@ -56,4 +56,8 @@
 - (void)addFilePaths:(NSArray *)filePaths;
 - (void)importConfigurationAtURL:(NSURL *)fileURL;
 
+/* Validation for toolbar / menu items */
+@property (readonly) BOOL isRunEnabled;
+@property (readonly) BOOL isExportEnabled;
+
 @end

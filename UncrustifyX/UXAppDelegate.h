@@ -20,6 +20,7 @@ extern NSString *const UXErrorDomain;
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)importConfiguration:(id)sender;
 - (IBAction)exportConfiguration:(id)sender;
+- (IBAction)run:(id)sender;
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)showView:(id)sender;
 

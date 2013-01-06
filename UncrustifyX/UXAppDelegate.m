@@ -82,6 +82,10 @@ NSString *const UXErrorDomain                               = @"UXError";
     [self.mainWindowController exportConfigurationPressed:sender];
 }
 
+- (IBAction)run:(id)sender {
+    [self.mainWindowController runButtonPressed:sender];
+}
+
 - (IBAction)showPreferences:(id)sender {
     self.preferencesWindowController.window.isVisible = YES;
     self.preferencesWindowController.window.level = 3; /* Documentation Panel Level */
@@ -137,11 +141,16 @@ NSString *const UXErrorDomain                               = @"UXError";
 #pragma mark - NSMenuValidation
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
-    if (menuItem.tag == 11) {
-        /* Export Configuration */
-        return (self.mainWindowController.configOptions.count > 0);
+    switch (menuItem.tag) {
+        case 11:
+            /* Export Configuration */
+            return self.mainWindowController.isExportEnabled;
+        case 12:
+            /* Run */
+            return self.mainWindowController.isRunEnabled;
+        default:
+            return YES;
     }
-    return YES;
 }
 
 @end

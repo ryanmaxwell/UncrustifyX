@@ -467,6 +467,16 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     [self.filePathsTableView reloadData];
 }
 
+#pragma mark - Validation for toolbar / menu items
+
+- (BOOL)isRunEnabled {
+    return (self.configOptions.count > 0 && (self.filePaths.count > 0 || self.fragaria.string.length > 0));
+}
+
+- (BOOL)isExportEnabled {
+    return (self.configOptions.count > 0);
+}
+
 #pragma mark - NSTableViewDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -631,10 +641,9 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (BOOL)validateToolbarItem:(NSToolbarItem *)theItem {
     if (theItem == self.exportToolbarItem) {
-        return (self.configOptions.count > 0);
+        return self.isExportEnabled;
     } else if (theItem == self.runToolbarItem) {
-        return (self.configOptions.count > 0
-                && (self.filePaths.count > 0 || self.fragaria.string.length > 0));
+        return self.isRunEnabled;
     }
     return YES;
 }
