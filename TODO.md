@@ -5,7 +5,6 @@
 - More code samples
 
 ## Other
-- find icons that can be used royalty-free in toolbar
 - validation of config options (especially after importing)
 - ensure forward-compatibility with options not defined
 - presets (apple/google/github style)

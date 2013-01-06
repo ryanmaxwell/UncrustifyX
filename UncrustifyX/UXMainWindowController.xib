@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">3083</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">3083</string>
+			<string key="NS.object.0">2844</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSButton</string>
@@ -82,7 +82,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">Import</string>
+								<string key="NSResourceName">ImportConfig</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -102,7 +102,10 @@
 							<string key="NSToolbarItemPaletteLabel">File Input</string>
 							<string key="NSToolbarItemToolTip"/>
 							<nil key="NSToolbarItemView"/>
-							<nil key="NSToolbarItemImage"/>
+							<object class="NSCustomResource" key="NSToolbarItemImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">FileInput</string>
+							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
 							<string key="NSToolbarItemMinSize">{0, 0}</string>
@@ -121,7 +124,10 @@
 							<string key="NSToolbarItemPaletteLabel">Direct Input</string>
 							<string key="NSToolbarItemToolTip"/>
 							<nil key="NSToolbarItemView"/>
-							<nil key="NSToolbarItemImage"/>
+							<object class="NSCustomResource" key="NSToolbarItemImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">DirectInput</string>
+							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
 							<string key="NSToolbarItemMinSize">{0, 0}</string>
@@ -164,7 +170,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">Play</string>
+								<string key="NSResourceName">Run</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -186,7 +192,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">Export</string>
+								<string key="NSResourceName">ExportConfig</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -573,20 +579,22 @@
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSCustomView" id="553223413">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSTextField" id="148245969">
 						<reference key="NSNextResponder" ref="553223413"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{17, 20}, {316, 17}}</string>
+						<string key="NSFrame">{{17, 20}, {318, 17}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1060075792">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Files will be output with a '.uncrustify' file extension suffix</string>
+							<string key="NSContents">Files will be output with a ‘.uncrustify’ file extension suffix</string>
 							<reference key="NSSupport" ref="26"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="148245969"/>
@@ -608,7 +616,8 @@
 										<int key="NSvFlags">256</int>
 										<string key="NSFrameSize">{527, 274}</string>
 										<reference key="NSSuperview" ref="243302724"/>
-										<reference key="NSNextKeyView" ref="999151099"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="666369616"/>
 										<string key="NSReuseIdentifierKey">_NS:13</string>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -618,14 +627,17 @@
 											<int key="NSvFlags">256</int>
 											<string key="NSFrameSize">{527, 17}</string>
 											<reference key="NSSuperview" ref="999151099"/>
-											<reference key="NSNextKeyView" ref="243302724"/>
+											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView" ref="1017577317"/>
 											<string key="NSReuseIdentifierKey">_NS:16</string>
 											<reference key="NSTableView" ref="809347098"/>
 										</object>
-										<object class="_NSCornerView" key="NSCornerView">
-											<nil key="NSNextResponder"/>
+										<object class="_NSCornerView" key="NSCornerView" id="1017577317">
+											<reference key="NSNextResponder" ref="436780817"/>
 											<int key="NSvFlags">-2147483392</int>
 											<string key="NSFrame">{{224, 0}, {16, 17}}</string>
+											<reference key="NSSuperview" ref="436780817"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="243302724"/>
 											<string key="NSReuseIdentifierKey">_NS:19</string>
 										</object>
@@ -678,6 +690,7 @@
 								</array>
 								<string key="NSFrame">{{1, 17}, {527, 274}}</string>
 								<reference key="NSSuperview" ref="436780817"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="809347098"/>
 								<string key="NSReuseIdentifierKey">_NS:11</string>
 								<reference key="NSDocView" ref="809347098"/>
@@ -689,6 +702,7 @@
 								<int key="NSvFlags">-2147483392</int>
 								<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 								<reference key="NSSuperview" ref="436780817"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="535447201"/>
 								<string key="NSReuseIdentifierKey">_NS:58</string>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -702,6 +716,7 @@
 								<int key="NSvFlags">-2147483392</int>
 								<string key="NSFrame">{{1, 275}, {527, 16}}</string>
 								<reference key="NSSuperview" ref="436780817"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="702953980"/>
 								<string key="NSReuseIdentifierKey">_NS:60</string>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -718,22 +733,26 @@
 								</array>
 								<string key="NSFrame">{{1, 0}, {527, 17}}</string>
 								<reference key="NSSuperview" ref="436780817"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="561542857"/>
 								<string key="NSReuseIdentifierKey">_NS:15</string>
 								<reference key="NSDocView" ref="561542857"/>
 								<reference key="NSBGColor" ref="42961862"/>
 								<int key="NScvFlags">4</int>
 							</object>
+							<reference ref="1017577317"/>
 						</array>
 						<string key="NSFrame">{{20, 67}, {529, 292}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
-						<reference key="NSNextKeyView" ref="243302724"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="999151099"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="666369616"/>
 						<reference key="NSHScroller" ref="535447201"/>
 						<reference key="NSContentView" ref="243302724"/>
 						<reference key="NSHeaderClipView" ref="999151099"/>
+						<reference key="NSCornerView" ref="1017577317"/>
 						<bytes key="NSScrollAmts">QSAAAEEgAABBmAAAQZgAAA</bytes>
 						<double key="NSMinMagnification">0.25</double>
 						<double key="NSMaxMagnification">4</double>
@@ -744,6 +763,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{18, 43}, {114, 18}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="148245969"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -772,6 +792,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{569, 379}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="436780817"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">NSView</string>
@@ -1643,6 +1665,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="categoriesCheckbox">NSButton</string>
 						<string key="includeBlankOptionsCheckbox">NSButton</string>
+						<string key="includeDocumentationCheckbox">NSButton</string>
 						<string key="optionNameCheckbox">NSButton</string>
 						<string key="optionValueCheckbox">NSButton</string>
 						<string key="subcategoriesCheckbox">NSButton</string>
@@ -1654,6 +1677,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="includeBlankOptionsCheckbox">
 							<string key="name">includeBlankOptionsCheckbox</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="includeDocumentationCheckbox">
+							<string key="name">includeDocumentationCheckbox</string>
 							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="optionNameCheckbox">
@@ -1834,13 +1861,15 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="DirectInput">{512, 512}</string>
 			<string key="Docset">{512, 512}</string>
-			<string key="Export">{32, 32}</string>
-			<string key="Import">{32, 32}</string>
+			<string key="ExportConfig">{512, 512}</string>
+			<string key="FileInput">{512, 512}</string>
+			<string key="ImportConfig">{512, 512}</string>
 			<string key="NSMenuCheckmark">{11, 11}</string>
 			<string key="NSMenuMixedState">{10, 3}</string>
 			<string key="NSSwitch">{15, 15}</string>
-			<string key="Play">{32, 32}</string>
+			<string key="Run">{512, 512}</string>
 		</dictionary>
 	</data>
 </archive>

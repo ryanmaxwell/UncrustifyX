@@ -14,8 +14,8 @@
     self = [super initWithCoder:aDecoder];
     
     if (self) {
-        _standardStateImage = [NSImage imageNamed:@"Info.png"];
-        _downStateImage = [NSImage imageNamed:@"Info-Down.png"];
+        _standardStateImage = [NSImage imageNamed:@"Info"];
+        _downStateImage = [NSImage imageNamed:@"Info-Down"];
         
         /* NSButtonCell Coordinate system flipped */
         _standardStateImage.flipped = YES;
