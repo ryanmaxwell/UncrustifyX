@@ -90,7 +90,7 @@
 															<string key="NSFrameSize">{148, 254}</string>
 															<reference key="NSSuperview" ref="355393066"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="754468296"/>
+															<reference key="NSNextKeyView" ref="93380813"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -189,7 +189,7 @@
 																</object>
 															</object>
 															<double key="NSRowHeight">17</double>
-															<int key="NSTvFlags">373293056</int>
+															<int key="NSTvFlags">306184192</int>
 															<reference key="NSDelegate"/>
 															<reference key="NSDataSource"/>
 															<int key="NSColumnAutoresizingStyle">5</int>
@@ -256,7 +256,7 @@
 											<string key="NSFrameSize">{150, 272}</string>
 											<reference key="NSSuperview" ref="1071105972"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="93380813"/>
+											<reference key="NSNextKeyView" ref="355393066"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="754468296"/>
@@ -295,7 +295,7 @@
 															<string key="NSFrameSize">{339, 254}</string>
 															<reference key="NSSuperview" ref="658301309"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="526608517"/>
+															<reference key="NSNextKeyView" ref="692325067"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -357,7 +357,7 @@
 															</object>
 															<reference key="NSGridColor" ref="817041323"/>
 															<double key="NSRowHeight">17</double>
-															<int key="NSTvFlags">507510784</int>
+															<int key="NSTvFlags">440401920</int>
 															<reference key="NSDelegate"/>
 															<reference key="NSDataSource"/>
 															<int key="NSColumnAutoresizingStyle">4</int>
@@ -425,7 +425,7 @@
 											<string key="NSFrameSize">{341, 272}</string>
 											<reference key="NSSuperview" ref="838863549"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="692325067"/>
+											<reference key="NSNextKeyView" ref="658301309"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="526608517"/>
@@ -678,7 +678,6 @@
 									<string key="NSFrame">{{-1, 70}, {502, 179}}</string>
 									<reference key="NSSuperview" ref="10417775"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<string key="NSClassName">NSView</string>
 								</object>
@@ -1310,7 +1309,7 @@
 					<reference key="NSNextKeyView" ref="686046079"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMinSize">{500, 566}</string>
 				<string key="NSMaxSize">{800, 716}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
