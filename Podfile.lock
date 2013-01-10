@@ -1,14 +1,14 @@
 
-DEPENDENCIES: 
-- MagicalRecord
-- NSLogger
+PODS: 
+- MagicalRecord (2.1)
+- NSLogger (1.1)
+
+SPEC CHECKSUMS: 
+  MagicalRecord: aedbebe987d02d1215718a904c93d7965e48e398
+  NSLogger: 4567fef08d0db18a89cce91b2053823fc0950738
 
 COCOAPODS: 0.16.0
 
-SPEC CHECKSUMS: 
-  NSLogger: d5c1b0b313834b72a5d2da1adf026fffb1d2130c
-  MagicalRecord: daa15d6c83bd7d30e074c8923e53c64248ae6930
-
-PODS: 
-- MagicalRecord (2.0.8)
-- NSLogger (1.1)
+DEPENDENCIES: 
+- MagicalRecord
+- NSLogger
