@@ -25,7 +25,7 @@
         if (!other) {
             other = [UXSubcategory createEntity];
             other.name = @"Other";
-            [NSManagedObjectContext.defaultContext saveNestedContexts];
+            [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
         }
     });
     return other;
