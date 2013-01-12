@@ -25,7 +25,7 @@
     [UXOption truncateAll];
     [UXValueType truncateAll];
     [UXCodeSample truncateAll];
-    [NSManagedObjectContext.defaultContext saveNestedContexts];
+    [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
 }
 
 + (void)importDefinitions {
@@ -213,7 +213,7 @@
     }
     
     
-    [NSManagedObjectContext.defaultContext saveNestedContexts];
+    [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
 }
 
 @end
