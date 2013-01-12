@@ -44,7 +44,7 @@
 }
 
 - (void)updateOptionValue:(id)value forKey:(NSString *)key {
-    NSString *plistPath = @"/Users/ryan/Code/UncrustifyX-Github/UncrustifyX/Resources/Definitions.plist";
+    NSString *plistPath = @"/Users/ryan/Code/UncrustifyX/UncrustifyX/Resources/Definitions.plist";
     NSFileManager *manager = NSFileManager.defaultManager;
     
     if (![manager fileExistsAtPath:plistPath]) return;
