@@ -59,75 +59,81 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (id)initWithWindowNibName:(NSString *)windowNibName {
     self = [super initWithWindowNibName:windowNibName];
+
     if (self) {
         _documentationPanelController = [[UXDocumentationPanelController alloc] initWithWindowNibName:@"UXDocumentationPanelController"];
         _documentationPanelController.window.restorationClass = self.class;
         _documentationPanelController.window.identifier = UXDocumentationPanelIdentifier;
-        
+
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
         _filePaths = [[NSMutableArray alloc] init];
-        
+
         _sortedCategories = [UXCategory findAllSortedBy:UXAbstractCategoryAttributes.name
                                               ascending:YES];
-        
+
         _configOptions = [[NSMutableArray alloc] initWithArray:[UXPersistentConfigOption findAll]];
         [self sortConfigOptions];
-        
+
         _inputLanguageArrayController = [[NSArrayController alloc] init];
         _inputLanguageArrayController.sortDescriptors = @[
-            [NSSortDescriptor sortDescriptorWithKey:UXLanguageAttributes.name
-                                          ascending:YES]
-        ];
+                [NSSortDescriptor sortDescriptorWithKey:UXLanguageAttributes.name
+                                              ascending:YES]
+            ];
         _inputLanguageArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
         _inputLanguageArrayController.entityName = UXLanguage.entityName;
-        
+
         _fragaria = [[MGSFragaria alloc] init];
-        
+
         _initialize = YES;
     }
+
     return self;
 }
 
 - (void)awakeFromNib {
-    
     /* awakeFromNib annoyingly called each time a table view cell view is created */
     @synchronized(self) {
         if (_initialize) {
             _initialize = NO;
-            
-            NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"UXConfigOptionTableCellViews" bundle:nil];
-            [self.configOptionsTableView registerNib:cellNib forIdentifier:ConfigOptionCellReuseIdentifier];
-            [self.configOptionsTableView registerNib:cellNib forIdentifier:CategoryCellReuseIdentifier];
-            [self.configOptionsTableView registerNib:cellNib forIdentifier:SubcategoryCellReuseIdentifier];
-            
+
+            NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"UXConfigOptionTableCellViews"
+                                                      bundle:nil];
+            [self.configOptionsTableView registerNib:cellNib
+                                       forIdentifier:ConfigOptionCellReuseIdentifier];
+            [self.configOptionsTableView registerNib:cellNib
+                                       forIdentifier:CategoryCellReuseIdentifier];
+            [self.configOptionsTableView registerNib:cellNib
+                                       forIdentifier:SubcategoryCellReuseIdentifier];
+
             [self.filePathsTableView registerForDraggedTypes:@[
-             NSURLPboardType
+                 NSURLPboardType
              ]];
-            
+
             [self.configOptionsTableView registerForDraggedTypes:@[
-             NSPasteboardTypeString
+                 NSPasteboardTypeString
              ]];
-            
+
             [self showFileInputView];
-            
+
             _spaceView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
             [self.toolbar insertItemWithItemIdentifier:UXSidebarSpaceToolbarItemIdentifier
                                                atIndex:2];
-            
+
             [self.inputLanguageArrayController fetch:nil];
-            
+
             [self.fragaria embedInView:self.fragariaContainerView];
-            
+
             NSString *selectedLanguageCode = UXDefaultsManager.selectedPreviewLanguageInMainWindow;
             UXLanguage *selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
                                                                   withValue:selectedLanguageCode];
-            
+
             if (selectedLanguage) {
                 self.selectedPreviewLanguage = selectedLanguage;
-                
-                [self.fragaria setObject:selectedLanguage.name forKey:MGSFOSyntaxDefinitionName];
+
+                [self.fragaria setObject:selectedLanguage.name
+                                  forKey:MGSFOSyntaxDefinitionName];
             }
-            
+
             [self.window makeKeyAndOrderFront:self];
         }
     }
@@ -141,64 +147,71 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             return configOption;
         }
     }
+
     return nil;
 }
-
 
 - (BOOL)parseConfigLine:(NSString *)line error:(NSError **)error {
     NSString *lineValue = nil;
     NSScanner *lineScanner = [NSScanner scannerWithString:line];
-    [lineScanner scanUpToString:@"#" intoString:&lineValue];
-    
+
+    [lineScanner scanUpToString:@"#"
+                     intoString:&lineValue];
+
     if (lineValue.length) {
         NSArray *lineOptions = [lineValue componentsSeparatedByString:@"="];
         NSString *optionCode = nil;
         NSString *optionValue = nil;
-        
+
         if (lineOptions.count > 0) {
             optionCode = [lineOptions[0] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
             NSLog(@"Code: '%@'", optionCode);
         }
-        
+
         if (lineOptions.count > 1) {
             optionValue = [lineOptions[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
             NSLog(@"Value: '%@'", optionValue);
         }
-        
+
         NSError *inError = nil;
-        [self addConfigOptionWithCode:optionCode value:optionValue error:&inError];
-        
+        [self addConfigOptionWithCode:optionCode
+                                value:optionValue
+                                error:&inError];
+
         if (inError) {
             *error = inError;
             return YES;
         }
     }
+
     return NO;
 }
 
 - (BOOL)addConfigOptionWithCode:(NSString *)code value:(NSString *)value error:(NSError **)error {
     BOOL errorOccurred = NO;
-    
+
     if (![self configOptionWithCode:code]) {
-        UXOption *theOption = [UXOption findFirstByAttribute:UXOptionAttributes.code withValue:code];
+        UXOption *theOption = [UXOption findFirstByAttribute:UXOptionAttributes.code
+                                                   withValue:code];
+
         if (theOption) {
             UXPersistentConfigOption *newConfigOption = [UXPersistentConfigOption createEntity];
             newConfigOption.option = theOption;
-            
+
             if (value.length) {
                 NSString *valueToSet = nil;
-                
+
                 if ([theOption.valueType isValidValue:value]) {
                     valueToSet = value;
                 } else {
                     /* value may be the code of a previously parsed option */
                     UXPersistentConfigOption *previousConfigOption = [self configOptionWithCode:value];
-                    
+
                     if (previousConfigOption != nil) {
                         valueToSet = previousConfigOption.value;
                     }
                 }
-                
+
                 if (valueToSet != nil) {
                     if ([theOption.valueType.type caseInsensitiveCompare:@"Boolean"] == NSOrderedSame) {
                         /* sanitize boolean input */
@@ -212,49 +225,48 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                                                       value,
                                                       theOption.valueType.type.lowercaseString,
                                                       theOption.code];
-                        
+
                         *error = [NSError errorWithDomain:UXErrorDomain
                                                      code:0
-                                                 userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+                                                 userInfo:@{ NSLocalizedDescriptionKey: errorDescription }];
                     }
-                    
+
                     errorOccurred = YES;
                 }
             }
-            
+
             [self.configOptions addObject:newConfigOption];
             [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
         } else {
             if (error) {
                 NSString *errorDescription = [NSString stringWithFormat:@"Could not find option with %@ code", code];
-                
+
                 *error = [NSError errorWithDomain:UXErrorDomain
                                              code:0
-                                         userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+                                         userInfo:@{ NSLocalizedDescriptionKey: errorDescription }];
             }
-            
+
             errorOccurred = YES;
         }
     } else {
-        
         if (error) {
             NSString *errorDescription = [NSString stringWithFormat:@"Already have config option with %@ code", code];
-            
+
             *error = [NSError errorWithDomain:UXErrorDomain
                                          code:0
-                                     userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
+                                     userInfo:@{ NSLocalizedDescriptionKey: errorDescription }];
         }
-        
+
         errorOccurred = YES;
     }
-    
+
     return errorOccurred;
 }
 
 - (void)sortConfigOptions {
     NSArray *result = [UXConfigOptionSharedImplementation categorizedConfigOptionsFromConfigOptions:self.configOptions
                                                                                         searchQuery:self.searchQuery];
-    
+
     [self.sortedConfigOptionsAndCategories removeAllObjects];
     [self.sortedConfigOptionsAndCategories addObjectsFromArray:result];
     [self.configOptionsTableView reloadData];
@@ -266,15 +278,16 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                                     owner:self
                           topLevelObjects:nil];
     }
+
     return _exportPanelAccessoryView;
 }
 
 - (void)showFileInputView {
     self.toolbar.selectedItemIdentifier = @"UXFileInput";
-    
+
     if (!self.fileInputView.superview) {
         [self.directInputView removeFromSuperview];
-        
+
         self.fileInputView.frame = self.mainContainerView.bounds;
         [self.mainContainerView addSubview:self.fileInputView];
     }
@@ -282,10 +295,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (void)showDirectInputView {
     self.toolbar.selectedItemIdentifier = @"UXDirectInput";
-    
+
     if (!self.directInputView.superview) {
         [self.fileInputView removeFromSuperview];
-        
+
         self.directInputView.frame = self.mainContainerView.bounds;
         [self.mainContainerView addSubview:self.directInputView];
     }
@@ -311,21 +324,21 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (IBAction)runButtonPressed:(id)sender {
     if ([self.toolbar.selectedItemIdentifier isEqualToString:self.fileInputToolbarItem.itemIdentifier]
         && self.filePaths.count > 0) {
-        
         NSArray *args = nil;
+
         if (UXDefaultsManager.overwriteFiles) {
             args = @[@"--no-backup"];
         }
-        
+
         [UXTaskRunner uncrustifyFilesAtPaths:self.filePaths
                            withConfigOptions:self.configOptions
                                    arguments:args];
     } else if ([self.toolbar.selectedItemIdentifier isEqualToString:self.directInputToolbarItem.itemIdentifier]
-        && self.fragaria.string.length > 0) {
-        
+               && self.fragaria.string.length > 0) {
         NSString *result = [UXTaskRunner uncrustifyCodeFragment:self.fragaria.string
                                               withConfigOptions:self.configOptions
                                                       arguments:@[@"-l", self.selectedPreviewLanguage.code]];
+
         if (result) {
             self.fragaria.string = result;
         }
@@ -338,41 +351,44 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (IBAction)exportConfigurationPressed:(id)sender {
     NSSavePanel *savePanel = NSSavePanel.savePanel;
+
     savePanel.allowedFileTypes = @[@"cfg"];
     savePanel.accessoryView = self.exportPanelAccessoryView;
-    
-    [savePanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
-        if (result == NSFileHandlingPanelOKButton) {
-            
-            BOOL documentationForCategory, documentationForSubcategory, documentationForOptionName, documentationForOptionValue = NO;
-            
-            if (self.exportPanelAccessoryView.includeDocumentationCheckbox.state == NSOnState) {
-                documentationForCategory = (self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState);
-                documentationForSubcategory = (self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState);
-                documentationForOptionName = (self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState);
-                documentationForOptionValue = (self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState);
-            }
-            
-            [UXFileUtils writeConfigOptions:self.configOptions
-                               toFileAtPath:savePanel.URL.path
-                        includeBlankOptions:(self.exportPanelAccessoryView.includeBlankOptionsCheckbox.state == NSOnState)
-                   documentationForCategory:documentationForCategory
-                                subcategory:documentationForSubcategory
-                                 optionName:documentationForOptionName
-                                optionValue:documentationForOptionValue];
-        }
-    }];
+
+    [savePanel beginSheetModalForWindow:self.window
+                      completionHandler:^(NSInteger result) {
+                          if (result == NSFileHandlingPanelOKButton) {
+                          BOOL documentationForCategory, documentationForSubcategory, documentationForOptionName, documentationForOptionValue = NO;
+
+                          if (self.exportPanelAccessoryView.includeDocumentationCheckbox.state == NSOnState) {
+                              documentationForCategory = (self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState);
+                              documentationForSubcategory = (self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState);
+                              documentationForOptionName = (self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState);
+                              documentationForOptionValue = (self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState);
+                          }
+
+                          [UXFileUtils writeConfigOptions:self.configOptions
+                                             toFileAtPath:savePanel.URL.path
+                                      includeBlankOptions:(self.exportPanelAccessoryView.includeBlankOptionsCheckbox.state == NSOnState)
+                                 documentationForCategory:documentationForCategory
+                                              subcategory:documentationForSubcategory
+                                               optionName:documentationForOptionName
+                                              optionValue:documentationForOptionValue];
+                          }
+                      }];
 }
 
 - (IBAction)importConfigurationPressed:(id)sender {
     NSOpenPanel *openPanel = NSOpenPanel.openPanel;
+
     openPanel.allowedFileTypes = @[@"cfg"];
-    
-    [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
-        if (result == NSFileHandlingPanelOKButton) {
-            [self importConfigurationAtURL:openPanel.URL];
-        }
-    }];
+
+    [openPanel beginSheetModalForWindow:self.window
+                      completionHandler:^(NSInteger result) {
+                          if (result == NSFileHandlingPanelOKButton) {
+                              [self importConfigurationAtURL:openPanel.URL];
+                          }
+                      }];
 }
 
 - (void)importConfigurationAtURL:(NSURL *)fileURL {
@@ -380,29 +396,32 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     NSString *contents = [NSString stringWithContentsOfURL:fileURL
                                                   encoding:NSUTF8StringEncoding
                                                      error:&error];
+
     if (!error) {
-        
         for (UXPersistentConfigOption *configOption in self.configOptions) {
             [configOption deleteEntity];
         }
+
         [self.configOptions removeAllObjects];
-        
-        
+
+
         NSArray *lines = [contents componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet];
-        
+
         NSMutableArray *errorStrings = NSMutableArray.array;
-        
+
         for (NSString *line in lines) {
             NSError *parseError = nil;
-            [self parseConfigLine:line error:&parseError];
+            [self parseConfigLine:line
+                            error:&parseError];
+
             if (parseError) {
                 DErr(@"%@", parseError);
                 [errorStrings addObject:parseError.localizedDescription];
             }
         }
-        
+
         [self sortConfigOptions];
-        
+
         if (errorStrings.count) {
             NSAlert *errorAlert = [NSAlert alertWithMessageText:@"An error occurred during import"
                                                   defaultButton:@"OK"
@@ -419,42 +438,46 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (IBAction)deletePressed:(id)sender {
     NSIndexSet *selectedConfigOptions = self.configOptionsTableView.selectedRowIndexes;
     NSIndexSet *selectedFilePaths = self.filePathsTableView.selectedRowIndexes;
-    
+
     if (self.window.firstResponder == self.filePathsTableView && selectedFilePaths.count > 0) {
         NSMutableArray *objectsToRemove = NSMutableArray.array;
-        
-        [selectedFilePaths enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop){
+
+        [selectedFilePaths enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
             [objectsToRemove addObject:self.filePaths[index]];
         }];
-        
-        [self.filePaths removeObjectsInArray:objectsToRemove];
-        
+
+        [self.filePaths
+         removeObjectsInArray:objectsToRemove];
+
         /* Validate immediately as system only does it periodically */
         [self.toolbar validateVisibleItems];
-        
+
         [self.filePathsTableView reloadData];
     } else if (self.window.firstResponder == self.configOptionsTableView && selectedConfigOptions.count > 0) {
         NSMutableArray *objectsToRemove = NSMutableArray.array;
-        
-        [selectedConfigOptions enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop){
+
+        [selectedConfigOptions enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
             [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[index]];
         }];
-        
+
         [self.configOptions removeObjectsInArray:objectsToRemove];
+
         for (NSManagedObject *mo in objectsToRemove) {
             [NSManagedObjectContext.defaultContext deleteObject:mo];
         }
+
         [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
-        
+
         /* Validate immediately as system only does it periodically */
         [self.toolbar validateVisibleItems];
-        
+
         [self sortConfigOptions];
     }
 }
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {
-    [self.fragaria setObject:self.selectedPreviewLanguage.name forKey:MGSFOSyntaxDefinitionName];
+    [self.fragaria setObject:self.selectedPreviewLanguage.name
+                      forKey:MGSFOSyntaxDefinitionName];
 }
 
 - (void)addFilePaths:(NSArray *)filePaths {
@@ -463,6 +486,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [self.filePaths addObject:obj];
         }
     }
+
     [self showFileInputView];
     [self.filePathsTableView reloadData];
 }
@@ -470,11 +494,11 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 #pragma mark - Validation for toolbar / menu items
 
 - (BOOL)isRunEnabled {
-    return (self.configOptions.count > 0 && (self.filePaths.count > 0 || self.fragaria.string.length > 0));
+    return self.configOptions.count > 0 && (self.filePaths.count > 0 || self.fragaria.string.length > 0);
 }
 
 - (BOOL)isExportEnabled {
-    return (self.configOptions.count > 0);
+    return self.configOptions.count > 0;
 }
 
 #pragma mark - NSTableViewDataSource
@@ -485,6 +509,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     } else if (tableView == self.filePathsTableView) {
         return self.filePaths.count;
     }
+
     return 0;
 }
 
@@ -494,40 +519,40 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             return 40.0f;
         }
     }
-    
+
     return 20.0f;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation {
-    
     if (tableView == self.filePathsTableView) {
         NSPasteboard *pboard = [info draggingPasteboard];
-        
-        if([pboard.types containsObject:NSFilenamesPboardType]){
-            
+
+        if ([pboard.types containsObject:NSFilenamesPboardType]) {
             NSArray *fileList = [pboard propertyListForType:NSFilenamesPboardType];
             [self addFilePaths:fileList];
         }
-        
+
         return YES;
     } else if (tableView == self.configOptionsTableView) {
         NSPasteboard *pboard = [info draggingPasteboard];
-        
+
         NSArray *stringItems = [pboard readObjectsForClasses:@[NSString.class]
                                                      options:nil];
-        
+
         NSMutableArray *errorStrings = NSMutableArray.array;
-        
+
         for (NSString *optionLine in stringItems) {
             DLog(@"%@", optionLine);
             NSError *parseError = nil;
-            [self parseConfigLine:optionLine error:&parseError];
+            [self parseConfigLine:optionLine
+                            error:&parseError];
+
             if (parseError) {
                 DErr(@"%@", parseError);
                 [errorStrings addObject:parseError.localizedDescription];
             }
         }
-        
+
         if (errorStrings.count) {
             NSAlert *errorAlert = [NSAlert alertWithMessageText:@"An error occurred during import"
                                                   defaultButton:@"OK"
@@ -536,12 +561,12 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                                       informativeTextWithFormat:@"%@", [errorStrings componentsJoinedByString:@"\n\n"]];
             [errorAlert runModal];
         }
-        
+
         [self sortConfigOptions];
-        
+
         return YES;
     }
-    
+
     return NO;
 }
 
@@ -555,62 +580,61 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     } else if (tableView == self.filePathsTableView) {
         return self.filePaths[rowIndex];
     }
+
     return nil;
 }
 
 #pragma mark - NSTableViewDelegate
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
     if (tableView == self.configOptionsTableView) {
         id objectValue = self.sortedConfigOptionsAndCategories[row];
-        
+
         if ([self tableView:tableView isGroupRow:row]) {
-            
             if ([objectValue isKindOfClass:UXCategory.class]) {
-                UXCategory *category = (UXCategory *) objectValue;
-                
+                UXCategory *category = (UXCategory *)objectValue;
+
                 NSTableCellView *tableCellView = [tableView makeViewWithIdentifier:CategoryCellReuseIdentifier
                                                                              owner:self];
                 tableCellView.textField.stringValue = category.name.uppercaseString;
-                
+
                 return tableCellView;
             } else if ([objectValue isKindOfClass:UXSubcategory.class]) {
-                UXSubcategory *subcategory = (UXSubcategory *) objectValue;
-                
+                UXSubcategory *subcategory = (UXSubcategory *)objectValue;
+
                 NSTableCellView *tableCellView = [tableView makeViewWithIdentifier:SubcategoryCellReuseIdentifier
                                                                              owner:self];
                 tableCellView.textField.stringValue = subcategory.name.uppercaseString;
-                
+
                 return tableCellView;
             }
         }
-        
+
         if (tableColumn == self.configOptionsTableColumn) {
-                
             UXConfigOptionTableCellView *tableCellView = [tableView makeViewWithIdentifier:ConfigOptionCellReuseIdentifier
-                                                                                            owner:self];
-            
+                                                                                     owner:self];
+
             UXPersistentConfigOption *configOption = objectValue;
-            
+
             tableCellView.textField.stringValue = configOption.option.displayName;
             tableCellView.toolTip = configOption.option.code;
-            
+
             return tableCellView;
         }
     }
-    
+
     return nil;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row {
-    return (tableView == self.configOptionsTableView
-            && ([self.sortedConfigOptionsAndCategories[row] isKindOfClass:UXCategory.class]
-                || [self.sortedConfigOptionsAndCategories[row] isKindOfClass:UXSubcategory.class]));
+    return tableView == self.configOptionsTableView
+           && ([self.sortedConfigOptionsAndCategories[row] isKindOfClass:UXCategory.class]
+               || [self.sortedConfigOptionsAndCategories[row] isKindOfClass:UXSubcategory.class]);
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
-    return ![self tableView:tableView isGroupRow:row];
+    return ![self tableView:tableView
+                 isGroupRow:row];
 }
 
 #pragma mark - NSSplitViewDelegate
@@ -620,6 +644,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         // keep options list fixed width on view resize
         return NO;
     }
+
     return YES;
 }
 
@@ -627,6 +652,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     if (splitView == self.mainSplitView && dividerIndex == 0) {
         proposedMin = SourceViewMinWidth;
     }
+
     return proposedMin;
 }
 
@@ -634,6 +660,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     if (splitView == self.mainSplitView && dividerIndex == 0) {
         proposedMax = SourceViewMaxWidth;
     }
+
     return proposedMax;
 }
 
@@ -645,6 +672,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     } else if (theItem == self.runToolbarItem) {
         return self.isRunEnabled;
     }
+
     return YES;
 }
 
@@ -656,6 +684,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         _spaceItem.view = self.spaceView;
         return _spaceItem;
     }
+
     return nil;
 }
 
@@ -669,12 +698,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (void)controlTextDidChange:(NSNotification *)aNotification {
     id sender = aNotification.object;
+
     if (sender == self.searchField) {
         NSSearchField *searchField = (NSSearchField *)sender;
-        
+
         NSString *query = searchField.stringValue;
         self.searchQuery = (query.length) ? query : nil;
-        
+
         [self sortConfigOptions];
     }
 }
@@ -682,46 +712,52 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 #pragma mark - NSWindowDelegate
 
 - (void)window:(NSWindow *)window willEncodeRestorableState:(NSCoder *)state {
-    [state encodeObject:self.toolbar.selectedItemIdentifier forKey:UXSelectedToolbarItemIdentifierKey];
-    [state encodeBool:self.documentationPanelController.window.isVisible forKey:UXDocumentationPanelVisibleKey];
-    [state encodeFloat:self.sourceContainerView.frame.size.width forKey:UXSourceContainerViewWidthKey];
-    [state encodeObject:self.fragaria.string forKey:UXDirectInputStringKey];
-    [state encodeObject:self.filePaths forKey:UXFilePathsKey];
+    [state encodeObject:self.toolbar.selectedItemIdentifier
+                 forKey:UXSelectedToolbarItemIdentifierKey];
+    [state encodeBool:self.documentationPanelController.window.isVisible
+               forKey:UXDocumentationPanelVisibleKey];
+    [state encodeFloat:self.sourceContainerView.frame.size.width
+                forKey:UXSourceContainerViewWidthKey];
+    [state encodeObject:self.fragaria.string
+                 forKey:UXDirectInputStringKey];
+    [state encodeObject:self.filePaths
+                 forKey:UXFilePathsKey];
 }
 
 - (void)window:(NSWindow *)window didDecodeRestorableState:(NSCoder *)state {
     NSString *selectedToolbarItemIdentifer = [state decodeObjectForKey:UXSelectedToolbarItemIdentifierKey];
-    
+
     if (selectedToolbarItemIdentifer) {
-        
         /* find toolbar item with identifier */
         for (NSToolbarItem *item in self.toolbar.items) {
             if ([item.itemIdentifier isEqualToString:selectedToolbarItemIdentifer]) {
-                
                 self.toolbar.selectedItemIdentifier = selectedToolbarItemIdentifer;
                 [self showView:item];
-                
+
                 break;
             }
         }
     }
-    
+
     CGFloat sourceWidth = [state decodeFloatForKey:UXSourceContainerViewWidthKey];
+
     if (sourceWidth >= SourceViewMinWidth && sourceWidth <= SourceViewMaxWidth) {
         self.sourceContainerView.frame = NSMakeRect(self.sourceContainerView.frame.origin.x,
                                                     self.sourceContainerView.frame.origin.y,
                                                     sourceWidth,
                                                     self.sourceContainerView.frame.size.height);
     }
-    
+
     self.documentationPanelController.window.isVisible = [state decodeBoolForKey:UXDocumentationPanelVisibleKey];
-    
+
     NSString *savedText = [state decodeObjectForKey:UXDirectInputStringKey];
+
     if (savedText.length) {
         self.fragaria.string = savedText;
     }
-    
+
     NSArray *filePaths = [state decodeObjectForKey:UXFilePathsKey];
+
     if (filePaths.count) {
         [self.filePaths addObjectsFromArray:filePaths];
         [self.filePathsTableView reloadData];
@@ -735,11 +771,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 #pragma mark - NSWindowRestoration
 
 + (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler {
-    
     if ([identifier isEqualToString:UXDocumentationPanelIdentifier]) {
         UXAppDelegate *appDelegate = (UXAppDelegate *)NSApplication.sharedApplication.delegate;
         NSWindow *documentationPanel = appDelegate.mainWindowController.documentationPanelController.window;
-        
+
         completionHandler(documentationPanel, nil);
     }
 }

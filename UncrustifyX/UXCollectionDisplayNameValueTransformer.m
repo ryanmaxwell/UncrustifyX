@@ -28,6 +28,7 @@
         
         return [objectNames componentsJoinedByString:@", "];
     }
+    
     return nil;
 }
 

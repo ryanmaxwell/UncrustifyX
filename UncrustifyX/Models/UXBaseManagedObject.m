@@ -13,9 +13,14 @@
 @dynamic createdAt, updatedAt;
 
 - (void)willSave {
-    [self setPrimitiveValue:NSDate.date forKey:@"updatedAt"];
-    if (![self primitiveValueForKey:@"createdAt"])
-        [self setPrimitiveValue:NSDate.date forKey:@"createdAt"];
+    [self setPrimitiveValue:NSDate.date
+                     forKey:@"updatedAt"];
+    
+    if (![self primitiveValueForKey:@"createdAt"]) {
+        [self setPrimitiveValue:NSDate.date
+                         forKey:@"createdAt"];
+    }
+    
     [super willSave];
 }
 

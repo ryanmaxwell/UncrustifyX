@@ -12,6 +12,7 @@
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
+    
     if (self) {
         // Initialization code here.
     }
@@ -23,7 +24,8 @@
     [super setFrameSize:newSize];
     
     if ([self.viewDelegate respondsToSelector:@selector(tableView:didUpdateFrame:)]) {
-        [self.viewDelegate tableView:self didUpdateFrame:newSize];
+        [self.viewDelegate tableView:self
+                      didUpdateFrame:newSize];
     }
 }
 

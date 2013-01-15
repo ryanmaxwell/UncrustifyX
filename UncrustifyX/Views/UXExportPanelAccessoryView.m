@@ -12,6 +12,7 @@
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
+    
     if (self) {
         // Initialization code here.
     }

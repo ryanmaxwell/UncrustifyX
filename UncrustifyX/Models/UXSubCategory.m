@@ -18,9 +18,10 @@
     static UXSubcategory *other;
     
     static dispatch_once_t onceToken;
+    
     dispatch_once(&onceToken, ^{
         other = [UXSubcategory findFirstByAttribute:UXAbstractCategoryAttributes.name
-                                                withValue:@"Other"];
+                                          withValue:@"Other"];
         
         if (!other) {
             other = [UXSubcategory createEntity];

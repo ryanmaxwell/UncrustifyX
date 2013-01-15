@@ -16,8 +16,8 @@
 
 - (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
+    
     if (self) {
-        
     }
     
     return self;
@@ -32,10 +32,13 @@
     
     NSURL *initialDirectoryURL = nil;
     BOOL isDir;
+    
     if ([NSFileManager.defaultManager fileExistsAtPath:@"/usr/local/bin" isDirectory:&isDir] && isDir) {
-        initialDirectoryURL = [NSURL fileURLWithPath:@"/usr/local/bin" isDirectory:YES];
+        initialDirectoryURL = [NSURL fileURLWithPath:@"/usr/local/bin"
+                                         isDirectory:YES];
     } else {
-        initialDirectoryURL = [NSURL fileURLWithPath:@"/usr/bin" isDirectory:YES];
+        initialDirectoryURL = [NSURL fileURLWithPath:@"/usr/bin"
+                                         isDirectory:YES];
     }
     
     openPanel.directoryURL = initialDirectoryURL;

@@ -9,8 +9,8 @@
 #import "UXValueType.h"
 #import "UXValue.h"
 
-static NSString * const BooleanYesString    = @"true";
-static NSString * const BooleanNoString     = @"false";
+static NSString *const BooleanYesString    = @"true";
+static NSString *const BooleanNoString     = @"false";
 
 @implementation UXValueType
 
@@ -23,29 +23,30 @@ static NSNumberFormatter *nf;
             nf = [[NSNumberFormatter alloc] init];
         });
     }
-    return ([nf numberFromString:value] != nil);
+    
+    return [nf numberFromString:value] != nil;
 }
 
 + (BOOL)_isTruthy:(NSString *)value {
-    return (value != nil
-            && (([value caseInsensitiveCompare:@"true"] == NSOrderedSame)
-            || ([value caseInsensitiveCompare:@"t"] == NSOrderedSame)
-            || ([value caseInsensitiveCompare:@"yes"] == NSOrderedSame)
-            || ([value caseInsensitiveCompare:@"y"] == NSOrderedSame)
-            || [value isEqualToString:@"1"]));
+    return value != nil
+    && (([value caseInsensitiveCompare:@"true"] == NSOrderedSame)
+        || ([value caseInsensitiveCompare:@"t"] == NSOrderedSame)
+        || ([value caseInsensitiveCompare:@"yes"] == NSOrderedSame)
+        || ([value caseInsensitiveCompare:@"y"] == NSOrderedSame)
+        || [value isEqualToString:@"1"]);
 }
 
 + (BOOL)_isFalsy:(NSString *)value {
-    return (value != nil
-            && (([value caseInsensitiveCompare:@"false"] == NSOrderedSame)
-            || ([value caseInsensitiveCompare:@"f"] == NSOrderedSame)
-            || ([value caseInsensitiveCompare:@"no"] == NSOrderedSame)
-            || ([value caseInsensitiveCompare:@"n"] == NSOrderedSame)
-            || [value isEqualToString:@"0"]));
+    return value != nil
+    && (([value caseInsensitiveCompare:@"false"] == NSOrderedSame)
+        || ([value caseInsensitiveCompare:@"f"] == NSOrderedSame)
+        || ([value caseInsensitiveCompare:@"no"] == NSOrderedSame)
+        || ([value caseInsensitiveCompare:@"n"] == NSOrderedSame)
+        || [value isEqualToString:@"0"]);
 }
 
 + (BOOL)isValidBoolean:(NSString *)value {
-    return ([self _isTruthy:value] || [self _isFalsy:value]);
+    return [self _isTruthy:value] || [self _isFalsy:value];
 }
 
 + (NSString *)booleanStringForBooleanValue:(NSString *)value {
@@ -70,7 +71,8 @@ static NSNumberFormatter *nf;
         }
     }
     
-    if (([self.type.lowercaseString caseInsensitiveCompare:@"Number"] == NSOrderedSame) && [self.class isValidNumber:value]) {
+    if (([self.type.lowercaseString caseInsensitiveCompare:@"Number"] == NSOrderedSame) && [self.class
+                                                                                            isValidNumber:value]) {
         return YES;
     }
     
@@ -85,7 +87,5 @@ static NSNumberFormatter *nf;
     
     return NO;
 }
-
-
 
 @end

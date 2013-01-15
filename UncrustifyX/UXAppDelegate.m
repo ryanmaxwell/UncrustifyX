@@ -39,7 +39,6 @@ NSString *const UXErrorDomain                               = @"UXError";
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -48,13 +47,14 @@ NSString *const UXErrorDomain                               = @"UXError";
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
-    
     for (NSString *filePath in filenames) {
-        if ([filePath.pathExtension isEqualToString:@"cfg"]) {
+        if ([filePath.pathExtension
+             isEqualToString:@"cfg"]) {
             /* parse config */
             
             NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-            [self.mainWindowController importConfigurationAtURL:fileURL];
+            [self.mainWindowController
+             importConfigurationAtURL:fileURL];
             
             [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
             return;
@@ -69,6 +69,7 @@ NSString *const UXErrorDomain                               = @"UXError";
     if (!_preferencesWindowController) {
         _preferencesWindowController = [[UXPreferencesWindowController alloc] initWithWindowNibName:@"UXPreferencesWindowController"];
     }
+    
     return _preferencesWindowController;
 }
 
@@ -113,6 +114,7 @@ NSString *const UXErrorDomain                               = @"UXError";
             [self.mainWindowController showView:self.mainWindowController.directInputToolbarItem];
             break;
         }
+            
         case 3: {
             /* Documentation */
             [self.mainWindowController toggleDocumentationPanel:self];
@@ -123,18 +125,18 @@ NSString *const UXErrorDomain                               = @"UXError";
 
 - (void)NSLogger {
 #if TEST_CONSOLE_LOGGING
-	LoggerSetOptions(NULL, kLoggerOption_LogToConsole);
+    LoggerSetOptions(NULL, kLoggerOption_LogToConsole);
 #else
 #if TEST_FILE_BUFFERING
-	LoggerSetBufferFile(NULL, CFSTR("/tmp/NSLoggerTempData_MacOSX.rawnsloggerdata"));
+    LoggerSetBufferFile(NULL, CFSTR("/tmp/NSLoggerTempData_MacOSX.rawnsloggerdata"));
 #endif
 #if TEST_DIRECT_CONNECTION
-	LoggerSetViewerHost(NULL, LOGGING_HOST, LOGGING_PORT);
+    LoggerSetViewerHost(NULL, LOGGING_HOST, LOGGING_PORT);
 #endif
 #endif
 #if TEST_BONJOUR_SETUP
-	// test restricting bonjour lookup for a specific machine
-	LoggerSetupBonjour(NULL, NULL, CFSTR("Awesome"));
+    // test restricting bonjour lookup for a specific machine
+    LoggerSetupBonjour(NULL, NULL, CFSTR("Awesome"));
 #endif
 }
 
@@ -145,9 +147,11 @@ NSString *const UXErrorDomain                               = @"UXError";
         case 11:
             /* Export Configuration */
             return self.mainWindowController.isExportEnabled;
+            
         case 12:
             /* Run */
             return self.mainWindowController.isRunEnabled;
+            
         default:
             return YES;
     }

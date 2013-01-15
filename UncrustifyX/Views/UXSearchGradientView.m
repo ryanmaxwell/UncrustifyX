@@ -17,6 +17,7 @@
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
+    
     if (self) {
         _searchGradient = [NSBundle.mainBundle imageForResource:@"SearchGradient.png"];
     }

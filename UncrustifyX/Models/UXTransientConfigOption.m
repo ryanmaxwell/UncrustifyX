@@ -11,7 +11,8 @@
 @implementation UXTransientConfigOption
 
 - (NSString *)configString {
-    return [UXConfigOptionSharedImplementation configStringForOption:self.option value:self.value];
+    return [UXConfigOptionSharedImplementation configStringForOption:self.option
+                                                               value:self.value];
 }
 
 @end

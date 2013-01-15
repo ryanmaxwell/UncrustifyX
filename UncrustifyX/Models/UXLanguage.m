@@ -8,13 +8,14 @@
 
 #import "UXLanguage.h"
 
-NSString * const UXLanguageExtensionDelimiter = @":";
+NSString *const UXLanguageExtensionDelimiter = @":";
 
 @implementation UXLanguage
 
 - (void)setIncludedInDocumentation:(BOOL)includedInDocumentation {
     [self willChangeValueForKey:@"menuDisplayName"];
     [self willChangeValueForKey:@"includedInDocumentation"];
+    
     if (includedInDocumentation) {
         [UXDefaultsManager addLanguageIncludedInDocumentation:self.code];
     } else {

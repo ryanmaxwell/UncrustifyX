@@ -9,11 +9,11 @@
 #import "_UXLanguage.h"
 #import "UXDisplayable.h"
 
-extern NSString * const UXLanguageExtensionDelimiter;
+extern NSString *const UXLanguageExtensionDelimiter;
 
 @interface UXLanguage : _UXLanguage <UXDisplayable>
 
-/* 
+/*
  * @return an array of NSStrings
  */
 @property (nonatomic, readonly) NSArray *fileExtensions;

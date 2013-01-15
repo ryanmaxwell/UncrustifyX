@@ -16,16 +16,17 @@
 }
 
 - (NSString *)explodedCode {
-    return [self.code stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+    return [self.code stringByReplacingOccurrencesOfString:@"_"
+                                                withString:@" "];
 }
 
 - (void)setDisplayName:(NSString *)newName {
     self.name = newName;
     
-    if (!newName.length)
-        newName = @"";
+    if (!newName.length) newName = @"";
     
-    [self updateOptionValue:newName forKey:@"Name"];
+    [self updateOptionValue:newName
+                     forKey:@"Name"];
 }
 
 - (NSString *)subcategoryName {
@@ -35,11 +36,11 @@
 - (void)setSubcategoryName:(NSString *)newName {
     self.subcategory.name = newName;
     
-    if (!newName.length)
-        newName = @"";
+    if (!newName.length) newName = @"";
     
     [self willChangeValueForKey:@"Subcategory"];
-    [self updateOptionValue:newName forKey:@"Subcategory"];
+    [self updateOptionValue:newName
+                     forKey:@"Subcategory"];
     [self didChangeValueForKey:@"Subcategory"];
 }
 
@@ -57,10 +58,11 @@
         
         infoDict[@"UpdatedAt"] = NSDate.date;
         
-        [infoDict writeToFile:plistPath atomically:NO];
+        [infoDict writeToFile:plistPath
+                   atomically:NO];
         
         
-        [manager setAttributes:@{NSFileModificationDate : NSDate.date}
+        [manager setAttributes:@{ NSFileModificationDate: NSDate.date }
                   ofItemAtPath:plistPath
                          error:nil];
     }
