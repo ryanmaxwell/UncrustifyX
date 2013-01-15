@@ -19,3 +19,6 @@
 - allow customizing options
 - support custom types/macros in config file
 - prompt about overwriting/merging config when importing over existing config.
+- file type association icon for .cfg file
+- Xcode integration somehow (automator action/services menu/build script?)
+- prompt to re-enable language in documentation when clicking info on option not shown
