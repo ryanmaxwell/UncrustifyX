@@ -358,7 +358,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     [savePanel beginSheetModalForWindow:self.window
                       completionHandler:^(NSInteger result) {
                           if (result == NSFileHandlingPanelOKButton) {
-                          BOOL documentationForCategory, documentationForSubcategory, documentationForOptionName, documentationForOptionValue = NO;
+                          BOOL documentationForCategory = NO, documentationForSubcategory = NO, documentationForOptionName = NO, documentationForOptionValue = NO;
 
                           if (self.exportPanelAccessoryView.includeDocumentationCheckbox.state == NSOnState) {
                               documentationForCategory = (self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState);
