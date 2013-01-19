@@ -516,10 +516,23 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (void)addFilePaths:(NSArray *)filePaths {
     for (id obj in filePaths) {
-        if ([obj isKindOfClass:NSString.class] && ![self.filePathsArrayController.arrangedObjects containsObject:obj]) {
-            NSDictionary *filePathObj = [self filePathObjectForFilePath:obj];
-            [self.filePathsArrayController addObject:filePathObj];
-        }
+        if ([obj isKindOfClass:NSString.class]) {
+            
+            __block BOOL containsPath = NO;
+            
+            [self.filePathsArrayController.arrangedObjects enumerateObjectsUsingBlock:^(NSDictionary *filePathObj, NSUInteger index, BOOL *stop){
+                
+                if ([filePathObj[@"path"] isEqual:obj]) {
+                    containsPath = YES;
+                    *stop = YES;
+                }
+            }];
+            
+            if (!containsPath) {
+                NSDictionary *filePathObj = [self filePathObjectForFilePath:obj];
+                [self.filePathsArrayController addObject:filePathObj];
+            }
+    }
     }
 
     [self showFileInputView];
