@@ -12,6 +12,16 @@ NSString *const UXLanguageExtensionDelimiter = @":";
 
 @implementation UXLanguage
 
++ (NSArray *)allFileExtensions {
+    NSMutableSet *results = NSMutableSet.set;
+    
+    for (UXLanguage *language in [UXLanguage findAll]) {
+        [results addObjectsFromArray:language.fileExtensions];
+    }
+    
+    return [results allObjects];
+}
+
 + (NSArray *)languagesWithExtension:(NSString *)extension {
     NSMutableArray *results = NSMutableArray.array;
     

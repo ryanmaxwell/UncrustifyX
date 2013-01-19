@@ -349,6 +349,64 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     self.documentationPanelController.window.isVisible = !self.documentationPanelController.window.isVisible;
 }
 
+- (IBAction)addFilesPressed:(id)sender {
+    NSOpenPanel *openPanel = NSOpenPanel.openPanel;
+    openPanel.allowsMultipleSelection = YES;
+    openPanel.allowedFileTypes = UXLanguage.allFileExtensions;
+    
+    [openPanel beginSheetModalForWindow:self.window
+                      completionHandler:^(NSInteger result) {
+                          if (result == NSFileHandlingPanelOKButton) {
+                              NSMutableArray *filePaths = NSMutableArray.array;
+                              
+                              for (NSURL *url in openPanel.URLs) {
+                                  [filePaths addObject:url.path];
+                              }
+                                  
+                              [self addFilePaths:filePaths];
+                          }
+                      }];
+}
+
+- (IBAction)removeFilesPressed:(id)sender {
+    NSIndexSet *selectedConfigOptions = self.configOptionsTableView.selectedRowIndexes;
+    NSIndexSet *selectedFilePaths = self.filePathsTableView.selectedRowIndexes;
+    
+    if (self.window.firstResponder == self.filePathsTableView && selectedFilePaths.count > 0) {
+        NSMutableArray *objectsToRemove = NSMutableArray.array;
+        
+        [selectedFilePaths enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+            [objectsToRemove addObject:self.filePaths[index]];
+        }];
+        
+        [self.filePaths removeObjectsInArray:objectsToRemove];
+        
+        /* Validate immediately as system only does it periodically */
+        [self.toolbar validateVisibleItems];
+        
+        [self.filePathsTableView reloadData];
+    } else if (self.window.firstResponder == self.configOptionsTableView && selectedConfigOptions.count > 0) {
+        NSMutableArray *objectsToRemove = NSMutableArray.array;
+        
+        [selectedConfigOptions enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+            [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[index]];
+        }];
+        
+        [self.configOptions removeObjectsInArray:objectsToRemove];
+        
+        for (NSManagedObject *mo in objectsToRemove) {
+            [NSManagedObjectContext.defaultContext deleteObject:mo];
+        }
+        
+        [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
+        
+        /* Validate immediately as system only does it periodically */
+        [self.toolbar validateVisibleItems];
+        
+        [self sortConfigOptions];
+    }
+}
+
 - (IBAction)exportConfigurationPressed:(id)sender {
     NSSavePanel *savePanel = NSSavePanel.savePanel;
 
@@ -436,43 +494,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 }
 
 - (IBAction)deletePressed:(id)sender {
-    NSIndexSet *selectedConfigOptions = self.configOptionsTableView.selectedRowIndexes;
-    NSIndexSet *selectedFilePaths = self.filePathsTableView.selectedRowIndexes;
-
-    if (self.window.firstResponder == self.filePathsTableView && selectedFilePaths.count > 0) {
-        NSMutableArray *objectsToRemove = NSMutableArray.array;
-
-        [selectedFilePaths enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            [objectsToRemove addObject:self.filePaths[index]];
-        }];
-
-        [self.filePaths
-         removeObjectsInArray:objectsToRemove];
-
-        /* Validate immediately as system only does it periodically */
-        [self.toolbar validateVisibleItems];
-
-        [self.filePathsTableView reloadData];
-    } else if (self.window.firstResponder == self.configOptionsTableView && selectedConfigOptions.count > 0) {
-        NSMutableArray *objectsToRemove = NSMutableArray.array;
-
-        [selectedConfigOptions enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[index]];
-        }];
-
-        [self.configOptions removeObjectsInArray:objectsToRemove];
-
-        for (NSManagedObject *mo in objectsToRemove) {
-            [NSManagedObjectContext.defaultContext deleteObject:mo];
-        }
-
-        [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
-
-        /* Validate immediately as system only does it periodically */
-        [self.toolbar validateVisibleItems];
-
-        [self sortConfigOptions];
-    }
+    [self removeFilesPressed:sender];
 }
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {

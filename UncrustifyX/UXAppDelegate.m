@@ -75,6 +75,10 @@ NSString *const UXErrorDomain                               = @"UXError";
 
 #pragma mark - IBAction
 
+- (IBAction)openFiles:(id)sender {
+    [self.mainWindowController addFilesPressed:sender];
+}
+
 - (IBAction)importConfiguration:(id)sender {
     [self.mainWindowController importConfigurationPressed:sender];
 }

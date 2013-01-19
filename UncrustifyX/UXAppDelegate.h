@@ -18,6 +18,7 @@ extern NSString *const UXErrorDomain;
 @property (strong, nonatomic) UXPreferencesWindowController *preferencesWindowController;
 
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)openFiles:(id)sender;
 - (IBAction)importConfiguration:(id)sender;
 - (IBAction)exportConfiguration:(id)sender;
 - (IBAction)run:(id)sender;
