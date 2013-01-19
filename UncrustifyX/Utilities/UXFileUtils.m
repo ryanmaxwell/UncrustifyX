@@ -140,7 +140,7 @@ static const NSUInteger SpacesPerTab = 4;
     NSData *data = [contents dataUsingEncoding:NSUTF8StringEncoding];
     
     return [NSFileManager.defaultManager createFileAtPath:filePath
-                                          contents:data
+                                                 contents:data
                                                attributes:nil];
 }
 

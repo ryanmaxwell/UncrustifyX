@@ -578,7 +578,22 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     if (tableView == self.configOptionsTableView && tableColumn == self.configOptionsTableColumn) {
         return self.sortedConfigOptionsAndCategories[rowIndex];
     } else if (tableView == self.filePathsTableView) {
-        return self.filePaths[rowIndex];
+        if (tableColumn == self.filePathTableColumn) {
+            return self.filePaths[rowIndex];
+        } else if (tableColumn == self.fileTypeTableColumn) {
+            NSString *fileName = [self.filePaths[rowIndex] lastPathComponent];
+            
+            NSRange dotRange = [fileName rangeOfString:@"."];
+            if (dotRange.location != NSNotFound && dotRange.location != fileName.length - 1) {
+                NSString *fileExtension = [fileName substringFromIndex:dotRange.location + 1];
+                
+                NSArray *languages = [UXLanguage languagesWithExtension:fileExtension];
+                
+                NSArray *languageNames = [languages valueForKeyPath:@"name"];
+                
+                return [[languageNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] componentsJoinedByString:@"/"];
+            }
+        }
     }
 
     return nil;

@@ -158,6 +158,9 @@ My Comment
 		<dict>
 			<key>Extensions</key>
 			<array>
+				<string>hxx</string>
+				<string>h</string>
+				<string>hpp</string>
 				<string>c++</string>
 				<string>hxx</string>
 				<string>c</string>
@@ -200,6 +203,7 @@ My Comment
 		<dict>
 			<key>Extensions</key>
 			<array>
+				<string>h</string>
 				<string>m</string>
 			</array>
 			<key>Name</key>
@@ -209,6 +213,7 @@ My Comment
 		<dict>
 			<key>Extensions</key>
 			<array>
+				<string>h</string>
 				<string>mm</string>
 			</array>
 			<key>Name</key>
@@ -6423,7 +6428,7 @@ Improvements to template detection may make this option obsolete.</string>
 		</dict>
 	</dict>
 	<key>UpdatedAt</key>
-	<date>2013-01-16T23:00:00Z</date>
+	<date>2013-01-18T23:00:00Z</date>
 	<key>ValueTypes</key>
 	<array>
 		<dict>

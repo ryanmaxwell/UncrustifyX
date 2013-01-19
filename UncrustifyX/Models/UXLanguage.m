@@ -12,6 +12,18 @@ NSString *const UXLanguageExtensionDelimiter = @":";
 
 @implementation UXLanguage
 
++ (NSArray *)languagesWithExtension:(NSString *)extension {
+    NSMutableArray *results = NSMutableArray.array;
+    
+    for (UXLanguage *language in [UXLanguage findAll]) {
+        if ([language.fileExtensions containsObject:extension]) {
+            [results addObject:language];
+        }
+    }
+    
+    return [results mutableCopy];
+}
+
 - (void)setIncludedInDocumentation:(BOOL)includedInDocumentation {
     [self willChangeValueForKey:@"menuDisplayName"];
     [self willChangeValueForKey:@"includedInDocumentation"];

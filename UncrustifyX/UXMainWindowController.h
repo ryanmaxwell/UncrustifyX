@@ -26,6 +26,8 @@
 
 @property (weak, nonatomic) IBOutlet NSTableView *filePathsTableView;
 @property (weak, nonatomic) IBOutlet NSSplitView *mainSplitView;
+@property (weak, nonatomic) IBOutlet NSTableColumn *filePathTableColumn;
+@property (weak, nonatomic) IBOutlet NSTableColumn *fileTypeTableColumn;
 
 @property (weak, nonatomic) IBOutlet NSToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet NSToolbarItem *exportToolbarItem;

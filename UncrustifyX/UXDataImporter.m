@@ -28,9 +28,13 @@
     [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
 }
 
-+ (void)importDefinitions {
++ (NSDictionary *)definitionsDictionary {
     NSURL *fileURL = [NSBundle.mainBundle URLForResource:@"Definitions" withExtension:@"plist"];
-    NSDictionary *rootDict = [NSDictionary dictionaryWithContentsOfURL:fileURL];
+    return [NSDictionary dictionaryWithContentsOfURL:fileURL];
+}
+
++ (void)importDefinitions {
+    NSDictionary *rootDict = [self definitionsDictionary];
     
     /* Check updated at date */
     NSDate *definitionsUpdatedAt = rootDict[@"UpdatedAt"];

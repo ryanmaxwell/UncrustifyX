@@ -10,6 +10,8 @@
 
 @interface UXDataImporter : NSObject
 
++ (NSDictionary *)definitionsDictionary;
+
 + (void)importDefinitions;
 
 @end

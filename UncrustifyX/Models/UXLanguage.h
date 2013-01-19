@@ -20,4 +20,6 @@ extern NSString *const UXLanguageExtensionDelimiter;
 
 @property (nonatomic, getter = isIncludedInDocumentation) BOOL includedInDocumentation;
 
++ (NSArray *)languagesWithExtension:(NSString *)extension;
+
 @end
