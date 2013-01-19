@@ -44,7 +44,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 @property (strong, nonatomic) NSArray *sortedCategories;
 
 @property (strong, nonatomic) NSMutableArray *sortedConfigOptionsAndCategories;
-@property (strong, nonatomic) NSMutableArray *filePaths;
 
 @property (strong, nonatomic) NSView *spaceView;
 @property (strong, nonatomic) NSToolbarItem *spaceItem;
@@ -66,7 +65,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         _documentationPanelController.window.identifier = UXDocumentationPanelIdentifier;
 
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
-        _filePaths = [[NSMutableArray alloc] init];
 
         _sortedCategories = [UXCategory findAllSortedBy:UXAbstractCategoryAttributes.name
                                               ascending:YES];
@@ -76,11 +74,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
         _inputLanguageArrayController = [[NSArrayController alloc] init];
         _inputLanguageArrayController.sortDescriptors = @[
-                [NSSortDescriptor sortDescriptorWithKey:UXLanguageAttributes.name
-                                              ascending:YES]
-            ];
+            [NSSortDescriptor sortDescriptorWithKey:UXLanguageAttributes.name
+                                          ascending:YES]
+        ];
         _inputLanguageArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
         _inputLanguageArrayController.entityName = UXLanguage.entityName;
+        
+        _filePathsArrayController = [[NSArrayController alloc] init];
 
         _fragaria = [[MGSFragaria alloc] init];
 
@@ -107,11 +107,11 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
             [self.filePathsTableView registerForDraggedTypes:@[
                  NSURLPboardType
-             ]];
+            ]];
 
             [self.configOptionsTableView registerForDraggedTypes:@[
                  NSPasteboardTypeString
-             ]];
+            ]];
 
             [self showFileInputView];
 
@@ -323,14 +323,16 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (IBAction)runButtonPressed:(id)sender {
     if ([self.toolbar.selectedItemIdentifier isEqualToString:self.fileInputToolbarItem.itemIdentifier]
-        && self.filePaths.count > 0) {
+        && [self.filePathsArrayController.arrangedObjects count] > 0) {
         NSArray *args = nil;
 
         if (UXDefaultsManager.overwriteFiles) {
             args = @[@"--no-backup"];
         }
+        
+        NSArray *paths = [self.filePathsArrayController.arrangedObjects valueForKey:@"path"];
 
-        [UXTaskRunner uncrustifyFilesAtPaths:self.filePaths
+        [UXTaskRunner uncrustifyFilesAtPaths:paths
                            withConfigOptions:self.configOptions
                                    arguments:args];
     } else if ([self.toolbar.selectedItemIdentifier isEqualToString:self.directInputToolbarItem.itemIdentifier]
@@ -370,21 +372,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (IBAction)removeFilesPressed:(id)sender {
     NSIndexSet *selectedConfigOptions = self.configOptionsTableView.selectedRowIndexes;
-    NSIndexSet *selectedFilePaths = self.filePathsTableView.selectedRowIndexes;
     
-    if (self.window.firstResponder == self.filePathsTableView && selectedFilePaths.count > 0) {
-        NSMutableArray *objectsToRemove = NSMutableArray.array;
+    if (self.window.firstResponder == self.filePathsTableView && self.filePathsArrayController.selectedObjects.count > 0) {
         
-        [selectedFilePaths enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            [objectsToRemove addObject:self.filePaths[index]];
-        }];
-        
-        [self.filePaths removeObjectsInArray:objectsToRemove];
+        [self.filePathsArrayController removeObjects:self.filePathsArrayController.selectedObjects];        
         
         /* Validate immediately as system only does it periodically */
         [self.toolbar validateVisibleItems];
-        
-        [self.filePathsTableView reloadData];
     } else if (self.window.firstResponder == self.configOptionsTableView && selectedConfigOptions.count > 0) {
         NSMutableArray *objectsToRemove = NSMutableArray.array;
         
@@ -502,21 +496,39 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                       forKey:MGSFOSyntaxDefinitionName];
 }
 
+- (NSDictionary *)filePathObjectForFilePath:(NSString *)filePath {
+    NSString *fileName = [filePath lastPathComponent];
+    NSString *fileType = @"";
+    
+    NSRange dotRange = [fileName rangeOfString:@"."];
+    if (dotRange.location != NSNotFound && dotRange.location != fileName.length - 1) {
+        NSString *fileExtension = [fileName substringFromIndex:dotRange.location + 1];
+        
+        NSArray *languages = [UXLanguage languagesWithExtension:fileExtension];
+        
+        NSArray *languageNames = [languages valueForKeyPath:@"name"];
+        
+        fileType = [[languageNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] componentsJoinedByString:@"/"];
+    };
+    
+    return @{@"path": filePath, @"type": fileType};
+}
+
 - (void)addFilePaths:(NSArray *)filePaths {
     for (id obj in filePaths) {
-        if ([obj isKindOfClass:NSString.class] && ![self.filePaths containsObject:obj]) {
-            [self.filePaths addObject:obj];
+        if ([obj isKindOfClass:NSString.class] && ![self.filePathsArrayController.arrangedObjects containsObject:obj]) {
+            NSDictionary *filePathObj = [self filePathObjectForFilePath:obj];
+            [self.filePathsArrayController addObject:filePathObj];
         }
     }
 
     [self showFileInputView];
-    [self.filePathsTableView reloadData];
 }
 
-#pragma mark - Validation for toolbar / menu items
+#pragma mark - Validation for UI Items
 
 - (BOOL)isRunEnabled {
-    return self.configOptions.count > 0 && (self.filePaths.count > 0 || self.fragaria.string.length > 0);
+    return self.configOptions.count > 0 && ([self.filePathsArrayController.arrangedObjects count] > 0 || self.fragaria.string.length > 0);
 }
 
 - (BOOL)isExportEnabled {
@@ -529,7 +541,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     if (tableView == self.configOptionsTableView) {
         return self.sortedConfigOptionsAndCategories.count;
     } else if (tableView == self.filePathsTableView) {
-        return self.filePaths.count;
+//        return self.filePaths.count;
     }
 
     return 0;
@@ -599,23 +611,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
     if (tableView == self.configOptionsTableView && tableColumn == self.configOptionsTableColumn) {
         return self.sortedConfigOptionsAndCategories[rowIndex];
-    } else if (tableView == self.filePathsTableView) {
-        if (tableColumn == self.filePathTableColumn) {
-            return self.filePaths[rowIndex];
-        } else if (tableColumn == self.fileTypeTableColumn) {
-            NSString *fileName = [self.filePaths[rowIndex] lastPathComponent];
-            
-            NSRange dotRange = [fileName rangeOfString:@"."];
-            if (dotRange.location != NSNotFound && dotRange.location != fileName.length - 1) {
-                NSString *fileExtension = [fileName substringFromIndex:dotRange.location + 1];
-                
-                NSArray *languages = [UXLanguage languagesWithExtension:fileExtension];
-                
-                NSArray *languageNames = [languages valueForKeyPath:@"name"];
-                
-                return [[languageNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] componentsJoinedByString:@"/"];
-            }
-        }
     }
 
     return nil;
@@ -757,7 +752,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                 forKey:UXSourceContainerViewWidthKey];
     [state encodeObject:self.fragaria.string
                  forKey:UXDirectInputStringKey];
-    [state encodeObject:self.filePaths
+    [state encodeObject:self.filePathsArrayController.arrangedObjects
                  forKey:UXFilePathsKey];
 }
 
@@ -796,8 +791,16 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     NSArray *filePaths = [state decodeObjectForKey:UXFilePathsKey];
 
     if (filePaths.count) {
-        [self.filePaths addObjectsFromArray:filePaths];
-        [self.filePathsTableView reloadData];
+        for (id filePath in filePaths) {
+            if ([filePath isKindOfClass:NSString.class]) {
+                /* old versions saved array of strings */
+                NSDictionary *filePathObj = [self filePathObjectForFilePath:filePath];
+                [self.filePathsArrayController addObject:filePathObj];
+            } else if ([filePath isKindOfClass:NSDictionary.class]) {
+                /* new versions save as array of dictionaries */
+                [self.filePathsArrayController addObject:filePath];
+            }
+        }
     }
 }
 

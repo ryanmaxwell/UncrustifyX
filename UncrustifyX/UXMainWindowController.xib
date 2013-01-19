@@ -552,6 +552,7 @@
 									<string key="NSFrame">{{251, 0}, {549, 500}}</string>
 									<reference key="NSSuperview" ref="431151794"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:13</string>
 									<string key="NSClassName">NSView</string>
 								</object>
@@ -587,14 +588,18 @@
 						<string key="NSFrame">{{526, 45}, {23, 23}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="702953980"/>
+						<reference key="NSNextKeyView" ref="148245969"/>
 						<string key="NSReuseIdentifierKey">_NS:22</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="582564887">
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">134217728</int>
 							<string key="NSContents">-</string>
-							<reference key="NSSupport" ref="261697728"/>
+							<object class="NSFont" key="NSSupport" id="279234428">
+								<string key="NSName">LucidaGrande-Bold</string>
+								<double key="NSSize">13</double>
+								<int key="NSfFlags">2072</int>
+							</object>
 							<string key="NSCellIdentifier">_NS:22</string>
 							<reference key="NSControlView" ref="564704819"/>
 							<int key="NSButtonFlags">-2033434624</int>
@@ -619,7 +624,7 @@
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">134217728</int>
 							<string key="NSContents">+</string>
-							<reference key="NSSupport" ref="261697728"/>
+							<reference key="NSSupport" ref="279234428"/>
 							<string key="NSCellIdentifier">_NS:22</string>
 							<reference key="NSControlView" ref="574292794"/>
 							<int key="NSButtonFlags">-2033434624</int>
@@ -637,6 +642,7 @@
 						<string key="NSFrame">{{17, 20}, {318, 17}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1060075792">
@@ -752,7 +758,7 @@
 										<reference key="NSBackgroundColor" ref="353923354"/>
 										<reference key="NSGridColor" ref="296782926"/>
 										<double key="NSRowHeight">17</double>
-										<int key="NSTvFlags">1447034880</int>
+										<int key="NSTvFlags">1581252608</int>
 										<reference key="NSDelegate"/>
 										<reference key="NSDataSource"/>
 										<int key="NSColumnAutoresizingStyle">5</int>
@@ -792,7 +798,7 @@
 								<string key="NSFrame">{{1, 275}, {527, 16}}</string>
 								<reference key="NSSuperview" ref="436780817"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="574292794"/>
+								<reference key="NSNextKeyView" ref="702953980"/>
 								<string key="NSReuseIdentifierKey">_NS:60</string>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								<int key="NSsFlags">1</int>
@@ -837,7 +843,7 @@
 						<string key="NSFrame">{{18, 43}, {114, 18}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="148245969"/>
+						<reference key="NSNextKeyView" ref="574292794"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="233266692">
@@ -895,6 +901,7 @@
 								<string key="NSFrame">{{405, 3}, {163, 22}}</string>
 								<reference key="NSSuperview" ref="907512466"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="NSEnabled">YES</bool>
 								<object class="NSPopUpButtonCell" key="NSCell" id="843331643">
@@ -1137,14 +1144,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">filePathsTableView</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="809347098"/>
-					</object>
-					<int key="connectionID">314</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">fragariaContainerView</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="707839940"/>
@@ -1158,30 +1157,6 @@
 						<reference key="destination" ref="737609357"/>
 					</object>
 					<int key="connectionID">318</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">fileNameTableColumn</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="1019694629"/>
-					</object>
-					<int key="connectionID">325</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">fileTypeTableColumn</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="286272802"/>
-					</object>
-					<int key="connectionID">326</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">filePathTableColumn</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="1019694629"/>
-					</object>
-					<int key="connectionID">327</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1198,6 +1173,14 @@
 						<reference key="destination" ref="564704819"/>
 					</object>
 					<int key="connectionID">333</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">filePathsTableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="809347098"/>
+					</object>
+					<int key="connectionID">376</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1240,12 +1223,65 @@
 					<int key="connectionID">315</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">content: filePathsArrayController.arrangedObjects</string>
+						<reference key="source" ref="809347098"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector" id="430367804">
+							<reference key="NSSource" ref="809347098"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">content: filePathsArrayController.arrangedObjects</string>
+							<string key="NSBinding">content</string>
+							<string key="NSKeyPath">filePathsArrayController.arrangedObjects</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">366</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectionIndexes: filePathsArrayController.selectionIndexes</string>
+						<reference key="source" ref="809347098"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="809347098"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">selectionIndexes: filePathsArrayController.selectionIndexes</string>
+							<string key="NSBinding">selectionIndexes</string>
+							<string key="NSKeyPath">filePathsArrayController.selectionIndexes</string>
+							<reference key="NSPreviousConnector" ref="430367804"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">367</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="809347098"/>
 						<reference key="destination" ref="1001"/>
 					</object>
-					<int key="connectionID">247</int>
+					<int key="connectionID">377</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: filePathsArrayController.arrangedObjects.path</string>
+						<reference key="source" ref="1019694629"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1019694629"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">value: filePathsArrayController.arrangedObjects.path</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">filePathsArrayController.arrangedObjects.path</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSConditionallySetsEditable</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">370</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1344,6 +1380,42 @@
 						<reference key="destination" ref="1001"/>
 					</object>
 					<int key="connectionID">288</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: filePathsArrayController.arrangedObjects.type</string>
+						<reference key="source" ref="286272802"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="286272802"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">value: filePathsArrayController.arrangedObjects.type</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">filePathsArrayController.arrangedObjects.type</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSConditionallySetsEditable</string>
+								<boolean value="YES" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">375</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: filePathsArrayController.selectedObjects.@count</string>
+						<reference key="source" ref="564704819"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="564704819"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">enabled: filePathsArrayController.selectedObjects.@count</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">filePathsArrayController.selectedObjects.@count</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">348</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1472,10 +1544,10 @@
 						<reference key="object" ref="553223413"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="436780817"/>
-							<reference ref="574292794"/>
 							<reference ref="564704819"/>
 							<reference ref="702953980"/>
 							<reference ref="148245969"/>
+							<reference ref="574292794"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1792,7 +1864,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">333</int>
+			<int key="maxID">377</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1919,9 +1991,8 @@
 						<string key="exportToolbarItem">NSToolbarItem</string>
 						<string key="fileInputToolbarItem">NSToolbarItem</string>
 						<string key="fileInputView">NSView</string>
-						<string key="filePathTableColumn">NSTableColumn</string>
+						<string key="filePathsArrayController">NSArrayController</string>
 						<string key="filePathsTableView">NSTableView</string>
-						<string key="fileTypeTableColumn">NSTableColumn</string>
 						<string key="fragariaContainerView">NSView</string>
 						<string key="inputLanguagePopUpButton">NSPopUpButton</string>
 						<string key="mainContainerView">NSView</string>
@@ -1968,17 +2039,13 @@
 							<string key="name">fileInputView</string>
 							<string key="candidateClassName">NSView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="filePathTableColumn">
-							<string key="name">filePathTableColumn</string>
-							<string key="candidateClassName">NSTableColumn</string>
+						<object class="IBToOneOutletInfo" key="filePathsArrayController">
+							<string key="name">filePathsArrayController</string>
+							<string key="candidateClassName">NSArrayController</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="filePathsTableView">
 							<string key="name">filePathsTableView</string>
 							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="fileTypeTableColumn">
-							<string key="name">fileTypeTableColumn</string>
-							<string key="candidateClassName">NSTableColumn</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="fragariaContainerView">
 							<string key="name">fragariaContainerView</string>

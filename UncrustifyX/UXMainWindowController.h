@@ -24,10 +24,10 @@
 
 @property (weak, nonatomic) IBOutlet NSView *fragariaContainerView;
 
+@property (strong, nonatomic) IBOutlet NSArrayController *filePathsArrayController;
+
 @property (weak, nonatomic) IBOutlet NSTableView *filePathsTableView;
 @property (weak, nonatomic) IBOutlet NSSplitView *mainSplitView;
-@property (weak, nonatomic) IBOutlet NSTableColumn *filePathTableColumn;
-@property (weak, nonatomic) IBOutlet NSTableColumn *fileTypeTableColumn;
 
 @property (weak, nonatomic) IBOutlet NSToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet NSToolbarItem *exportToolbarItem;
@@ -61,8 +61,9 @@
 - (void)addFilePaths:(NSArray *)filePaths;
 - (void)importConfigurationAtURL:(NSURL *)fileURL;
 
-/* Validation for toolbar / menu items */
+/* Validation for UI Items */
 @property (readonly) BOOL isRunEnabled;
 @property (readonly) BOOL isExportEnabled;
+
 
 @end
