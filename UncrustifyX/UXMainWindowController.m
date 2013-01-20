@@ -25,6 +25,9 @@
 #import <MGSFragaria/MGSFragaria.h>
 #import <MGSFragaria/MGSSyntaxController.h>
 
+static NSString *const FilePathObjectPathKey                = @"path";
+static NSString *const FilePathObjectTypeKey                = @"type";
+
 /* NSWindowRestoration keys */
 static NSString *const UXSourceContainerViewWidthKey        = @"SourceContainerViewWidth";
 static NSString *const UXDocumentationPanelVisibleKey       = @"DocumentationPanelVisible";
@@ -330,7 +333,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             args = @[@"--no-backup"];
         }
         
-        NSArray *paths = [self.filePathsArrayController.arrangedObjects valueForKey:@"path"];
+        NSArray *paths = [self.filePathsArrayController.arrangedObjects valueForKey:FilePathObjectPathKey];
 
         [UXTaskRunner uncrustifyFilesAtPaths:paths
                            withConfigOptions:self.configOptions
@@ -511,7 +514,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         fileType = [[languageNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] componentsJoinedByString:@"/"];
     };
     
-    return @{@"path": filePath, @"type": fileType};
+    return @{FilePathObjectPathKey: filePath, FilePathObjectTypeKey: fileType};
 }
 
 - (void)addFilePaths:(NSArray *)filePaths {
@@ -522,7 +525,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             
             [self.filePathsArrayController.arrangedObjects enumerateObjectsUsingBlock:^(NSDictionary *filePathObj, NSUInteger index, BOOL *stop){
                 
-                if ([filePathObj[@"path"] isEqual:obj]) {
+                if ([filePathObj[FilePathObjectPathKey] isEqual:obj]) {
                     containsPath = YES;
                     *stop = YES;
                 }
@@ -532,7 +535,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                 NSDictionary *filePathObj = [self filePathObjectForFilePath:obj];
                 [self.filePathsArrayController addObject:filePathObj];
             }
-    }
+        }
     }
 
     [self showFileInputView];
