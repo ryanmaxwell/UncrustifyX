@@ -40,6 +40,7 @@ NSString *const UXErrorDomain                               = @"UXError";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {    
     [self updateDocumentationMenuItem];
+    [self updateConsoleMenuItem];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -124,16 +125,13 @@ NSString *const UXErrorDomain                               = @"UXError";
             /* Documentation */
             [self.mainWindowController toggleDocumentationPanel:self];
             
-            [self updateDocumentationMenuItem];
-            
             break;
         }
         case 4: {
             /* Console */
             
-            UXCONSOLE.window.isVisible = !UXCONSOLE.window.isVisible;
+            [self.mainWindowController toggleConsole:self];
             
-            [self updateConsoleMenuItem];
             break;
         }
     }

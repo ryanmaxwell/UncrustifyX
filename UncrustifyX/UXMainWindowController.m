@@ -36,6 +36,7 @@ static NSString *const UXDirectInputStringKey               = @"DirectInputStrin
 static NSString *const UXFilePathsKey                       = @"FilePaths";
 
 static NSString *const UXDocumentationPanelIdentifier       = @"DocumentationPanel";
+static NSString *const UXConsolePanelIdentifier             = @"Console";
 static NSString *const UXSidebarSpaceToolbarItemIdentifier  = @"UXSidebarSpace";
 
 static const CGFloat SourceViewMinWidth = 200.0f;
@@ -66,6 +67,9 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         _documentationPanelController = [[UXDocumentationPanelController alloc] initWithWindowNibName:@"UXDocumentationPanelController"];
         _documentationPanelController.window.restorationClass = self.class;
         _documentationPanelController.window.identifier = UXDocumentationPanelIdentifier;
+        
+        UXCONSOLE.window.restorationClass = self.class;
+        UXCONSOLE.window.identifier = UXConsolePanelIdentifier;
 
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
 
@@ -355,6 +359,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     
     UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
     [appDelegate updateDocumentationMenuItem];
+}
+
+- (IBAction)toggleConsole:(id)sender {
+    UXCONSOLE.window.isVisible = !UXCONSOLE.window.isVisible;
+    
+    UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
+    [appDelegate updateConsoleMenuItem];
 }
 
 - (IBAction)addFilesPressed:(id)sender {
@@ -839,6 +850,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         NSWindow *documentationPanel = appDelegate.mainWindowController.documentationPanelController.window;
 
         completionHandler(documentationPanel, nil);
+    } else if ([identifier isEqualToString:UXConsolePanelIdentifier]) {
+        completionHandler(UXCONSOLE.window, nil);
     }
 }
 

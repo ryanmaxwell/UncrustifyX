@@ -182,6 +182,28 @@
 							<bool key="NSToolbarIsUserRemovable">YES</bool>
 							<int key="NSToolbarItemVisibilityPriority">0</int>
 						</object>
+						<object class="NSToolbarItem" key="E882436A-A530-441F-AB7D-F07B43EFD343" id="596455904">
+							<object class="NSMutableString" key="NSToolbarItemIdentifier">
+								<characters key="NS.bytes">E882436A-A530-441F-AB7D-F07B43EFD343</characters>
+							</object>
+							<string key="NSToolbarItemLabel">Console</string>
+							<string key="NSToolbarItemPaletteLabel">Console</string>
+							<string key="NSToolbarItemToolTip"/>
+							<nil key="NSToolbarItemView"/>
+							<object class="NSCustomResource" key="NSToolbarItemImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">Console</string>
+							</object>
+							<nil key="NSToolbarItemTarget"/>
+							<nil key="NSToolbarItemAction"/>
+							<string key="NSToolbarItemMinSize">{0, 0}</string>
+							<string key="NSToolbarItemMaxSize">{0, 0}</string>
+							<bool key="NSToolbarItemEnabled">YES</bool>
+							<bool key="NSToolbarItemAutovalidates">YES</bool>
+							<int key="NSToolbarItemTag">-1</int>
+							<bool key="NSToolbarIsUserRemovable">YES</bool>
+							<int key="NSToolbarItemVisibilityPriority">0</int>
+						</object>
 						<object class="NSToolbarItem" key="FD72EC5F-A770-4837-845B-58CF56139B75" id="7715135">
 							<object class="NSMutableString" key="NSToolbarItemIdentifier">
 								<characters key="NS.bytes">FD72EC5F-A770-4837-845B-58CF56139B75</characters>
@@ -238,7 +260,7 @@
 							</object>
 						</object>
 					</dictionary>
-					<array key="NSToolbarIBAllowedItems">
+					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
 						<reference ref="148375419"/>
 						<reference ref="7715135"/>
 						<reference ref="14779475"/>
@@ -246,6 +268,7 @@
 						<reference ref="380750639"/>
 						<reference ref="240107926"/>
 						<reference ref="223343292"/>
+						<reference ref="596455904"/>
 					</array>
 					<array key="NSToolbarIBDefaultItems">
 						<reference ref="148375419"/>
@@ -254,6 +277,7 @@
 						<reference ref="240107926"/>
 						<reference ref="223343292"/>
 						<reference ref="14779475"/>
+						<reference ref="596455904"/>
 						<reference ref="380750639"/>
 					</array>
 					<array key="NSToolbarIBSelectableItems" id="0"/>
@@ -552,7 +576,6 @@
 									<string key="NSFrame">{{251, 0}, {549, 500}}</string>
 									<reference key="NSSuperview" ref="431151794"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:13</string>
 									<string key="NSClassName">NSView</string>
 								</object>
@@ -642,7 +665,6 @@
 						<string key="NSFrame">{{17, 20}, {318, 17}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1060075792">
@@ -901,7 +923,6 @@
 								<string key="NSFrame">{{405, 3}, {163, 22}}</string>
 								<reference key="NSSuperview" ref="907512466"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="NSEnabled">YES</bool>
 								<object class="NSPopUpButtonCell" key="NSCell" id="843331643">
@@ -1181,6 +1202,14 @@
 						<reference key="destination" ref="809347098"/>
 					</object>
 					<int key="connectionID">376</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleConsole:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="596455904"/>
+					</object>
+					<int key="connectionID">379</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1486,6 +1515,7 @@
 							<reference ref="148375419"/>
 							<reference ref="240107926"/>
 							<reference ref="223343292"/>
+							<reference ref="596455904"/>
 						</array>
 						<reference key="parent" ref="281368311"/>
 					</object>
@@ -1791,6 +1821,11 @@
 						<reference key="object" ref="582564887"/>
 						<reference key="parent" ref="564704819"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">378</int>
+						<reference key="object" ref="596455904"/>
+						<reference key="parent" ref="986574022"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1838,6 +1873,7 @@
 				<string key="329.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="330.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="331.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="378.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="43.IBNSWindowAutoPositionCentersHorizontal"/>
 				<boolean value="YES" key="43.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1864,7 +1900,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">377</int>
+			<int key="maxID">379</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1941,6 +1977,7 @@
 						<string key="removeFilesPressed:">id</string>
 						<string key="runButtonPressed:">id</string>
 						<string key="showView:">id</string>
+						<string key="toggleConsole:">id</string>
 						<string key="toggleDocumentationPanel:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -1974,6 +2011,10 @@
 						</object>
 						<object class="IBActionInfo" key="showView:">
 							<string key="name">showView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleConsole:">
+							<string key="name">toggleConsole:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="toggleDocumentationPanel:">
@@ -2104,6 +2145,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="Console">{512, 512}</string>
 			<string key="DirectInput">{512, 512}</string>
 			<string key="Docset">{512, 512}</string>
 			<string key="ExportConfig">{512, 512}</string>

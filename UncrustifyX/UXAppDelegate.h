@@ -30,5 +30,6 @@ extern NSString *const UXErrorDomain;
 - (IBAction)clearConsole:(id)sender;
 
 - (void)updateDocumentationMenuItem;
+- (void)updateConsoleMenuItem;
 
 @end

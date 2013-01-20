@@ -57,6 +57,7 @@
 - (IBAction)showView:(id)sender;
 - (IBAction)previewLanguagePopUpChanged:(id)sender;
 - (IBAction)toggleDocumentationPanel:(id)sender;
+- (IBAction)toggleConsole:(id)sender;
 
 - (void)addFilePaths:(NSArray *)filePaths;
 - (void)importConfigurationAtURL:(NSURL *)fileURL;
