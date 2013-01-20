@@ -38,7 +38,7 @@ NSString *const UXErrorDomain                               = @"UXError";
     _mainWindowController.window.isVisible = YES;
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {    
     [self updateDocumentationMenuItem];
 }
 

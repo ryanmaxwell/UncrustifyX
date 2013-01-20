@@ -352,6 +352,9 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (IBAction)toggleDocumentationPanel:(id)sender {
     self.documentationPanelController.window.isVisible = !self.documentationPanelController.window.isVisible;
+    
+    UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
+    [appDelegate updateDocumentationMenuItem];
 }
 
 - (IBAction)addFilesPressed:(id)sender {
@@ -832,7 +835,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 + (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler {
     if ([identifier isEqualToString:UXDocumentationPanelIdentifier]) {
-        UXAppDelegate *appDelegate = (UXAppDelegate *)NSApplication.sharedApplication.delegate;
+        UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
         NSWindow *documentationPanel = appDelegate.mainWindowController.documentationPanelController.window;
 
         completionHandler(documentationPanel, nil);
