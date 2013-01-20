@@ -38,7 +38,8 @@ NSString *const UXErrorDomain                               = @"UXError";
     _mainWindowController.window.isVisible = YES;
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+    [self updateDocumentationMenuItem];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -122,11 +123,17 @@ NSString *const UXErrorDomain                               = @"UXError";
         case 3: {
             /* Documentation */
             [self.mainWindowController toggleDocumentationPanel:self];
+            
+            [self updateDocumentationMenuItem];
+            
             break;
         }
         case 4: {
             /* Console */
+            
             UXCONSOLE.window.isVisible = !UXCONSOLE.window.isVisible;
+            
+            [self updateConsoleMenuItem];
             break;
         }
     }
@@ -151,6 +158,22 @@ NSString *const UXErrorDomain                               = @"UXError";
     // test restricting bonjour lookup for a specific machine
     LoggerSetupBonjour(NULL, NULL, CFSTR("Awesome"));
 #endif
+}
+
+- (void)updateDocumentationMenuItem {
+    if (self.mainWindowController.isDocumentationVisible) {
+        self.documentationMenuItem.title = @"Hide Documentation";
+    } else {
+        self.documentationMenuItem.title = @"Show Documentation";
+    }
+}
+
+- (void)updateConsoleMenuItem {
+    if (UXCONSOLE.window.isVisible) {
+        self.consoleMenuItem.title = @"Hide Console";
+    } else {
+        self.consoleMenuItem.title = @"Show Console";
+    }
 }
 
 #pragma mark - NSMenuValidation

@@ -551,6 +551,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     return self.configOptions.count > 0;
 }
 
+- (BOOL)isDocumentationVisible {
+    return self.documentationPanelController.window.isVisible;
+}
+
 #pragma mark - NSTableViewDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {

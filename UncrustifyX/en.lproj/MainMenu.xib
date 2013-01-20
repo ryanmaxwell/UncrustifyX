@@ -710,7 +710,7 @@
 								</object>
 								<object class="NSMenuItem" id="832349970">
 									<reference key="NSMenu" ref="466310130"/>
-									<string key="NSTitle">Documentation</string>
+									<string key="NSTitle">Show Documentation</string>
 									<string key="NSKeyEquiv">d</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -730,7 +730,7 @@
 								</object>
 								<object class="NSMenuItem" id="690912506">
 									<reference key="NSMenu" ref="466310130"/>
-									<string key="NSTitle">Console</string>
+									<string key="NSTitle">Show Console</string>
 									<string key="NSKeyEquiv">K</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1282,6 +1282,22 @@
 						<reference key="destination" ref="960071966"/>
 					</object>
 					<int key="connectionID">816</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">documentationMenuItem</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="832349970"/>
+					</object>
+					<int key="connectionID">817</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">consoleMenuItem</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="690912506"/>
+					</object>
+					<int key="connectionID">818</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2015,7 +2031,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">816</int>
+			<int key="maxID">818</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2094,6 +2110,20 @@
 						<object class="IBActionInfo" key="showView:">
 							<string key="name">showView:</string>
 							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="consoleMenuItem">NSMenuItem</string>
+						<string key="documentationMenuItem">NSMenuItem</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="consoleMenuItem">
+							<string key="name">consoleMenuItem</string>
+							<string key="candidateClassName">NSMenuItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="documentationMenuItem">
+							<string key="name">documentationMenuItem</string>
+							<string key="candidateClassName">NSMenuItem</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

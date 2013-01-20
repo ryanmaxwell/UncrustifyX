@@ -14,6 +14,9 @@ extern NSString *const UXErrorDomain;
 
 @interface UXAppDelegate : NSObject <NSApplicationDelegate>
 
+@property (weak, nonatomic) IBOutlet NSMenuItem *documentationMenuItem;
+@property (weak, nonatomic) IBOutlet NSMenuItem *consoleMenuItem;
+
 @property (strong, nonatomic) UXMainWindowController *mainWindowController;
 @property (strong, nonatomic) UXPreferencesWindowController *preferencesWindowController;
 

@@ -64,6 +64,6 @@
 /* Validation for UI Items */
 @property (readonly) BOOL isRunEnabled;
 @property (readonly) BOOL isExportEnabled;
-
+@property (readonly) BOOL isDocumentationVisible;
 
 @end
