@@ -124,7 +124,16 @@ NSString *const UXErrorDomain                               = @"UXError";
             [self.mainWindowController toggleDocumentationPanel:self];
             break;
         }
+        case 4: {
+            /* Console */
+            UXCONSOLE.window.isVisible = !UXCONSOLE.window.isVisible;
+            break;
+        }
     }
+}
+
+- (IBAction)clearConsole:(id)sender {
+    [UXCONSOLE clear];
 }
 
 - (void)NSLogger {

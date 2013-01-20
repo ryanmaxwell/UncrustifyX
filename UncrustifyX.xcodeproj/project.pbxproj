@@ -54,6 +54,8 @@
 		9469205F1632329F003C5688 /* UXPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9469205D1632329F003C5688 /* UXPreferencesWindowController.m */; };
 		946920601632329F003C5688 /* UXPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */; };
 		9473F95D1655E05A00457B1A /* UXUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9473F95C1655E05A00457B1A /* UXUIUtils.m */; };
+		9486BB2816AA606300B32136 /* UXConsolePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486BB2616AA606300B32136 /* UXConsolePanelController.m */; };
+		9486BB2916AA606300B32136 /* UXConsolePanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9486BB2716AA606300B32136 /* UXConsolePanelController.xib */; };
 		94993326164E5D5E0036CB53 /* _UXAbstractCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94993325164E5D5E0036CB53 /* _UXAbstractCategory.m */; };
 		94993329164E5D700036CB53 /* UXAbstractCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94993328164E5D700036CB53 /* UXAbstractCategory.m */; };
 		9499335D164F74A10036CB53 /* UXPersistentConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499335C164F74A10036CB53 /* UXPersistentConfigOption.m */; };
@@ -256,6 +258,9 @@
 		9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UXPreferencesWindowController.xib; sourceTree = "<group>"; };
 		9473F95B1655E05A00457B1A /* UXUIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXUIUtils.h; path = Utilities/UXUIUtils.h; sourceTree = "<group>"; };
 		9473F95C1655E05A00457B1A /* UXUIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXUIUtils.m; path = Utilities/UXUIUtils.m; sourceTree = "<group>"; };
+		9486BB2516AA606300B32136 /* UXConsolePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXConsolePanelController.h; sourceTree = "<group>"; };
+		9486BB2616AA606300B32136 /* UXConsolePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXConsolePanelController.m; sourceTree = "<group>"; };
+		9486BB2716AA606300B32136 /* UXConsolePanelController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UXConsolePanelController.xib; sourceTree = "<group>"; };
 		94993324164E5D5E0036CB53 /* _UXAbstractCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _UXAbstractCategory.h; path = Models/_UXAbstractCategory.h; sourceTree = "<group>"; };
 		94993325164E5D5E0036CB53 /* _UXAbstractCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _UXAbstractCategory.m; path = Models/_UXAbstractCategory.m; sourceTree = "<group>"; };
 		94993327164E5D700036CB53 /* UXAbstractCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXAbstractCategory.h; path = Models/UXAbstractCategory.h; sourceTree = "<group>"; };
@@ -318,6 +323,9 @@
 				9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */,
 				94558AE4166AAEAE0094327D /* UXPreferencesWindow.h */,
 				94558AE5166AAEAE0094327D /* UXPreferencesWindow.m */,
+				9486BB2516AA606300B32136 /* UXConsolePanelController.h */,
+				9486BB2616AA606300B32136 /* UXConsolePanelController.m */,
+				9486BB2716AA606300B32136 /* UXConsolePanelController.xib */,
 			);
 			name = "Window Controllers";
 			sourceTree = "<group>";
@@ -708,6 +716,7 @@
 				94ECB63216992CD30057C6F5 /* FileInput.png in Resources */,
 				94ECB65216992E8D0057C6F5 /* ExportConfig.png in Resources */,
 				94ECB65316992E8D0057C6F5 /* ImportConfig.png in Resources */,
+				9486BB2916AA606300B32136 /* UXConsolePanelController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +826,7 @@
 				945C40BF166F346600D2F356 /* _UXSubcategory.m in Sources */,
 				945C40C2166F348000D2F356 /* UXSubcategory.m in Sources */,
 				943552FD1698E95C0052DCD4 /* UXInfoButtonCell.m in Sources */,
+				9486BB2816AA606300B32136 /* UXConsolePanelController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

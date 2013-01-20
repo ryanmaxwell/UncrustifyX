@@ -5,7 +5,10 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
     #import "UXDefaultsManager.h"
+    #import "UXConsolePanelController.h"
     #import "UXAppDelegate.h"
+
+    #define UXCONSOLE   [UXConsolePanelController sharedConsole]
 
     #define MR_SHORTHAND
     #import <MagicalRecord/CoreData+MagicalRecord.h>

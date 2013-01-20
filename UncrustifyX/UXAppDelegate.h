@@ -24,5 +24,6 @@ extern NSString *const UXErrorDomain;
 - (IBAction)run:(id)sender;
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)showView:(id)sender;
+- (IBAction)clearConsole:(id)sender;
 
 @end

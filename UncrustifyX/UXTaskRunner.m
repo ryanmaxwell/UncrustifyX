@@ -94,12 +94,45 @@
         [args addObjectsFromArray:arguments];
         [args addObjectsFromArray:@[@"-c", configPath, filePath]]; // TODO: Quote path?
         
+        NSPipe *outputPipe = NSPipe.pipe;
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(readCompleted:)
+                                                   name:NSFileHandleReadToEndOfFileCompletionNotification
+                                                 object:outputPipe.fileHandleForReading];
+        
+        NSPipe *errorPipe = NSPipe.pipe;
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(readCompleted:)
+                                                   name:NSFileHandleReadToEndOfFileCompletionNotification
+                                                 object:errorPipe.fileHandleForReading];
+        
         NSTask *task = [[NSTask alloc] init];
         task.launchPath = executablePath;
         task.arguments = args;
+        
+        task.standardOutput = outputPipe;
+        task.standardError = errorPipe;
+        
+        [outputPipe.fileHandleForReading readToEndOfFileInBackgroundAndNotify];
+        [errorPipe.fileHandleForReading readToEndOfFileInBackgroundAndNotify];
+        
         [task launch];
         [task waitUntilExit];
     }
+}
+
++ (void)readCompleted:(NSNotification *)notification {
+    NSData *readData = [notification.userInfo objectForKey:NSFileHandleNotificationDataItem];
+    if (readData.length) {
+        NSString *readString = [[NSString alloc] initWithData:readData
+                                                     encoding:NSUTF8StringEncoding];
+        
+        [UXCONSOLE logString:readString];
+    }
+    
+    [NSNotificationCenter.defaultCenter removeObserver:self
+                                                  name:NSFileHandleReadToEndOfFileCompletionNotification
+                                                object:notification.object];
 }
 
 + (NSString *)stringFromConfigOptions:(NSArray *)configOptions {
