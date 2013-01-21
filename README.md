@@ -31,4 +31,5 @@ File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/pr
 I welcome contributors to this project. Raise any bugs/suggestions/feature requests within the Issues tab.
 
 ## License
-UncrustifyX is licenced under the [MIT License](http://opensource.org/licenses/MIT).
+UncrustifyX is licenced under a [modified BSD License](https://github.com/ryanmaxwell/UncrustifyX/blob/master/LICENSE). 
+Please don’t upload this code directly to the App Store as is, without making substantial improvements. In other words, please don’t be a jerk.
