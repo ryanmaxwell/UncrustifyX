@@ -25,7 +25,7 @@ NSString *const UXErrorDomain                               = @"UXError";
 + (void)initialize {
     [super initialize];
     
-    [UXDefaultsManager registerDefaults];
+    [UXDEFAULTS registerDefaults];
 }
 
 - (void)awakeFromNib {

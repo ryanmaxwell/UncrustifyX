@@ -130,7 +130,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
             [self.fragaria embedInView:self.fragariaContainerView];
 
-            NSString *selectedLanguageCode = UXDefaultsManager.selectedPreviewLanguageInMainWindow;
+            NSString *selectedLanguageCode = UXDEFAULTS.selectedPreviewLanguageInMainWindow;
             UXLanguage *selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
                                                                   withValue:selectedLanguageCode];
 
@@ -314,7 +314,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (void)setSelectedPreviewLanguage:(UXLanguage *)selectedPreviewLanguage {
     if (selectedPreviewLanguage != _selectedPreviewLanguage) {
         _selectedPreviewLanguage = selectedPreviewLanguage;
-        UXDefaultsManager.selectedPreviewLanguageInMainWindow = selectedPreviewLanguage.code;
+        UXDEFAULTS.selectedPreviewLanguageInMainWindow = selectedPreviewLanguage.code;
     }
 }
 
@@ -333,7 +333,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         && [self.filePathsArrayController.arrangedObjects count] > 0) {
         NSArray *args = nil;
 
-        if (UXDefaultsManager.overwriteFiles) {
+        if (UXDEFAULTS.overwriteFiles) {
             args = @[@"--no-backup"];
         }
         
@@ -357,15 +357,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (IBAction)toggleDocumentationPanel:(id)sender {
     self.documentationPanelController.window.isVisible = !self.documentationPanelController.window.isVisible;
     
-    UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
-    [appDelegate updateDocumentationMenuItem];
+    [UXAPPDELEGATE updateDocumentationMenuItem];
 }
 
 - (IBAction)toggleConsole:(id)sender {
     UXCONSOLE.window.isVisible = !UXCONSOLE.window.isVisible;
     
-    UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
-    [appDelegate updateConsoleMenuItem];
+    [UXAPPDELEGATE updateConsoleMenuItem];
 }
 
 - (IBAction)addFilesPressed:(id)sender {
@@ -846,10 +844,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 + (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler {
     if ([identifier isEqualToString:UXDocumentationPanelIdentifier]) {
-        UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
-        NSWindow *documentationPanel = appDelegate.mainWindowController.documentationPanelController.window;
-
-        completionHandler(documentationPanel, nil);
+        completionHandler(UXAPPDELEGATE.mainWindowController.documentationPanelController.window, nil);
     } else if ([identifier isEqualToString:UXConsolePanelIdentifier]) {
         completionHandler(UXCONSOLE.window, nil);
     }

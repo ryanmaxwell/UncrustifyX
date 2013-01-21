@@ -4,11 +4,14 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
-    #import "UXDefaultsManager.h"
-    #import "UXConsolePanelController.h"
+    
     #import "UXAppDelegate.h"
+    #import "UXConsolePanelController.h"
+    #import "UXDefaultsManager.h"
 
-    #define UXCONSOLE   [UXConsolePanelController sharedConsole]
+    #define UXAPPDELEGATE       ((UXAppDelegate *)NSApplication.sharedApplication.delegate)
+    #define UXCONSOLE           ((UXConsolePanelController *)UXConsolePanelController.sharedConsole)
+    #define UXDEFAULTS          ((UXDefaultsManager *)UXDefaultsManager.sharedDefaultsManager)
 
     #define MR_SHORTHAND
     #import <MagicalRecord/CoreData+MagicalRecord.h>

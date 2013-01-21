@@ -116,7 +116,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
     [self.previewLanguagesArrayController fetch:nil];
     [self.codeSamplesArrayController fetch:nil];
 
-    NSString *selectedLanguageCode = UXDefaultsManager.selectedPreviewLanguageInDocumentation;
+    NSString *selectedLanguageCode = UXDEFAULTS.selectedPreviewLanguageInDocumentation;
     UXLanguage *selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
                                                           withValue:selectedLanguageCode];
 
@@ -377,7 +377,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
 - (NSPredicate *)keywordSearchPredicate {
     NSMutableArray *appliedPredicates = NSMutableArray.array;
 
-    NSArray *selectedLanguageCodes = [UXDefaultsManager languagesIncludedInDocumentationPanel];
+    NSArray *selectedLanguageCodes = UXDEFAULTS.languagesIncludedInDocumentationPanel;
     NSPredicate *selectedLanguagePredicate = [NSPredicate predicateWithFormat:@"%K IN %@",
                                               UXLanguageAttributes.code,
                                               selectedLanguageCodes];
@@ -455,7 +455,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
 - (void)setSelectedPreviewLanguage:(UXLanguage *)selectedPreviewLanguage {
     if (selectedPreviewLanguage != _selectedPreviewLanguage) {
         _selectedPreviewLanguage = selectedPreviewLanguage;
-        UXDefaultsManager.selectedPreviewLanguageInDocumentation = selectedPreviewLanguage.code;
+        UXDEFAULTS.selectedPreviewLanguageInDocumentation = selectedPreviewLanguage.code;
     }
 }
 

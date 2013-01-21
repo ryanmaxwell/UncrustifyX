@@ -38,7 +38,7 @@
     
     /* Check updated at date */
     NSDate *definitionsUpdatedAt = rootDict[@"UpdatedAt"];
-    if ([definitionsUpdatedAt timeIntervalSinceDate:UXDefaultsManager.definitionsUpdatedAt] == 0) {
+    if ([definitionsUpdatedAt timeIntervalSinceDate:UXDEFAULTS.definitionsUpdatedAt] == 0) {
         
         DLog(@"Current definitions up to date");
         return;
@@ -47,9 +47,9 @@
     /* reimport data */
     DLog(@"Definitions version (%@) newer than current definitions (%@) - Performing Import",
          definitionsUpdatedAt,
-         UXDefaultsManager.definitionsUpdatedAt);
+         UXDEFAULTS.definitionsUpdatedAt);
     
-    UXDefaultsManager.definitionsUpdatedAt = definitionsUpdatedAt;
+    UXDEFAULTS.definitionsUpdatedAt = definitionsUpdatedAt;
     
     NSMutableDictionary *languagesDict = NSMutableDictionary.dictionary;
     NSMutableDictionary *categoriesDict = NSMutableDictionary.dictionary;

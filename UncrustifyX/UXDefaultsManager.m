@@ -25,7 +25,16 @@ static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelect
 
 @implementation UXDefaultsManager
 
-+ (void)registerDefaults {
++ (instancetype)sharedDefaultsManager {
+    static UXDefaultsManager *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[UXDefaultsManager alloc] init];
+    });
+    return instance;
+}
+
+- (void)registerDefaults {
     NSDictionary *defaults = @{
         UXBundledUncrustifyBinaryVersionKey: @"0.60 (84dde5e2f8)",
         UXExportDocumentationKey: @YES,
@@ -39,7 +48,7 @@ static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelect
     [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
 }
 
-+ (NSString *)uncrustifyBinaryPath {
+- (NSString *)uncrustifyBinaryPath {
     if (self.useCustomBinary && self.customBinaryPath.length) {
         return self.customBinaryPath;
     } else {
@@ -47,43 +56,47 @@ static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelect
     }
 }
 
-+ (NSString *)bundledUncrustifyBinaryVersion {
+- (NSString *)bundledUncrustifyBinaryVersion {
     return [self defaultsObjectForKey:UXBundledUncrustifyBinaryVersionKey];
 }
 
-+ (BOOL)useCustomBinary {
+- (BOOL)useCustomBinary {
     return [[self defaultsObjectForKey:UXUseCustomBinaryKey] boolValue];
 }
 
-+ (void)setUseCustomBinary:(BOOL)useCustomBinary {
+- (void)setUseCustomBinary:(BOOL)useCustomBinary {
     [self setDefaultsObject:@(useCustomBinary) forKey:UXUseCustomBinaryKey];
 }
 
-+ (BOOL)overwriteFiles {
+- (BOOL)overwriteFiles {
     return [[self defaultsObjectForKey:UXOverwriteFilesKey] boolValue];
 }
 
-+ (NSString *)customBinaryPath {
+- (void)setOverwriteFiles:(BOOL)overwriteFiles {
+    [self setDefaultsObject:@(overwriteFiles) forKey:UXOverwriteFilesKey];
+}
+
+- (NSString *)customBinaryPath {
     return [self defaultsObjectForKey:UXCustomBinaryPathKey];
 }
 
-+ (void)setCustomBinaryPath:(NSString *)path {
+- (void)setCustomBinaryPath:(NSString *)path {
     [self setDefaultsObject:path forKey:UXCustomBinaryPathKey];
 }
 
-+ (NSDate *)definitionsUpdatedAt {
+- (NSDate *)definitionsUpdatedAt {
     return [self defaultsObjectForKey:UXDefinitionsUpdatedAtKey];
 }
 
-+ (void)setDefinitionsUpdatedAt:(NSDate *)date {
+- (void)setDefinitionsUpdatedAt:(NSDate *)date {
     [self setDefaultsObject:date forKey:UXDefinitionsUpdatedAtKey];
 }
 
-+ (NSArray *)languagesIncludedInDocumentationPanel {
+- (NSArray *)languagesIncludedInDocumentationPanel {
     return [self defaultsObjectForKey:UXLanguagesIncludedInDocumentationKey];
 }
 
-+ (void)addLanguageIncludedInDocumentation:(NSString *)languageCode {
+- (void)addLanguageIncludedInDocumentation:(NSString *)languageCode {
     if (languageCode != nil) {
         NSArray *currentLanguages = [self languagesIncludedInDocumentationPanel];
         if (![currentLanguages containsObject:languageCode]) {
@@ -94,7 +107,7 @@ static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelect
     }
 }
 
-+ (void)removeLanguageIncludedInDocumentation:(NSString *)languageCode {
+- (void)removeLanguageIncludedInDocumentation:(NSString *)languageCode {
     if (languageCode != nil) {
         NSArray *currentLanguages = [self languagesIncludedInDocumentationPanel];
         if ([currentLanguages containsObject:languageCode]) {
@@ -105,31 +118,31 @@ static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelect
     }
 }
 
-+ (NSString *)selectedPreviewLanguageInDocumentation {
+- (NSString *)selectedPreviewLanguageInDocumentation {
     return [self defaultsObjectForKey:UXSelectedPreviewLanguageInDocumentationKey];
 }
 
-+ (void)setSelectedPreviewLanguageInDocumentation:(NSString *)languageCode {
+- (void)setSelectedPreviewLanguageInDocumentation:(NSString *)languageCode {
     [self setDefaultsObject:languageCode forKey:UXSelectedPreviewLanguageInDocumentationKey];
 }
 
-+ (NSString *)selectedPreviewLanguageInMainWindow {
+- (NSString *)selectedPreviewLanguageInMainWindow {
     return [self defaultsObjectForKey:UXSelectedPreviewLanguageInMainWindowKey];
 }
 
-+ (void)setSelectedPreviewLanguageInMainWindow:(NSString *)languageCode {
+- (void)setSelectedPreviewLanguageInMainWindow:(NSString *)languageCode {
     [self setDefaultsObject:languageCode forKey:UXSelectedPreviewLanguageInMainWindowKey];
 }
 
 #pragma mark -
 
-+ (void)setDefaultsObject:(id)object forKey:(id)key {
+- (void)setDefaultsObject:(id)object forKey:(id)key {
     NSUserDefaults *defaults = NSUserDefaults.standardUserDefaults;
     [defaults setObject:object forKey:key];
     [defaults synchronize];
 }
 
-+ (id)defaultsObjectForKey:(id)key {
+- (id)defaultsObjectForKey:(id)key {
     return [NSUserDefaults.standardUserDefaults objectForKey:key];
 }
 

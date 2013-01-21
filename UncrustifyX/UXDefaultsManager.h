@@ -10,33 +10,24 @@
 
 @interface UXDefaultsManager : NSObject
 
-+ (void)registerDefaults;
++ (instancetype)sharedDefaultsManager;
 
-+ (NSString *)uncrustifyBinaryPath;
-+ (NSString *)bundledUncrustifyBinaryVersion;
+- (void)registerDefaults;
 
-+ (BOOL)useCustomBinary;
-+ (void)setUseCustomBinary:(BOOL)useCustomBinary;
-
-+ (NSString *)customBinaryPath;
-+ (void)setCustomBinaryPath:(NSString *)path;
-
-+ (NSDate *)definitionsUpdatedAt;
-+ (void)setDefinitionsUpdatedAt:(NSDate *)date;
-
-+ (NSString *)selectedPreviewLanguageInDocumentation;
-+ (void)setSelectedPreviewLanguageInDocumentation:(NSString *)languageCode;
-
-+ (NSString *)selectedPreviewLanguageInMainWindow;
-+ (void)setSelectedPreviewLanguageInMainWindow:(NSString *)languageCode;
+@property (nonatomic, readonly) NSString *uncrustifyBinaryPath;
+@property (nonatomic) NSString *customBinaryPath;
+@property (nonatomic) BOOL useCustomBinary;
+@property (nonatomic, readonly) NSString *bundledUncrustifyBinaryVersion;
+@property (nonatomic) NSDate *definitionsUpdatedAt;
+@property (nonatomic) NSString *selectedPreviewLanguageInDocumentation;
+@property (nonatomic) NSString *selectedPreviewLanguageInMainWindow;
+@property (nonatomic) BOOL overwriteFiles;
 
 /**
  * @return an array of NSStrings of the language code
  */
-+ (NSArray *)languagesIncludedInDocumentationPanel;
-+ (void)addLanguageIncludedInDocumentation:(NSString *)languageCode;
-+ (void)removeLanguageIncludedInDocumentation:(NSString *)languageCode;
-
-+ (BOOL)overwriteFiles;
+@property (nonatomic, readonly) NSArray *languagesIncludedInDocumentationPanel;
+- (void)addLanguageIncludedInDocumentation:(NSString *)languageCode;
+- (void)removeLanguageIncludedInDocumentation:(NSString *)languageCode;
 
 @end

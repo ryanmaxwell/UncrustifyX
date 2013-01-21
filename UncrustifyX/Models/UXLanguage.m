@@ -39,9 +39,9 @@ NSString *const UXLanguageExtensionDelimiter = @":";
     [self willChangeValueForKey:@"includedInDocumentation"];
     
     if (includedInDocumentation) {
-        [UXDefaultsManager addLanguageIncludedInDocumentation:self.code];
+        [UXDEFAULTS addLanguageIncludedInDocumentation:self.code];
     } else {
-        [UXDefaultsManager removeLanguageIncludedInDocumentation:self.code];
+        [UXDEFAULTS removeLanguageIncludedInDocumentation:self.code];
     }
     
     [self didChangeValueForKey:@"menuDisplayName"];
@@ -49,7 +49,7 @@ NSString *const UXLanguageExtensionDelimiter = @":";
 }
 
 - (BOOL)isIncludedInDocumentation {
-    return [[UXDefaultsManager languagesIncludedInDocumentationPanel] containsObject:self.code];
+    return [UXDEFAULTS.languagesIncludedInDocumentationPanel containsObject:self.code];
 }
 
 - (NSString *)displayName {

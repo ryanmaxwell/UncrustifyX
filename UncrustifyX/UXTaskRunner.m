@@ -49,7 +49,7 @@
 + (void)uncrustifyFilesAtPaths:(NSArray *)filePaths withConfigOptions:(NSArray *)configOptions arguments:(NSArray *)arguments {
     NSString *configString = [self stringFromConfigOptions:configOptions];
     NSString *configPath = [UXFileUtils writeStringToTempFile:configString];
-    NSString *executablePath = UXDefaultsManager.uncrustifyBinaryPath;
+    NSString *executablePath = UXDEFAULTS.uncrustifyBinaryPath;
     
     for (NSString *filePath in filePaths) {
         if (![NSFileManager.defaultManager fileExistsAtPath:filePath]) {
@@ -81,11 +81,10 @@
             NSInteger result = [alert runModal];
             
             if (result == NSAlertFirstButtonReturn) {
-                UXDefaultsManager.useCustomBinary = NO;
-                executablePath = UXDefaultsManager.uncrustifyBinaryPath;
+                UXDEFAULTS.useCustomBinary = NO;
+                executablePath = UXDEFAULTS.uncrustifyBinaryPath;
             } else if (result == NSAlertSecondButtonReturn) {
-                UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
-                [appDelegate showPreferences:self];
+                [UXAPPDELEGATE showPreferences:self];
                 return;
             }
         }

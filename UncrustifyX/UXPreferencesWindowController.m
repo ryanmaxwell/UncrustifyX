@@ -47,8 +47,8 @@
     if (result == NSFileHandlingPanelOKButton) {
         NSURL *chosenFileURL = openPanel.URL;
         
-        UXDefaultsManager.useCustomBinary = YES;
-        UXDefaultsManager.customBinaryPath = chosenFileURL.path;
+        UXDEFAULTS.useCustomBinary = YES;
+        UXDEFAULTS.customBinaryPath = chosenFileURL.path;
     }
 }
 

@@ -21,10 +21,8 @@ NSString *const SubcategoryCellReuseIdentifier = @"SubcategoryTableCellView";
 @implementation UXConfigOptionTableCellView
 
 - (IBAction)infoPressed:(id)sender {
-    UXAppDelegate *appDelegate = NSApplication.sharedApplication.delegate;
-    
     id<UXConfigOption> configOption = self.objectValue;
-    [appDelegate.mainWindowController.documentationPanelController showInfoForOption:configOption.option];
+    [UXAPPDELEGATE.mainWindowController.documentationPanelController showInfoForOption:configOption.option];
 }
 
 - (NSString *)reuseIdentifier {
