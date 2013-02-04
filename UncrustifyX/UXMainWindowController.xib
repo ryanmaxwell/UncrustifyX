@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSButton</string>
@@ -260,7 +260,7 @@
 							</object>
 						</object>
 					</dictionary>
-					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+					<array key="NSToolbarIBAllowedItems">
 						<reference ref="148375419"/>
 						<reference ref="7715135"/>
 						<reference ref="14779475"/>
@@ -618,16 +618,16 @@
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">134217728</int>
 							<string key="NSContents">-</string>
-							<object class="NSFont" key="NSSupport" id="279234428">
+							<object class="NSFont" key="NSSupport" id="25">
 								<string key="NSName">LucidaGrande-Bold</string>
-								<double key="NSSize">13</double>
-								<int key="NSfFlags">2072</int>
+								<double key="NSSize">10</double>
+								<int key="NSfFlags">16</int>
 							</object>
 							<string key="NSCellIdentifier">_NS:22</string>
 							<reference key="NSControlView" ref="564704819"/>
 							<int key="NSButtonFlags">-2033434624</int>
 							<int key="NSButtonFlags2">162</int>
-							<string key="NSAlternateContents"/>
+							<string key="NSAlternateContents">Remove Selected Files</string>
 							<string key="NSKeyEquivalent"/>
 							<int key="NSPeriodicDelay">400</int>
 							<int key="NSPeriodicInterval">75</int>
@@ -647,12 +647,12 @@
 							<int key="NSCellFlags">-2080374784</int>
 							<int key="NSCellFlags2">134217728</int>
 							<string key="NSContents">+</string>
-							<reference key="NSSupport" ref="279234428"/>
+							<reference key="NSSupport" ref="25"/>
 							<string key="NSCellIdentifier">_NS:22</string>
 							<reference key="NSControlView" ref="574292794"/>
 							<int key="NSButtonFlags">-2033434624</int>
 							<int key="NSButtonFlags2">162</int>
-							<string key="NSAlternateContents"/>
+							<string key="NSAlternateContents">Add Files</string>
 							<string key="NSKeyEquivalent"/>
 							<int key="NSPeriodicDelay">400</int>
 							<int key="NSPeriodicInterval">75</int>
@@ -693,7 +693,7 @@
 										<string key="NSFrameSize">{527, 266}</string>
 										<reference key="NSSuperview" ref="243302724"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="666369616"/>
+										<reference key="NSNextKeyView" ref="999151099"/>
 										<string key="NSReuseIdentifierKey">_NS:13</string>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -847,7 +847,7 @@
 						<string key="NSFrame">{{20, 75}, {529, 284}}</string>
 						<reference key="NSSuperview" ref="553223413"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="999151099"/>
+						<reference key="NSNextKeyView" ref="243302724"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="666369616"/>
@@ -900,7 +900,7 @@
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSCustomView" id="977851870">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSCustomView" id="707839940">
@@ -908,7 +908,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 30}, {569, 330}}</string>
 						<reference key="NSSuperview" ref="977851870"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="907512466"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSClassName">NSView</string>
@@ -922,7 +921,6 @@
 								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{405, 3}, {163, 22}}</string>
 								<reference key="NSSuperview" ref="907512466"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="NSEnabled">YES</bool>
 								<object class="NSPopUpButtonCell" key="NSCell" id="843331643">
@@ -968,15 +966,12 @@
 						</array>
 						<string key="NSFrameSize">{569, 30}</string>
 						<reference key="NSSuperview" ref="977851870"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="737609357"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSClassName">UXSearchGradientView</string>
 					</object>
 				</array>
 				<string key="NSFrameSize">{569, 360}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="707839940"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">NSView</string>
@@ -1869,8 +1864,24 @@
 				<string key="316.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="323.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="324.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSMutableDictionary" key="328.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">AccessibilityDescription</string>
+					<object class="IBAccessibilityAttribute" key="NS.object.0">
+						<string key="name">AccessibilityDescription</string>
+						<reference key="object" ref="574292794"/>
+						<string key="accessibilityValue">Add Files</string>
+					</object>
+				</object>
 				<string key="328.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="329.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSMutableDictionary" key="330.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">AccessibilityDescription</string>
+					<object class="IBAccessibilityAttribute" key="NS.object.0">
+						<string key="name">AccessibilityDescription</string>
+						<reference key="object" ref="564704819"/>
+						<string key="accessibilityValue">Remove Selected Files</string>
+					</object>
+				</object>
 				<string key="330.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="331.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="378.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
