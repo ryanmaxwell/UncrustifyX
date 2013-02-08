@@ -416,6 +416,18 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     }
 }
 
+- (IBAction)revealInFinderPressed:(id)sender {
+    if (self.filePathsArrayController.selectedObjects.count > 0) {
+        /* Reveal first item */
+        
+        NSDictionary *filePathDict = self.filePathsArrayController.selectedObjects[0];
+        NSString *path = filePathDict[FilePathObjectPathKey];
+        
+        [NSWorkspace.sharedWorkspace selectFile:path
+                       inFileViewerRootedAtPath:@""];
+    }
+}
+
 - (IBAction)exportConfigurationPressed:(id)sender {
     NSSavePanel *savePanel = NSSavePanel.savePanel;
 

@@ -49,6 +49,7 @@
 
 - (IBAction)addFilesPressed:(id)sender;
 - (IBAction)removeFilesPressed:(id)sender;
+- (IBAction)revealInFinderPressed:(id)sender;
 
 - (IBAction)exportConfigurationPressed:(id)sender;
 - (IBAction)importConfigurationPressed:(id)sender;

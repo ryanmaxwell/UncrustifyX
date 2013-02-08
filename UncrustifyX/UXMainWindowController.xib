@@ -979,6 +979,27 @@
 			<object class="NSUserDefaultsController" id="764228459">
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
+			<object class="NSMenu" id="651236036">
+				<string key="NSTitle"/>
+				<array class="NSMutableArray" key="NSMenuItems">
+					<object class="NSMenuItem" id="98863801">
+						<reference key="NSMenu" ref="651236036"/>
+						<string key="NSTitle">Remove</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="514195496"/>
+						<reference key="NSMixedImage" ref="947981935"/>
+					</object>
+					<object class="NSMenuItem" id="751010006">
+						<reference key="NSMenu" ref="651236036"/>
+						<string key="NSTitle">Reveal in Finder</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="514195496"/>
+						<reference key="NSMixedImage" ref="947981935"/>
+					</object>
+				</array>
+			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -1207,6 +1228,22 @@
 					<int key="connectionID">379</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">revealInFinderPressed:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="751010006"/>
+					</object>
+					<int key="connectionID">386</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">removeFilesPressed:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="98863801"/>
+					</object>
+					<int key="connectionID">387</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="281368311"/>
@@ -1306,6 +1343,14 @@
 						</object>
 					</object>
 					<int key="connectionID">370</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">menu</string>
+						<reference key="source" ref="199565026"/>
+						<reference key="destination" ref="651236036"/>
+					</object>
+					<int key="connectionID">384</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1821,6 +1866,25 @@
 						<reference key="object" ref="596455904"/>
 						<reference key="parent" ref="986574022"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">380</int>
+						<reference key="object" ref="651236036"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="751010006"/>
+							<reference ref="98863801"/>
+						</array>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">381</int>
+						<reference key="object" ref="751010006"/>
+						<reference key="parent" ref="651236036"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">382</int>
+						<reference key="object" ref="98863801"/>
+						<reference key="parent" ref="651236036"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1885,6 +1949,9 @@
 				<string key="330.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="331.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="378.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="380.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="381.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="382.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="43.IBNSWindowAutoPositionCentersHorizontal"/>
 				<boolean value="YES" key="43.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1911,7 +1978,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">379</int>
+			<int key="maxID">387</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1986,6 +2053,8 @@
 						<string key="importConfigurationPressed:">id</string>
 						<string key="previewLanguagePopUpChanged:">id</string>
 						<string key="removeFilesPressed:">id</string>
+						<string key="removePressed:">id</string>
+						<string key="revealInFinderPressed:">id</string>
 						<string key="runButtonPressed:">id</string>
 						<string key="showView:">id</string>
 						<string key="toggleConsole:">id</string>
@@ -2014,6 +2083,14 @@
 						</object>
 						<object class="IBActionInfo" key="removeFilesPressed:">
 							<string key="name">removeFilesPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="removePressed:">
+							<string key="name">removePressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="revealInFinderPressed:">
+							<string key="name">revealInFinderPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="runButtonPressed:">
