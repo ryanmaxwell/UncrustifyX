@@ -63,6 +63,7 @@
 		94993360164F74BF0036CB53 /* UXPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499335F164F74BD0036CB53 /* UXPlaceholder.m */; };
 		949A4AD6166AE20E009D3E9B /* Definitions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 949A4AD5166AE20E009D3E9B /* Definitions.plist */; };
 		949A4AD9166AE265009D3E9B /* uncrustify in Resources */ = {isa = PBXBuildFile; fileRef = 949A4AD8166AE265009D3E9B /* uncrustify */; };
+		949D86B516C5C93C002831E3 /* UXMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 949D86B416C5C93C002831E3 /* UXMainWindow.m */; };
 		94C68D001626BED100BE175D /* UncrustifyX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94C68CFE1626BED100BE175D /* UncrustifyX.xcdatamodeld */; };
 		94CD350616291B3900362AFB /* UXDocumentationPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CD350416291B3900362AFB /* UXDocumentationPanelController.m */; };
 		94CD350716291B3900362AFB /* UXDocumentationPanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CD350516291B3900362AFB /* UXDocumentationPanelController.xib */; };
@@ -74,7 +75,6 @@
 		94ECB65316992E8D0057C6F5 /* ImportConfig.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ECB65116992E8D0057C6F5 /* ImportConfig.png */; };
 		94ED6135165F2DD8008A0862 /* UXExportPanelAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94ED6134165F2DD8008A0862 /* UXExportPanelAccessoryView.xib */; };
 		94ED6139165F2E4F008A0862 /* UXExportPanelAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6138165F2E4F008A0862 /* UXExportPanelAccessoryView.m */; };
-		94F0C6E71650B7440071C8FA /* UXConfigOptionTableCellViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F0C6E61650B7440071C8FA /* UXConfigOptionTableCellViews.xib */; };
 		94F0C70B1650FE4E0071C8FA /* UncrustifyX.icns in Resources */ = {isa = PBXBuildFile; fileRef = 94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */; };
 		94F2E7791664B2CF004E6DF5 /* SearchGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F2E7781664B2CF004E6DF5 /* SearchGradient.png */; };
 		94F2E77D1664B471004E6DF5 /* UXSearchGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F2E77C1664B471004E6DF5 /* UXSearchGradientView.m */; };
@@ -273,6 +273,8 @@
 		9499335F164F74BD0036CB53 /* UXPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXPlaceholder.m; path = Models/UXPlaceholder.m; sourceTree = "<group>"; };
 		949A4AD5166AE20E009D3E9B /* Definitions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Definitions.plist; path = Resources/Definitions.plist; sourceTree = "<group>"; };
 		949A4AD8166AE265009D3E9B /* uncrustify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = uncrustify; path = Resources/uncrustify; sourceTree = "<group>"; };
+		949D86B316C5C93C002831E3 /* UXMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXMainWindow.h; sourceTree = "<group>"; };
+		949D86B416C5C93C002831E3 /* UXMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXMainWindow.m; sourceTree = "<group>"; };
 		94C68CFF1626BED100BE175D /* UncrustifyX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UncrustifyX.xcdatamodel; sourceTree = "<group>"; };
 		94CD350316291B3900362AFB /* UXDocumentationPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXDocumentationPanelController.h; sourceTree = "<group>"; };
 		94CD350416291B3900362AFB /* UXDocumentationPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXDocumentationPanelController.m; sourceTree = "<group>"; };
@@ -287,7 +289,6 @@
 		94ED6134165F2DD8008A0862 /* UXExportPanelAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UXExportPanelAccessoryView.xib; path = Views/UXExportPanelAccessoryView.xib; sourceTree = "<group>"; };
 		94ED6137165F2E4F008A0862 /* UXExportPanelAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXExportPanelAccessoryView.h; path = Views/UXExportPanelAccessoryView.h; sourceTree = "<group>"; };
 		94ED6138165F2E4F008A0862 /* UXExportPanelAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXExportPanelAccessoryView.m; path = Views/UXExportPanelAccessoryView.m; sourceTree = "<group>"; };
-		94F0C6E61650B7440071C8FA /* UXConfigOptionTableCellViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UXConfigOptionTableCellViews.xib; path = Views/UXConfigOptionTableCellViews.xib; sourceTree = "<group>"; };
 		94F0C70A1650FE4E0071C8FA /* UncrustifyX.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = UncrustifyX.icns; path = Resources/UncrustifyX.icns; sourceTree = "<group>"; };
 		94F2E7781664B2CF004E6DF5 /* SearchGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SearchGradient.png; path = Resources/SearchGradient.png; sourceTree = "<group>"; };
 		94F2E77B1664B471004E6DF5 /* UXSearchGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXSearchGradientView.h; path = Views/UXSearchGradientView.h; sourceTree = "<group>"; };
@@ -314,20 +315,22 @@
 		9403587D162927AE00D5FD3A /* Window Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9403587A1629252A00D5FD3A /* UXMainWindowController.h */,
-				9403587B1629252A00D5FD3A /* UXMainWindowController.m */,
-				94049EB51629158D00587269 /* UXMainWindowController.xib */,
-				94CD350316291B3900362AFB /* UXDocumentationPanelController.h */,
-				94CD350416291B3900362AFB /* UXDocumentationPanelController.m */,
-				94CD350516291B3900362AFB /* UXDocumentationPanelController.xib */,
-				9469205C1632329F003C5688 /* UXPreferencesWindowController.h */,
-				9469205D1632329F003C5688 /* UXPreferencesWindowController.m */,
-				9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */,
-				94558AE4166AAEAE0094327D /* UXPreferencesWindow.h */,
-				94558AE5166AAEAE0094327D /* UXPreferencesWindow.m */,
 				9486BB2516AA606300B32136 /* UXConsolePanelController.h */,
 				9486BB2616AA606300B32136 /* UXConsolePanelController.m */,
 				9486BB2716AA606300B32136 /* UXConsolePanelController.xib */,
+				94CD350316291B3900362AFB /* UXDocumentationPanelController.h */,
+				94CD350416291B3900362AFB /* UXDocumentationPanelController.m */,
+				94CD350516291B3900362AFB /* UXDocumentationPanelController.xib */,
+				949D86B316C5C93C002831E3 /* UXMainWindow.h */,
+				949D86B416C5C93C002831E3 /* UXMainWindow.m */,
+				9403587A1629252A00D5FD3A /* UXMainWindowController.h */,
+				9403587B1629252A00D5FD3A /* UXMainWindowController.m */,
+				94049EB51629158D00587269 /* UXMainWindowController.xib */,
+				94558AE4166AAEAE0094327D /* UXPreferencesWindow.h */,
+				94558AE5166AAEAE0094327D /* UXPreferencesWindow.m */,
+				9469205C1632329F003C5688 /* UXPreferencesWindowController.h */,
+				9469205D1632329F003C5688 /* UXPreferencesWindowController.m */,
+				9469205E1632329F003C5688 /* UXPreferencesWindowController.xib */,
 			);
 			name = "Window Controllers";
 			sourceTree = "<group>";
@@ -415,7 +418,6 @@
 			children = (
 				944ED07C164F7AE800F785DC /* UXConfigOptionTableCellView.h */,
 				944ED07D164F7AE800F785DC /* UXConfigOptionTableCellView.m */,
-				94F0C6E61650B7440071C8FA /* UXConfigOptionTableCellViews.xib */,
 				944403411653960F00E2115D /* UXConfigOptionTableView.h */,
 				944403421653960F00E2115D /* UXConfigOptionTableView.m */,
 				94ED6134165F2DD8008A0862 /* UXExportPanelAccessoryView.xib */,
@@ -702,7 +704,6 @@
 				94049EB71629158D00587269 /* UXMainWindowController.xib in Resources */,
 				94CD350716291B3900362AFB /* UXDocumentationPanelController.xib in Resources */,
 				946920601632329F003C5688 /* UXPreferencesWindowController.xib in Resources */,
-				94F0C6E71650B7440071C8FA /* UXConfigOptionTableCellViews.xib in Resources */,
 				94F0C70B1650FE4E0071C8FA /* UncrustifyX.icns in Resources */,
 				9405B52E1651FF01001A1C7F /* Info.png in Resources */,
 				94ED6135165F2DD8008A0862 /* UXExportPanelAccessoryView.xib in Resources */,
@@ -831,6 +832,7 @@
 				945C40C2166F348000D2F356 /* UXSubcategory.m in Sources */,
 				943552FD1698E95C0052DCD4 /* UXInfoButtonCell.m in Sources */,
 				9486BB2816AA606300B32136 /* UXConsolePanelController.m in Sources */,
+				949D86B516C5C93C002831E3 /* UXMainWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

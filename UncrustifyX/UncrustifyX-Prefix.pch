@@ -9,6 +9,7 @@
     #import "UXConsolePanelController.h"
     #import "UXDefaultsManager.h"
 
+    /* Singletons */
     #define UXAPPDELEGATE       ((UXAppDelegate *)NSApplication.sharedApplication.delegate)
     #define UXCONSOLE           ((UXConsolePanelController *)UXConsolePanelController.sharedConsole)
     #define UXDEFAULTS          ((UXDefaultsManager *)UXDefaultsManager.sharedDefaultsManager)

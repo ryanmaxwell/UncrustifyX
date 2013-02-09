@@ -103,15 +103,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         if (_initialize) {
             _initialize = NO;
 
-            NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"UXConfigOptionTableCellViews"
-                                                      bundle:nil];
-            [self.configOptionsTableView registerNib:cellNib
-                                       forIdentifier:ConfigOptionCellReuseIdentifier];
-            [self.configOptionsTableView registerNib:cellNib
-                                       forIdentifier:CategoryCellReuseIdentifier];
-            [self.configOptionsTableView registerNib:cellNib
-                                       forIdentifier:SubcategoryCellReuseIdentifier];
-
             [self.filePathsTableView registerForDraggedTypes:@[
                  NSURLPboardType
             ]];
@@ -385,7 +376,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                       }];
 }
 
-- (IBAction)removeFilesPressed:(id)sender {
+- (IBAction)removeItems:(id)sender {
     NSIndexSet *selectedConfigOptions = self.configOptionsTableView.selectedRowIndexes;
     
     if (self.window.firstResponder == self.filePathsTableView && self.filePathsArrayController.selectedObjects.count > 0) {
@@ -425,6 +416,16 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         
         [NSWorkspace.sharedWorkspace selectFile:path
                        inFileViewerRootedAtPath:@""];
+    }
+}
+
+- (IBAction)showDocumentationPressed:(id)sender {
+    NSUInteger selectedRow = self.configOptionsTableView.selectedRow;
+    
+    if (selectedRow != -1 && ![self tableView:self.configOptionsTableView isGroupRow:selectedRow]) {
+        id<UXConfigOption> configOption = self.sortedConfigOptionsAndCategories[selectedRow];
+        
+        [self.documentationPanelController showInfoForOption:configOption.option];
     }
 }
 
@@ -512,10 +513,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     } else {
         DErr(@"%@", error);
     }
-}
-
-- (IBAction)deletePressed:(id)sender {
-    [self removeFilesPressed:sender];
 }
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {

@@ -100,7 +100,7 @@ NSString *const UXErrorDomain                               = @"UXError";
 }
 
 - (IBAction)deletePressed:(id)sender {
-    [self.mainWindowController deletePressed:sender];
+    [self.mainWindowController removeItems:sender];
 }
 
 - (IBAction)showView:(id)sender {

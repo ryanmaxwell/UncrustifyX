@@ -48,12 +48,14 @@
 @property (strong, nonatomic) NSMutableArray *configOptions;
 
 - (IBAction)addFilesPressed:(id)sender;
-- (IBAction)removeFilesPressed:(id)sender;
+
 - (IBAction)revealInFinderPressed:(id)sender;
+- (IBAction)showDocumentationPressed:(id)sender;
+
+- (IBAction)removeItems:(id)sender;
 
 - (IBAction)exportConfigurationPressed:(id)sender;
 - (IBAction)importConfigurationPressed:(id)sender;
-- (IBAction)deletePressed:(id)sender;
 - (IBAction)runButtonPressed:(id)sender;
 - (IBAction)showView:(id)sender;
 - (IBAction)previewLanguagePopUpChanged:(id)sender;

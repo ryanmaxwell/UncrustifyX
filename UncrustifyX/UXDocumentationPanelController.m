@@ -566,6 +566,8 @@ static CGFloat const PreviewViewHeight = 250.0f;
 }
 
 - (void)showInfoForOption:(UXOption *)option {
+    if (!option) return;
+    
     if (!self.window.isVisible) {
         self.window.isVisible = YES;
     }
