@@ -1,3 +1,7 @@
+# 0.4 - Work in Progress
+- Contextual-menus on table views.
+- Forward-delete key works in addition to back-delete key for removing items from tables.
+
 # 0.3
 ## 2012-02-03
 
