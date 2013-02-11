@@ -10,16 +10,6 @@
 
 @implementation UXConfigOptionTableView
 
-- (id)initWithFrame:(NSRect)frame {
-    self = [super initWithFrame:frame];
-    
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
 - (void)setFrameSize:(NSSize)newSize {
     [super setFrameSize:newSize];
     
@@ -33,11 +23,7 @@
     NSPoint mousePoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     NSInteger row = [self rowAtPoint:mousePoint];
     
-    if (row != -1) {
-        return [super menuForEvent:theEvent];
-    } else {
-        return nil;
-    }
+    return (row != -1) ? [super menuForEvent:theEvent] : nil;
 }
 
 @end
