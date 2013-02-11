@@ -29,4 +29,15 @@
     }
 }
 
+- (NSMenu *)menuForEvent:(NSEvent *)theEvent {
+    NSPoint mousePoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+    NSInteger row = [self rowAtPoint:mousePoint];
+    
+    if (row != -1) {
+        return [super menuForEvent:theEvent];
+    } else {
+        return nil;
+    }
+}
+
 @end
