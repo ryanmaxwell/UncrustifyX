@@ -23,7 +23,7 @@
     NSPoint mousePoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     NSInteger row = [self rowAtPoint:mousePoint];
     
-    return (row != -1) ? [super menuForEvent:theEvent] : nil;
+    return (row != -1 && ![self.delegate tableView:self isGroupRow:row]) ? [super menuForEvent:theEvent] : nil;
 }
 
 @end
