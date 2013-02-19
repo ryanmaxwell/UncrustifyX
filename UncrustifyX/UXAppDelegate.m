@@ -39,11 +39,23 @@ NSString *const UXErrorDomain                               = @"UXError";
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {    
-    [self updateDocumentationMenuItem];
-    [self updateConsoleMenuItem];
+    [self updateDocumentationMenuItem:nil];
+    [self updateConsoleMenuItem:nil];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(updateConsoleMenuItem:)
+                                               name:NSWindowWillCloseNotification
+                                             object:UXCONSOLE.window];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(updateDocumentationMenuItem:)
+                                               name:NSWindowWillCloseNotification
+                                             object:self.mainWindowController.documentationPanelController.window];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
+    
     [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
     [MagicalRecord cleanUp];
 }
@@ -158,19 +170,21 @@ NSString *const UXErrorDomain                               = @"UXError";
 #endif
 }
 
-- (void)updateDocumentationMenuItem {
-    if (self.mainWindowController.isDocumentationVisible) {
-        self.documentationMenuItem.title = @"Hide Documentation";
-    } else {
+- (void)updateDocumentationMenuItem:(NSNotification *)notification  {
+    if (!self.mainWindowController.isDocumentationVisible
+        || (notification && [notification.name isEqualToString:NSWindowWillCloseNotification])) {
         self.documentationMenuItem.title = @"Show Documentation";
+    } else {
+        self.documentationMenuItem.title = @"Hide Documentation";
     }
 }
 
-- (void)updateConsoleMenuItem {
-    if (UXCONSOLE.window.isVisible) {
-        self.consoleMenuItem.title = @"Hide Console";
-    } else {
+- (void)updateConsoleMenuItem:(NSNotification *)notification {
+    if (!UXCONSOLE.window.isVisible
+        || (notification && [notification.name isEqualToString:NSWindowWillCloseNotification])) {
         self.consoleMenuItem.title = @"Show Console";
+    } else {
+        self.consoleMenuItem.title = @"Hide Console";
     }
 }
 

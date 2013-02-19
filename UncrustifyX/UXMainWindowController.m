@@ -348,13 +348,13 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (IBAction)toggleDocumentationPanel:(id)sender {
     self.documentationPanelController.window.isVisible = !self.documentationPanelController.window.isVisible;
     
-    [UXAPPDELEGATE updateDocumentationMenuItem];
+    [UXAPPDELEGATE updateDocumentationMenuItem:nil];
 }
 
 - (IBAction)toggleConsole:(id)sender {
     UXCONSOLE.window.isVisible = !UXCONSOLE.window.isVisible;
     
-    [UXAPPDELEGATE updateConsoleMenuItem];
+    [UXAPPDELEGATE updateConsoleMenuItem:nil];
 }
 
 - (IBAction)addFilesPressed:(id)sender {

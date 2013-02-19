@@ -29,7 +29,7 @@ extern NSString *const UXErrorDomain;
 - (IBAction)showView:(id)sender;
 - (IBAction)clearConsole:(id)sender;
 
-- (void)updateDocumentationMenuItem;
-- (void)updateConsoleMenuItem;
+- (void)updateDocumentationMenuItem:(NSNotification *)notification;
+- (void)updateConsoleMenuItem:(NSNotification *)notification;
 
 @end
