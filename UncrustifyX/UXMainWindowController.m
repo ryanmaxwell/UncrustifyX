@@ -377,41 +377,78 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 }
 
 - (IBAction)removeItems:(id)sender {
-    NSIndexSet *selectedConfigOptions = self.configOptionsTableView.selectedRowIndexes;
     
-    if (self.window.firstResponder == self.filePathsTableView && self.filePathsArrayController.selectedObjects.count > 0) {
+    if (self.window.firstResponder == self.filePathsTableView) {
         
-        [self.filePathsArrayController removeObjects:self.filePathsArrayController.selectedObjects];        
+        NSUInteger clickedRow = self.filePathsTableView.clickedRow;
+        NSUInteger selectedRow = self.filePathsTableView.selectedRow;
         
-        /* Validate immediately as system only does it periodically */
-        [self.toolbar validateVisibleItems];
-    } else if (self.window.firstResponder == self.configOptionsTableView && selectedConfigOptions.count > 0) {
-        NSMutableArray *objectsToRemove = NSMutableArray.array;
+        if (clickedRow == -1 && selectedRow == -1) return;
         
-        [selectedConfigOptions enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[index]];
-        }];
+        NSIndexSet *selectedRows = self.filePathsTableView.selectedRowIndexes;
         
-        [self.configOptions removeObjectsInArray:objectsToRemove];
-        
-        for (NSManagedObject *mo in objectsToRemove) {
-            [NSManagedObjectContext.defaultContext deleteObject:mo];
+        if ((clickedRow != -1 && selectedRows.count > 0 && [selectedRows containsIndex:clickedRow])
+            || (clickedRow == -1 && selectedRows.count > 0)) {
+            /* selected rows and clicked on one of them, or not clicked on row and just selected some rows */
+            [self.filePathsArrayController removeObjects:self.filePathsArrayController.selectedObjects];
+        } else if (clickedRow != -1) {
+            /* remove the single row clicked */
+            [self.filePathsArrayController removeObjectAtArrangedObjectIndex:clickedRow];
         }
         
-        [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
+    } else if (self.window.firstResponder == self.configOptionsTableView) {
         
-        /* Validate immediately as system only does it periodically */
-        [self.toolbar validateVisibleItems];
+        NSUInteger clickedRow = self.configOptionsTableView.clickedRow;
+        NSUInteger selectedRow = self.configOptionsTableView.selectedRow;
         
-        [self sortConfigOptions];
+        if (clickedRow == -1 && selectedRow == -1) return;
+        
+        NSIndexSet *selectedRows = self.configOptionsTableView.selectedRowIndexes;
+        NSMutableArray *objectsToRemove = NSMutableArray.array;
+        
+        if ((clickedRow != -1 && selectedRows.count > 0 && [selectedRows containsIndex:clickedRow])
+            || (clickedRow == -1 && selectedRows.count > 0)) {
+            /* selected rows and clicked on one of them, or not clicked on row and just selected some rows */
+            
+            [selectedRows enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+                [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[index]];
+            }];
+        } else if (clickedRow != -1) {
+            /* remove the single row clicked */
+            [objectsToRemove addObject:self.sortedConfigOptionsAndCategories[clickedRow]];
+        }
+        
+        if (objectsToRemove.count > 0) {
+            [self.configOptions removeObjectsInArray:objectsToRemove];
+            
+            for (NSManagedObject *mo in objectsToRemove) {
+                [NSManagedObjectContext.defaultContext deleteObject:mo];
+            }
+            
+            [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
+            
+            [self sortConfigOptions];
+            
+            /* Validate immediately as system only does it periodically */
+            [self.toolbar validateVisibleItems];
+        }
     }
 }
 
 - (IBAction)revealInFinderPressed:(id)sender {
-    if (self.filePathsArrayController.selectedObjects.count > 0) {
-        /* Reveal first item */
-        
-        NSDictionary *filePathDict = self.filePathsArrayController.selectedObjects[0];
+    NSInteger selectedRow = self.filePathsTableView.selectedRow;
+    NSInteger clickedRow = self.filePathsTableView.clickedRow;
+    
+    NSInteger rowToAction = NSNotFound;
+    
+    if (clickedRow != -1) {
+        rowToAction = clickedRow;
+    } else if (selectedRow != -1) {
+        rowToAction = selectedRow;
+    }
+    
+    if (rowToAction != NSNotFound) {
+        NSDictionary *filePathDict = self.filePathsArrayController.arrangedObjects[rowToAction];
         NSString *path = filePathDict[FilePathObjectPathKey];
         
         [NSWorkspace.sharedWorkspace selectFile:path
@@ -421,9 +458,18 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (IBAction)showDocumentationPressed:(id)sender {
     NSUInteger selectedRow = self.configOptionsTableView.selectedRow;
+    NSUInteger clickedRow = self.configOptionsTableView.clickedRow;
     
-    if (selectedRow != -1 && ![self tableView:self.configOptionsTableView isGroupRow:selectedRow]) {
-        id<UXConfigOption> configOption = self.sortedConfigOptionsAndCategories[selectedRow];
+    NSInteger rowToAction = NSNotFound;
+    
+    if (clickedRow != -1 && ![self tableView:self.configOptionsTableView isGroupRow:clickedRow]) {
+        rowToAction = clickedRow;
+    } else if (selectedRow != -1 && ![self tableView:self.configOptionsTableView isGroupRow:selectedRow]) {
+        rowToAction = selectedRow;
+    }
+    
+    if (rowToAction != NSNotFound) {
+        id<UXConfigOption> configOption = self.sortedConfigOptionsAndCategories[rowToAction];
         
         [self.documentationPanelController showInfoForOption:configOption.option];
     }
