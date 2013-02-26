@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
 		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSCustomObject</string>
@@ -60,7 +60,7 @@
 										<object class="NSTextView" id="158940090">
 											<reference key="NSNextResponder" ref="275275644"/>
 											<int key="NSvFlags">2322</int>
-											<string key="NSFrameSize">{470, 275}</string>
+											<string key="NSFrameSize">{455, 275}</string>
 											<reference key="NSSuperview" ref="275275644"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="480145491"/>
@@ -80,7 +80,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="158940090"/>
-												<double key="NSWidth">470</double>
+												<double key="NSWidth">455</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -132,7 +132,7 @@
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
-									<string key="NSFrame">{{1, 1}, {470, 275}}</string>
+									<string key="NSFrame">{{1, 1}, {455, 275}}</string>
 									<reference key="NSSuperview" ref="652462278"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="158940090"/>
@@ -297,7 +297,7 @@ wGw</bytes>
 								<object class="NSScroller" id="151502361">
 									<reference key="NSNextResponder" ref="652462278"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{455, 1}, {16, 275}}</string>
+									<string key="NSFrame">{{456, 1}, {15, 275}}</string>
 									<reference key="NSSuperview" ref="652462278"/>
 									<reference key="NSWindow"/>
 									<string key="NSReuseIdentifierKey">_NS:83</string>
@@ -340,7 +340,6 @@ wGw</bytes>
 					<string key="NSFrameSize">{470, 275}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
