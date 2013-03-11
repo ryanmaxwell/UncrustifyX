@@ -267,7 +267,7 @@ My Comment
 			<string>Whether to put each OC message parameter on a separate line
 See nl_oc_msg_leave_one_liner</string>
 			<key>Name</key>
-			<string>Place obj-c message parameters on new lines</string>
+			<string>Place ObjC message parameters on new lines</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -282,7 +282,7 @@ See nl_oc_msg_leave_one_liner</string>
 			<key>Description</key>
 			<string>Don&apos;t split one-line OC messages</string>
 			<key>Name</key>
-			<string>Don&apos;t split one-line obj-c messages</string>
+			<string>Don&apos;t split one-line ObjC messages</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -297,7 +297,7 @@ See nl_oc_msg_leave_one_liner</string>
 			<key>Description</key>
 			<string>If true, always align with the first parameter, even if it is too short.</string>
 			<key>Name</key>
-			<string>Always align with first parameter in obj-c message</string>
+			<string>Always align with first parameter in ObjC message</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -365,7 +365,7 @@ See nl_oc_msg_leave_one_liner</string>
 			<key>Description</key>
 			<string>Minimum indent for subsequent parameters</string>
 			<key>Name</key>
-			<string>Indentation size for obj-c message subsequent parameters</string>
+			<string>Indentation size for ObjC message subsequent parameters</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
@@ -383,7 +383,7 @@ See nl_oc_msg_leave_one_liner</string>
 			<string>Indent OC blocks in a message relative to the parameter name.
   0=use indent_oc_block rules, 1+=spaces to indent</string>
 			<key>Name</key>
-			<string>Indentation size for obj-c blocks in a message parameter</string>
+			<string>Indentation size for ObjC blocks in a message parameter</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
@@ -546,13 +546,13 @@ This will not work right if the macro contains a multi-line comment.</string>
 			<key>Category</key>
 			<string>Alignment</string>
 			<key>Description</key>
-			<string>Aligning parameters in an Obj-C &apos;+&apos; or &apos;-&apos; declaration on the &apos;:&apos;</string>
+			<string>Aligning parameters in an ObjC &apos;+&apos; or &apos;-&apos; declaration on the &apos;:&apos;</string>
 			<key>Languages</key>
 			<array>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Align obj-c declaration params on colon</string>
+			<string>Align ObjC declaration params on colon</string>
 			<key>Subcategory</key>
 			<string>Alignment</string>
 			<key>ValueTypeID</key>
@@ -563,13 +563,13 @@ This will not work right if the macro contains a multi-line comment.</string>
 			<key>Category</key>
 			<string>Alignment</string>
 			<key>Description</key>
-			<string>Span for aligning parameters in an Obj-C message call on the &apos;:&apos; (0=don&apos;t align)</string>
+			<string>Span for aligning parameters in an ObjC message call on the &apos;:&apos; (0=don&apos;t align)</string>
 			<key>Languages</key>
 			<array>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Alignment span for obj-c message colons</string>
+			<string>Alignment span for ObjC message colons</string>
 			<key>Subcategory</key>
 			<string>Alignment Span</string>
 			<key>ValueTypeID</key>
@@ -586,7 +586,7 @@ This will not work right if the macro contains a multi-line comment.</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Alignment span for obj-c message spec</string>
+			<string>Alignment span for ObjC message spec</string>
 			<key>Subcategory</key>
 			<string>Alignment Span</string>
 			<key>ValueTypeID</key>
@@ -1193,14 +1193,14 @@ Will also substitute $(fclass) with the class name: void CFoo::Bar() { ... }</st
 			<key>Category</key>
 			<string>Comments</string>
 			<key>Description</key>
-			<string>The filename that contains text to insert before a Obj-C message specification if the method isn&apos;t preceeded with a C/C++ comment.
+			<string>The filename that contains text to insert before a ObjC message specification if the method isn&apos;t preceeded with a C/C++ comment.
 Will substitute $(message) with the function name and $(javaparam) with the javadoc @param and @return stuff.</string>
 			<key>Languages</key>
 			<array>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Obj-c message header comment filename</string>
+			<string>ObjC message header comment filename</string>
 			<key>Subcategory</key>
 			<string>Comment Files</string>
 			<key>ValueTypeID</key>
@@ -1817,7 +1817,7 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Indent obj-c block</string>
+			<string>Indent ObjC block</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -2293,7 +2293,7 @@ If any must be braced, they are all braced.  If all can be unbraced, then the br
 			<key>Category</key>
 			<string>Code-Modifying</string>
 			<key>Description</key>
-			<string>If TRUE, will sort consecutive single-line &apos;#include&apos; statements [C/C++] and &apos;#import&apos; statements [Obj-C]
+			<string>If TRUE, will sort consecutive single-line &apos;#include&apos; statements [C/C++] and &apos;#import&apos; statements [ObjC]
 This is generally a bad idea, as it may break your code.</string>
 			<key>Languages</key>
 			<array>
@@ -4454,7 +4454,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c @selector parentheses</string>
+			<string>Space after ObjC @selector parentheses</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4472,7 +4472,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c block caret</string>
+			<string>Space after ObjC block caret</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4490,7 +4490,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c colon</string>
+			<string>Space after ObjC colon</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4508,7 +4508,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c dictionary colon</string>
+			<string>Space after ObjC dictionary colon</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4526,7 +4526,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c message receiver</string>
+			<string>Space after ObjC message receiver</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4545,7 +4545,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c property</string>
+			<string>Space after ObjC property</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -4561,7 +4561,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c return type</string>
+			<string>Space after ObjC return type</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4578,7 +4578,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c scope</string>
+			<string>Space after ObjC scope</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4596,7 +4596,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c type</string>
+			<string>Space after ObjC type</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4709,7 +4709,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space after obj-c message colon</string>
+			<string>Space after ObjC message colon</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -5058,7 +5058,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space before obj-c block caret</string>
+			<string>Space before ObjC block caret</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
@@ -5076,7 +5076,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space before obj-c colon</string>
+			<string>Space before ObjC colon</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
@@ -5094,7 +5094,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space before obj-c dictionary colon</string>
+			<string>Space before ObjC dictionary colon</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
@@ -5192,7 +5192,7 @@ Also applies to @protocol() constructs</string>
 				<string>OC</string>
 			</array>
 			<key>Name</key>
-			<string>Space before obj-c message colon</string>
+			<string>Space before ObjC message colon</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
@@ -6428,7 +6428,7 @@ Improvements to template detection may make this option obsolete.</string>
 		</dict>
 	</dict>
 	<key>UpdatedAt</key>
-	<date>2013-01-18T23:00:00Z</date>
+	<date>2013-03-11T23:00:00Z</date>
 	<key>ValueTypes</key>
 	<array>
 		<dict>
