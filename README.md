@@ -30,6 +30,9 @@ File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/pr
 ## Contribution
 I welcome contributors to this project. Raise any bugs/suggestions/feature requests within the Issues tab.
 
+## Xcode Integration
+Currently the best way to use your uncrustify configuration from within Xcode is by using [BBUncrustifyPlugin-Xcode](https://github.com/benoitsan/BBUncrustifyPlugin-Xcode). Look out for better integration of these two projects in the future!
+
 ## License
 UncrustifyX is licenced under a [modified BSD License](https://github.com/ryanmaxwell/UncrustifyX/blob/master/LICENSE). 
 Please don’t upload this code directly to the App Store as is, without making substantial improvements. In other words, please don’t be a jerk.
