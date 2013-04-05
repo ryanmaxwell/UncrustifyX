@@ -608,6 +608,14 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     [self showFileInputView];
 }
 
+- (NSString *)directInputText {
+    return self.fragaria.string;
+}
+
+- (void)setDirectInputText:(NSString *)text {
+    self.fragaria.string = text;
+}
+
 #pragma mark - Validation for UI Items
 
 - (BOOL)isRunEnabled {

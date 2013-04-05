@@ -47,6 +47,8 @@
 
 @property (strong, nonatomic) NSMutableArray *configOptions;
 
+@property (strong, nonatomic) NSString *directInputText;
+
 - (IBAction)addFilesPressed:(id)sender;
 
 - (IBAction)revealInFinderPressed:(id)sender;
