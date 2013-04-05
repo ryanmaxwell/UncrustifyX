@@ -21,3 +21,4 @@
 - file type association icon for .cfg file
 - Xcode integration somehow (automator action/services menu/build script?)
 - prompt to re-enable language in documentation when clicking info on option not shown
+- Follow document model to edit a config file/mark as dirty/save (overwrite) instead of import/export model
