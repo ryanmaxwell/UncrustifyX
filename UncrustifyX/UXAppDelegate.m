@@ -12,7 +12,10 @@
 #import "UXPreferencesWindowController.h"
 #import "UXDocumentationPanelController.h"
 
-NSString *const UXErrorDomain                               = @"UXError";
+NSString * const UXErrorDomain                                      = @"UXError";
+
+static NSString * const BBUncrustifyPluginLaunchArgument            = @"-bbuncrustifyplugin";
+static NSString * const BBUncrustifyPluginSourceCodePasteboardName  = @"BBUncrustifyPlugin-source-code";
 
 typedef NS_ENUM(NSInteger, UXViewTag) {
     UXViewTagFiles = 1,
@@ -58,6 +61,36 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
                                            selector:@selector(updateDocumentationMenuItem:)
                                                name:NSWindowWillCloseNotification
                                              object:self.mainWindowController.documentationPanelController.window];
+    
+    NSArray *launchArgs = NSProcessInfo.processInfo.arguments;
+    
+    if ([launchArgs containsObject:BBUncrustifyPluginLaunchArgument]) {
+        NSLog(@"UX Launched from BBUncrustifyPlugin-Xcode");
+        
+        NSUInteger configPathArgumentIndex = [launchArgs indexOfObject:@"-configpath"];
+        
+        if (configPathArgumentIndex != NSNotFound && launchArgs.count > configPathArgumentIndex + 1) {
+            NSString *configPath = launchArgs[configPathArgumentIndex + 1];
+            
+            NSLog(@"Config Path: %@", configPath);
+            
+            if ([configPath hasPrefix:@"~"]) {
+                configPath = [configPath stringByExpandingTildeInPath];
+            }
+            
+            NSURL *configPathURL = [NSURL fileURLWithPath:configPath];
+            [self.mainWindowController importConfigurationAtURL:configPathURL];
+            
+            NSPasteboard *sourceCodePB = [NSPasteboard pasteboardWithName:BBUncrustifyPluginSourceCodePasteboardName];
+            NSArray *objects = [sourceCodePB readObjectsForClasses:@[NSString.class] options:nil];
+            
+            if (objects.count) {
+                NSLog(@"Source Code: \n%@", objects);
+                self.mainWindowController.directInputText = objects[0];
+                [self showViewWithTag:UXViewTagDirectInput];
+            }
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -68,19 +101,20 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
+    if ([NSProcessInfo.processInfo.arguments containsObject:BBUncrustifyPluginLaunchArgument]) return;
+    
     for (NSString *filePath in filenames) {
-        if ([filePath.pathExtension
-             isEqualToString:@"cfg"]) {
+        if ([filePath.pathExtension isEqualToString:@"cfg"]) {
             /* parse config */
             
             NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-            [self.mainWindowController
-             importConfigurationAtURL:fileURL];
+            [self.mainWindowController importConfigurationAtURL:fileURL];
             
             [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
             return;
         }
     }
+    
     
     [self.mainWindowController addFilePaths:filenames];
     [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
@@ -124,29 +158,32 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
 
 - (IBAction)showView:(id)sender {
     NSMenuItem *menuItem = (NSMenuItem *)sender;
-    
-    switch (menuItem.tag) {
+    [self showViewWithTag:menuItem.tag];
+}
+
+- (void)showViewWithTag:(UXViewTag)viewTag {
+    switch (viewTag) {
         case UXViewTagFiles: {
             self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.fileInputToolbarItem.itemIdentifier;
             [self.mainWindowController showView:self.mainWindowController.fileInputToolbarItem];
         }
-        break;
+            break;
             
         case UXViewTagDirectInput: {
             self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.directInputToolbarItem.itemIdentifier;
             [self.mainWindowController showView:self.mainWindowController.directInputToolbarItem];
         }
-        break;
+            break;
             
         case UXViewTagDocumentation: {
             [self.mainWindowController toggleDocumentationPanel:self];
         }
-        break;
-        
+            break;
+            
         case UXViewTagConsole: {
             [self.mainWindowController toggleConsole:self];
         }
-        break;
+            break;
     }
 }
 
