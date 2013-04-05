@@ -65,14 +65,14 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
     NSArray *launchArgs = NSProcessInfo.processInfo.arguments;
     
     if ([launchArgs containsObject:BBUncrustifyPluginLaunchArgument]) {
-        NSLog(@"UX Launched from BBUncrustifyPlugin-Xcode");
+        DLog(@"UX Launched from BBUncrustifyPlugin-Xcode");
         
         NSUInteger configPathArgumentIndex = [launchArgs indexOfObject:@"-configpath"];
         
         if (configPathArgumentIndex != NSNotFound && launchArgs.count > configPathArgumentIndex + 1) {
             NSString *configPath = launchArgs[configPathArgumentIndex + 1];
             
-            NSLog(@"Config Path: %@", configPath);
+            DLog(@"Config Path: %@", configPath);
             
             if ([configPath hasPrefix:@"~"]) {
                 configPath = [configPath stringByExpandingTildeInPath];
@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
             NSArray *objects = [sourceCodePB readObjectsForClasses:@[NSString.class] options:nil];
             
             if (objects.count) {
-                NSLog(@"Source Code: \n%@", objects);
+                DLog(@"Source Code: \n%@", objects);
                 self.mainWindowController.directInputText = objects[0];
                 [self showViewWithTag:UXViewTagDirectInput];
             }
