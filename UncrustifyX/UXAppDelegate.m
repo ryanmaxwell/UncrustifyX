@@ -14,6 +14,13 @@
 
 NSString *const UXErrorDomain                               = @"UXError";
 
+typedef NS_ENUM(NSInteger, UXViewTag) {
+    UXViewTagFiles = 1,
+    UXViewTagDirectInput,
+    UXViewTagDocumentation,
+    UXViewTagConsole
+};
+
 @interface UXAppDelegate () <NSMenuDelegate>
 
 @end
@@ -119,33 +126,27 @@ NSString *const UXErrorDomain                               = @"UXError";
     NSMenuItem *menuItem = (NSMenuItem *)sender;
     
     switch (menuItem.tag) {
-        case 1: {
-            /* Files View */
+        case UXViewTagFiles: {
             self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.fileInputToolbarItem.itemIdentifier;
             [self.mainWindowController showView:self.mainWindowController.fileInputToolbarItem];
-            break;
         }
+        break;
             
-        case 2: {
-            /* Direct Input View */
+        case UXViewTagDirectInput: {
             self.mainWindowController.toolbar.selectedItemIdentifier = self.mainWindowController.directInputToolbarItem.itemIdentifier;
             [self.mainWindowController showView:self.mainWindowController.directInputToolbarItem];
-            break;
         }
+        break;
             
-        case 3: {
-            /* Documentation */
+        case UXViewTagDocumentation: {
             [self.mainWindowController toggleDocumentationPanel:self];
-            
-            break;
         }
-        case 4: {
-            /* Console */
-            
+        break;
+        
+        case UXViewTagConsole: {
             [self.mainWindowController toggleConsole:self];
-            
-            break;
         }
+        break;
     }
 }
 
