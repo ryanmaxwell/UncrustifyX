@@ -86,7 +86,8 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
             
             if (objects.count) {
                 DLog(@"Source Code: \n%@", objects);
-                self.mainWindowController.directInputText = objects[0];
+                
+                self.mainWindowController.directInputText = [objects lastObject];
                 [self showViewWithTag:UXViewTagDirectInput];
             }
         }
