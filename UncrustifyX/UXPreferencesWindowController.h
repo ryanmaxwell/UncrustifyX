@@ -10,6 +10,10 @@
 
 @interface UXPreferencesWindowController : NSWindowController
 
+@property (weak, nonatomic) IBOutlet NSTextField *uncrustifyPluginInfoLabel;
+@property (weak, nonatomic) IBOutlet NSTextField *uncrustifyPluginVersionLabel;
+
 - (IBAction)choosePressed:(id)sender;
+- (IBAction)installXcodePluginPressed:(id)sender;
 
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "UXPreferencesWindowController.h"
+#import "NSAttributedString+Hyperlink.h"
+
+static NSString * const UncrustifyPluginResourceName = @"UncrustifyPlugin";
+static NSString * const UncrustifyPluginResourceType = @"xcplugin";
 
 @interface UXPreferencesWindowController () <NSOpenSavePanelDelegate>
 
@@ -25,6 +29,41 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self updatePluginInfoLabel];
+    [self updatePluginVersionLabel];
+}
+
+- (void)updatePluginInfoLabel {
+    NSMutableAttributedString *labelValue = [[NSMutableAttributedString alloc] initWithString:@"Xcode Plugin is powered by "];
+    
+    NSURL *pluginURL = [NSURL URLWithString:@"https://github.com/benoitsan/BBUncrustifyPlugin-Xcode"];
+    NSAttributedString *hyperlink = [NSAttributedString ux_hyperlinkFromString:@"BBUncrustifyPlugin-Xcode"
+                                                                 withURL:pluginURL];
+    
+    [labelValue appendAttributedString:hyperlink];
+    
+    [labelValue addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:11.0]
+                       range:NSMakeRange(0, labelValue.mutableString.length - 1)];
+    
+    [self.uncrustifyPluginInfoLabel setAttributedStringValue:labelValue];
+}
+
+- (void)updatePluginVersionLabel {
+    NSString *installedPluginPath = self.uncrustifyPluginPath;
+    if ([NSFileManager.defaultManager fileExistsAtPath:installedPluginPath]) {
+        NSString *pluginInfoPath = [installedPluginPath stringByAppendingPathComponent:@"Contents/Info.plist"];
+        
+        NSDictionary *pluginInfo = [NSDictionary dictionaryWithContentsOfFile:pluginInfoPath];
+        
+        self.uncrustifyPluginVersionLabel.stringValue = [NSString stringWithFormat:@"Plugin version %@ (%@) is installed", pluginInfo[@"CFBundleShortVersionString"], pluginInfo[@"CFBundleVersion"]];
+    } else {
+        self.uncrustifyPluginVersionLabel.stringValue = @"Plugin is not installed";
+    }
 }
 
 - (IBAction)choosePressed:(id)sender {
@@ -50,6 +89,22 @@
         UXDEFAULTS.useCustomBinary = YES;
         UXDEFAULTS.customBinaryPath = chosenFileURL.path;
     }
+}
+
+- (IBAction)installXcodePluginPressed:(id)sender {
+    NSString *pluginPath = [NSBundle.mainBundle pathForResource:UncrustifyPluginResourceName
+                                                         ofType:UncrustifyPluginResourceType];
+    NSError *copyError = nil;
+    [NSFileManager.defaultManager copyItemAtPath:pluginPath toPath:self.uncrustifyPluginPath error:&copyError];
+    if (copyError) DErr(@"%@", copyError);
+    
+    [self updatePluginVersionLabel];
+}
+
+- (NSString *)uncrustifyPluginPath {
+    return [[[@"~/Library/Application Support/Developer/Shared/Xcode/Plug-ins" stringByExpandingTildeInPath]
+             stringByAppendingPathComponent:UncrustifyPluginResourceName]
+            stringByAppendingPathExtension:UncrustifyPluginResourceType];
 }
 
 @end

@@ -68,6 +68,8 @@
 		94CD350616291B3900362AFB /* UXDocumentationPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CD350416291B3900362AFB /* UXDocumentationPanelController.m */; };
 		94CD350716291B3900362AFB /* UXDocumentationPanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CD350516291B3900362AFB /* UXDocumentationPanelController.xib */; };
 		94CDF7B116968CF4006B22EB /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94CDF7B016968CF4006B22EB /* dsa_pub.pem */; };
+		94E43675170F9C99005BCFF3 /* UncrustifyPlugin.xcplugin in Resources */ = {isa = PBXBuildFile; fileRef = 94E43674170F9C99005BCFF3 /* UncrustifyPlugin.xcplugin */; };
+		94E43679170FA59C005BCFF3 /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E43678170FA59C005BCFF3 /* NSAttributedString+Hyperlink.m */; };
 		94ECB62E1699282D0057C6F5 /* Run.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ECB62D1699282D0057C6F5 /* Run.png */; };
 		94ECB63016992AEC0057C6F5 /* DirectInput.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ECB62F16992AEC0057C6F5 /* DirectInput.png */; };
 		94ECB63216992CD30057C6F5 /* FileInput.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ECB63116992CD30057C6F5 /* FileInput.png */; };
@@ -281,6 +283,9 @@
 		94CD350516291B3900362AFB /* UXDocumentationPanelController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UXDocumentationPanelController.xib; sourceTree = "<group>"; };
 		94CDF7B016968CF4006B22EB /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		94E0B3E9164B984E00ECE5A9 /* UXDisplayable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXDisplayable.h; sourceTree = "<group>"; };
+		94E43674170F9C99005BCFF3 /* UncrustifyPlugin.xcplugin */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UncrustifyPlugin.xcplugin; path = Resources/UncrustifyPlugin.xcplugin; sourceTree = "<group>"; };
+		94E43677170FA59C005BCFF3 /* NSAttributedString+Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Hyperlink.h"; path = "Categories/NSAttributedString+Hyperlink.h"; sourceTree = "<group>"; };
+		94E43678170FA59C005BCFF3 /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+Hyperlink.m"; path = "Categories/NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
 		94ECB62D1699282D0057C6F5 /* Run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Run.png; path = Resources/Run.png; sourceTree = "<group>"; };
 		94ECB62F16992AEC0057C6F5 /* DirectInput.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DirectInput.png; path = Resources/DirectInput.png; sourceTree = "<group>"; };
 		94ECB63116992CD30057C6F5 /* FileInput.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FileInput.png; path = Resources/FileInput.png; sourceTree = "<group>"; };
@@ -386,6 +391,7 @@
 		941FD36A1620220B0001C909 /* UncrustifyX */ = {
 			isa = PBXGroup;
 			children = (
+				94E43676170FA574005BCFF3 /* Categories */,
 				944ED078164F7A6E00F785DC /* Views */,
 				94E0B3EA164B9AFE00ECE5A9 /* Protocols */,
 				9464B97F162A814F00F61C28 /* Value Transformers */,
@@ -395,6 +401,7 @@
 				941FD3761620220B0001C909 /* UXAppDelegate.h */,
 				941FD3771620220B0001C909 /* UXAppDelegate.m */,
 				941FD3791620220C0001C909 /* MainMenu.xib */,
+				944ED086164F81D900F785DC /* Resources */,
 				941FD36B1620220B0001C909 /* Supporting Files */,
 			);
 			path = UncrustifyX;
@@ -403,7 +410,6 @@
 		941FD36B1620220B0001C909 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				944ED086164F81D900F785DC /* Resources */,
 				941FD36C1620220B0001C909 /* UncrustifyX-Info.plist */,
 				941FD36D1620220B0001C909 /* InfoPlist.strings */,
 				941FD3701620220B0001C909 /* main.m */,
@@ -434,6 +440,7 @@
 		944ED086164F81D900F785DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94E43674170F9C99005BCFF3 /* UncrustifyPlugin.xcplugin */,
 				9486BBD816AC07BA00B32136 /* Console.png */,
 				94ECB65016992E8D0057C6F5 /* ExportConfig.png */,
 				94ECB65116992E8D0057C6F5 /* ImportConfig.png */,
@@ -561,6 +568,15 @@
 				94E0B3E9164B984E00ECE5A9 /* UXDisplayable.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		94E43676170FA574005BCFF3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				94E43677170FA59C005BCFF3 /* NSAttributedString+Hyperlink.h */,
+				94E43678170FA59C005BCFF3 /* NSAttributedString+Hyperlink.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -722,6 +738,7 @@
 				94ECB65316992E8D0057C6F5 /* ImportConfig.png in Resources */,
 				9486BB2916AA606300B32136 /* UXConsolePanelController.xib in Resources */,
 				9486BBD916AC07BA00B32136 /* Console.png in Resources */,
+				94E43675170F9C99005BCFF3 /* UncrustifyPlugin.xcplugin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +850,7 @@
 				943552FD1698E95C0052DCD4 /* UXInfoButtonCell.m in Sources */,
 				9486BB2816AA606300B32136 /* UXConsolePanelController.m in Sources */,
 				949D86B516C5C93C002831E3 /* UXMainWindow.m in Sources */,
+				94E43679170FA59C005BCFF3 /* NSAttributedString+Hyperlink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
