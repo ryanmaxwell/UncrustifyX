@@ -60,7 +60,7 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
         
         NSDictionary *pluginInfo = [NSDictionary dictionaryWithContentsOfFile:pluginInfoPath];
         
-        self.uncrustifyPluginVersionLabel.stringValue = [NSString stringWithFormat:@"Plugin version %@ (%@) is installed", pluginInfo[@"CFBundleShortVersionString"], pluginInfo[@"CFBundleVersion"]];
+        self.uncrustifyPluginVersionLabel.stringValue = [NSString stringWithFormat:@"Plugin version %@ is installed", pluginInfo[@"CFBundleVersion"]];
     } else {
         self.uncrustifyPluginVersionLabel.stringValue = @"Plugin is not installed";
     }
