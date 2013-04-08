@@ -1,6 +1,11 @@
 # 0.4 - Work in Progress
 - Contextual-menus on table views.
 - Forward-delete key works in addition to back-delete key for removing items from tables.
+- BBUncrustifyPlugin-Xcode Integration
+- Fix fault making it difficult to get first-responder status on text fields in table rows
+- Fix fault with window state being incorrectly reflected in the menus
+- Tweak behavior for when "remove items" is chosen and multiple items are selected/clicked or a combination
+- Updated uncrustify binary
 
 # 0.3
 ## 2012-02-03
