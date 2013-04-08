@@ -26,4 +26,11 @@
     return (row != -1 && ![self.delegate tableView:self isGroupRow:row]) ? [super menuForEvent:theEvent] : nil;
 }
 
+- (BOOL)validateProposedFirstResponder:(NSResponder *)responder forEvent:(NSEvent *)event {
+    if ([responder isKindOfClass:[NSTextField class]]) {
+        return YES;
+    }
+    return [super validateProposedFirstResponder:responder forEvent:event];
+}
+
 @end
