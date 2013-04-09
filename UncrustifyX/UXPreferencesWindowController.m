@@ -92,19 +92,35 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
 }
 
 - (IBAction)installXcodePluginPressed:(id)sender {
-    NSString *pluginPath = [NSBundle.mainBundle pathForResource:UncrustifyPluginResourceName
-                                                         ofType:UncrustifyPluginResourceType];
+    
+    NSFileManager *fileManager = NSFileManager.defaultManager;
+    
+    if(![fileManager fileExistsAtPath:self.xcodePluginsPath]) {
+        NSError *creationError = nil;
+        
+        [fileManager createDirectoryAtPath:self.xcodePluginsPath
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:&creationError];
+        
+        if (creationError) DErr(@"Create plugins folder failed: %@", creationError);
+    }
+    
+    NSString *sourcePluginPath = [NSBundle.mainBundle pathForResource:UncrustifyPluginResourceName
+                                                               ofType:UncrustifyPluginResourceType];
     NSError *copyError = nil;
-    [NSFileManager.defaultManager copyItemAtPath:pluginPath toPath:self.uncrustifyPluginPath error:&copyError];
+    [fileManager copyItemAtPath:sourcePluginPath toPath:self.uncrustifyPluginPath error:&copyError];
     if (copyError) DErr(@"%@", copyError);
     
     [self updatePluginVersionLabel];
 }
 
 - (NSString *)uncrustifyPluginPath {
-    return [[[@"~/Library/Application Support/Developer/Shared/Xcode/Plug-ins" stringByExpandingTildeInPath]
-             stringByAppendingPathComponent:UncrustifyPluginResourceName]
-            stringByAppendingPathExtension:UncrustifyPluginResourceType];
+    return [[self.xcodePluginsPath stringByAppendingPathComponent:UncrustifyPluginResourceName] stringByAppendingPathExtension:UncrustifyPluginResourceType];
+}
+
+- (NSString *)xcodePluginsPath {
+    return [@"~/Library/Application Support/Developer/Shared/Xcode/Plug-ins" stringByExpandingTildeInPath];
 }
 
 @end
