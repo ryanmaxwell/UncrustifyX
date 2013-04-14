@@ -56,6 +56,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 @property (strong, nonatomic) MGSFragaria *fragaria;
 
+@property (strong, nonatomic) NSURL *lastImportedFileURL;
+
 @end
 
 @implementation UXMainWindowController
@@ -477,9 +479,20 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (IBAction)exportConfigurationPressed:(id)sender {
     NSSavePanel *savePanel = NSSavePanel.savePanel;
-
-    savePanel.allowedFileTypes = @[@"cfg"];
+    
+    /* user can save without extension, e.g. to ~/.uncrustifyconfig */
+//    savePanel.allowedFileTypes = @[@"cfg"];
+    savePanel.allowsOtherFileTypes = YES;
+    savePanel.showsHiddenFiles = YES;
+    
+    savePanel.nameFieldStringValue = @"untitled.cfg";
+    savePanel.extensionHidden = NO;
     savePanel.accessoryView = self.exportPanelAccessoryView;
+    
+    NSURL *fileURL = self.lastImportedFileURL;
+    if (fileURL && fileURL.lastPathComponent) {
+        savePanel.nameFieldStringValue = fileURL.lastPathComponent;
+    }
 
     [savePanel beginSheetModalForWindow:self.window
                       completionHandler:^(NSInteger result) {
@@ -507,7 +520,9 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 - (IBAction)importConfigurationPressed:(id)sender {
     NSOpenPanel *openPanel = NSOpenPanel.openPanel;
 
-    openPanel.allowedFileTypes = @[@"cfg"];
+//    openPanel.allowedFileTypes = @[@"cfg"];
+    openPanel.allowsOtherFileTypes = YES;
+    openPanel.showsHiddenFiles = YES;
 
     [openPanel beginSheetModalForWindow:self.window
                       completionHandler:^(NSInteger result) {
@@ -547,6 +562,9 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         }
 
         [self sortConfigOptions];
+        
+        /* save filename for later when re-exporting */
+        self.lastImportedFileURL = fileURL;
 
         if (errorStrings.count) {
             NSAlert *errorAlert = [NSAlert alertWithMessageText:@"An error occurred during import"
