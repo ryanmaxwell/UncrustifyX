@@ -81,17 +81,25 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
             NSURL *configPathURL = [NSURL fileURLWithPath:configPath];
             [self.mainWindowController importConfigurationAtURL:configPathURL];
             
-            NSPasteboard *sourceCodePB = [NSPasteboard pasteboardWithName:BBUncrustifyPluginSourceCodePasteboardName];
-            NSArray *objects = [sourceCodePB readObjectsForClasses:@[NSString.class] options:nil];
-            
-            if (objects.count) {
-                DLog(@"Source Code: \n%@", objects);
-                
-                self.mainWindowController.directInputText = [objects lastObject];
-                [self showViewWithTag:UXViewTagDirectInput];
-            }
+            [self readUncrustifyPluginPasteboardData];
         }
     }
+}
+
+- (void)readUncrustifyPluginPasteboardData {
+    NSPasteboard *sourceCodePB = [NSPasteboard pasteboardWithName:BBUncrustifyPluginSourceCodePasteboardName];
+    NSArray *objects = [sourceCodePB readObjectsForClasses:@[NSString.class] options:nil];
+    
+    if (objects.count) {
+        DLog(@"Source Code: \n%@", objects);
+        
+        self.mainWindowController.directInputText = [objects lastObject];
+        [self showViewWithTag:UXViewTagDirectInput];
+    }
+}
+
+- (void)applicationWillBecomeActive:(NSNotification *)aNotification {
+    [self readUncrustifyPluginPasteboardData];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
