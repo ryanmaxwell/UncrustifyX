@@ -6,6 +6,10 @@
 - Fix fault with window state being incorrectly reflected in the menus
 - Tweak behavior for when "remove items" is chosen and multiple items are selected/clicked or a combination
 - Updated uncrustify binary
+- Allow saving files without .cfg extension
+- Show hidden files in import/export panel
+- Default filename is untitled.cfg
+- Exporting a file which has been imported will suggest the same filename
 
 # 0.3
 ## 2012-02-03
