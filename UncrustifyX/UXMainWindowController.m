@@ -56,8 +56,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 @property (strong, nonatomic) MGSFragaria *fragaria;
 
-@property (strong, nonatomic) NSURL *lastImportedFileURL;
-
 @end
 
 @implementation UXMainWindowController
@@ -363,7 +361,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     NSOpenPanel *openPanel = NSOpenPanel.openPanel;
     openPanel.allowsMultipleSelection = YES;
     openPanel.allowedFileTypes = UXLanguage.allFileExtensions;
-    
+
     [openPanel beginSheetModalForWindow:self.window
                       completionHandler:^(NSInteger result) {
                           if (result == NSFileHandlingPanelOKButton) {
@@ -479,40 +477,42 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 - (IBAction)exportConfigurationPressed:(id)sender {
     NSSavePanel *savePanel = NSSavePanel.savePanel;
-    
+
     /* user can save without extension, e.g. to ~/.uncrustifyconfig */
-//    savePanel.allowedFileTypes = @[@"cfg"];
+    //savePanel.allowedFileTypes = @[@"cfg"];
     savePanel.allowsOtherFileTypes = YES;
-    savePanel.showsHiddenFiles = YES;
-    
     savePanel.nameFieldStringValue = @"untitled.cfg";
     savePanel.extensionHidden = NO;
     savePanel.accessoryView = self.exportPanelAccessoryView;
-    
-    NSURL *fileURL = self.lastImportedFileURL;
-    if (fileURL && fileURL.lastPathComponent) {
+
+    NSURL *fileURL = [UXDefaultsManager sharedDefaultsManager].lastConfigURL;
+    if (fileURL && [[NSFileManager defaultManager] fileExistsAtPath:fileURL.path]) {
         savePanel.nameFieldStringValue = fileURL.lastPathComponent;
+        savePanel.directoryURL = [fileURL URLByDeletingLastPathComponent];
     }
 
     [savePanel beginSheetModalForWindow:self.window
                       completionHandler:^(NSInteger result) {
                           if (result == NSFileHandlingPanelOKButton) {
-                          BOOL documentationForCategory = NO, documentationForSubcategory = NO, documentationForOptionName = NO, documentationForOptionValue = NO;
+                              BOOL documentationForCategory = NO, documentationForSubcategory = NO, documentationForOptionName = NO, documentationForOptionValue = NO;
 
-                          if (self.exportPanelAccessoryView.includeDocumentationCheckbox.state == NSOnState) {
-                              documentationForCategory = (self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState);
-                              documentationForSubcategory = (self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState);
-                              documentationForOptionName = (self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState);
-                              documentationForOptionValue = (self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState);
-                          }
+                              if (self.exportPanelAccessoryView.includeDocumentationCheckbox.state == NSOnState) {
+                                  documentationForCategory = (self.exportPanelAccessoryView.categoriesCheckbox.state == NSOnState);
+                                  documentationForSubcategory = (self.exportPanelAccessoryView.subcategoriesCheckbox.state == NSOnState);
+                                  documentationForOptionName = (self.exportPanelAccessoryView.optionNameCheckbox.state == NSOnState);
+                                  documentationForOptionValue = (self.exportPanelAccessoryView.optionValueCheckbox.state == NSOnState);
+                              }
+                              NSURL *url = [savePanel.directoryURL URLByAppendingPathComponent:savePanel.nameFieldStringValue];
 
-                          [UXFileUtils writeConfigOptions:self.configOptions
-                                             toFileAtPath:savePanel.URL.path
-                                      includeBlankOptions:(self.exportPanelAccessoryView.includeBlankOptionsCheckbox.state == NSOnState)
-                                 documentationForCategory:documentationForCategory
-                                              subcategory:documentationForSubcategory
-                                               optionName:documentationForOptionName
-                                              optionValue:documentationForOptionValue];
+                              [UXFileUtils writeConfigOptions:self.configOptions
+                                                 toFileAtPath:url.path
+                                          includeBlankOptions:(self.exportPanelAccessoryView.includeBlankOptionsCheckbox.state == NSOnState)
+                                     documentationForCategory:documentationForCategory
+                                                  subcategory:documentationForSubcategory
+                                                   optionName:documentationForOptionName
+                                                  optionValue:documentationForOptionValue];
+
+                              [UXDefaultsManager sharedDefaultsManager].lastConfigURL = url;
                           }
                       }];
 }
@@ -522,8 +522,12 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 //    openPanel.allowedFileTypes = @[@"cfg"];
     openPanel.allowsOtherFileTypes = YES;
-    openPanel.showsHiddenFiles = YES;
 
+    NSURL *fileURL = [UXDefaultsManager sharedDefaultsManager].lastConfigURL;
+    if (fileURL && [[NSFileManager defaultManager] fileExistsAtPath:fileURL.path]) {
+        openPanel.directoryURL = [fileURL URLByDeletingLastPathComponent];
+    }
+    
     [openPanel beginSheetModalForWindow:self.window
                       completionHandler:^(NSInteger result) {
                           if (result == NSFileHandlingPanelOKButton) {
@@ -564,7 +568,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         [self sortConfigOptions];
         
         /* save filename for later when re-exporting */
-        self.lastImportedFileURL = fileURL;
+        [UXDefaultsManager sharedDefaultsManager].lastConfigURL = fileURL;
 
         if (errorStrings.count) {
             NSAlert *errorAlert = [NSAlert alertWithMessageText:@"An error occurred during import"
