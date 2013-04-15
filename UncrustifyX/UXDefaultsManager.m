@@ -22,6 +22,7 @@ static NSString *const UXExportBlankOptionsKey                      = @"UXExport
 static NSString *const UXLanguagesIncludedInDocumentationKey        = @"UXLanguagesIncludedInDocumentation";
 static NSString *const UXSelectedPreviewLanguageInDocumentationKey  = @"UXSelectedPreviewLanguageInDocumentation";
 static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelectedPreviewLanguageInMainWindow";
+static NSString *const UXLastConfigBookmarkKey     					= @"UXLastConfigBookmarkKey";
 
 @implementation UXDefaultsManager
 
@@ -132,6 +133,31 @@ static NSString *const UXSelectedPreviewLanguageInMainWindowKey     = @"UXSelect
 
 - (void)setSelectedPreviewLanguageInMainWindow:(NSString *)languageCode {
     [self setDefaultsObject:languageCode forKey:UXSelectedPreviewLanguageInMainWindowKey];
+}
+
+- (NSURL *)lastConfigURL {
+    NSURL *retURL = nil;
+    NSData* bookmarkData = [self defaultsObjectForKey:UXLastConfigBookmarkKey];
+    if (bookmarkData) {
+        retURL = [NSURL URLByResolvingBookmarkData:bookmarkData
+                                           options:NSURLBookmarkResolutionWithoutUI
+                                     relativeToURL:nil
+                               bookmarkDataIsStale:NULL
+                                             error:NULL];
+    }
+    return retURL;
+}
+
+- (void)setLastConfigURL:(NSURL *)lastConfigURL {
+    NSParameterAssert(lastConfigURL);
+    NSData* data = [lastConfigURL bookmarkDataWithOptions:NSURLBookmarkCreationSuitableForBookmarkFile
+                       includingResourceValuesForKeys:nil
+                                        relativeToURL:nil
+                                                error:NULL];
+    NSAssert(data, @"Failed to create a bookmark for the given config url %@", lastConfigURL);
+    if (data) {
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:UXLastConfigBookmarkKey];
+    }
 }
 
 #pragma mark -

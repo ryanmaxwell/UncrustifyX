@@ -22,6 +22,7 @@
 @property (nonatomic) NSString *selectedPreviewLanguageInDocumentation;
 @property (nonatomic) NSString *selectedPreviewLanguageInMainWindow;
 @property (nonatomic) BOOL overwriteFiles;
+@property (nonatomic, assign) NSURL *lastConfigURL;
 
 /**
  * @return an array of NSStrings of the language code
