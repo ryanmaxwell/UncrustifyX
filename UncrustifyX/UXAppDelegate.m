@@ -24,7 +24,9 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
     UXViewTagConsole
 };
 
-@interface UXAppDelegate () <NSMenuDelegate>
+@interface UXAppDelegate () <NSMenuDelegate> {
+    BOOL _applicationLaunched;
+}
 
 @end
 
@@ -48,7 +50,7 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
     _mainWindowController.window.isVisible = YES;
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification {    
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
     [self updateDocumentationMenuItem:nil];
     [self updateConsoleMenuItem:nil];
     
@@ -84,6 +86,8 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
             [self readUncrustifyPluginPasteboardData];
         }
     }
+    
+    _applicationLaunched = YES;
 }
 
 - (void)readUncrustifyPluginPasteboardData {
@@ -110,7 +114,8 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
-    if ([NSProcessInfo.processInfo.arguments containsObject:BBUncrustifyPluginLaunchArgument]) return;
+    /* if started from Uncrustify plugin, don't parse launch arguments as files */
+    if ([NSProcessInfo.processInfo.arguments containsObject:BBUncrustifyPluginLaunchArgument] && !_applicationLaunched) return;
     
     for (NSString *filePath in filenames) {
         if ([filePath.pathExtension isEqualToString:@"cfg"]) {
