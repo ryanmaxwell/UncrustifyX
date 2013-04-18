@@ -1,59 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"	xmlns:dc="http://purl.org/dc/elements/1.1/">
    <channel>
-      <title>UncrustifyX Appcast</title>
-      <link>https://raw.github.com/ryanmaxwell/uncrustifyx/appcast/uncrustifyx-appcast.xml</link>
-      <description>Most recent changes with links to updates.</description>
-      <language>en</language>
-      <item>
-          <title>Initial Release</title>
-          <pubDate>Sun, 8 Dec 2012 13:37:00 +0000</pubDate>
-          <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.zip"
-                     sparkle:version="108"
-                     sparkle:shortVersionString="0.1"
-                     sparkle:dsaSignature="MC4CFQC+P5Lpio3PuAXLiWOLox+Jxs55LgIVAIEqiDLnHl9z9u/QSMtlLBCUNjnx"
-                     length="2349130"
-                     type="application/octet-stream" />
-      </item>
-      <item>
-          <title>Release 0.1.1</title>
-          <pubDate>Fri, 4 Jan 2013 13:37:00 +0000</pubDate>
-          <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.1.zip"
-                     sparkle:version="123"
-                     sparkle:shortVersionString="0.1.1"
-                     sparkle:dsaSignature="MC0CFGRD7i41eFFnHfWNnE/VLWpoG+ZkAhUAttNFIrf11xVCl6rDOKMGomFV7fA="
-                     length="2585762"
-                     type="application/octet-stream" />
-      </item>
-      <item>
-          <title>Release 0.1.2</title>
-          <pubDate>Fri, 4 Jan 2013 17:00:00 +0000</pubDate>
-          <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.2.zip"
-                     sparkle:version="126"
-                     sparkle:shortVersionString="0.1.2"
-                     sparkle:dsaSignature="MC0CFHgMWt/hH3XsxySlqr3k47ljV/I3AhUAjmPRJ+RNvFmAUe79r7ZfMZ6xe8w="
-                     length="2587474"
-                     type="application/octet-stream" />
-      </item>
-      <item>
-          <title>Release 0.2</title>
-          <pubDate>Thu, 10 Jan 2013 00:00:00 +0000</pubDate>
-          <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.2.zip"
-                     sparkle:version="140"
-                     sparkle:shortVersionString="0.2"
-                     sparkle:dsaSignature="MC0CFQCkSjclDqlnEHjnvR/mRPiZtQ5uGgIUCZV9Yzasg8RmucxVvRE+gWgTcBU="
-                     length="3134084"
-                     type="application/octet-stream" />
-      </item>
-      <item>
-          <title>Release 0.3</title>
-          <pubDate>Mon, 4 Feb 2013 00:00:00 +0000</pubDate>
-          <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.3.zip"
-                     sparkle:version="176"
-                     sparkle:shortVersionString="0.3"
-                     sparkle:dsaSignature="MC0CFQClCnKxACEunMt0AW/JWIF0j+x/egIUdcg+V1mY5uzLGLbZa1w6j1jTLOY="
-                     length="3062639"
-                     type="application/octet-stream" />
-      </item>
+	  <title>UncrustifyX Appcast</title>
+	  <link>https://raw.github.com/ryanmaxwell/uncrustifyx/appcast/uncrustifyx-appcast.xml</link>
+	  <description>Most recent changes with links to updates.</description>
+	  <language>en</language>
+	  <item>
+		  <title>Initial Release</title>
+		  <pubDate>Sun, 8 Dec 2012 13:37:00 +0000</pubDate>
+		  <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.zip"
+					 sparkle:version="108"
+					 sparkle:shortVersionString="0.1"
+					 sparkle:dsaSignature="MC4CFQC+P5Lpio3PuAXLiWOLox+Jxs55LgIVAIEqiDLnHl9z9u/QSMtlLBCUNjnx"
+					 length="2349130"
+					 type="application/octet-stream" />
+	  </item>
+	  <item>
+		  <title>Release 0.1.1</title>
+		  <pubDate>Fri, 4 Jan 2013 13:37:00 +0000</pubDate>
+		  <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.1.zip"
+					 sparkle:version="123"
+					 sparkle:shortVersionString="0.1.1"
+					 sparkle:dsaSignature="MC0CFGRD7i41eFFnHfWNnE/VLWpoG+ZkAhUAttNFIrf11xVCl6rDOKMGomFV7fA="
+					 length="2585762"
+					 type="application/octet-stream" />
+	  </item>
+	  <item>
+		  <title>Release 0.1.2</title>
+		  <pubDate>Fri, 4 Jan 2013 17:00:00 +0000</pubDate>
+		  <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.1.2.zip"
+					 sparkle:version="126"
+					 sparkle:shortVersionString="0.1.2"
+					 sparkle:dsaSignature="MC0CFHgMWt/hH3XsxySlqr3k47ljV/I3AhUAjmPRJ+RNvFmAUe79r7ZfMZ6xe8w="
+					 length="2587474"
+					 type="application/octet-stream" />
+	  </item>
+	  <item>
+		  <title>Release 0.2</title>
+		  <pubDate>Thu, 10 Jan 2013 00:00:00 +0000</pubDate>
+		  <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.2.zip"
+					 sparkle:version="140"
+					 sparkle:shortVersionString="0.2"
+					 sparkle:dsaSignature="MC0CFQCkSjclDqlnEHjnvR/mRPiZtQ5uGgIUCZV9Yzasg8RmucxVvRE+gWgTcBU="
+					 length="3134084"
+					 type="application/octet-stream" />
+	  </item>
+	  <item>
+		  <title>Release 0.3</title>
+		  <pubDate>Mon, 4 Feb 2013 00:00:00 +0000</pubDate>
+		  <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.3.zip"
+					 sparkle:version="176"
+					 sparkle:shortVersionString="0.3"
+					 sparkle:dsaSignature="MC0CFQClCnKxACEunMt0AW/JWIF0j+x/egIUdcg+V1mY5uzLGLbZa1w6j1jTLOY="
+					 length="3062639"
+					 type="application/octet-stream" />
+	  </item>
+	  <item>
+		  <title>Release 0.4</title>
+		  <pubDate>Fri, 19 Apr 2013 00:00:00 +0000</pubDate>
+		  <sparkle:releaseNotesLink>
+				  https://github.com/ryanmaxwell/UncrustifyX/blob/master/CHANGELOG.md#04
+		  </sparkle:releaseNotesLink>
+		  <enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.4.zip"
+					 sparkle:version="225"
+					 sparkle:shortVersionString="0.4"
+					 sparkle:dsaSignature="MCwCFBNcHYEk3d8cPIVy+GmtEc2REr+KAhRNQ26qV33ZLo/mHF6bftQr6boMMA=="
+					 length="4679243"
+					 type="application/octet-stream" />
+	  </item>
    </channel>
 </rss>
