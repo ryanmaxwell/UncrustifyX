@@ -99,6 +99,8 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
         
         self.mainWindowController.directInputText = [objects lastObject];
         [self showViewWithTag:UXViewTagDirectInput];
+        
+        [sourceCodePB clearContents];
     }
 }
 
