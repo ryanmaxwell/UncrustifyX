@@ -1,3 +1,7 @@
+# 0.4.1
+## 2012-04-23
+- Fix fault with pasteboard not being cleared after reading contents.
+
 # 0.4
 ## 2012-04-19
 - Contextual-menus on table views.
@@ -8,7 +12,6 @@
 - Tweak behavior for when "remove items" is chosen and multiple items are selected/clicked or a combination
 - Updated uncrustify binary
 - Allow saving files without .cfg extension
-- Show hidden files in import/export panel
 - Default filename is untitled.cfg
 - Exporting a file which has been imported will suggest the same filename
 
