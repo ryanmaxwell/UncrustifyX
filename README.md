@@ -1,5 +1,5 @@
+<img src="Icon.png" alt="Icon" style="width: 128px; height: 128px"/>
 
-![Icon](https://raw.github.com/ryanmaxwell/UncrustifyX/screenshots/icon_128x128.png "Icon")
 # UncrustifyX
 [Uncrustify](http://uncrustify.sourceforge.net) utility and documentation browser for Mac OS X
 
