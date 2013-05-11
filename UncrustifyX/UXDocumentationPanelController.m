@@ -386,7 +386,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
     BOOL requiresLanguageFilter = (selectedLanguages.count < UXLanguage.findAll.count);
 
     if (requiresLanguageFilter) {
-        NSPredicate *languageFilter = [NSPredicate predicateWithFormat:@"ANY languages IN %@", selectedLanguages];
+        NSPredicate *languageFilter = [NSPredicate predicateWithFormat:@"languages.@count == 0 OR ANY languages IN %@", selectedLanguages];
         [appliedPredicates addObject:languageFilter];
     }
 
