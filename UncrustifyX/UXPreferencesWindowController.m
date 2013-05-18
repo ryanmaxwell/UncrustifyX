@@ -162,7 +162,7 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
                                          defaultButton:@"Don’t Overwrite"
                                        alternateButton:@"Overwrite"
                                            otherButton:nil
-                             informativeTextWithFormat:@"Uncrustiy Plugin %@ is already installed. Do you wish to overwrite it?", [[self class] installedPluginVersion]];
+                             informativeTextWithFormat:@"Uncrustify Plugin %@ is already installed. Do you wish to overwrite it?", [[self class] installedPluginVersion]];
         
         NSInteger returnValue = [alert runModal];
 
