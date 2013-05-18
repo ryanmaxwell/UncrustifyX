@@ -3,6 +3,8 @@
 - Fix fault that may cause crash on launch after deleting the preferences plist.
 - Fix fault with preview code view height being 9px too tall for container
 - Documentation panel now shows the union of all the ticked languages, plus all options with no assigned language.
+- Update bundled UncrustifyPlugin.xcplugin
+- Show bundled plugin version on install button in preferences. Prompt if overwrite will occur.
 
 # 0.4.1
 ## 2013-04-23
