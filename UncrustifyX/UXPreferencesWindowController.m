@@ -168,7 +168,6 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
 
         if (returnValue == NSAlertAlternateReturn) {
             /* Overwrite */
-            NSLog(@"ALTERNATE");
             
             NSError *removeError = nil;
             [fileManager removeItemAtPath:uncrustifyPluginPath error:&removeError];
