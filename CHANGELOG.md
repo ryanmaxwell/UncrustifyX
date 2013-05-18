@@ -1,6 +1,7 @@
 # 0.4.2
 ## 2013-05-18
 - Fix fault that may cause crash on launch after deleting the preferences plist.
+- Fix fault with preview code view height being 9px too tall for container
 - Documentation panel now shows the union of all the ticked languages, plus all options with no assigned language.
 
 # 0.4.1
