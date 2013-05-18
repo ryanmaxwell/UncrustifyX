@@ -1,9 +1,14 @@
+# 0.4.2
+## 2013-05-18
+- Fix fault that may cause crash on launch after deleting the preferences plist.
+- Documentation panel now shows the union of all the ticked languages, plus all options with no assigned language.
+
 # 0.4.1
-## 2012-04-23
+## 2013-04-23
 - Fix fault with pasteboard not being cleared after reading contents.
 
 # 0.4
-## 2012-04-19
+## 2013-04-19
 - Contextual-menus on table views.
 - Forward-delete key works in addition to back-delete key for removing items from tables.
 - Xcode Integration via BBUncrustifyPlugin-Xcode 1.0.2
@@ -16,7 +21,7 @@
 - Exporting a file which has been imported will suggest the same filename
 
 # 0.3
-## 2012-02-03
+## 2013-02-03
 
 - Console window for viewing stdout/stderr from uncrustify binary
 - Console Toolbar icon
