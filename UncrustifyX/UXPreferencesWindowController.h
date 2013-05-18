@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet NSTextField *uncrustifyPluginInfoLabel;
 @property (weak, nonatomic) IBOutlet NSTextField *uncrustifyPluginVersionLabel;
+@property (weak, nonatomic) IBOutlet NSButton *installPluginButton;
 
 - (IBAction)choosePressed:(id)sender;
 - (IBAction)installXcodePluginPressed:(id)sender;

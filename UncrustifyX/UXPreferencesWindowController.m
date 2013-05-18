@@ -18,6 +18,41 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
 
 @implementation UXPreferencesWindowController
 
+#pragma mark - Class Methods
+
++ (NSString *)uncrustifyPluginPath {
+    return [[self.xcodePluginsPath stringByAppendingPathComponent:UncrustifyPluginResourceName] stringByAppendingPathExtension:UncrustifyPluginResourceType];
+}
+
++ (NSString *)xcodePluginsPath {
+    return [@"~/Library/Application Support/Developer/Shared/Xcode/Plug-ins" stringByExpandingTildeInPath];
+}
+
++ (NSString *)versionOfPluginAtPath:(NSString *)path {
+    NSString *pluginInfoPath = [path stringByAppendingPathComponent:@"Contents/Info.plist"];
+    NSDictionary *pluginInfo = [NSDictionary dictionaryWithContentsOfFile:pluginInfoPath];
+    return pluginInfo ? pluginInfo[@"CFBundleVersion"] : @"";
+}
+
++ (NSString *)installedPluginVersion {
+    NSString *installedPluginPath = self.uncrustifyPluginPath;
+    if ([NSFileManager.defaultManager fileExistsAtPath:installedPluginPath]) {
+        return [self versionOfPluginAtPath:installedPluginPath];
+    } else {
+        return nil;
+    }
+}
+    
++ (NSString *)bundledPluginVersion {
+    NSString *sourcePluginPath = [NSBundle.mainBundle pathForResource:UncrustifyPluginResourceName
+                                                               ofType:UncrustifyPluginResourceType];
+    
+    return [self versionOfPluginAtPath:sourcePluginPath];
+}
+
+
+#pragma mark - Instance Methods
+
 - (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     
@@ -34,8 +69,14 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    [self updatePluginButtonLabel];
     [self updatePluginInfoLabel];
     [self updatePluginVersionLabel];
+}
+
+- (void)updatePluginButtonLabel {
+    NSString *labelText = [NSString stringWithFormat:@"Install Xcode Plugin %@", [[self class] bundledPluginVersion]];
+    self.installPluginButton.stringValue = labelText;
 }
 
 - (void)updatePluginInfoLabel {
@@ -54,13 +95,10 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
 }
 
 - (void)updatePluginVersionLabel {
-    NSString *installedPluginPath = self.uncrustifyPluginPath;
-    if ([NSFileManager.defaultManager fileExistsAtPath:installedPluginPath]) {
-        NSString *pluginInfoPath = [installedPluginPath stringByAppendingPathComponent:@"Contents/Info.plist"];
-        
-        NSDictionary *pluginInfo = [NSDictionary dictionaryWithContentsOfFile:pluginInfoPath];
-        
-        self.uncrustifyPluginVersionLabel.stringValue = [NSString stringWithFormat:@"Plugin version %@ is installed", pluginInfo[@"CFBundleVersion"]];
+    NSString *installedPluginVersion = [[self class] installedPluginVersion];
+    
+    if (installedPluginVersion) {
+        self.uncrustifyPluginVersionLabel.stringValue = [NSString stringWithFormat:@"Plugin version %@ is installed", installedPluginVersion];
     } else {
         self.uncrustifyPluginVersionLabel.stringValue = @"Plugin is not installed";
     }
@@ -95,10 +133,12 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
     
     NSFileManager *fileManager = NSFileManager.defaultManager;
     
-    if(![fileManager fileExistsAtPath:self.xcodePluginsPath]) {
+    NSString *pluginsPath = [[self class] xcodePluginsPath];
+    
+    if(![fileManager fileExistsAtPath:pluginsPath]) {
         NSError *creationError = nil;
         
-        [fileManager createDirectoryAtPath:self.xcodePluginsPath
+        [fileManager createDirectoryAtPath:pluginsPath
                withIntermediateDirectories:YES
                                 attributes:nil
                                      error:&creationError];
@@ -108,19 +148,39 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
     
     NSString *sourcePluginPath = [NSBundle.mainBundle pathForResource:UncrustifyPluginResourceName
                                                                ofType:UncrustifyPluginResourceType];
-    NSError *copyError = nil;
-    [fileManager copyItemAtPath:sourcePluginPath toPath:self.uncrustifyPluginPath error:&copyError];
-    if (copyError) DErr(@"%@", copyError);
+    NSString *uncrustifyPluginPath = [[self class] uncrustifyPluginPath];
     
-    [self updatePluginVersionLabel];
-}
+    if (![fileManager fileExistsAtPath:uncrustifyPluginPath]) {
+        NSError *copyError = nil;
+        [fileManager copyItemAtPath:sourcePluginPath toPath:uncrustifyPluginPath error:&copyError];
+        if (copyError) DErr(@"%@", copyError);
+        
+        [self updatePluginVersionLabel];
+    } else {
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Plugin Already Installed"
+                                         defaultButton:@"Don’t Overwrite"
+                                       alternateButton:@"Overwrite"
+                                           otherButton:nil
+                             informativeTextWithFormat:@"Uncrustiy Plugin %@ is already installed. Do you wish to overwrite it?", [[self class] installedPluginVersion]];
+        
+        NSInteger returnValue = [alert runModal];
 
-- (NSString *)uncrustifyPluginPath {
-    return [[self.xcodePluginsPath stringByAppendingPathComponent:UncrustifyPluginResourceName] stringByAppendingPathExtension:UncrustifyPluginResourceType];
-}
-
-- (NSString *)xcodePluginsPath {
-    return [@"~/Library/Application Support/Developer/Shared/Xcode/Plug-ins" stringByExpandingTildeInPath];
+        if (returnValue == NSAlertAlternateReturn) {
+            /* Overwrite */
+            NSLog(@"ALTERNATE");
+            
+            NSError *removeError = nil;
+            [fileManager removeItemAtPath:uncrustifyPluginPath error:&removeError];
+            if (removeError) DErr(@"%@", removeError);
+            
+            NSError *copyError = nil;
+            [fileManager copyItemAtPath:sourcePluginPath toPath:uncrustifyPluginPath error:&copyError];
+            if (copyError) DErr(@"%@", copyError);
+            
+            [self updatePluginVersionLabel];
+        }
+    }
 }
 
 @end
