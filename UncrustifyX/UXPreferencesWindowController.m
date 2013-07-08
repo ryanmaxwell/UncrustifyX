@@ -76,7 +76,7 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
 
 - (void)updatePluginButtonLabel {
     NSString *labelText = [NSString stringWithFormat:@"Install Xcode Plugin %@", [[self class] bundledPluginVersion]];
-    self.installPluginButton.stringValue = labelText;
+    self.installPluginButton.title = labelText;
 }
 
 - (void)updatePluginInfoLabel {
