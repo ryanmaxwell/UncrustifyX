@@ -1,3 +1,8 @@
+# 0.4.3
+## 2013-07-08
+- Updated Fragaria syntax coloring library
+- Update bundled UncrustifyPlugin.xcplugin to 1.0.3
+
 # 0.4.2
 ## 2013-05-18
 - Fix fault that may cause crash on launch after deleting the preferences plist.
