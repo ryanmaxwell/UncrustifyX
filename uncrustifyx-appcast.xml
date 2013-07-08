@@ -57,5 +57,13 @@
 			</sparkle:releaseNotesLink>
 			<enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.4.2.zip" sparkle:version="245" sparkle:shortVersionString="0.4.2" sparkle:dsaSignature="MC0CFQCZEsJX4TKYG7gkVlcBhFeFI1TI+QIUSyNfFmM1JSZctIT+nfOfgVpse3U=" length="4681492" type="application/octet-stream"/>
 		</item>
+		<item>
+			<title>Release 0.4.3</title>
+			<pubDate>Mon, 8 Jul 2013 00:00:00 +0000</pubDate>
+			<sparkle:releaseNotesLink>
+				  https://github.com/ryanmaxwell/UncrustifyX/blob/master/CHANGELOG.md#043
+			</sparkle:releaseNotesLink>
+			<enclosure url="http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.4.3.zip" sparkle:version="252" sparkle:shortVersionString="0.4.3" sparkle:dsaSignature="MCwCFDL2GSA/RxorpsnNo6Qgy+iaHm3vAhQC+vLJNu+CUKVjXGDczeIsPwYSEA==" length="4725535" type="application/octet-stream"/>
+		</item>
 	</channel>
 </rss>
