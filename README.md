@@ -29,6 +29,9 @@ File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/pr
 ## Contribution
 I welcome contributors to this project. Raise any bugs/suggestions/feature requests within the Issues tab.
 
+### Configuration Set Contribution
+I plan to add some default config files in the future. If you have a particulary fine-tuned config file for a language, please get in touch. 
+
 ## Xcode Integration
 The best way to use your uncrustify configuration from within Xcode is by using [BBUncrustifyPlugin-Xcode](https://github.com/benoitsan/BBUncrustifyPlugin-Xcode). This is bundled with UncrustifyX and you can install it from the Preferences window. 
 
