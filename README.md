@@ -17,17 +17,14 @@ Drag source files (.h, .m etc.) onto the dock icon, or into the main window's fi
 No preset configuration files are currently included. [Here](https://gist.github.com/4242629) is a good starting point for an Objective-C configuration.
 
 ## Download
-Prebuit binary is available [here](http://www.cactuslab.com/uncrustifyx/UncrustifyX-0.4.3.zip), and tagged releases can be easily updated to via Sparkle in-app updates.
+Prebuit binaries and source are available on the [releases page](https://github.com/ryanmaxwell/UncrustifyX/releases), and tagged releases can be easily updated to via Sparkle in-app updates.
 
 ## Building Project
-Git checkout the project including its submodules. Xcode 4.5, 10.8+ required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
-
-## Current Status
-UncrustifyX is new as of November 2012, and as such there may be rough edges. Hopefully it shows promise!
-File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/projects/uncrustify/) or [Github](https://github.com/bengardner/uncrustify) home.
+Git checkout the project including its submodules. Xcode 4.5+, 10.8+ required. Install [mogenerator](http://rentzsch.github.com/mogenerator/). Install [NSLogger](https://github.com/fpillet/NSLogger) to view debug logging.
 
 ## Contribution
 I welcome contributors to this project. Raise any bugs/suggestions/feature requests within the Issues tab.
+File bugs on uncrustify at the project's [SourceForge](http://sourceforge.net/projects/uncrustify/) or [Github](https://github.com/bengardner/uncrustify) home.
 
 ### Configuration Set Contribution
 I plan to add some default config files in the future. If you have a particulary fine-tuned config file for a language, please get in touch. 
