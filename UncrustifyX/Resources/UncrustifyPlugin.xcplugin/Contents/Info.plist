@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.3</string>
+	<string>1.0.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.3</string>
+	<string>1.0.4</string>
 	<key>CFPlugInDynamicRegisterFunction</key>
 	<string></string>
 	<key>CFPlugInDynamicRegistration</key>
@@ -56,6 +56,10 @@
 	<string>0463</string>
 	<key>DTXcodeBuild</key>
 	<string>4H1503</string>
+	<key>DVTPlugInCompatibilityUUIDs</key>
+	<array>
+		<string>63FC1C47-140D-42B0-BB4D-A10B2D225574</string>
+	</array>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012 Pragmatic Code. All rights reserved.</string>
 	<key>SUAllowsAutomaticUpdates</key>
