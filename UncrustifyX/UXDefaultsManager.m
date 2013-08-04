@@ -27,7 +27,7 @@ static NSString *const UXLastConfigBookmarkKey     					= @"UXLastConfigBookmark
 @implementation UXDefaultsManager
 
 + (instancetype)sharedDefaultsManager {
-    static UXDefaultsManager *instance;
+    static id instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[UXDefaultsManager alloc] init];
@@ -156,19 +156,19 @@ static NSString *const UXLastConfigBookmarkKey     					= @"UXLastConfigBookmark
                                                 error:NULL];
     NSAssert(data, @"Failed to create a bookmark for the given config url %@", lastConfigURL);
     if (data) {
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:UXLastConfigBookmarkKey];
+        [NSUserDefaults.standardUserDefaults setObject:data forKey:UXLastConfigBookmarkKey];
     }
 }
 
 #pragma mark -
 
-- (void)setDefaultsObject:(id)object forKey:(id)key {
+- (void)setDefaultsObject:(id)object forKey:(NSString *)key {
     NSUserDefaults *defaults = NSUserDefaults.standardUserDefaults;
     [defaults setObject:object forKey:key];
     [defaults synchronize];
 }
 
-- (id)defaultsObjectForKey:(id)key {
+- (id)defaultsObjectForKey:(NSString *)key {
     return [NSUserDefaults.standardUserDefaults objectForKey:key];
 }
 
