@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4DEAA3EA-C638-4D9B-8C5B-762FA25FC75B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UncrustifyX</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>37BD82B3-3064-4089-B0E3-CF2A6EC8EBFC</key>
+		<string>ssh://github.com/ryanmaxwell/Sparkle.git</string>
+		<key>4A098702-3CF7-403D-9A44-80A07E4F398C</key>
+		<string>ssh://github.com/ryanmaxwell/UncrustifyX.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UncrustifyX.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>37BD82B3-3064-4089-B0E3-CF2A6EC8EBFC</key>
+		<string>../UncrustifyX/Frameworks/Sparkle</string>
+		<key>4A098702-3CF7-403D-9A44-80A07E4F398C</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ryanmaxwell/UncrustifyX.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4A098702-3CF7-403D-9A44-80A07E4F398C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>37BD82B3-3064-4089-B0E3-CF2A6EC8EBFC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Sparkle</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4A098702-3CF7-403D-9A44-80A07E4F398C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>UncrustifyX</string>
+		</dict>
+	</array>
+</dict>
+</plist>
