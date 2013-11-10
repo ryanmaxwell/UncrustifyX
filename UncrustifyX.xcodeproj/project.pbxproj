@@ -586,6 +586,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 941FD37E1620220C0001C909 /* Build configuration list for PBXNativeTarget "UncrustifyX" */;
 			buildPhases = (
+				94935F1018304A3A003B12E6 /* Check Pods Manifest.lock */,
 				94659C481626CA6000A0C496 /* Run mogenerator */,
 				941FD35C1620220B0001C909 /* Sources */,
 				941FD35D1620220B0001C909 /* Frameworks */,
@@ -786,6 +787,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "MODELS_DIR=\"${PROJECT_DIR}/UncrustifyX/Models\"\nDATA_MODEL_PACKAGE=\"$MODELS_DIR/UncrustifyX.xcdatamodeld\"\n\n# Mogenerator Location\nif [ -x /usr/local/bin/mogenerator ]; then\n    echo \"mogenerator exists in /usr/local/bin path\";\n    MOGENERATOR_DIR=\"/usr/local/bin\";\nelif [ -x /usr/bin/mogenerator ]; then\n    echo \"mogenerator exists in /usr/bin path\";\n    MOGENERATOR_DIR=\"/usr/bin\";\nelse\n    echo \"mogenerator not found\"; exit 1;\nfi\n\n$MOGENERATOR_DIR/mogenerator --model \"$DATA_MODEL_PACKAGE/UncrustifyX.xcdatamodel\" --output-dir \"$MODELS_DIR/\" --base-class \"UXBaseManagedObject\" --template-var arc=true\n\n## USE BELOW ONCE MULTIPLE MODEL VERSIONS\n#CURRENT_VERSION=`/usr/libexec/PlistBuddy \"$DATA_MODEL_PACKAGE/.xccurrentversion\" -c 'print _XCCurrentVersionName'`\n#/usr/local/bin/mogenerator --model \"$DATA_MODEL_PACKAGE/$CURRENT_VERSION\" --output-dir \"$MODELS_DIR/\" --base-class \"AAManagedObject\" --template-var arc=true";
+		};
+		94935F1018304A3A003B12E6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\ncat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\nexit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		BFEC091B07FF4D30989E28E5 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
