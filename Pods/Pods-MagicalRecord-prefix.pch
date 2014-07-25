@@ -3,8 +3,5 @@
 #endif
 
 #import "Pods-environment.h"
-#ifdef __OBJC__
-#define MR_SHORTHAND
+#import <CoreData/CoreData.h>
 #import "CoreData+MagicalRecord.h"
-#endif
-

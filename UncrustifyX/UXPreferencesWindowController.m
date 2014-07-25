@@ -143,7 +143,7 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
                                 attributes:nil
                                      error:&creationError];
         
-        if (creationError) DErr(@"Create plugins folder failed: %@", creationError);
+        if (creationError) DLog(@"Create plugins folder failed: %@", creationError);
     }
     
     NSString *sourcePluginPath = [NSBundle.mainBundle pathForResource:UncrustifyPluginResourceName
@@ -153,7 +153,7 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
     if (![fileManager fileExistsAtPath:uncrustifyPluginPath]) {
         NSError *copyError = nil;
         [fileManager copyItemAtPath:sourcePluginPath toPath:uncrustifyPluginPath error:&copyError];
-        if (copyError) DErr(@"%@", copyError);
+        if (copyError) DLog(@"%@", copyError);
         
         [self updatePluginVersionLabel];
     } else {
@@ -171,11 +171,11 @@ static NSString * const UncrustifyPluginResourceType = @"xcplugin";
             
             NSError *removeError = nil;
             [fileManager removeItemAtPath:uncrustifyPluginPath error:&removeError];
-            if (removeError) DErr(@"%@", removeError);
+            if (removeError) DLog(@"%@", removeError);
             
             NSError *copyError = nil;
             [fileManager copyItemAtPath:sourcePluginPath toPath:uncrustifyPluginPath error:&copyError];
-            if (copyError) DErr(@"%@", copyError);
+            if (copyError) DLog(@"%@", copyError);
             
             [self updatePluginVersionLabel];
         }

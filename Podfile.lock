@@ -1,13 +1,12 @@
 PODS:
-  - MagicalRecord (2.2)
-  - NSLogger (1.1)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core
+  - MagicalRecord/Core (2.2)
 
 DEPENDENCIES:
   - MagicalRecord
-  - NSLogger
 
 SPEC CHECKSUMS:
-  MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
-  NSLogger: 4567fef08d0db18a89cce91b2053823fc0950738
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.33.1

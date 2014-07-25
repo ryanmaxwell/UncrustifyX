@@ -4,7 +4,10 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
-    
+
+    #define MR_SHORTHAND
+    #import <MagicalRecord/CoreData+MagicalRecord.h>
+
     #import "UXAppDelegate.h"
     #import "UXConsolePanelController.h"
     #import "UXDefaultsManager.h"
@@ -14,50 +17,17 @@
     #define UXCONSOLE           ((UXConsolePanelController *)UXConsolePanelController.sharedConsole)
     #define UXDEFAULTS          ((UXDefaultsManager *)UXDefaultsManager.sharedDefaultsManager)
 
-    #define MR_SHORTHAND
-    #import <MagicalRecord/CoreData+MagicalRecord.h>
 
-    #import <NSLogger/LoggerClient.h>
 
-    #define TEST_BONJOUR_SETUP		0
-    #define TEST_CONSOLE_LOGGING	0
-    #define TEST_FILE_BUFFERING		0
-    #define TEST_DIRECT_CONNECTION	1
-    #define LOGGING_HOST			CFSTR("127.0.0.1")
-    #define LOGGING_PORT			50007
-
-    #define DWarn(...)          LogMessageF(__FILE__,__LINE__,__FUNCTION__,@"Warning",1,__VA_ARGS__)
-    #define DErr(...)           LogMessageF(__FILE__,__LINE__,__FUNCTION__,@"Error",0,__VA_ARGS__)
-
-    #ifdef DEBUG
-        #define NSLog(...)          LogMessageF(__FILE__,__LINE__,__FUNCTION__,@"NSLog",4,__VA_ARGS__)
-        #define DLog(...)           LogMessageF(__FILE__,__LINE__,__FUNCTION__,@"General",2,__VA_ARGS__)
-        #define DLogC(tag,...)      LogMessageF(__FILE__,__LINE__,__FUNCTION__,@#tag,3,__VA_ARGS__)
-        #define DData(nsdata)       LogDataF(__FILE__,__LINE__,__FUNCTION__,@"NSData",2, nsdata)
-        #if TARGET_OS_IPHONE
-            #define DImage(nsimage)     LogImageDataF(__FILE__,__LINE__,__FUNCTION__,@"NSImage",2, nsimage.size.width, nsimage.size.height, [[[NSBitmapImageRep alloc] initWithData:[nsimage TIFFRepresentation]] representationUsingType:NSPNGFileType properties:nil]);
-        #else
-            #define DImage(uiimage)     LogImageDataF(__FILE__,__LINE__,__FUNCTION__,@"UIImage",2, uiimage.size.width, uiimage.size.height, UIImagePNGRepresentation(uiimage));
-        #endif
-    #else
-        #define NSLog(...)          (void)0;
-        #define DLog(...)           (void)0;
-        #define DLogC(tag,...)      (void)0;
-        #define DData(nsdata)       (void)0;
-        #define DImage(uiimage)     (void)0;
+#ifdef DEBUG
+    #define DLog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+    #define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
+#else
+    #define DLog(...) do { } while (0)
+    #ifndef NS_BLOCK_ASSERTIONS
+        #define NS_BLOCK_ASSERTIONS
     #endif
-
-    #undef assert
-    #if defined(DEBUG) && !defined(NDEBUG)
-        #if __DARWIN_UNIX03
-            #define assert(e) \
-            (__builtin_expect(!(e), 0) ? (CFShow(CFSTR("assert going to fail, connect NSLogger NOW\n")), LoggerFlush(NULL,YES), __assert_rtn(__func__, __FILE__, __LINE__, #e)) : (void)0)
-        #else
-            #define assert(e)  \
-            (__builtin_expect(!(e), 0) ? (CFShow(CFSTR("assert going to fail, connect NSLogger NOW\n")), LoggerFlush(NULL,YES), __assert(#e, __FILE__, __LINE__)) : (void)0)
-        #endif
-    #else
-        #define assert(e)  (void)0
-    #endif
+    #define ALog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+#endif
 
 #endif

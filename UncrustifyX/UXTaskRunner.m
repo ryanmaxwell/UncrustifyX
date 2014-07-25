@@ -38,7 +38,7 @@
     NSString *result = [NSString stringWithContentsOfFile:tempPath encoding:NSUTF8StringEncoding error:&error];
     
     if (error) {
-        DErr(@"%@", error);
+        DLog(@"%@", error);
         return nil;
     } else {
         DLog(@"%@", result);
@@ -75,7 +75,7 @@
                    NSLocalizedRecoveryOptionsErrorKey: @[@"Use Bundled Binary", @"View Preferences…"]
                               }];
             
-            DErr(@"%@", error);
+            DLog(@"%@", error);
             
             NSAlert *alert = [NSAlert alertWithError:error];
             NSInteger result = [alert runModal];

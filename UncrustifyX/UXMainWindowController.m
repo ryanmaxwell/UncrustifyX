@@ -560,7 +560,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                             error:&parseError];
 
             if (parseError) {
-                DErr(@"%@", parseError);
+                DLog(@"%@", parseError);
                 [errorStrings addObject:parseError.localizedDescription];
             }
         }
@@ -579,7 +579,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [errorAlert runModal];
         }
     } else {
-        DErr(@"%@", error);
+        DLog(@"%@", error);
     }
 }
 
@@ -699,7 +699,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
                             error:&parseError];
 
             if (parseError) {
-                DErr(@"%@", parseError);
+                DLog(@"%@", parseError);
                 [errorStrings addObject:parseError.localizedDescription];
             }
         }
