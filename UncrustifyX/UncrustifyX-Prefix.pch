@@ -4,8 +4,7 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
-
-    #define MR_SHORTHAND
+    
     #import <MagicalRecord/CoreData+MagicalRecord.h>
 
     #import "UXAppDelegate.h"

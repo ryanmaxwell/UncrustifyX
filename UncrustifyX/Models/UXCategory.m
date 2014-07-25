@@ -20,13 +20,13 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        other = [UXCategory findFirstByAttribute:UXAbstractCategoryAttributes.name
+        other = [UXCategory MR_findFirstByAttribute:UXAbstractCategoryAttributes.name
                                        withValue:@"Other"];
         
         if (!other) {
-            other = [UXCategory createEntity];
+            other = [UXCategory MR_createEntity];
             other.name = @"Other";
-            [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         }
     });
     return other;

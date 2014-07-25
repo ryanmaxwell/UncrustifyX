@@ -19,13 +19,13 @@
 @implementation UXDataImporter
 
 + (void)deleteData {
-    [UXCategory truncateAll];
-    [UXSubcategory truncateAll];
-    [UXLanguage truncateAll];
-    [UXOption truncateAll];
-    [UXValueType truncateAll];
-    [UXCodeSample truncateAll];
-    [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
+    [UXCategory MR_truncateAll];
+    [UXSubcategory MR_truncateAll];
+    [UXLanguage MR_truncateAll];
+    [UXOption MR_truncateAll];
+    [UXValueType MR_truncateAll];
+    [UXCodeSample MR_truncateAll];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 + (NSDictionary *)definitionsDictionary {
@@ -62,10 +62,10 @@
         if ([value isKindOfClass:NSDictionary.class]) {
             NSDictionary *language = (NSDictionary *)value;
             
-            UXLanguage *languageEntity = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
-                                                                withValue:key];
+            UXLanguage *languageEntity = [UXLanguage MR_findFirstByAttribute:UXLanguageAttributes.code
+                                                                   withValue:key];
             if (!languageEntity) {
-                languageEntity = [UXLanguage createEntity];
+                languageEntity = [UXLanguage MR_createEntity];
                 languageEntity.code = key;
                 languageEntity.includedInDocumentation = YES;
             }
@@ -90,15 +90,15 @@
     }];
     
     /* Replace all Value Types */
-    [UXValueType truncateAll];
+    [UXValueType MR_truncateAll];
     for (NSDictionary *valueType in rootDict[@"ValueTypes"]) {
         NSString *theType = valueType[@"Type"];
         
-        UXValueType *valueTypeEntity = [UXValueType createEntity];
+        UXValueType *valueTypeEntity = [UXValueType MR_createEntity];
         valueTypeEntity.type = theType;
         
         for (NSString *value in valueType[@"Values"]) {
-            UXValue *newValue = [UXValue createEntity];
+            UXValue *newValue = [UXValue MR_createEntity];
             newValue.value = value;
             newValue.valueType = valueTypeEntity;
         }
@@ -110,9 +110,9 @@
     }
     
     /* Replace all code samples */
-    [UXCodeSample truncateAll];
+    [UXCodeSample MR_truncateAll];
     for (NSDictionary *codeSample in rootDict[@"CodeSamples"]) {
-        UXCodeSample *newCodeSample = [UXCodeSample createEntity];
+        UXCodeSample *newCodeSample = [UXCodeSample MR_createEntity];
         newCodeSample.codeSampleDescription = codeSample[@"Description"];
         
         NSString *languageCode = codeSample[@"Language"];
@@ -128,10 +128,10 @@
         if ([value isKindOfClass:NSDictionary.class]) {
             NSDictionary *option = (NSDictionary *)value;
             
-            UXOption *optionEntity = [UXOption findFirstByAttribute:UXOptionAttributes.code
+            UXOption *optionEntity = [UXOption MR_findFirstByAttribute:UXOptionAttributes.code
                                                           withValue:key];
             if (!optionEntity) {
-                optionEntity = [UXOption createEntity];
+                optionEntity = [UXOption MR_createEntity];
                 optionEntity.code = key;
             }
             
@@ -143,10 +143,10 @@
             if (categoryName.length) {
                 categoryEntity = categoriesDict[categoryName];
                 if (!categoryEntity) {
-                    categoryEntity = [UXCategory findFirstByAttribute:UXAbstractCategoryAttributes.name
+                    categoryEntity = [UXCategory MR_findFirstByAttribute:UXAbstractCategoryAttributes.name
                                                             withValue:categoryName];
                     if (!categoryEntity) {
-                        categoryEntity = [UXCategory createEntity];
+                        categoryEntity = [UXCategory MR_createEntity];
                         categoryEntity.name = categoryName;
                     }
                     
@@ -163,10 +163,10 @@
             if (subcategoryName.length) {
                 subcategoryEntity = subcategoriesDict[subcategoryName];
                 if (!subcategoryEntity) {
-                    subcategoryEntity = [UXSubcategory findFirstByAttribute:UXAbstractCategoryAttributes.name
-                                                                  withValue:subcategoryName];
+                    subcategoryEntity = [UXSubcategory MR_findFirstByAttribute:UXAbstractCategoryAttributes.name
+                                                                     withValue:subcategoryName];
                     if (!subcategoryEntity) {
-                        subcategoryEntity = [UXSubcategory createEntity];
+                        subcategoryEntity = [UXSubcategory MR_createEntity];
                         subcategoryEntity.name = subcategoryName;
                     } else {
                         /* relink parent categories */
@@ -204,20 +204,20 @@
     
     /* Remove empty categories/subcategories */
     NSPredicate *emptyCategoriesPredicate = [NSPredicate predicateWithFormat:@"%K.@count == 0", UXCategoryRelationships.options];
-    NSArray *emptyCategories = [UXCategory findAllWithPredicate:emptyCategoriesPredicate];
+    NSArray *emptyCategories = [UXCategory MR_findAllWithPredicate:emptyCategoriesPredicate];
     
     for (UXCategory *category in emptyCategories) {
-        [category deleteEntity];
+        [category MR_deleteEntity];
     }
     
-    NSArray *emptySubcategories = [UXSubcategory findAllWithPredicate:emptyCategoriesPredicate];
+    NSArray *emptySubcategories = [UXSubcategory MR_findAllWithPredicate:emptyCategoriesPredicate];
     
     for (UXSubcategory *subcategory in emptySubcategories) {
-        [subcategory deleteEntity];
+        [subcategory MR_deleteEntity];
     }
     
     
-    [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 @end

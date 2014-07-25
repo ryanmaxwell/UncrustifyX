@@ -39,7 +39,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
 @property (strong, nonatomic) NSArray *allSubcategories;
 @property (strong, nonatomic) NSMutableArray *currentOptionsAndSubcategories;
 
-@property (weak, nonatomic) UXOption *selectedOption;
+@property (weak, nonatomic, readwrite) UXOption *selectedOption;
 @property (strong, nonatomic) MGSFragaria *fragaria;
 @end
 
@@ -60,8 +60,8 @@ static CGFloat const PreviewViewHeight = 250.0f;
         _previewLanguagesArrayController = [[NSArrayController alloc] init];
         _codeSamplesArrayController = [[NSArrayController alloc] init];
 
-        _allOptions = [UXOption findAll];
-        _allSubcategories = [UXSubcategory findAll];
+        _allOptions = [UXOption MR_findAll];
+        _allSubcategories = [UXSubcategory MR_findAll];
 
         _currentOptionsAndSubcategories = [[NSMutableArray alloc] init];
 
@@ -94,7 +94,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
     self.categoriesArrayController.managedObjectContext =
     self.browseLanguagesArrayController.managedObjectContext =
     self.previewLanguagesArrayController.managedObjectContext =
-    self.codeSamplesArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
+    self.codeSamplesArrayController.managedObjectContext = [NSManagedObjectContext MR_defaultContext];
 
     self.categoriesArrayController.entityName = UXCategory.entityName;
     self.browseLanguagesArrayController.entityName = UXLanguage.entityName;
@@ -117,8 +117,8 @@ static CGFloat const PreviewViewHeight = 250.0f;
     [self.codeSamplesArrayController fetch:nil];
 
     NSString *selectedLanguageCode = UXDEFAULTS.selectedPreviewLanguageInDocumentation;
-    UXLanguage *selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
-                                                          withValue:selectedLanguageCode];
+    UXLanguage *selectedLanguage = [UXLanguage MR_findFirstByAttribute:UXLanguageAttributes.code
+                                                             withValue:selectedLanguageCode];
 
     if (selectedLanguage) {
         self.selectedPreviewLanguage = selectedLanguage;
@@ -383,9 +383,9 @@ static CGFloat const PreviewViewHeight = 250.0f;
         NSPredicate *selectedLanguagePredicate = [NSPredicate predicateWithFormat:@"%K IN %@",
                                                   UXLanguageAttributes.code,
                                                   selectedLanguageCodes];
-        NSArray *selectedLanguages = [UXLanguage findAllWithPredicate:selectedLanguagePredicate];
+        NSArray *selectedLanguages = [UXLanguage MR_findAllWithPredicate:selectedLanguagePredicate];
         
-        BOOL requiresLanguageFilter = (selectedLanguages.count < UXLanguage.findAll.count);
+        BOOL requiresLanguageFilter = (selectedLanguages.count < UXLanguage.MR_findAll.count);
         
         if (requiresLanguageFilter) {
             NSPredicate *languageFilter = [NSPredicate predicateWithFormat:@"languages.@count == 0 OR ANY languages IN %@", selectedLanguages];

@@ -15,7 +15,7 @@ NSString *const UXLanguageExtensionDelimiter = @":";
 + (NSArray *)allFileExtensions {
     NSMutableSet *results = NSMutableSet.set;
     
-    for (UXLanguage *language in [UXLanguage findAll]) {
+    for (UXLanguage *language in [UXLanguage MR_findAll]) {
         [results addObjectsFromArray:language.fileExtensions];
     }
     
@@ -25,7 +25,7 @@ NSString *const UXLanguageExtensionDelimiter = @":";
 + (NSArray *)languagesWithExtension:(NSString *)extension {
     NSMutableArray *results = NSMutableArray.array;
     
-    for (UXLanguage *language in [UXLanguage findAll]) {
+    for (UXLanguage *language in [UXLanguage MR_findAll]) {
         if ([language.fileExtensions containsObject:extension]) {
             [results addObject:language];
         }

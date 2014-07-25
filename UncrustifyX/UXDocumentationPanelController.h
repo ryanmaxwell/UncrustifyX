@@ -36,7 +36,7 @@
 @property (strong, nonatomic) IBOutlet UXSyntaxColoredTextViewController *syntaxColoringController;
 @property (weak, nonatomic) IBOutlet NSView *fragariaContainerView;
 
-@property (readonly, nonatomic) UXOption *selectedOption;
+@property (weak, readonly, nonatomic) UXOption *selectedOption;
 
 - (IBAction)browseLanguagesPopUpChanged:(id)sender;
 - (IBAction)previewLanguagePopUpChanged:(id)sender;

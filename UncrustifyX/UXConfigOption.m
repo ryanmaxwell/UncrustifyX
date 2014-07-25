@@ -47,8 +47,8 @@ static NSArray *sortedCategories;
 
     /* Categories and their config options */
     if (!sortedCategories) {
-        sortedCategories = [UXCategory findAllSortedBy:UXAbstractCategoryAttributes.name
-                                             ascending:YES];
+        sortedCategories = [UXCategory MR_findAllSortedBy:UXAbstractCategoryAttributes.name
+                                                ascending:YES];
     }
 
     for (UXCategory *category in sortedCategories) {

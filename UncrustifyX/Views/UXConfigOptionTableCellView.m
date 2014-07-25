@@ -58,7 +58,7 @@ NSString *const SubcategoryCellReuseIdentifier = @"SubcategoryTableCellView";
     
     id<UXConfigOption> selectedOption = self.objectValue;
     selectedOption.value = selectedValue;
-    [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
 }
 
 #pragma mark - NSTextFieldDelegate
@@ -68,7 +68,7 @@ NSString *const SubcategoryCellReuseIdentifier = @"SubcategoryTableCellView";
     
     id<UXConfigOption> selectedOption = self.objectValue;
     selectedOption.value = textField.stringValue;
-    [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
 }
 
 @end

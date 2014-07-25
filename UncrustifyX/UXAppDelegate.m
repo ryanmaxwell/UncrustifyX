@@ -111,7 +111,7 @@ typedef NS_ENUM(NSInteger, UXViewTag) {
 - (void)applicationWillTerminate:(NSNotification *)notification {
     [NSNotificationCenter.defaultCenter removeObserver:self];
     
-    [NSManagedObjectContext.defaultContext saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     [MagicalRecord cleanUp];
 }
 

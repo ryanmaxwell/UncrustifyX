@@ -73,10 +73,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
         _sortedConfigOptionsAndCategories = [[NSMutableArray alloc] init];
 
-        _sortedCategories = [UXCategory findAllSortedBy:UXAbstractCategoryAttributes.name
-                                              ascending:YES];
+        _sortedCategories = [UXCategory MR_findAllSortedBy:UXAbstractCategoryAttributes.name
+                                                 ascending:YES];
 
-        _configOptions = [[NSMutableArray alloc] initWithArray:[UXPersistentConfigOption findAll]];
+        _configOptions = [[NSMutableArray alloc] initWithArray:[UXPersistentConfigOption MR_findAll]];
         [self sortConfigOptions];
 
         _inputLanguageArrayController = [[NSArrayController alloc] init];
@@ -84,7 +84,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [NSSortDescriptor sortDescriptorWithKey:UXLanguageAttributes.name
                                           ascending:YES]
         ];
-        _inputLanguageArrayController.managedObjectContext = NSManagedObjectContext.defaultContext;
+        _inputLanguageArrayController.managedObjectContext = [NSManagedObjectContext MR_defaultContext];
         _inputLanguageArrayController.entityName = UXLanguage.entityName;
         
         _filePathsArrayController = [[NSArrayController alloc] init];
@@ -122,8 +122,8 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [self.fragaria embedInView:self.fragariaContainerView];
 
             NSString *selectedLanguageCode = UXDEFAULTS.selectedPreviewLanguageInMainWindow;
-            UXLanguage *selectedLanguage = [UXLanguage findFirstByAttribute:UXLanguageAttributes.code
-                                                                  withValue:selectedLanguageCode];
+            UXLanguage *selectedLanguage = [UXLanguage MR_findFirstByAttribute:UXLanguageAttributes.code
+                                                                     withValue:selectedLanguageCode];
 
             if (selectedLanguage) {
                 self.selectedPreviewLanguage = selectedLanguage;
@@ -189,11 +189,11 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
     BOOL errorOccurred = NO;
 
     if (![self configOptionWithCode:code]) {
-        UXOption *theOption = [UXOption findFirstByAttribute:UXOptionAttributes.code
-                                                   withValue:code];
+        UXOption *theOption = [UXOption MR_findFirstByAttribute:UXOptionAttributes.code
+                                                      withValue:code];
 
         if (theOption) {
-            UXPersistentConfigOption *newConfigOption = [UXPersistentConfigOption createEntity];
+            UXPersistentConfigOption *newConfigOption = [UXPersistentConfigOption MR_createEntity];
             newConfigOption.option = theOption;
 
             if (value.length) {
@@ -234,7 +234,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             }
 
             [self.configOptions addObject:newConfigOption];
-            [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
         } else {
             if (error) {
                 NSString *errorDescription = [NSString stringWithFormat:@"Could not find option with %@ code", code];
@@ -422,10 +422,10 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             [self.configOptions removeObjectsInArray:objectsToRemove];
             
             for (NSManagedObject *mo in objectsToRemove) {
-                [NSManagedObjectContext.defaultContext deleteObject:mo];
+                [[NSManagedObjectContext MR_defaultContext] deleteObject:mo];
             }
             
-            [NSManagedObjectContext.defaultContext saveToPersistentStoreWithCompletion:nil];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
             
             [self sortConfigOptions];
             
@@ -544,7 +544,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
     if (!error) {
         for (UXPersistentConfigOption *configOption in self.configOptions) {
-            [configOption deleteEntity];
+            [configOption MR_deleteEntity];
         }
 
         [self.configOptions removeAllObjects];
