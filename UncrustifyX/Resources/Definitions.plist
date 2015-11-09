@@ -244,149 +244,6 @@ My Comment
 	</dict>
 	<key>Options</key>
 	<dict>
-		<key>align_keep_extra_space</key>
-		<dict>
-			<key>Name</key>
-			<string>Keep whitespace not required for alignment</string>
-			<key>ValueTypeID</key>
-			<integer>2</integer>
-			<key>Description</key>
-			<string>Whether to keep whitespace not required for alignment.</string>
-			<key>Category</key>
-			<string>Alignment</string>
-		</dict>
-		<key>nl_oc_msg_args</key>
-		<dict>
-			<key>Languages</key>
-			<array>
-				<string>OC</string>
-			</array>
-			<key>Category</key>
-			<string>Newlines</string>
-			<key>Description</key>
-			<string>Whether to put each OC message parameter on a separate line
-See nl_oc_msg_leave_one_liner</string>
-			<key>Name</key>
-			<string>Place ObjC message parameters on new lines</string>
-			<key>ValueTypeID</key>
-			<integer>2</integer>
-		</dict>
-		<key>nl_oc_msg_leave_one_liner</key>
-		<dict>
-			<key>Languages</key>
-			<array>
-				<string>OC</string>
-			</array>
-			<key>Category</key>
-			<string>Newlines</string>
-			<key>Description</key>
-			<string>Don&apos;t split one-line OC messages</string>
-			<key>Name</key>
-			<string>Don&apos;t split one-line ObjC messages</string>
-			<key>ValueTypeID</key>
-			<integer>2</integer>
-		</dict>
-		<key>align_oc_msg_colon_first</key>
-		<dict>
-			<key>Languages</key>
-			<array>
-				<string>OC</string>
-			</array>
-			<key>Category</key>
-			<string>Alignment</string>
-			<key>Description</key>
-			<string>If true, always align with the first parameter, even if it is too short.</string>
-			<key>Name</key>
-			<string>Always align with first parameter in ObjC message</string>
-			<key>ValueTypeID</key>
-			<integer>2</integer>
-		</dict>
-		<key>sp_extern_paren</key>
-		<dict>
-			<key>Languages</key>
-			<array>
-				<string>D</string>
-			</array>
-			<key>Category</key>
-			<string>Spacing</string>
-			<key>Description</key>
-			<string>Control the spacing in &apos;extern (C)&apos;</string>
-			<key>Name</key>
-			<string>Spacing before extern parentheses</string>
-			<key>Subcategory</key>
-			<string>Space Before</string>
-			<key>ValueTypeID</key>
-			<integer>3</integer>
-		</dict>
-		<key>sp_before_for_colon</key>
-		<dict>
-			<key>Languages</key>
-			<array>
-				<string>JAVA</string>
-			</array>
-			<key>Category</key>
-			<string>Spacing</string>
-			<key>Description</key>
-			<string>Control the spacing before &apos;:&apos; in &apos;for (TYPE VAR : EXPR)&apos;</string>
-			<key>Name</key>
-			<string>Space before for colon</string>
-			<key>Subcategory</key>
-			<string>Space Before</string>
-			<key>ValueTypeID</key>
-			<integer>3</integer>
-		</dict>
-		<key>sp_after_for_colon</key>
-		<dict>
-			<key>Languages</key>
-			<array>
-				<string>JAVA</string>
-			</array>
-			<key>Category</key>
-			<string>Spacing</string>
-			<key>Description</key>
-			<string>Control the spacing after &apos;:&apos; in &apos;for (TYPE VAR : EXPR)&apos;</string>
-			<key>Name</key>
-			<string>Space after for colon</string>
-			<key>Subcategory</key>
-			<string>Space After</string>
-			<key>ValueTypeID</key>
-			<integer>3</integer>
-		</dict>
-		<key>indent_oc_msg_colon</key>
-		<dict>
-			<key>Subcategory</key>
-			<string>Indentation Size</string>
-			<key>Languages</key>
-			<array>
-				<string>OC</string>
-			</array>
-			<key>Category</key>
-			<string>Indentation</string>
-			<key>Description</key>
-			<string>Minimum indent for subsequent parameters</string>
-			<key>Name</key>
-			<string>Indentation size for ObjC message subsequent parameters</string>
-			<key>ValueTypeID</key>
-			<integer>0</integer>
-		</dict>
-		<key>indent_oc_block_msg</key>
-		<dict>
-			<key>Subcategory</key>
-			<string>Indentation Size</string>
-			<key>Languages</key>
-			<array>
-				<string>OC</string>
-			</array>
-			<key>Category</key>
-			<string>Indentation</string>
-			<key>Description</key>
-			<string>Indent OC blocks in a message relative to the parameter name.
-  0=use indent_oc_block rules, 1+=spaces to indent</string>
-			<key>Name</key>
-			<string>Indentation size for ObjC blocks in a message parameter</string>
-			<key>ValueTypeID</key>
-			<integer>0</integer>
-		</dict>
 		<key>align_assign_span</key>
 		<dict>
 			<key>Category</key>
@@ -478,6 +335,17 @@ See nl_oc_msg_leave_one_liner</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
+		<key>align_keep_extra_space</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>Whether to keep whitespace not required for alignment.</string>
+			<key>Name</key>
+			<string>Keep whitespace not required for alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>align_keep_tabs</key>
 		<dict>
 			<key>Category</key>
@@ -555,6 +423,21 @@ This will not work right if the macro contains a multi-line comment.</string>
 			<string>Align ObjC declaration params on colon</string>
 			<key>Subcategory</key>
 			<string>Alignment</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>align_oc_msg_colon_first</key>
+		<dict>
+			<key>Category</key>
+			<string>Alignment</string>
+			<key>Description</key>
+			<string>If true, always align with the first parameter, even if it is too short.</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Always align with first parameter in ObjC message</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -1806,8 +1689,6 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 		</dict>
 		<key>indent_oc_block</key>
 		<dict>
-			<key>Subcategory</key>
-			<string>Indentation</string>
 			<key>Category</key>
 			<string>Indentation</string>
 			<key>Description</key>
@@ -1818,8 +1699,45 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 			</array>
 			<key>Name</key>
 			<string>Indent ObjC block</string>
+			<key>Subcategory</key>
+			<string>Indentation</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
+		</dict>
+		<key>indent_oc_block_msg</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indent OC blocks in a message relative to the parameter name.
+  0=use indent_oc_block rules, 1+=spaces to indent</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indentation size for ObjC blocks in a message parameter</string>
+			<key>Subcategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>indent_oc_msg_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Minimum indent for subsequent parameters</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indentation size for ObjC message subsequent parameters</string>
+			<key>Subcategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
 		</dict>
 		<key>indent_paren_close</key>
 		<dict>
@@ -3710,6 +3628,37 @@ Overrides nl_for_brace, nl_if_brace, nl_switch_brace, nl_while_switch, and nl_ca
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>nl_oc_msg_args</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to put each OC message parameter on a separate line
+See nl_oc_msg_leave_one_liner</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Place ObjC message parameters on new lines</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_oc_msg_leave_one_liner</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line OC messages</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Don&apos;t split one-line ObjC messages</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>nl_property_brace</key>
 		<dict>
 			<key>Category</key>
@@ -4393,6 +4342,23 @@ This does not affect the spacing after a &apos;&amp;&apos; that is part of a typ
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>sp_after_for_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Control the spacing after &apos;:&apos; in &apos;for (TYPE VAR : EXPR)&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>JAVA</string>
+			</array>
+			<key>Name</key>
+			<string>Space after for colon</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_after_invariant_paren</key>
 		<dict>
 			<key>Category</key>
@@ -4536,8 +4502,6 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space After</string>
 			<key>Description</key>
 			<string>Add or remove space after @property.</string>
 			<key>Languages</key>
@@ -4546,6 +4510,8 @@ Also applies to @protocol() constructs</string>
 			</array>
 			<key>Name</key>
 			<string>Space after ObjC property</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -4766,12 +4732,12 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Between</string>
 			<key>Description</key>
 			<string>Add or remove between the parens in the function type: &apos;void (*x)(...)&apos;</string>
 			<key>Name</key>
 			<string>Space between parentheses in function type</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -4840,12 +4806,12 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Between</string>
 			<key>Description</key>
 			<string>Control space between a Java annotation and the open paren.</string>
 			<key>Name</key>
 			<string>Space between Java annotation and open parenthesis</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5026,6 +4992,23 @@ Also applies to @protocol() constructs</string>
 			<string>Add or remove space before the variadic &apos;...&apos; when preceded by a non-punctuator</string>
 			<key>Name</key>
 			<string>Space before ellipsis</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_for_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Control the spacing before &apos;:&apos; in &apos;for (TYPE VAR : EXPR)&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>JAVA</string>
+			</array>
+			<key>Name</key>
+			<string>Space before for colon</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
@@ -5241,8 +5224,6 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Before</string>
 			<key>Description</key>
 			<string>Add or remove space before the paren in the D constructs &apos;template Foo(&apos; and &apos;class Foo(&apos;.</string>
 			<key>Languages</key>
@@ -5251,6 +5232,8 @@ Also applies to @protocol() constructs</string>
 			</array>
 			<key>Name</key>
 			<string>Space before parenthesis in template and class constructs</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
@@ -5258,12 +5241,12 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Before</string>
 			<key>Description</key>
 			<string>Controls the spaces before a trailing or embedded comment</string>
 			<key>Name</key>
 			<string>Space before trailing or embedded comment</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5490,8 +5473,6 @@ If set to ignore, sp_before_sparen is used.</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Around</string>
 			<key>Description</key>
 			<string>Add or remove space around &apos;=&apos; in C++11 lambda capture specifications. Overrides sp_assign</string>
 			<key>Languages</key>
@@ -5500,6 +5481,8 @@ If set to ignore, sp_before_sparen is used.</string>
 			</array>
 			<key>Name</key>
 			<string>Space around assignment in lambda capture specification</string>
+			<key>Subcategory</key>
+			<string>Space Around</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5507,8 +5490,6 @@ If set to ignore, sp_before_sparen is used.</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space After</string>
 			<key>Description</key>
 			<string>Add or remove space after the capture specification in C++11 lambda.</string>
 			<key>Languages</key>
@@ -5517,6 +5498,8 @@ If set to ignore, sp_before_sparen is used.</string>
 			</array>
 			<key>Name</key>
 			<string>Space after capture specification</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5626,6 +5609,23 @@ This does not affect the spacing after a &apos;*&apos; that is part of a type.</
 			<string>Add or remove space before assignment &apos;=&apos; in enum. Overrides sp_enum_assign.</string>
 			<key>Name</key>
 			<string>Space before assignment in enum</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_extern_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Control the spacing in &apos;extern (C)&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>D</string>
+			</array>
+			<key>Name</key>
+			<string>Spacing before extern parentheses</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
@@ -5933,12 +5933,12 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Inside</string>
 			<key>Description</key>
 			<string>Add or remove space before if-condition &apos;(&apos;. Overrides sp_inside_sparen.</string>
 			<key>Name</key>
 			<string>Space inside if-condition open parenthesis</string>
+			<key>Subcategory</key>
+			<string>Space Inside</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5959,12 +5959,12 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Inside</string>
 			<key>Description</key>
 			<string>Add or remove space inside the first parens in the function type: &apos;void (*x)(...)&apos;</string>
 			<key>Name</key>
 			<string>Space inside parentheses in function type</string>
+			<key>Subcategory</key>
+			<string>Space Inside</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -6110,8 +6110,6 @@ Also applies to @protocol() constructs</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space Between</string>
 			<key>Default</key>
 			<string>False</string>
 			<key>Description</key>
@@ -6123,6 +6121,8 @@ sp_angle_shift cannot remove the space without this option.</string>
 			</array>
 			<key>Name</key>
 			<string>Space between double angle brackets</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -6158,12 +6158,12 @@ sp_angle_shift cannot remove the space without this option.</string>
 		<dict>
 			<key>Category</key>
 			<string>Spacing</string>
-			<key>Subcategory</key>
-			<string>Space After</string>
 			<key>Description</key>
 			<string>Add or remove space after a pointer star &apos;*&apos;, if followed by an open paren (function types).</string>
 			<key>Name</key>
 			<string>Space after pointer star if followed by open parenthesis</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
