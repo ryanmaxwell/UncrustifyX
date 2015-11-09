@@ -921,6 +921,19 @@ Requires align_single_line_func=true, uses align_func_proto_span</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
+		<key>cmt_convert_tab_to_spaces</key>
+		<dict>
+			<key>Category</key>
+			<string>Comments</string>
+			<key>Description</key>
+			<string>Whether to convert all tabs to spaces in comments. Default is to leave tabs inside comments alone, unless used for indenting.</string>
+			<key>Name</key>
+			<string>Tabs in comments</string>
+			<key>Subcategory</key>
+			<string>Spacing</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>cmt_cpp_group</key>
 		<dict>
 			<key>Category</key>
@@ -1179,6 +1192,17 @@ Will substitute $(message) with the function name and $(javaparam) with the java
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
+		<key>disable_processing_cmt</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>Override the default &apos; *INDENT-OFF*&apos; in comments for disabling processing of part of the file.</string>
+			<key>Name</key>
+			<string>Disable file processing comment</string>
+			<key>ValueTypeID</key>
+			<integer>1</integer>
+		</dict>
 		<key>eat_blanks_after_open_brace</key>
 		<dict>
 			<key>Category</key>
@@ -1200,6 +1224,17 @@ Will substitute $(message) with the function name and $(javaparam) with the java
 			<string>Remove blank lines before close brace</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
+		</dict>
+		<key>enable_processing_cmt</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>Override the default &apos; *INDENT-ON*&apos; in comments for enabling processing of part of the file.</string>
+			<key>Name</key>
+			<string>Enable file processing comment</string>
+			<key>ValueTypeID</key>
+			<integer>1</integer>
 		</dict>
 		<key>indent_access_spec</key>
 		<dict>
@@ -1389,6 +1424,19 @@ Usually 0.</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
+		<key>indent_class_on_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Default</key>
+			<string>False</string>
+			<key>Description</key>
+			<string>Indent based on a class colon instead of the stuff after the colon. Requires indent_class_colon=true.</string>
+			<key>Name</key>
+			<string>Indent based on a class colon</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>indent_cmt_with_tabs</key>
 		<dict>
 			<key>Category</key>
@@ -1434,6 +1482,17 @@ Usually 2, 3, 4, or 8.</string>
 			<string>Controls the indent of a comma when inside a paren.If True, aligns under the open paren</string>
 			<key>Name</key>
 			<string>Indent comma inside parentheses</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_constr_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Whether to indent the stuff after a leading class initializer colon</string>
+			<key>Name</key>
+			<string>Indent by leading class initializer colon</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -1647,6 +1706,19 @@ Usually set to 0, 1, or indent_columns.</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
+		<key>indent_min_vbrace_open</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>When indenting after virtual brace open and newline add further spaces to reach this min. indent.</string>
+			<key>Name</key>
+			<string>Minimum indentation size for virtual brace open</string>
+			<key>Subcategory</key>
+			<string>Indentation Size</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
 		<key>indent_namespace</key>
 		<dict>
 			<key>Category</key>
@@ -1687,6 +1759,17 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
+		<key>indent_namespace_single_indent</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Only indent one namespace and no sub-namespaces. Requires indent_namespace=true.</string>
+			<key>Name</key>
+			<string>Indent nested namespaces</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>indent_oc_block</key>
 		<dict>
 			<key>Category</key>
@@ -1722,6 +1805,91 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
 		</dict>
+		<key>indent_oc_block_msg_from_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If indent_oc_block_msg and this option are on, blocks will be indented from where the brace is.</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indent ObjC blocks in messages from brace</string>
+			<key>Subcategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_oc_block_msg_from_caret</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If indent_oc_block_msg and this option are on, blocks will be indented from where the block caret is.</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indent ObjC blocks in messages from caret</string>
+			<key>Subcategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_oc_block_msg_from_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If indent_oc_block_msg and this option are on, blocks will be indented from where the brace is relative to a msg colon.</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indent ObjC blocks in messages from colon</string>
+			<key>Subcategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_oc_block_msg_from_keyword</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If indent_oc_block_msg and this option are on, blocks will be indented from where the brace is relative to a msg keyword.</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indent ObjC blocks in messages from keyword</string>
+			<key>Subcategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_oc_block_msg_xcode_style</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>If indent_oc_block_msg and this option are on, blocks will be indented the way that Xcode does by default (from keyword if the parameter is on its own line; otherwise, from the previous indentation level).</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indent ObjC blocks in messages using Xcode style</string>
+			<key>Subcategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>indent_oc_msg_colon</key>
 		<dict>
 			<key>Category</key>
@@ -1738,6 +1906,25 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 			<string>Indentation Size</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
+		</dict>
+		<key>indent_oc_msg_prioritize_first_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Default</key>
+			<string>True</string>
+			<key>Description</key>
+			<string>If true, prioritize aligning with initial colon (and stripping spaces from lines, if necessary).</string>
+			<key>Languages</key>
+			<array>
+				<string>OC</string>
+			</array>
+			<key>Name</key>
+			<string>Indentation size for ObjC message subsequent parameters</string>
+			<key>Subcategory</key>
+			<string>Indentation</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
 		</dict>
 		<key>indent_paren_close</key>
 		<dict>
@@ -1764,6 +1951,17 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
+		<key>indent_paren_open_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indent based on the paren open instead of the brace open in &apos;({\n&apos;, default is to indent by brace.</string>
+			<key>Name</key>
+			<string>Indent content based on open paren instead of brace</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>indent_preserve_sql</key>
 		<dict>
 			<key>Category</key>
@@ -1783,6 +1981,17 @@ Requires indent_namespace=true. Default=0 (no limit)</string>
 			<string>If set, will indent trailing single line (&apos;//&apos;) comments relative to the code instead of trying to keep the same absolute column</string>
 			<key>Name</key>
 			<string>Indent relative single line comments</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_shift</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>Indent continued shift expressions (&apos;&lt;&lt;&apos; and &apos;&gt;&gt;&apos;) instead of aligning. Turn align_left_shift off when enabling this.</string>
+			<key>Name</key>
+			<string>Indent continued shift expressions</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -1856,6 +2065,17 @@ Usually 0 or indent_columns.</string>
 			<string>Indent continued variable declarations instead of aligning.</string>
 			<key>Name</key>
 			<string>Indent continued variable declarations</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>indent_vbrace_open_on_tabstop</key>
+		<dict>
+			<key>Category</key>
+			<string>Indentation</string>
+			<key>Description</key>
+			<string>When identing after virtual brace open and newline add further spaces after regular indent to reach next tabstop.</string>
+			<key>Name</key>
+			<string>Indent virtual brace open on tabstop</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
@@ -1969,6 +2189,19 @@ Requires indent_align_string=True</string>
 			<string>If an #ifdef body exceeds the specified number of newlines and doesn&apos;t have a comment after the #endif, a comment will be added.</string>
 			<key>Name</key>
 			<string>Add comment after ifdef/endif statement of size</string>
+			<key>Subcategory</key>
+			<string>Comments</string>
+			<key>ValueTypeID</key>
+			<integer>0</integer>
+		</dict>
+		<key>mod_add_long_namespace_closebrace_comment</key>
+		<dict>
+			<key>Category</key>
+			<string>Code-Modifying</string>
+			<key>Description</key>
+			<string>If a namespace body exceeds the specified number of newlines and doesn&apos;t have a comment after the close brace, a comment will be added.</string>
+			<key>Name</key>
+			<string>Add comment after namespace of size</string>
 			<key>Subcategory</key>
 			<string>Comments</string>
 			<key>ValueTypeID</key>
@@ -2453,6 +2686,19 @@ This also adds a newline before the matching brace close.</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>nl_after_label_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Whether to force a newline after a label&apos;s colon.</string>
+			<key>Name</key>
+			<string>Newline after a label&apos;s colon</string>
+			<key>Subcategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>nl_after_multiline_comment</key>
 		<dict>
 			<key>Category</key>
@@ -2904,6 +3150,32 @@ Due to general newline/brace handling, REMOVE may not work.</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>nl_brace_fparen</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;}&apos; and &apos;)&apos; in a function invocation</string>
+			<key>Name</key>
+			<string>Newline between closing brace and paren in function invocation</string>
+			<key>Subcategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_brace_square</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between &apos;}&apos; and &apos;]&apos;</string>
+			<key>Name</key>
+			<string>Newline between closing brace and square bracket</string>
+			<key>Subcategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_brace_struct_var</key>
 		<dict>
 			<key>Category</key>
@@ -3032,6 +3304,64 @@ Related to pos_class_colon, nl_class_init_args, and pos_comma.</string>
 			<string>Newline Count Between</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
+		</dict>
+		<key>nl_constr_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove a newline around a class constructor colon. Related to pos_constr_colon, nl_constr_init_args, and pos_constr_comma.</string>
+			<key>Name</key>
+			<string>Newline around a class constructor colon</string>
+			<key>Subcategory</key>
+			<string>Newline Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_constr_init_args</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline after each &apos;,&apos; in the constructor member initialization</string>
+			<key>Name</key>
+			<string>Newline after commas in constructor member initialization</string>
+			<key>Subcategory</key>
+			<string>Newline After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>nl_cpp_lambda_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newline</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line C++11 lambdas - &apos;[]() { return 0; }&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Break one-liner lambdas</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
+		<key>nl_cpp_ldef_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Add or remove newline between C++11 lambda signature and &apos;{&apos;</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Newline between lambda signature and opening brace</string>
+			<key>Subcategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
 		</dict>
 		<key>nl_create_for_one_liner</key>
 		<dict>
@@ -3659,6 +3989,23 @@ See nl_oc_msg_leave_one_liner</string>
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
+		<key>nl_paren_dbrace_open</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Control the newline between the &apos;)&apos; and &apos;{{&apos; of the double brace initializer.</string>
+			<key>Languages</key>
+			<array>
+				<string>JAVA</string>
+			</array>
+			<key>Name</key>
+			<string>Newline between open paren and double brace</string>
+			<key>Subcategory</key>
+			<string>Newline Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>nl_property_brace</key>
 		<dict>
 			<key>Category</key>
@@ -4084,6 +4431,32 @@ Do not affect &apos;=&apos; followed by &apos;{&apos;</string>
 			<key>ValueTypeID</key>
 			<integer>4</integer>
 		</dict>
+		<key>pos_constr_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of colons between constructor and member initialization</string>
+			<key>Name</key>
+			<string>Position of colons in constructor initializer list</string>
+			<key>Subcategory</key>
+			<string>Constructor</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>pos_constr_comma</key>
+		<dict>
+			<key>Category</key>
+			<string>Positioning</string>
+			<key>Description</key>
+			<string>The position of the comma in the constructor initialization list</string>
+			<key>Name</key>
+			<string>Position of commas in constructor initializer list</string>
+			<key>Subcategory</key>
+			<string>Constructor</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>pp_define_at_level</key>
 		<dict>
 			<key>Category</key>
@@ -4329,6 +4702,19 @@ This does not affect the spacing after a &apos;&amp;&apos; that is part of a typ
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>sp_after_constr_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after class constructor &apos;:&apos;</string>
+			<key>Name</key>
+			<string>Space after colon in class constructor</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_after_dc</key>
 		<dict>
 			<key>Category</key>
@@ -4371,6 +4757,19 @@ This does not affect the spacing after a &apos;&amp;&apos; that is part of a typ
 			</array>
 			<key>Name</key>
 			<string>Space after invariant close parenthesis</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_mdatype_commas</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;,&apos; and &apos;]&apos; in multidimensional array type &apos;int[,,]&apos;</string>
+			<key>Name</key>
+			<string>Space after trailing comma in multidimensional array type</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4615,6 +5014,19 @@ Also applies to @protocol() constructs</string>
 			<string>Add or remove space after a pointer star &apos;*&apos;, if followed by a func proto/def.</string>
 			<key>Name</key>
 			<string>Space after pointer star followed by function</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_after_ptr_star_qualifier</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after pointer star &apos;*&apos;, if followed by a qualifier.</string>
+			<key>Name</key>
+			<string>Space after pointer star followed by qualifier</string>
 			<key>Subcategory</key>
 			<string>Space After</string>
 			<key>ValueTypeID</key>
@@ -4971,6 +5383,19 @@ Also applies to @protocol() constructs</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>sp_before_constr_colon</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before class constructor &apos;:&apos;</string>
+			<key>Name</key>
+			<string>Space before colon in class constructor</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_before_dc</key>
 		<dict>
 			<key>Category</key>
@@ -5009,6 +5434,19 @@ Also applies to @protocol() constructs</string>
 			</array>
 			<key>Name</key>
 			<string>Space before for colon</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_before_mdatype_commas</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;[&apos; and &apos;,&apos; in multidimensional array type &apos;int[,,]&apos;</string>
+			<key>Name</key>
+			<string>Space before leading comma in multidimensional array type</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
@@ -5235,7 +5673,7 @@ Also applies to @protocol() constructs</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
 			<key>ValueTypeID</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 		<key>sp_before_tr_emb_cmt</key>
 		<dict>
@@ -5275,6 +5713,32 @@ If set to &apos;ignore&apos;, sp_before_ptr_star is used instead.</string>
 			<string>Space before unnamed pointer star</string>
 			<key>Subcategory</key>
 			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_between_mdatype_commas</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;,&apos; in multidimensional array type &apos;int[,,]&apos;</string>
+			<key>Name</key>
+			<string>Space between commas in multidimensional array type</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_between_new_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Controls the spaces between new and &apos;(&apos; in &apos;new()&apos;</string>
+			<key>Name</key>
+			<string>Space for parens in new operator</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5396,6 +5860,19 @@ If set to ignore, sp_before_sparen is used.</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>sp_cmt_cpp_doxygen</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>If space is added with sp_cmt_cpp_start, do it after doxygen sequences like &apos;///&apos;, &apos;///&lt;&apos;, &apos;//!&apos; and &apos;//!&lt;&apos;.</string>
+			<key>Name</key>
+			<string>Space in doxygen documentation comments</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>sp_cmt_cpp_start</key>
 		<dict>
 			<key>Category</key>
@@ -5439,6 +5916,32 @@ If set to ignore, sp_before_sparen is used.</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>sp_cond_colon_after</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;:&apos; in &apos;b ? t : f&apos;. Overrides sp_cond_colon.</string>
+			<key>Name</key>
+			<string>Space after colon in ternary operator</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cond_colon_before</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before the &apos;:&apos; in &apos;b ? t : f&apos;. Overrides sp_cond_colon.</string>
+			<key>Name</key>
+			<string>Space before colon in ternary operator</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_cond_question</key>
 		<dict>
 			<key>Category</key>
@@ -5449,6 +5952,58 @@ If set to ignore, sp_before_sparen is used.</string>
 			<string>Space around ternary condition question mark</string>
 			<key>Subcategory</key>
 			<string>Space Around</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cond_question_after</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space after the &apos;?&apos; in &apos;b ? t : f&apos;. Overrides sp_cond_question.</string>
+			<key>Name</key>
+			<string>Space after question mark in ternary operator</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cond_question_before</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space before the &apos;?&apos; in &apos;b ? t : f&apos;. Overrides sp_cond_question.</string>
+			<key>Name</key>
+			<string>Space before question mark in ternary operator</string>
+			<key>Subcategory</key>
+			<string>Space Before</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cond_ternary_short</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>In the abbreviated ternary form (a ?: b), add/remove space between ? and :.&apos;. Overrides all other sp_cond_* options.</string>
+			<key>Name</key>
+			<string>Space in abbreviated ternary form</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_cparen_oparen</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between back-to-back parens: &apos;)(&apos; vs &apos;) (&apos;</string>
+			<key>Name</key>
+			<string>Space between back-to-back parens</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
@@ -5614,6 +6169,19 @@ This does not affect the spacing after a &apos;*&apos; that is part of a type.</
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>sp_enum_paren</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space in &apos;NS_ENUM (&apos;</string>
+			<key>Name</key>
+			<string>Space after &apos;NS_ENUM&apos;</string>
+			<key>Subcategory</key>
+			<string>Space After</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>sp_extern_paren</key>
 		<dict>
 			<key>Category</key>
@@ -5652,6 +6220,23 @@ This does not affect the spacing after a &apos;*&apos; that is part of a type.</
 			<string>Add or remove space between &apos;)&apos; and &apos;{&apos; of function</string>
 			<key>Name</key>
 			<string>Space between closing parenthesis and open brace</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_fparen_dbrace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between &apos;)&apos; and &apos;{{&apos; of double brace initializer.</string>
+			<key>Languages</key>
+			<array>
+				<string>JAVA</string>
+			</array>
+			<key>Name</key>
+			<string>Space for double brace initializer</string>
 			<key>Subcategory</key>
 			<string>Space Between</string>
 			<key>ValueTypeID</key>
@@ -6354,6 +6939,36 @@ If set to ignore, sp_before_sparen is used.</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>sp_word_brace</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between a variable and &apos;{&apos; for C++ uniform initialization</string>
+			<key>Languages</key>
+			<array>
+				<string>CPP</string>
+			</array>
+			<key>Name</key>
+			<string>Space between variable and brace for uniform initializer</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
+		<key>sp_word_brace_ns</key>
+		<dict>
+			<key>Category</key>
+			<string>Spacing</string>
+			<key>Description</key>
+			<string>Add or remove space between a variable and &apos;{&apos; for a namespace</string>
+			<key>Name</key>
+			<string>Space between variable and brace for namespace</string>
+			<key>Subcategory</key>
+			<string>Space Between</string>
+			<key>ValueTypeID</key>
+			<integer>3</integer>
+		</dict>
 		<key>string_escape_char</key>
 		<dict>
 			<key>Category</key>
@@ -6383,6 +6998,17 @@ If set to ignore, sp_before_sparen is used.</string>
 			<string>String escape character 2</string>
 			<key>ValueTypeID</key>
 			<integer>0</integer>
+		</dict>
+		<key>string_replace_tab_chars</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>Replace tab characters found in string literals with the escape sequence \t instead.</string>
+			<key>Name</key>
+			<string>String replace tab characters</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
 		</dict>
 		<key>tok_split_gte</key>
 		<dict>
@@ -6428,7 +7054,7 @@ Improvements to template detection may make this option obsolete.</string>
 		</dict>
 	</dict>
 	<key>UpdatedAt</key>
-	<date>2013-03-11T23:00:00Z</date>
+	<date>2015-11-08T23:20:00Z</date>
 	<key>ValueTypes</key>
 	<array>
 		<dict>
