@@ -14,14 +14,7 @@ extern const struct UXValueRelationships {
 	__unsafe_unretained NSString *valueType;
 } UXValueRelationships;
 
-extern const struct UXValueFetchedProperties {
-} UXValueFetchedProperties;
-
 @class UXValueType;
-
-
-
-
 
 @interface UXValueID : NSManagedObjectID {}
 @end
@@ -30,80 +23,38 @@ extern const struct UXValueFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (UXValueID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) UXValueID* objectID;
 
 @property (nonatomic, strong) NSDate* createdAt;
 
-
-
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* updatedAt;
 
-
-
 //- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* value;
 
-
-
 //- (BOOL)validateValue:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) UXValueType *valueType;
 
 //- (BOOL)validateValueType:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
-@end
-
-@interface _UXValue (CoreDataGeneratedAccessors)
-
 @end
 
 @interface _UXValue (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
-
-
-
 
 - (NSDate*)primitiveUpdatedAt;
 - (void)setPrimitiveUpdatedAt:(NSDate*)value;
 
-
-
-
 - (NSString*)primitiveValue;
 - (void)setPrimitiveValue:(NSString*)value;
 
-
-
-
-
 - (UXValueType*)primitiveValueType;
 - (void)setPrimitiveValueType:(UXValueType*)value;
-
 
 @end

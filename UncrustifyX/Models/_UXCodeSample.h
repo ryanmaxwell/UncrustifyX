@@ -15,15 +15,7 @@ extern const struct UXCodeSampleRelationships {
 	__unsafe_unretained NSString *language;
 } UXCodeSampleRelationships;
 
-extern const struct UXCodeSampleFetchedProperties {
-} UXCodeSampleFetchedProperties;
-
 @class UXLanguage;
-
-
-
-
-
 
 @interface UXCodeSampleID : NSManagedObjectID {}
 @end
@@ -32,96 +24,45 @@ extern const struct UXCodeSampleFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (UXCodeSampleID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) UXCodeSampleID* objectID;
 
 @property (nonatomic, strong) NSString* codeSampleDescription;
 
-
-
 //- (BOOL)validateCodeSampleDescription:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* createdAt;
 
-
-
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* source;
 
-
-
 //- (BOOL)validateSource:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* updatedAt;
 
-
-
 //- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) UXLanguage *language;
 
 //- (BOOL)validateLanguage:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
-@end
-
-@interface _UXCodeSample (CoreDataGeneratedAccessors)
-
 @end
 
 @interface _UXCodeSample (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSString*)primitiveCodeSampleDescription;
 - (void)setPrimitiveCodeSampleDescription:(NSString*)value;
-
-
-
 
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
 
-
-
-
 - (NSString*)primitiveSource;
 - (void)setPrimitiveSource:(NSString*)value;
-
-
-
 
 - (NSDate*)primitiveUpdatedAt;
 - (void)setPrimitiveUpdatedAt:(NSDate*)value;
 
-
-
-
-
 - (UXLanguage*)primitiveLanguage;
 - (void)setPrimitiveLanguage:(UXLanguage*)value;
-
 
 @end

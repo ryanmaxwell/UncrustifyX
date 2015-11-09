@@ -15,15 +15,8 @@ extern const struct UXValueTypeRelationships {
 	__unsafe_unretained NSString *values;
 } UXValueTypeRelationships;
 
-extern const struct UXValueTypeFetchedProperties {
-} UXValueTypeFetchedProperties;
-
 @class UXOption;
 @class UXValue;
-
-
-
-
 
 @interface UXValueTypeID : NSManagedObjectID {}
 @end
@@ -32,66 +25,39 @@ extern const struct UXValueTypeFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (UXValueTypeID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) UXValueTypeID* objectID;
 
 @property (nonatomic, strong) NSDate* createdAt;
 
-
-
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* type;
 
-
-
 //- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* updatedAt;
 
-
-
 //- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSSet *options;
 
 - (NSMutableSet*)optionsSet;
 
-
-
-
 @property (nonatomic, strong) NSSet *values;
 
 - (NSMutableSet*)valuesSet;
 
-
-
-
-
 @end
 
-@interface _UXValueType (CoreDataGeneratedAccessors)
-
+@interface _UXValueType (OptionsCoreDataGeneratedAccessors)
 - (void)addOptions:(NSSet*)value_;
 - (void)removeOptions:(NSSet*)value_;
 - (void)addOptionsObject:(UXOption*)value_;
 - (void)removeOptionsObject:(UXOption*)value_;
 
+@end
+
+@interface _UXValueType (ValuesCoreDataGeneratedAccessors)
 - (void)addValues:(NSSet*)value_;
 - (void)removeValues:(NSSet*)value_;
 - (void)addValuesObject:(UXValue*)value_;
@@ -101,33 +67,16 @@ extern const struct UXValueTypeFetchedProperties {
 
 @interface _UXValueType (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
-
-
-
-
-- (NSString*)primitiveType;
-- (void)setPrimitiveType:(NSString*)value;
-
-
-
 
 - (NSDate*)primitiveUpdatedAt;
 - (void)setPrimitiveUpdatedAt:(NSDate*)value;
 
-
-
-
-
 - (NSMutableSet*)primitiveOptions;
 - (void)setPrimitiveOptions:(NSMutableSet*)value;
 
-
-
 - (NSMutableSet*)primitiveValues;
 - (void)setPrimitiveValues:(NSMutableSet*)value;
-
 
 @end
