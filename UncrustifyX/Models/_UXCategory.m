@@ -3,15 +3,9 @@
 
 #import "_UXCategory.h"
 
-const struct UXCategoryAttributes UXCategoryAttributes = {
-};
-
 const struct UXCategoryRelationships UXCategoryRelationships = {
 	.options = @"options",
 	.subcategories = @"subcategories",
-};
-
-const struct UXCategoryFetchedProperties UXCategoryFetchedProperties = {
 };
 
 @implementation UXCategoryID
@@ -39,43 +33,31 @@ const struct UXCategoryFetchedProperties UXCategoryFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic options;
 
-	
 - (NSMutableSet*)optionsSet {
 	[self willAccessValueForKey:@"options"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"options"];
-  
+
 	[self didAccessValueForKey:@"options"];
 	return result;
 }
-	
 
 @dynamic subcategories;
 
-	
 - (NSMutableSet*)subcategoriesSet {
 	[self willAccessValueForKey:@"subcategories"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"subcategories"];
-  
+
 	[self didAccessValueForKey:@"subcategories"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

@@ -16,9 +16,6 @@ const struct UXLanguageRelationships UXLanguageRelationships = {
 	.options = @"options",
 };
 
-const struct UXLanguageFetchedProperties UXLanguageFetchedProperties = {
-};
-
 @implementation UXLanguageID
 @end
 
@@ -44,78 +41,41 @@ const struct UXLanguageFetchedProperties UXLanguageFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic code;
-
-
-
-
-
 
 @dynamic createdAt;
 
-
-
-
-
-
 @dynamic extensions;
-
-
-
-
-
 
 @dynamic name;
 
-
-
-
-
-
 @dynamic updatedAt;
-
-
-
-
-
 
 @dynamic codeSamples;
 
-	
 - (NSMutableSet*)codeSamplesSet {
 	[self willAccessValueForKey:@"codeSamples"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"codeSamples"];
-  
+
 	[self didAccessValueForKey:@"codeSamples"];
 	return result;
 }
-	
 
 @dynamic options;
 
-	
 - (NSMutableSet*)optionsSet {
 	[self willAccessValueForKey:@"options"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"options"];
-  
+
 	[self didAccessValueForKey:@"options"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

@@ -13,9 +13,6 @@ const struct UXPersistentConfigOptionRelationships UXPersistentConfigOptionRelat
 	.option = @"option",
 };
 
-const struct UXPersistentConfigOptionFetchedProperties UXPersistentConfigOptionFetchedProperties = {
-};
-
 @implementation UXPersistentConfigOptionID
 @end
 
@@ -41,42 +38,17 @@ const struct UXPersistentConfigOptionFetchedProperties UXPersistentConfigOptionF
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic createdAt;
-
-
-
-
-
 
 @dynamic updatedAt;
 
-
-
-
-
-
 @dynamic value;
-
-
-
-
-
 
 @dynamic option;
 
-	
-
-
-
-
-
-
 @end
+

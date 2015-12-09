@@ -17,17 +17,8 @@ extern const struct UXLanguageRelationships {
 	__unsafe_unretained NSString *options;
 } UXLanguageRelationships;
 
-extern const struct UXLanguageFetchedProperties {
-} UXLanguageFetchedProperties;
-
 @class UXCodeSample;
 @class UXOption;
-
-
-
-
-
-
 
 @interface UXLanguageID : NSManagedObjectID {}
 @end
@@ -36,86 +27,47 @@ extern const struct UXLanguageFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (UXLanguageID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) UXLanguageID* objectID;
 
 @property (nonatomic, strong) NSString* code;
 
-
-
 //- (BOOL)validateCode:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* createdAt;
 
-
-
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* extensions;
 
-
-
 //- (BOOL)validateExtensions:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* name;
 
-
-
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* updatedAt;
 
-
-
 //- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSSet *codeSamples;
 
 - (NSMutableSet*)codeSamplesSet;
 
-
-
-
 @property (nonatomic, strong) NSSet *options;
 
 - (NSMutableSet*)optionsSet;
 
-
-
-
-
 @end
 
-@interface _UXLanguage (CoreDataGeneratedAccessors)
-
+@interface _UXLanguage (CodeSamplesCoreDataGeneratedAccessors)
 - (void)addCodeSamples:(NSSet*)value_;
 - (void)removeCodeSamples:(NSSet*)value_;
 - (void)addCodeSamplesObject:(UXCodeSample*)value_;
 - (void)removeCodeSamplesObject:(UXCodeSample*)value_;
 
+@end
+
+@interface _UXLanguage (OptionsCoreDataGeneratedAccessors)
 - (void)addOptions:(NSSet*)value_;
 - (void)removeOptions:(NSSet*)value_;
 - (void)addOptionsObject:(UXOption*)value_;
@@ -125,45 +77,25 @@ extern const struct UXLanguageFetchedProperties {
 
 @interface _UXLanguage (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSString*)primitiveCode;
 - (void)setPrimitiveCode:(NSString*)value;
-
-
-
 
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
 
-
-
-
 - (NSString*)primitiveExtensions;
 - (void)setPrimitiveExtensions:(NSString*)value;
-
-
-
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
-
-
-
 - (NSDate*)primitiveUpdatedAt;
 - (void)setPrimitiveUpdatedAt:(NSDate*)value;
-
-
-
-
 
 - (NSMutableSet*)primitiveCodeSamples;
 - (void)setPrimitiveCodeSamples:(NSMutableSet*)value;
 
-
-
 - (NSMutableSet*)primitiveOptions;
 - (void)setPrimitiveOptions:(NSMutableSet*)value;
-
 
 @end

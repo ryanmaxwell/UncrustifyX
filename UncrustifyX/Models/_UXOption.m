@@ -20,9 +20,6 @@ const struct UXOptionRelationships UXOptionRelationships = {
 	.valueType = @"valueType",
 };
 
-const struct UXOptionFetchedProperties UXOptionFetchedProperties = {
-};
-
 @implementation UXOptionID
 @end
 
@@ -48,88 +45,40 @@ const struct UXOptionFetchedProperties UXOptionFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic code;
-
-
-
-
-
 
 @dynamic createdAt;
 
-
-
-
-
-
 @dynamic defaultValue;
-
-
-
-
-
 
 @dynamic name;
 
-
-
-
-
-
 @dynamic optionDescription;
-
-
-
-
-
 
 @dynamic updatedAt;
 
-
-
-
-
-
 @dynamic category;
-
-	
 
 @dynamic configOption;
 
-	
-
 @dynamic languages;
 
-	
 - (NSMutableSet*)languagesSet {
 	[self willAccessValueForKey:@"languages"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"languages"];
-  
+
 	[self didAccessValueForKey:@"languages"];
 	return result;
 }
-	
 
 @dynamic subcategory;
 
-	
-
 @dynamic valueType;
 
-	
-
-
-
-
-
-
 @end
+

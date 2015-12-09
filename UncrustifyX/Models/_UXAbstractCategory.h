@@ -10,17 +10,6 @@ extern const struct UXAbstractCategoryAttributes {
 	__unsafe_unretained NSString *updatedAt;
 } UXAbstractCategoryAttributes;
 
-extern const struct UXAbstractCategoryRelationships {
-} UXAbstractCategoryRelationships;
-
-extern const struct UXAbstractCategoryFetchedProperties {
-} UXAbstractCategoryFetchedProperties;
-
-
-
-
-
-
 @interface UXAbstractCategoryID : NSManagedObjectID {}
 @end
 
@@ -28,68 +17,31 @@ extern const struct UXAbstractCategoryFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (UXAbstractCategoryID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) UXAbstractCategoryID* objectID;
 
 @property (nonatomic, strong) NSDate* createdAt;
 
-
-
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* name;
 
-
-
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* updatedAt;
 
-
-
 //- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-
-@end
-
-@interface _UXAbstractCategory (CoreDataGeneratedAccessors)
 
 @end
 
 @interface _UXAbstractCategory (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
-
-
-
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
-
-
-
 - (NSDate*)primitiveUpdatedAt;
 - (void)setPrimitiveUpdatedAt:(NSDate*)value;
-
-
-
 
 @end

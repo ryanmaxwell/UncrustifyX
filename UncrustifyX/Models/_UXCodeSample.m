@@ -14,9 +14,6 @@ const struct UXCodeSampleRelationships UXCodeSampleRelationships = {
 	.language = @"language",
 };
 
-const struct UXCodeSampleFetchedProperties UXCodeSampleFetchedProperties = {
-};
-
 @implementation UXCodeSampleID
 @end
 
@@ -42,49 +39,19 @@ const struct UXCodeSampleFetchedProperties UXCodeSampleFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic codeSampleDescription;
-
-
-
-
-
 
 @dynamic createdAt;
 
-
-
-
-
-
 @dynamic source;
-
-
-
-
-
 
 @dynamic updatedAt;
 
-
-
-
-
-
 @dynamic language;
 
-	
-
-
-
-
-
-
 @end
+
