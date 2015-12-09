@@ -37,9 +37,9 @@
 		945C40BF166F346600D2F356 /* _UXSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C40BE166F346600D2F356 /* _UXSubcategory.m */; };
 		945C40C2166F348000D2F356 /* UXSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C40C1166F348000D2F356 /* UXSubcategory.m */; };
 		945C8C461672CBD300374B7F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C3B1672CBC400374B7F /* Sparkle.framework */; };
-		945C8C471672CBDC00374B7F /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C3B1672CBC400374B7F /* Sparkle.framework */; };
+		945C8C471672CBDC00374B7F /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C3B1672CBC400374B7F /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		945C8C601672CC0800374B7F /* MGSFragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* MGSFragaria.framework */; };
-		945C8C611672CC1000374B7F /* MGSFragaria.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* MGSFragaria.framework */; };
+		945C8C611672CC1000374B7F /* MGSFragaria.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* MGSFragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9464B987162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */; };
 		9464B9AD162ABA4500F61C28 /* UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9AC162ABA4500F61C28 /* UXCodeSample.m */; };
 		9464B9B1162ABA4F00F61C28 /* _UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9B0162ABA4F00F61C28 /* _UXCodeSample.m */; };
@@ -132,13 +132,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = AB648E2A11FB385700AEF7BD;
 			remoteInfo = "Fragaria Doc";
-		};
-		945C8C571672CBE400374B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 945C8C481672CBE400374B7F /* Fragaria.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D1107320486CEB800E47090;
-			remoteInfo = "Fragaria GC";
 		};
 		945C8C591672CBE400374B7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -466,9 +459,9 @@
 			children = (
 				945C8C3B1672CBC400374B7F /* Sparkle.framework */,
 				945C8C3D1672CBC400374B7F /* Sparkle Test App.app */,
-				945C8C3F1672CBC400374B7F /* Sparkle Unit Tests.octest */,
+				945C8C3F1672CBC400374B7F /* Sparkle Unit Tests.xctest */,
 				945C8C411672CBC400374B7F /* BinaryDelta */,
-				945C8C431672CBC400374B7F /* finish_installation.app */,
+				945C8C431672CBC400374B7F /* Autoupdate.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -477,7 +470,6 @@
 			isa = PBXGroup;
 			children = (
 				945C8C561672CBE400374B7F /* Fragaria Doc.app */,
-				945C8C581672CBE400374B7F /* Fragaria GC.app */,
 				945C8C5A1672CBE400374B7F /* Fragaria.app */,
 				945C8C5C1672CBE400374B7F /* MGSFragaria.framework */,
 			);
@@ -614,7 +606,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = UX;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Ryan Maxwell";
 			};
 			buildConfigurationList = 941FD35A1620220B0001C909 /* Build configuration list for PBXProject "UncrustifyX" */;
@@ -659,10 +651,10 @@
 			remoteRef = 945C8C3C1672CBC400374B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		945C8C3F1672CBC400374B7F /* Sparkle Unit Tests.octest */ = {
+		945C8C3F1672CBC400374B7F /* Sparkle Unit Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Sparkle Unit Tests.octest";
+			path = "Sparkle Unit Tests.xctest";
 			remoteRef = 945C8C3E1672CBC400374B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -673,10 +665,10 @@
 			remoteRef = 945C8C401672CBC400374B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		945C8C431672CBC400374B7F /* finish_installation.app */ = {
+		945C8C431672CBC400374B7F /* Autoupdate.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			path = finish_installation.app;
+			path = Autoupdate.app;
 			remoteRef = 945C8C421672CBC400374B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -685,13 +677,6 @@
 			fileType = wrapper.application;
 			path = "Fragaria Doc.app";
 			remoteRef = 945C8C551672CBE400374B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		945C8C581672CBE400374B7F /* Fragaria GC.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Fragaria GC.app";
-			remoteRef = 945C8C571672CBE400374B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		945C8C5A1672CBE400374B7F /* Fragaria.app */ = {
@@ -917,13 +902,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -947,7 +932,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -978,6 +962,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UncrustifyX/UncrustifyX-Prefix.pch";
 				INFOPLIST_FILE = "UncrustifyX/UncrustifyX-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "nz.co.xwell.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -995,6 +980,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UncrustifyX/UncrustifyX-Prefix.pch";
 				INFOPLIST_FILE = "UncrustifyX/UncrustifyX-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "nz.co.xwell.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
