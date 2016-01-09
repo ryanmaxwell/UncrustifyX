@@ -37,7 +37,7 @@ static NSString *const UXLastConfigBookmarkKey     					= @"UXLastConfigBookmark
 
 - (void)registerDefaults {
     NSDictionary *defaults = @{
-        UXBundledUncrustifyBinaryVersionKey: @"0.60 (20a311344b)",
+        UXBundledUncrustifyBinaryVersionKey: @"0.61 (62a2ad9)",
         UXExportDocumentationKey: @YES,
         UXExportCategoryDocumentationKey: @YES,
         UXExportSubcategoryDocumentationKey: @YES,
