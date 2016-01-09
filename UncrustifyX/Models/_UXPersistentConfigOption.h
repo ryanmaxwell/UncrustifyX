@@ -14,14 +14,7 @@ extern const struct UXPersistentConfigOptionRelationships {
 	__unsafe_unretained NSString *option;
 } UXPersistentConfigOptionRelationships;
 
-extern const struct UXPersistentConfigOptionFetchedProperties {
-} UXPersistentConfigOptionFetchedProperties;
-
 @class UXOption;
-
-
-
-
 
 @interface UXPersistentConfigOptionID : NSManagedObjectID {}
 @end
@@ -30,80 +23,38 @@ extern const struct UXPersistentConfigOptionFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (UXPersistentConfigOptionID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) UXPersistentConfigOptionID* objectID;
 
 @property (nonatomic, strong) NSDate* createdAt;
 
-
-
 //- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSDate* updatedAt;
 
-
-
 //- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* value;
 
-
-
 //- (BOOL)validateValue:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) UXOption *option;
 
 //- (BOOL)validateOption:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
-@end
-
-@interface _UXPersistentConfigOption (CoreDataGeneratedAccessors)
-
 @end
 
 @interface _UXPersistentConfigOption (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSDate*)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate*)value;
-
-
-
 
 - (NSDate*)primitiveUpdatedAt;
 - (void)setPrimitiveUpdatedAt:(NSDate*)value;
 
-
-
-
 - (NSString*)primitiveValue;
 - (void)setPrimitiveValue:(NSString*)value;
 
-
-
-
-
 - (UXOption*)primitiveOption;
 - (void)setPrimitiveOption:(UXOption*)value;
-
 
 @end

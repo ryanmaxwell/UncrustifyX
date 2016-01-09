@@ -13,9 +13,6 @@ const struct UXValueRelationships UXValueRelationships = {
 	.valueType = @"valueType",
 };
 
-const struct UXValueFetchedProperties UXValueFetchedProperties = {
-};
-
 @implementation UXValueID
 @end
 
@@ -41,42 +38,17 @@ const struct UXValueFetchedProperties UXValueFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic createdAt;
-
-
-
-
-
 
 @dynamic updatedAt;
 
-
-
-
-
-
 @dynamic value;
-
-
-
-
-
 
 @dynamic valueType;
 
-	
-
-
-
-
-
-
 @end
+

@@ -9,12 +9,6 @@ const struct UXAbstractCategoryAttributes UXAbstractCategoryAttributes = {
 	.updatedAt = @"updatedAt",
 };
 
-const struct UXAbstractCategoryRelationships UXAbstractCategoryRelationships = {
-};
-
-const struct UXAbstractCategoryFetchedProperties UXAbstractCategoryFetchedProperties = {
-};
-
 @implementation UXAbstractCategoryID
 @end
 
@@ -40,38 +34,15 @@ const struct UXAbstractCategoryFetchedProperties UXAbstractCategoryFetchedProper
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic createdAt;
-
-
-
-
-
 
 @dynamic name;
 
-
-
-
-
-
 @dynamic updatedAt;
 
-
-
-
-
-
-
-
-
-
-
 @end
+
