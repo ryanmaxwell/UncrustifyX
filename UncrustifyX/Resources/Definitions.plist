@@ -1225,6 +1225,19 @@ Will substitute $(message) with the function name and $(javaparam) with the java
 			<key>ValueTypeID</key>
 			<integer>2</integer>
 		</dict>
+		<key>enable_digraphs</key>
+		<dict>
+			<key>Category</key>
+			<string>General</string>
+			<key>Description</key>
+			<string>Enable parsing of digraphs. Default=false</string>
+			<key>Default</key>
+			<string>True</string>
+			<key>Name</key>
+			<string>Enable Digraphs</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>enable_processing_cmt</key>
 		<dict>
 			<key>Category</key>
@@ -4315,6 +4328,17 @@ See nl_oc_msg_leave_one_liner</string>
 			<key>ValueTypeID</key>
 			<integer>3</integer>
 		</dict>
+		<key>nl_while_leave_one_liners</key>
+		<dict>
+			<key>Category</key>
+			<string>Newlines</string>
+			<key>Description</key>
+			<string>Don&apos;t split one-line while statements - &apos;while(a) b++;&apos;</string>
+			<key>Name</key>
+			<string>Newline leave one liners</string>
+			<key>ValueTypeID</key>
+			<integer>2</integer>
+		</dict>
 		<key>output_tab_size</key>
 		<dict>
 			<key>Category</key>
@@ -7054,7 +7078,7 @@ Improvements to template detection may make this option obsolete.</string>
 		</dict>
 	</dict>
 	<key>UpdatedAt</key>
-	<date>2015-11-08T23:20:00Z</date>
+	<date>2016-01-10T23:21:00Z</date>
 	<key>ValueTypes</key>
 	<array>
 		<dict>
