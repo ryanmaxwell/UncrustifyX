@@ -22,8 +22,8 @@
 #import "UXConfigOptionTableView.h"
 #import "UXExportPanelAccessoryView.h"
 
-#import <MGSFragaria/MGSFragaria.h>
-#import <MGSFragaria/MGSSyntaxController.h>
+#import <Fragaria/Fragaria.h>
+#import <Fragaria/MGSSyntaxController.h>
 
 static NSString *const FilePathObjectPathKey                = @"path";
 static NSString *const FilePathObjectTypeKey                = @"type";
@@ -54,7 +54,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
 @property (strong, nonatomic) NSString *searchQuery;
 
-@property (strong, nonatomic) MGSFragaria *fragaria;
+@property (strong, nonatomic) MGSFragariaView *fragaria;
 
 @end
 
@@ -89,7 +89,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
         
         _filePathsArrayController = [[NSArrayController alloc] init];
 
-        _fragaria = [[MGSFragaria alloc] init];
+        _fragaria = [[MGSFragariaView alloc] init];
 
         _initialize = YES;
     }
@@ -119,8 +119,6 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 
             [self.inputLanguageArrayController fetch:nil];
 
-            [self.fragaria embedInView:self.fragariaContainerView];
-
             NSString *selectedLanguageCode = UXDEFAULTS.selectedPreviewLanguageInMainWindow;
             UXLanguage *selectedLanguage = [UXLanguage MR_findFirstByAttribute:UXLanguageAttributes.code
                                                                      withValue:selectedLanguageCode];
@@ -128,8 +126,12 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
             if (selectedLanguage) {
                 self.selectedPreviewLanguage = selectedLanguage;
 
-                [self.fragaria setObject:selectedLanguage.name
-                                  forKey:MGSFOSyntaxDefinitionName];
+                [self.fragaria setSyntaxDefinitionName:selectedLanguage.name];
+                
+                [self.fragariaContainerView addSubview:self.fragaria];
+                
+                self.fragaria.frame = self.fragariaContainerView.bounds;
+                self.fragaria.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
             }
 
             [self.window makeKeyAndOrderFront:self];
@@ -584,8 +586,7 @@ static const CGFloat SourceViewMaxWidth = 450.0f;
 }
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {
-    [self.fragaria setObject:self.selectedPreviewLanguage.name
-                      forKey:MGSFOSyntaxDefinitionName];
+    [self.fragaria setSyntaxDefinitionName:self.selectedPreviewLanguage.name];
 }
 
 - (NSDictionary *)filePathObjectForFilePath:(NSString *)filePath {

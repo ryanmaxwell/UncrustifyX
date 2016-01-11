@@ -7,7 +7,7 @@
 //
 
 #import "UXDocumentationPanelController.h"
-#import <MGSFragaria/MGSFragaria.h>
+#import <Fragaria/Fragaria.h>
 
 #import "UXCategory.h"
 #import "UXSubcategory.h"
@@ -40,7 +40,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
 @property (strong, nonatomic) NSMutableArray *currentOptionsAndSubcategories;
 
 @property (weak, nonatomic, readwrite) UXOption *selectedOption;
-@property (strong, nonatomic) MGSFragaria *fragaria;
+@property (strong, nonatomic) MGSFragariaView *fragaria;
 @end
 
 @implementation UXDocumentationPanelController
@@ -67,7 +67,7 @@ static CGFloat const PreviewViewHeight = 250.0f;
 
         _previewExpanded = NO;
 
-        _fragaria = [[MGSFragaria alloc] init];
+        _fragaria = [[MGSFragariaView alloc] init];
     }
 
     return self;
@@ -125,11 +125,13 @@ static CGFloat const PreviewViewHeight = 250.0f;
 
         [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
 
-        [self.fragaria setObject:selectedLanguage.name
-                          forKey:MGSFOSyntaxDefinitionName];
+        [self.fragaria setSyntaxDefinitionName:selectedLanguage.name];
+        
+        [self.fragariaContainerView addSubview:self.fragaria];
+        
+        self.fragaria.frame = self.fragariaContainerView.bounds;
+        self.fragaria.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     }
-
-    [self.fragaria embedInView:self.fragariaContainerView];
 }
 
 #pragma mark - UKSyntaxColoredTextViewDelegate
@@ -528,8 +530,8 @@ static CGFloat const PreviewViewHeight = 250.0f;
 
 - (IBAction)previewLanguagePopUpChanged:(id)sender {
     [self filterCodeSamplesForLanguage:self.selectedPreviewLanguage];
-    [self.fragaria setObject:self.selectedPreviewLanguage.name
-                      forKey:MGSFOSyntaxDefinitionName];
+    
+    [self.fragaria setSyntaxDefinitionName:self.selectedPreviewLanguage.name];
 }
 
 - (IBAction)disclosureTriangleClicked:(id)sender {
