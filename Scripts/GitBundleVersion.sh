@@ -4,12 +4,11 @@
 # an Xcode project from the Git repository containing the project.
 #
 # To use this script in Xcode, add the contents to a "Run Script" build
-# phase for your application target.
+# phase for your application target, after the other phases.
 
 set -o errexit
 set -o nounset
 
-VERSION_HASH=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}" rev-parse --short HEAD)
-VERSION_INTEGER=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}" rev-list master | wc -l)
+VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}" rev-list --count HEAD)
 
-/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION_INTEGER" "${PROJECT_DIR}/${INFOPLIST_FILE}"
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION" "${TARGET_BUILD_DIR}"/"${INFOPLIST_PATH}"

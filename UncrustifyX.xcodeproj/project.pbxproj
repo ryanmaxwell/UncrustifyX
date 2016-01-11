@@ -583,8 +583,8 @@
 				941FD35C1620220B0001C909 /* Sources */,
 				941FD35D1620220B0001C909 /* Frameworks */,
 				94049EA8162906C900587269 /* Generate icns from iconset */,
-				942A6CAF162A65E4007A0B4E /* Bundle Version */,
 				941FD35E1620220B0001C909 /* Resources */,
+				942A6CAF162A65E4007A0B4E /* Git Bundle Version */,
 				BFEC091B07FF4D30989E28E5 /* Copy Pods Resources */,
 				94D0ED99164E295400A71EEC /* Copy Frameworks */,
 			);
@@ -745,14 +745,14 @@
 			shellPath = /bin/sh;
 			shellScript = "iconutil -c icns \"${PROJECT_DIR}/UncrustifyX/Resources/UncrustifyX.iconset\" -o \"${PROJECT_DIR}/UncrustifyX/Resources/UncrustifyX.icns\"";
 		};
-		942A6CAF162A65E4007A0B4E /* Bundle Version */ = {
+		942A6CAF162A65E4007A0B4E /* Git Bundle Version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Bundle Version";
+			name = "Git Bundle Version";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
