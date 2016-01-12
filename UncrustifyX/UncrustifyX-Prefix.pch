@@ -5,7 +5,7 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
     
-    #import <MagicalRecord/CoreData+MagicalRecord.h>
+    #import <MagicalRecord/MagicalRecord.h>
 
     #import "UXAppDelegate.h"
     #import "UXConsolePanelController.h"

@@ -38,8 +38,8 @@
 		945C40C2166F348000D2F356 /* UXSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C40C1166F348000D2F356 /* UXSubcategory.m */; };
 		945C8C461672CBD300374B7F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C3B1672CBC400374B7F /* Sparkle.framework */; };
 		945C8C471672CBDC00374B7F /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C3B1672CBC400374B7F /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		945C8C601672CC0800374B7F /* MGSFragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* MGSFragaria.framework */; };
-		945C8C611672CC1000374B7F /* MGSFragaria.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* MGSFragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		945C8C601672CC0800374B7F /* Fragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* Fragaria.framework */; };
+		945C8C611672CC1000374B7F /* Fragaria.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 945C8C5C1672CBE400374B7F /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9464B987162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B986162A819300F61C28 /* UXCollectionDisplayNameValueTransformer.m */; };
 		9464B9AD162ABA4500F61C28 /* UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9AC162ABA4500F61C28 /* UXCodeSample.m */; };
 		9464B9B1162ABA4F00F61C28 /* _UXCodeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9464B9B0162ABA4F00F61C28 /* _UXCodeSample.m */; };
@@ -154,6 +154,34 @@
 			remoteGlobalIDString = AB69B62A118B745700903D1D;
 			remoteInfo = MGSFragaria;
 		};
+		9489255C1C450B67001BB9DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 945C8C481672CBE400374B7F /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0C1464C1A87196200DDE90A;
+			remoteInfo = "Fragaria Complex";
+		};
+		9489255E1C450B67001BB9DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 945C8C481672CBE400374B7F /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0718B501AB551460073493A;
+			remoteInfo = "Fragaria Prefs";
+		};
+		948925601C450B67001BB9DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 945C8C481672CBE400374B7F /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 01F0D6FC1C120F7D000A08B6;
+			remoteInfo = "Fragaria Swift";
+		};
+		948925621C450B67001BB9DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 945C8C481672CBE400374B7F /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0E5210D1A90E34F005CB80B;
+			remoteInfo = "Fragaria Tests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -163,7 +191,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				945C8C611672CC1000374B7F /* MGSFragaria.framework in Copy Frameworks */,
+				945C8C611672CC1000374B7F /* Fragaria.framework in Copy Frameworks */,
 				945C8C471672CBDC00374B7F /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -172,6 +200,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D4BADD1D5C9DFF35F098614 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9403587A1629252A00D5FD3A /* UXMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXMainWindowController.h; sourceTree = "<group>"; };
 		9403587B1629252A00D5FD3A /* UXMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXMainWindowController.m; sourceTree = "<group>"; };
 		9403587E1629283100D5FD3A /* UXDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXDataImporter.h; sourceTree = "<group>"; };
@@ -291,8 +320,8 @@
 		94F2E7781664B2CF004E6DF5 /* SearchGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SearchGradient.png; path = Resources/SearchGradient.png; sourceTree = "<group>"; };
 		94F2E77B1664B471004E6DF5 /* UXSearchGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UXSearchGradientView.h; path = Views/UXSearchGradientView.h; sourceTree = "<group>"; };
 		94F2E77C1664B471004E6DF5 /* UXSearchGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UXSearchGradientView.m; path = Views/UXSearchGradientView.m; sourceTree = "<group>"; };
-		C7A6021EF6394CE488B6CC22 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CB5687B4905B4503A809BD53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA561F91B741F2FA47BF9398 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +329,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				945C8C601672CC0800374B7F /* MGSFragaria.framework in Frameworks */,
+				945C8C601672CC0800374B7F /* Fragaria.framework in Frameworks */,
 				945C8C461672CBD300374B7F /* Sparkle.framework in Frameworks */,
 				941FD3651620220B0001C909 /* Cocoa.framework in Frameworks */,
 				B489627C9B1B42639C619A56 /* libPods.a in Frameworks */,
@@ -310,6 +339,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03B738801779587DCBE1ECA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA561F91B741F2FA47BF9398 /* Pods.debug.xcconfig */,
+				1D4BADD1D5C9DFF35F098614 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9403587D162927AE00D5FD3A /* Window Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +393,7 @@
 				941FD36A1620220B0001C909 /* UncrustifyX */,
 				941FD3631620220B0001C909 /* Frameworks */,
 				941FD3611620220B0001C909 /* Products */,
-				C7A6021EF6394CE488B6CC22 /* Pods.xcconfig */,
+				03B738801779587DCBE1ECA5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -471,7 +509,11 @@
 			children = (
 				945C8C561672CBE400374B7F /* Fragaria Doc.app */,
 				945C8C5A1672CBE400374B7F /* Fragaria.app */,
-				945C8C5C1672CBE400374B7F /* MGSFragaria.framework */,
+				9489255D1C450B67001BB9DF /* Fragaria Complex.app */,
+				9489255F1C450B67001BB9DF /* Fragaria Prefs.app */,
+				948925611C450B67001BB9DF /* Fragaria Swift.app */,
+				945C8C5C1672CBE400374B7F /* Fragaria.framework */,
+				948925631C450B67001BB9DF /* Fragaria Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -587,6 +629,7 @@
 				942A6CAF162A65E4007A0B4E /* Git Bundle Version */,
 				BFEC091B07FF4D30989E28E5 /* Copy Pods Resources */,
 				94D0ED99164E295400A71EEC /* Copy Frameworks */,
+				57BE10441257AE26B8AB4716 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -682,15 +725,43 @@
 		945C8C5A1672CBE400374B7F /* Fragaria.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			path = Fragaria.app;
+			path = "Fragaria Simple.app";
 			remoteRef = 945C8C591672CBE400374B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		945C8C5C1672CBE400374B7F /* MGSFragaria.framework */ = {
+		945C8C5C1672CBE400374B7F /* Fragaria.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = MGSFragaria.framework;
+			path = Fragaria.framework;
 			remoteRef = 945C8C5B1672CBE400374B7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9489255D1C450B67001BB9DF /* Fragaria Complex.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Complex.app";
+			remoteRef = 9489255C1C450B67001BB9DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9489255F1C450B67001BB9DF /* Fragaria Prefs.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Prefs.app";
+			remoteRef = 9489255E1C450B67001BB9DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		948925611C450B67001BB9DF /* Fragaria Swift.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Swift.app";
+			remoteRef = 948925601C450B67001BB9DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		948925631C450B67001BB9DF /* Fragaria Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Fragaria Tests.xctest";
+			remoteRef = 948925621C450B67001BB9DF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -731,6 +802,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		57BE10441257AE26B8AB4716 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		94049EA8162906C900587269 /* Generate icns from iconset */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -800,7 +886,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -952,7 +1038,7 @@
 		};
 		941FD37F1620220C0001C909 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7A6021EF6394CE488B6CC22 /* Pods.xcconfig */;
+			baseConfigurationReference = FA561F91B741F2FA47BF9398 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -970,7 +1056,7 @@
 		};
 		941FD3801620220C0001C909 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7A6021EF6394CE488B6CC22 /* Pods.xcconfig */;
+			baseConfigurationReference = 1D4BADD1D5C9DFF35F098614 /* Pods.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (

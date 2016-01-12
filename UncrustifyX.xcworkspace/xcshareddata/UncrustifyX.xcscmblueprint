@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "470AFBE0609A91CF4A92FF5AE12BF1DA4C68B78F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "470AFBE0609A91CF4A92FF5AE12BF1DA4C68B78F" : 0,
+    "150A68F5D81F7D884442B46FF5668B805BE44A33" : 0,
+    "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4DEAA3EA-C638-4D9B-8C5B-762FA25FC75B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "470AFBE0609A91CF4A92FF5AE12BF1DA4C68B78F" : "UncrustifyX",
+    "150A68F5D81F7D884442B46FF5668B805BE44A33" : "UncrustifyX\/UncrustifyX\/Frameworks\/Fragaria\/",
+    "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402" : "UncrustifyX\/UncrustifyX\/Frameworks\/Sparkle"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "UncrustifyX",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "UncrustifyX.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ryanmaxwell\/Fragaria.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "150A68F5D81F7D884442B46FF5668B805BE44A33"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/github.com\/ryanmaxwell\/UncrustifyX.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "470AFBE0609A91CF4A92FF5AE12BF1DA4C68B78F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/github.com\/ryanmaxwell\/Sparkle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EF1CF5E1F342919DE309B5C9DAEDDCF1D12D0402"
+    }
+  ]
+}
