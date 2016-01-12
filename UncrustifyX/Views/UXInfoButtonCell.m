@@ -16,10 +16,6 @@
     if (self) {
         _standardStateImage = [NSImage imageNamed:@"Info"];
         _downStateImage = [NSImage imageNamed:@"Info-Down"];
-        
-        /* NSButtonCell Coordinate system flipped */
-        _standardStateImage.flipped = YES;
-        _downStateImage.flipped = YES;
     }
     
     return self;
@@ -29,7 +25,9 @@
     [self.standardStateImage drawInRect:cellFrame
                                fromRect:NSZeroRect
                               operation:NSCompositeSourceOver
-                               fraction:1.0];
+                               fraction:1.0
+                         respectFlipped:YES
+                                  hints:nil];
 }
 
 - (void)highlight:(BOOL)flag withFrame:(NSRect)cellFrame inView:(NSView *)controlView {
@@ -37,7 +35,9 @@
         [self.downStateImage drawInRect:cellFrame
                                fromRect:NSZeroRect
                               operation:NSCompositeSourceOver
-                               fraction:1.0];
+                               fraction:1.0
+                         respectFlipped:YES
+                                  hints:nil];
     } else {
         [self drawWithFrame:cellFrame
                      inView:controlView];
