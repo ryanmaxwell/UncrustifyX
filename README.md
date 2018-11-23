@@ -2,6 +2,8 @@
 # UncrustifyX
 [Uncrustify](http://uncrustify.sourceforge.net) utility and documentation browser for Mac OS X
 
+**UncrustifyX is broken. At least one git submodule dependency is missing. This project does not work currently**
+
 ## Purpose
 UncrustifyX aims to make it easier to browse the hundreds of options available for the Uncrustify utility. 
 The documentation browser categorizes the options and provides easy searching and filtering. It can also show a live preview of applying an option on a code sample. 
